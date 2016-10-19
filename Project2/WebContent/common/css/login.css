@@ -1,0 +1,136 @@
+{
+	margin:0 auto;
+	padding:0;
+}
+.button {
+    padding:75x 35px 7px 19px;
+    font-size:13px;
+    font-weight:bold;
+	line-height:30px;
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    text-align:center;
+    display: inline-block;
+    width : 60px;
+    height : 25px;
+    margin: 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.button1 {
+    background-color: white;
+    color: black;
+    border: 2px solid #4CAF50;
+	margin-left:5px;
+}
+
+.button1:hover {
+    background-color: #4CAF50;
+    color: white;
+	cursor:pointer;
+	margin-left:5px;
+}
+
+.button2 {
+    background-color: white;
+    color: black;
+    border: 2px solid #008CBA;
+	cursor:pointer;
+	margin-left:5px;
+}
+
+.button2:hover {
+    background-color: #008CBA;
+    color: white;
+	cursor:pointer;
+	margin-left:5px;
+}
+
+
+.button5 {
+    background-color: white;
+    color: black;
+    border: 2px solid #555555;
+	margin-left:5px;
+}
+
+.button5:hover {
+    background-color: #555555;
+    color: white;
+	margin-left:5px;
+}
+
+input[type=text], select {
+    width: 320px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=password], select {
+    width: 320px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+
+input[type=submit] {
+    width: 390px;
+    background-color: #4374D9;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+div {
+    border-radius: 15px;
+    background-color: #f2f2f2;
+    padding: 35px;
+}
+
+.img{
+	width:150px;
+	height:120px;
+	margin-top:-20px;
+}
+
+
+
+.btn1{
+	display:none;
+	
+}
+.btn2{
+	display:none;
+	
+}
+.btn3{
+	display:none;
+	
+}
+
+.login{
+	margin-top:150px;
+	margin-bottom:10px;
+	font-size:45px;
+	font-weight: bold;
+}
+
+</style>
