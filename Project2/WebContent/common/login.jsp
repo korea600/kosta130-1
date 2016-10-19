@@ -1,7 +1,9 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="css/login.css">
 
 <script src="css/jquery-3.0.0.js"></script>
@@ -41,24 +43,24 @@ $(document).ready(function(){
 <p class="login">Login</p>
   <class="btn-group" data-toggle="buttons">
     <label class="button button1" id="btn11">
-      <input type="radio" name="options" id="btn1" class="btn1"> ÇĞ»ı
+      <input type="radio" name="options" id="btn1" class="btn1"> í•™ìƒ
     </label>
     <label class="button button2" id="btn22">
-      <input type="radio" name="options" id="btn2" class="btn2"> ±³¼ö
+      <input type="radio" name="options" id="btn2" class="btn2"> êµìˆ˜
     </label>
     <label class="button button5" id="btn33">
-      <input type="radio" name="options" id="btn3" class="btn3"> ±³Á÷¿ø
+      <input type="radio" name="options" id="btn3" class="btn3"> êµì§ì›
     </label>
  
 <div style=" padding: 10px; width:430px; height: 190px; overflow-x:hidden;overflow-y:hidden;">
   <form action="">
-    <label>¾ÆÀÌµğ&nbsp;&nbsp;&nbsp;</label>
-    <input type="text" id="fname" name="id"  placeholder="ÇĞ¹ø">
+    <label>ì•„ì´ë””&nbsp;&nbsp;&nbsp;</label>
+    <input type="text" id="fname" name="id"  placeholder="í•™ë²ˆ">
 <br>
-    <label>ºñ¹Ğ¹øÈ£d</label>
-    <input type="password" id="lname" name="pass"  placeholder="ºñ¹Ğ¹øÈ£">
+    <label>ë¹„ë°€ë²ˆí˜¸</label>
+    <input type="password" id="lname" name="pass"  placeholder="ë¹„ë°€ë²ˆí˜¸">
 <br>
-    <input type="submit" value="·Î±×ÀÎ">
+    <input type="submit" value="ë¡œê·¸ì¸">
   </form>
 </div>
 
