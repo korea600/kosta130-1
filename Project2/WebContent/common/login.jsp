@@ -57,7 +57,9 @@ $(document).ready(function(){
     <label>아이디&nbsp;&nbsp;&nbsp;</label>
     <input type="text" id="fname" name="id"  placeholder="학번">
 <br>
+
     <label>비밀번호</label>
+
     <input type="password" id="lname" name="pass"  placeholder="비밀번호">
 <br>
     <input type="submit" value="로그인">
