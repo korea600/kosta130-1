@@ -37,7 +37,7 @@ $(document).ready(function(){
 </head>
 <body>
 <center>
-<img src="true.jpg" class="img">
+<img src="../img/true.jpg" class="img">
 <hr>
 <!--<img src="login.png" width="1300px" height="200px"><br><br>-->
 <p class="login">Login</p>
