@@ -6,14 +6,13 @@
 <link rel="stylesheet" href="css/main_body.css" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <header><%@include file="header.jsp"%></header>
-
-<title>Insert title here</title>
+<title>Insertasdsadsadsadsads</title>
 </head>
 <body>
 	<center>
-		<table class="main_table" width=100%>
+		<table class="main_table">
 			<tr>
-				<td class="main_td" colspan=3>
+				<td class="main_td" colspan=2>
 					<table class="sub_news">
 						<tr>
 							<th>기간</th>
