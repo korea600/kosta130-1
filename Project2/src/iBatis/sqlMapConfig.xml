@@ -22,6 +22,6 @@
 		</dataSource>
 	</transactionManager>
   
-	<sqlMap resource=""/>
+	<sqlMap resource="./member/model/login.xml"/>
   
 </sqlMapConfig>

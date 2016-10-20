@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd" >
+<sqlMap namespace="login">
+	<select id="pw_check" parameterClass="member.model.LoginDTO" resultClass="member.model.LoginDTO">
+		select id,pass,name,job from member where id=#id# and pass=#pass# and job=#job#
+	</select>
+</sqlMap>
