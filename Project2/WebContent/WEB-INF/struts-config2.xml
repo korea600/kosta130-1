@@ -20,9 +20,9 @@
     </global-exceptions>
 
 
-<!-- Global Forward Definitions : Àü¿ª Forward ÆäÀÌÁö (ÀÚÁÖ »ç¿ëµÇ´Â ÆäÀÌÁö) ¼³Á¤
-								 (¾î´À Action¿¡¼­µçÁö »ç¿ë°¡´É)
-								 (action³»¿¡ forward°¡ ÀÖ´ÂÁö È®ÀÎÈÄ ¾øÀ¸¸é global-forwards¿¡¼­ Ã£°ÔµÊ -->
+<!-- Global Forward Definitions : ì „ì—­ Forward íŽ˜ì´ì§€ (ìžì£¼ ì‚¬ìš©ë˜ëŠ” íŽ˜ì´ì§€) ì„¤ì •
+								 (ì–´ëŠ Actionì—ì„œë“ ì§€ ì‚¬ìš©ê°€ëŠ¥)
+								 (actionë‚´ì— forwardê°€ ìžˆëŠ”ì§€ í™•ì¸í›„ ì—†ìœ¼ë©´ global-forwardsì—ì„œ ì°¾ê²Œë¨ -->
 	
     <global-forwards>
         
@@ -30,12 +30,12 @@
     </global-forwards>
 
 
-<!-- Action Mapping Definitions (»çÀÌÆ®¿¡¼­ÀÇ ÀÌº¥Æ®¸¦ URL·Î ±¸ºÐÇÏ±â À§ÇÑ µî·Ï)-->
+<!-- Action Mapping Definitions (ì‚¬ì´íŠ¸ì—ì„œì˜ ì´ë²¤íŠ¸ë¥¼ URLë¡œ êµ¬ë¶„í•˜ê¸° ìœ„í•œ ë“±ë¡)-->
 
 	<action-mappings>
-		<!-- URL ¸ÅÇÎ Á¤ÀÇ (µÎ ¼Ó¼º ¸ðµÎ '/'·Î ½ÃÀÛÇØ¾ßÇÔ, Ã¹ '/'´Â ÇÁ·ÎÁ§Æ®ÀÇ ·çÆ®°æ·Î ('http://localhost/Struts/'))
-			path : °¡»ó°æ·Î (µÚ¿¡ .do°¡ ÀÚµ¿À¸·Î ºÙ¿©Áü)
-			forward : ÀÌµ¿ÇÒ ½ÇÁ¦ °æ·Î (½ÇÁ¦ ÆäÀÌÁö) -->
+		<!-- URL ë§¤í•‘ ì •ì˜ (ë‘ ì†ì„± ëª¨ë‘ '/'ë¡œ ì‹œìž‘í•´ì•¼í•¨, ì²« '/'ëŠ” í”„ë¡œì íŠ¸ì˜ ë£¨íŠ¸ê²½ë¡œ ('http://localhost/Struts/'))
+			path : ê°€ìƒê²½ë¡œ (ë’¤ì— .doê°€ ìžë™ìœ¼ë¡œ ë¶™ì—¬ì§)
+			forward : ì´ë™í•  ì‹¤ì œ ê²½ë¡œ (ì‹¤ì œ íŽ˜ì´ì§€) -->
 		<!-- Struts Test -->
 		<action path="/test" type="test.StrutsTest">
 			<forward name="test" path="/test.jsp"/>
@@ -54,13 +54,13 @@
 		</action>
     </action-mappings>
 
-<!-- »ç¿ëÀÚ Á¤ÀÇ ÄÁÆ®·Ñ·¯ (RequestProcessor) µî·Ï -->
+<!-- ì‚¬ìš©ìž ì •ì˜ ì»¨íŠ¸ë¡¤ëŸ¬ (RequestProcessor) ë“±ë¡ -->
  	<controller processorClass="control.MyRequestProcessor"/>
 	
 
-<!-- Message Resources (Properties file) µî·Ï -->
+<!-- Message Resources (Properties file) ë“±ë¡ -->
 	
-<!-- 	<message-resources parameter="resources.application"/>	ÆÐÅ°Áö¸í.PropertiesÆÄÀÏ¸í (È®ÀåÀÚ´Â ±âÀç ¾ÈÇÔ) -->
+<!-- 	<message-resources parameter="resources.application"/>	íŒ¨í‚¤ì§€ëª….PropertiesíŒŒì¼ëª… (í™•ìž¥ìžëŠ” ê¸°ìž¬ ì•ˆí•¨) -->
 
 <!-- Plug Ins Configuration -->
 
@@ -81,4 +81,3 @@
   	</plug-in>
 
 </struts-config>
-
