@@ -17,7 +17,7 @@
 		<servlet-name>action</servlet-name>
 		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
-<!-- 	<filter>
+	<filter>
 		<filter-name>enc</filter-name>
 		<filter-class>encFilter.EncFilter</filter-class>
 	  	<init-param>
@@ -28,7 +28,7 @@
 	<filter-mapping>
 	  	<filter-name>enc</filter-name>
 	  	<url-pattern>*.jsp</url-pattern>
-  	</filter-mapping> -->
+  	</filter-mapping>
 	<welcome-file-list>
 		<welcome-file>main.do</welcome-file>
 	</welcome-file-list>

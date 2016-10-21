@@ -21,12 +21,12 @@ public class LoginAction extends Action {
 		String id=request.getParameter("id");
 		String pass=request.getParameter("pass");
 		String job=request.getParameter("job");
-		
+		System.out.println(job);
 		// 입력된 job 파라미터를 DB용 코드 데이터로 변경
 		switch (job) {
-			case "student"	:	job="S";break;
-			case "professor":	job="P";break;
-			case "admin"	:	job="A";break;
+			case "학생"	:	job="S";break;
+			case "교수"	:	job="P";break;
+			case "교직원"	:	job="A";break;
 		}
 		
 		// id,비번,구분 일치 여부 확인 (일치시 dto얻어오기, 불일치시 null)
