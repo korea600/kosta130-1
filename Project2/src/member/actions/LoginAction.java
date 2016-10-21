@@ -21,12 +21,12 @@ public class LoginAction extends Action {
 		String id=request.getParameter("id");
 		String pass=request.getParameter("pass");
 		String job=request.getParameter("job");
-		System.out.println(job);
+		
 		// 입력된 job 파라미터를 DB용 코드 데이터로 변경
 		switch (job) {
-			case "학생"	:	job="S";break;
-			case "교수"	:	job="P";break;
-			case "교직원"	:	job="A";break;
+			case "student"	:	job="S";break;
+			case "professor":	job="P";break;
+			case "admin"	:	job="A";break;
 		}
 		
 		// id,비번,구분 일치 여부 확인 (일치시 dto얻어오기, 불일치시 null)
@@ -37,7 +37,7 @@ public class LoginAction extends Action {
 		if(checked_dto!=null){		// id,비번 확인 통과		
 			checked_dto.setPass("");	// 세션에 저장될 DTO값중 password 지우기
 			request.getSession().setAttribute("LoginDTO", checked_dto);
-			request.setAttribute("login_result", "true");	// 로그인 성공 메시지 ajax용으로 출력
+			request.setAttribute("login_result", job);	// 로그인 성공 메시지 ajax용으로 출력
 		}
 		else{
 			request.setAttribute("login_result", "false");	// 로그인 실패 메시지 ajax용으로 출력
