@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="common/css/login.css">
+<link rel="stylesheet" href="/Project2/common/css/login.css">
 <script type="text/javascript" src="js/ajax2.js"></script>
 <script src="common/css/jquery-3.0.0.js"></script>
 <script>
@@ -54,10 +54,13 @@ $(document).ready(function(){
 		if(xhr.readyState==4){
 			if(xhr.status==200){
 				var result=xhr.responseText.trim();
-				if(result=='true'){
-					location.href="common/login_complete.jsp";
-				}
-				else{
+				if(result=="A"){
+					location.replace("/Project2/admin/a_main_body.jsp");
+				}else if(result=="S"){
+					location.replace("/Project2/student/s_main_body.jsp");
+				}else if(result=="P"){
+					location.replace("/Project2/pro/p_main_body.jsp");
+				}else{
 					alert('로그인에 실패하였습니다.');
 				}
 			}
@@ -68,23 +71,23 @@ $(document).ready(function(){
 </head>
 <body>
 <center>
-<img src="img/true.jpg" class="img">
+<img src="/Project2/img/true.jpg" class="img">
 <hr>
 <!--<img src="login.png" width="1300px" height="200px"><br><br>-->
   <form name='frm'>
 <p class="login">Login</p>
   <class="btn-group" data-toggle="buttons">
-    <label class="button button1" id="btn11">
-      <input type="radio" name="options" id="btn1" class="btn1" value="학생" checked="checked"> 학생
+    <label class="button button1" id="btn11" style="background-color: green;">
+      <input type="radio" name="options" id="btn1" class="btn1" value="student" checked="checked"> 학생
     </label>
     <label class="button button2" id="btn22">
-      <input type="radio" name="options" id="btn2" class="btn2" value='교수'> 교수
+      <input type="radio" name="options" id="btn2" class="btn2" value='professor'> 교수
     </label>
     <label class="button button5" id="btn33">
-      <input type="radio" name="options" id="btn3" class="btn3" value='교직원'> 교직원
+      <input type="radio" name="options" id="btn3" class="btn3" value='admin'> 교직원
     </label>
  
-<div style=" padding: 10px; width:430px; height: 190px; overflow-x:hidden;overflow-y:hidden;">
+<div style=" padding: 10px; width:430px; height: 190px; overflow-x:hidden; overflow-y:hidden;">
     <label>아이디&nbsp;&nbsp;&nbsp;</label>
     <input type="text" id="fname" name="id"  placeholder="학번">
 <br>
