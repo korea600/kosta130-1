@@ -75,13 +75,13 @@ $(document).ready(function(){
 <p class="login">Login</p>
   <class="btn-group" data-toggle="buttons">
     <label class="button button1" id="btn11">
-      <input type="radio" name="options" id="btn1" class="btn1" value="student" checked="checked"> 학생
+      <input type="radio" name="options" id="btn1" class="btn1" value="학생" checked="checked"> 학생
     </label>
     <label class="button button2" id="btn22">
-      <input type="radio" name="options" id="btn2" class="btn2" value='professor'> 교수
+      <input type="radio" name="options" id="btn2" class="btn2" value='교수'> 교수
     </label>
     <label class="button button5" id="btn33">
-      <input type="radio" name="options" id="btn3" class="btn3" value='admin'> 교직원
+      <input type="radio" name="options" id="btn3" class="btn3" value='교직원'> 교직원
     </label>
  
 <div style=" padding: 10px; width:430px; height: 190px; overflow-x:hidden;overflow-y:hidden;">
