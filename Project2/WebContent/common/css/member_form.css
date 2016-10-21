@@ -1,0 +1,45 @@
+@CHARSET "UTF-8";
+
+table {
+	width: auto;
+	border-collapse: collapse;
+	text-align: center;
+}
+
+td, th {
+	font-size: 10pt;
+	border: 1px solid #2198bf;
+	padding: 5px;
+	border-radius: 10px;
+}
+
+th {
+	background-color: #42A7C9;
+	color: #ffffff;
+	font-family: Georgia;
+}
+
+tr td {
+	color: #000000;
+	background-color: #d3EAF2;
+	height:40px;
+}
+
+input {
+	height:30px;
+	width: 200px;
+}
+
+input[type="submit"], [type="reset"], [type="button"] {
+	height: 25px;
+	width: 80px;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	outline: none;
+	color: #fff;
+	background-color: #42A7C9;
+	border: none;
+	border-radius: 10px;
+	box-shadow: 0 5px #999;
+}

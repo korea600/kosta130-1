@@ -1,0 +1,28 @@
+/*menu*/
+.menu{
+   width:200px;
+   margin-top:-110px;
+}
+.menu > ul > li{
+   width:200px;
+   height:40px;
+   line-height:40px;
+   font-weight:bold;
+   cursor:pointer;
+   border-bottom:2px dashed #173b68;
+   border-right:2px solid #173b68;
+   box-sizing:border-box;
+}
+.menu > ul > li > p{
+   margin-left:10px;
+   
+}
+.menu > ul > li:nth-child(1){
+   background:#173b68;
+   color:#fff;
+}
+
+
+.menu , .member_form{
+	float:left;
+}

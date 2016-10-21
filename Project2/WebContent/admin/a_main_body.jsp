@@ -3,9 +3,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link rel="stylesheet" href="css/main_body.css" type="text/css" />
+<link rel="stylesheet" href="/Project2/common/css/main_body.css" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<header><%@include file="header.jsp"%></header>
+<header><%@include file="/common/header.jsp"%></header>
 
 <title>Insertasdsadsadsadsads</title>
 <script type="text/javascript">
@@ -17,7 +17,11 @@
 <body>
 
 	<center>
-	<div id="#warp">
+	
+<table width="1024px" cellpadding="0" cellspacing="0" height="0" border=0 style="padding-top:0px; "> 
+<tr> 
+<td width="200"><%@ include file="/admin/a_menu.jsp" %></td> 
+<td width="800">
 		<table class="main_table">
 			<tr>
 				<td class="main_td" colspan=2>
@@ -127,9 +131,10 @@
 					</table>
 				</td>
 			</tr>
-		</table>
-		</div>
+		</table></td> 
+</tr> 
+</table> 
+		
 	</center>
-	
 </body>
 </html>
