@@ -21,7 +21,7 @@ public class LoginAction extends Action {
 		String id=request.getParameter("id");
 		String pass=request.getParameter("pass");
 		String job=request.getParameter("job");
-		System.out.println(job);
+		
 		// 입력된 job 파라미터를 DB용 코드 데이터로 변경
 		switch (job) {
 			case "학생"	:	job="S";break;
