@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+
+<!-- Form Bean (ActionForm) Definitions -->
+
+    <form-beans>
+    	
+    </form-beans>
+
+
+<!-- Global Exception Definitions -->
+
+    <global-exceptions>
+       
+    </global-exceptions>
+
+
+<!-- Global Forward Definitions : 전역 Forward 페이지 (자주 사용되는 페이지) 설정
+								 (어느 Action에서든지 사용가능)
+								 (action내에 forward가 있는지 확인후 없으면 global-forwards에서 찾게됨 -->
+	
+    <global-forwards>
+        
+        <forward name="welcome" path="/hello.jsp"/>
+    </global-forwards>
+
+
+<!-- Action Mapping Definitions (사이트에서의 이벤트를 URL로 구분하기 위한 등록)-->
+
+	<action-mappings>
+		<!-- URL 매핑 정의 (두 속성 모두 '/'로 시작해야함, 첫 '/'는 프로젝트의 루트경로 ('http://localhost/Struts/'))
+			path : 가상경로 (뒤에 .do가 자동으로 붙여짐)
+			forward : 이동할 실제 경로 (실제 페이지) -->
+		
+    </action-mappings>
+
+<!-- 사용자 정의 컨트롤러 (RequestProcessor) 등록 -->
+ 	<controller processorClass="control.MyRequestProcessor"/>
+	
+
+<!-- Message Resources (Properties file) 등록 -->
+	
+<!-- 	<message-resources parameter="resources.application"/>	패키지명.Properties파일명 (확장자는 기재 안함) -->
+
+<!-- Plug Ins Configuration -->
+
+	<!-- Tiles plugin -->
+<!--   	<plug-in className="org.apache.struts.tiles.TilesPlugin">
+		<set-property property="definitions-config" value="/WEB-INF/config/tiles-defs.xml"/>
+		<set-property property="definitions-debug" value="2"/>
+		<set-property property="definitions-parser-details" value="2"/>
+		<set-property property="definitions-parser-validate" value="true"/>
+	</plug-in>
+ -->
+	<!-- Validator plugin -->
+  	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+    	<set-property
+        	property="pathnames"
+        	value="/org/apache/struts/validator/validator-rules.xml,
+               /WEB-INF/validation.xml"/>
+  	</plug-in>
+
+</struts-config>
+
