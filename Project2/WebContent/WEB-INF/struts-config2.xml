@@ -41,10 +41,6 @@
 			<forward name="test" path="/test.jsp"/>
 		</action>
 		<!-- Project2 -->
-		<action path='/main' forward="/common/login.jsp"/>
-		<action path="/login" type="member.actions.LoginAction">
-			<forward name="result" path="/common/login_process.jsp"/>
-		</action>
 		<action path="/student/grade" type="grade.actions.StudentGradeAction">
 			<forward name="show" path="/student/s_grade_info.jsp"/>
 		</action>

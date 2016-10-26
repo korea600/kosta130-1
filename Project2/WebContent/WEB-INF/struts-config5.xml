@@ -35,6 +35,13 @@
 		<!-- URL 매핑 정의 (두 속성 모두 '/'로 시작해야함, 첫 '/'는 프로젝트의 루트경로 ('http://localhost/Struts/')) 
 			path : 가상경로 (뒤에 .do가 자동으로 붙여짐) forward : 이동할 실제 경로 (실제 페이지) -->
 
+
+      <!-- Project2 -->
+      <action path='/main' forward="/common/login.jsp"/>
+      <action path="/login" type="member.actions.LoginAction">
+         <forward name="result" path="/common/login_process.jsp"/>
+      </action>
+      
 		<!-- Project2_gongi -->
 		<action path="/admin/form" forward ="/admin/a_notice_upform.jsp"></action>
 		<action path="/admin/notice_list" type="notice.actions.NoticeAction">
@@ -45,9 +52,9 @@
 			<forward name="delete_success" path="/admin/notice_list.do" redirect="true"></forward>
 		</action>
 		
-		<action path="/main/gongi_main" type="notice.actions.Notice_MainAction">
-			<forward name="notice_main" path="/main/gongi_main.do"></forward>
-		</action>
+		<!-- <action path="/main/main_list" type="common.actions.FirstPageAction">
+			<forward name="notice_main" path="/common/a_main_body.jsp"></forward>
+		</action> -->
 
 
 	</action-mappings>

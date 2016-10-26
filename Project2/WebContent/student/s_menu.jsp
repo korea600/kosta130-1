@@ -69,7 +69,7 @@ $(document).ready(function(){
 <body>
 <div class="menu">
 			<ul>
-				<li class="zero"><p>메인</p></li>
+				<li class="zero"><p><a href="/Project2/admin/notice_list.do">메인</a></p></li>
 				<li class="one"><p>수강신청</p></li>
 				<li class="two"><p>시간표/과목</p></li>
 				<li class="three"><p>성적조회</p></li>
