@@ -86,11 +86,11 @@ $(document).ready(function(){
 			<ul>
 				<li class="zero"><p><a href="/Project2/admin/a_main_body.jsp">메인</a></p></li>
 				<li class="one"><p>학적처리</p></li>
-				<li class="two"><p>건의사항 확인</p></li>
+				<li class="two"><p><a href="/Project2/admin/listQnaConfirm.do?action=AdminQna">건의사항 확인</a></p></li>
 				<li class="three"><p>공지관리</p></li>
 				<li class="four"><p>과목 수정/등록</p></li>
 				<li class="five"><p><a href="/Project2/common/edit.do?action=member">회원관리</a></p></li>
-				<li class="six"><p>학사일정관리</p></li>
+				<li class="six"><p><a href="/Project2/admin/list.do?action=list">학사일정관리</a></p></li>
 			</ul>
 		</div>
 </body>
