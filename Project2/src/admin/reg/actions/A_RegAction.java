@@ -10,7 +10,6 @@ import org.apache.struts.action.ActionMapping;
 
 import admin.reg.model.RegDAO;
 import admin.reg.model.RegDTO;
-import member.model.LoginDTO;
 
 public class A_RegAction extends Action {
 	@Override

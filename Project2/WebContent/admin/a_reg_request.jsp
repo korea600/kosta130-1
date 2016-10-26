@@ -11,7 +11,6 @@
 <script type="text/javascript"></script>
 </head>
 <body>
-	<!-- ID		REQUEST		REASON		TIMES		STATUS -->
 	<br>
 	<br>
 	<table border=1 width=80%>

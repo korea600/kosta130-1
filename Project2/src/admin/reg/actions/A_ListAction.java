@@ -21,5 +21,5 @@ public class A_ListAction extends Action {
 		List<RegDTO> list = dao.listSelect("처리중");
 		request.setAttribute("list", list);
 		return mapping.findForward("a_list");
-	}
+	} // 리스트
 }

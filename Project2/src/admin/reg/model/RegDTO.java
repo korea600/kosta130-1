@@ -2,7 +2,6 @@ package admin.reg.model;
 
 import java.sql.Date;
 
-//ID		REQUEST		REASON		TIMES		STATUS
 public class RegDTO {
 	String id; // 학번
 	String request; // 신청구분

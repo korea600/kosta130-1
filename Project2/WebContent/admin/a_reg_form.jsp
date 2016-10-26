@@ -9,10 +9,10 @@
 <title>Insert title here</title>
 <script type="text/javascript" src="../js/ajax2.js"></script>
 <script type="text/javascript">
-function delete1() {
-	var id = document.upForm.id.value;
-	location.href="a_regForm.do?action=delete&id="+id;
-}
+	function delete1() {
+		var id = document.upForm.id.value;
+		location.href = "a_regForm.do?action=delete&id=" + id;
+	}
 </script>
 
 </head>
@@ -27,17 +27,17 @@ function delete1() {
 			</tr>
 			<tr>
 				<th width="100px">연락처</th>
-				<td><input type=text name=phoneNum value="${reg.tel }" readonly="readonly"></td>
+				<td><input type=text name=phoneNum value="${reg.tel }"
+					readonly="readonly"></td>
 			</tr>
 			<tr>
 				<th>신청내역</th>
-				<td><input type="text" name="request"
-					value="${reg.request }" readonly="readonly"></td>
+				<td><input type="text" name="request" value="${reg.request }"
+					readonly="readonly"></td>
 			</tr>
 			<tr>
 				<th>사유</th>
-				<td><textarea rows="15" cols="40"
-						disabled>${reg.reason }</textarea></td>
+				<td><textarea rows="15" cols="40" disabled>${reg.reason }</textarea></td>
 			</tr>
 			<tr>
 				<td colspan="2" align="center"><input type="submit" value="승인">

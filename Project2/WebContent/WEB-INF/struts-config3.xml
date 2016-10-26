@@ -35,7 +35,7 @@
 	<action-mappings>
 		<!-- URL 매핑 정의 (두 속성 모두 '/'로 시작해야함, 첫 '/'는 프로젝트의 루트경로 ('http://localhost/Struts/'))
 			path : 가상경로 (뒤에 .do가 자동으로 붙여짐)
-			forward : 이동할 실제 경로 (실제 페이지) -->
+			forward : 이동할 실제 경로 (실제 페이지 ) -->
 		<action path="/admin/s_reg" type="reg.actions.S_ListAction">
 			<forward name="s_listView" path="/student/s_reg_request.jsp"></forward>	
 		</action>
