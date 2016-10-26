@@ -45,12 +45,13 @@
 		<action path="/login" type="member.actions.LoginAction">
 			<forward name="result" path="/common/login_process.jsp"/>
 		</action>
-		<action path="/Student/grade" type="grade.actions.StudentGradeAction">
-			<forward name="show" path="/"/>
+		<action path="/student/grade" type="grade.actions.StudentGradeAction">
+			<forward name="show" path="/student/s_grade_info.jsp"/>
 		</action>
-		<action path="/Professor/grade" forward="/Professor/p_grade_info.jsp"/>
-		<action path="/Professor/grade" type="grade.actions.StudentGradeAction">
-			<forward name="show" path="/"/>
+		<action path="/pro/grade" forward="/pro/p_grade_info.jsp"/>
+		<action path='/pro/action' type="grade.actions.ProfessorGradeAction">
+			<forward name="find_sub" path='/pro/p_findsub.jsp'/>
+			<forward name="list" path='/pro/grade_list.jsp'/>
 		</action>
     </action-mappings>
 

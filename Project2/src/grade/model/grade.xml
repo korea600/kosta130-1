@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd" >
+<sqlMap namespace="grade">
+	<select id="my_grade" parameterClass="String" resultClass="grade.model.GradeDTO">
+		select g.year,m.semester,s.code,s.sub,s.division checked,s.professor, g.grade
+		from member m, subject s, grade_info g
+		where s.code=g.code and m.id=g.id and m.id=#id# order by g.year, m.semester
+	</select>
+	<select id='find_subs' parameterClass="grade.model.GradeDTO" resultClass="String">
+		select s.sub from subject s, member m where m.name=s.professor and m.name=#name# and m.id=#id# and year=#year# and division=#checked#
+	</select>
+	<select id="p_grade" parameterClass="grade.model.GradeDTO" resultClass="grade.model.GradeDTO">
+		select m.semester, m.dept, m.id, m.name, g.grade,g.code
+		from grade_info g, member m, subject s
+		where s.professor=#professor# and g.year=#year# and g.semester=#semester# and s.sub=#sub#
+		and division=#checked# and m.id=g.id and g.code=s.code
+	</select>
+	<update id="update_grade" parameterClass="grade.model.GradeDTO">
+		update grade_info set grade=#grade# where code=#code# and year=#year# and semester=#semester# and id=#id#
+	</update>	
+</sqlMap>
