@@ -21,7 +21,7 @@ public class FirstPageAction extends Action{
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		ActionForward forward=null;
-		
+		 
 		// 공지사항 얻어오기 (학사/취업)
 		NoticeDAO notice = new NoticeDAO();
 		List<NoticeDTO> notice_haksa = notice.select("학사"); 
