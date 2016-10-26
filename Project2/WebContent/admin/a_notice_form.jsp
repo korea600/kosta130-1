@@ -20,7 +20,7 @@
 </head>
 <body>
 <center>
-<form name="frm" action="notice_list?action=insert" method="post">
+<form name="frm" action="notice_list.do?action=insert" method="post">
 제목 <input type="text" name="title"><br><br>
 내용 <textarea rows="10" cols="23" name="content"></textarea>
 <Br>

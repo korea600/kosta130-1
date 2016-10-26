@@ -6,11 +6,11 @@
 	</insert>
 	
 	<select id="select" parameterClass="String" resultClass="notice.model.NoticeDTO">
-		select no, title, gdate from notice where checked=#checked# order by no
+		select no,name, title, gdate from notice where checked=#checked# order by no
     </select>
     
     <select id="upselect" parameterClass="notice.model.NoticeDTO" resultClass="notice.model.NoticeDTO">
-    	select no, title,content from notice where no=#no# and #id# in(select id from member where job='A')
+    	select no, name, title,content from notice where no=#no# and #id# in(select id from member where job='A')
     </select>
     
     <update id="update" parameterClass="notice.model.NoticeDTO">
@@ -21,5 +21,4 @@
     	delete from notice where no=#no#
     </delete>
     
-
 </sqlMap>

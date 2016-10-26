@@ -42,6 +42,10 @@
          <forward name="result" path="/common/login_process.jsp"/>
       </action>
       
+      <action path="/main/main_list" type="common.actions.FirstPageAction">
+      	<forward name="success_list" path="/admin/a_main_body.jsp"/>
+      </action>
+      
 		<!-- Project2_gongi -->
 		<action path="/admin/form" forward ="/admin/a_notice_upform.jsp"></action>
 		<action path="/admin/notice_list" type="notice.actions.NoticeAction">
