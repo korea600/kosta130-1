@@ -8,20 +8,117 @@
 <header><%@include file="/common/header.jsp"%></header>
 
 <title>Insertasdsadsadsadsads</title>
-<script type="text/javascript">
-
-
-</script>
+<script src="/Project2/common/css/jquery-3.0.0.js"></script>
+<!--  <script type="text/javascript">
+$(function(){
+    $('#menu5').click(function(){
+    	console.log("ddd");
+  	 //$.get(url,callback);
+  	 //$.get(URL,function(data응답데이터,status,xhr))
+  	 $.get('/Project2/common/edit.do?action=member', function(resultData){
+  		 $('#main').html(resultData);
+  	 })
+    });//b1클릭 	
+  });//ready
+  
+  
+</script>-->
 </head>
-
 <body>
-
 	<center>
-	
 <table width="1024px" cellpadding="0" cellspacing="0" height="0" border=0 style="padding-top:0px; "> 
 <tr> 
-<td width="200"><%@ include file="/admin/a_menu.jsp" %></td> 
-<td width="800">
+<td width="200px">
+<% %>
+<link href="/Project2/common/css/a_menu.css" rel="stylesheet" type="text/css" />
+<script src="/Project2/common/css/jquery-3.0.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	  $(".zero").click(function(){
+		  	$(".zero").css({"background":"#173b68","color":"#fff"})
+	         $(".one").css({"background":"#fff","color":"#000"})
+	         $(".two").css({"background":"#fff","color":"#000"})
+	         $(".three").css({"background":"#fff","color":"#000"})
+	         $(".four").css({"background":"#fff","color":"#000"})
+	         $(".five").css({"background":"#fff","color":"#000"})
+	         $(".six").css({"background":"#fff","color":"#000"})
+	      });
+		
+      $(".one").click(function(){
+    	  $(".zero").css({"background":"#fff","color":"#000"})
+         $(".one").css({"background":"#173b68","color":"#fff"})
+         $(".two").css({"background":"#fff","color":"#000"})
+         $(".three").css({"background":"#fff","color":"#000"})
+         $(".four").css({"background":"#fff","color":"#000"})
+         $(".five").css({"background":"#fff","color":"#000"})
+         $(".six").css({"background":"#fff","color":"#000"})
+      });
+
+      $(".two").click(function(){
+    	  $(".zero").css({"background":"#fff","color":"#000"})
+         $(".two").css({"background":"#173b68","color":"#fff"})
+         $(".one").css({"background":"#fff","color":"#000"})
+         $(".three").css({"background":"#fff","color":"#000"})
+         $(".four").css({"background":"#fff","color":"#000"})
+         $(".five").css({"background":"#fff","color":"#000"})
+         $(".six").css({"background":"#fff","color":"#000"})
+      });
+
+      $(".three").click(function(){
+    	  $(".zero").css({"background":"#fff","color":"#000"})
+         $(".three").css({"background":"#173b68","color":"#fff"})
+         $(".two").css({"background":"#fff","color":"#000"})
+         $(".one").css({"background":"#fff","color":"#000"})
+         $(".four").css({"background":"#fff","color":"#000"})
+         $(".five").css({"background":"#fff","color":"#000"})
+         $(".six").css({"background":"#fff","color":"#000"})
+      });
+
+      $(".four").click(function(){
+    	  $(".zero").css({"background":"#fff","color":"#000"})
+         $(".four").css({"background":"#173b68","color":"#fff"})
+         $(".two").css({"background":"#fff","color":"#000"})
+         $(".three").css({"background":"#fff","color":"#000"})
+         $(".one").css({"background":"#fff","color":"#000"})
+         $(".five").css({"background":"#fff","color":"#000"})
+         $(".six").css({"background":"#fff","color":"#000"})
+      });
+
+      $(".five").click(function(){
+    	  $(".zero").css({"background":"#fff","color":"#000"})
+         $(".five").css({"background":"#173b68","color":"#fff"})
+         $(".two").css({"background":"#fff","color":"#000"})
+         $(".three").css({"background":"#fff","color":"#000"})
+         $(".four").css({"background":"#fff","color":"#000"})
+         $(".one").css({"background":"#fff","color":"#000"})
+         $(".six").css({"background":"#fff","color":"#000"})
+      });
+
+      $(".six").click(function(){
+    	  $(".zero").css({"background":"#fff","color":"#000"})
+         $(".six").css({"background":"#173b68","color":"#fff"})
+         $(".two").css({"background":"#fff","color":"#000"})
+         $(".three").css({"background":"#fff","color":"#000"})
+         $(".four").css({"background":"#fff","color":"#000"})
+         $(".five").css({"background":"#fff","color":"#000"})
+         $(".one").css({"background":"#fff","color":"#000"})
+      });
+   });
+</script>
+</head>
+<body>
+<div class="menu">
+			<ul>
+				<li class="zero"><p><a href="/Project2/admin/a_main_body.jsp">메인</a></p></li>
+				<li class="one"><p>학적처리</p></li>
+				<li class="two"><p>건의사항 확인</p></li>
+				<li class="three"><p><a href="#" id="menu3">공지관리</p></a></li>
+				<li class="four"><p>과목 수정/등록</p></li>
+				<li class="five"><p><a href="/Project2/common/edit.do?action=member" id="menu5">회원관리</a></p></li>
+				<li class="six"><p>학사일정관리</p></li>
+			</ul>
+		</div></td> 
+<td width="800px" id="main">
 		<table class="main_table">
 			<tr>
 				<td class="main_td" colspan=2>
