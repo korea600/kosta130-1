@@ -76,5 +76,7 @@ public class NoticeDAO {
 		return list;
 	}// 공지사항 조회 (내용별 (학사/취업))
 	
+	
+
 
 }

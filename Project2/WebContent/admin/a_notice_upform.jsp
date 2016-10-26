@@ -21,6 +21,7 @@
 			if(confirm("삭제하시겠습니까?")){
 				var no = document.upform_frm.no.value;
 			opener.location.href= "notice_list.do?action=delete&no="+no;
+			window.close();
 		}
 	}
 	

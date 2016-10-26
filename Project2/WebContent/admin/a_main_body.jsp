@@ -1,3 +1,5 @@
+<%@page import="notice.model.NoticeDTO"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -29,7 +31,7 @@ $(function(){
 <table width="1024px" cellpadding="0" cellspacing="0" height="0" border=0 style="padding-top:0px; "> 
 <tr> 
 <td width="200px">
-<% %>
+
 <link href="/Project2/common/css/a_menu.css" rel="stylesheet" type="text/css" />
 <script src="/Project2/common/css/jquery-3.0.0.js"></script>
 <script type="text/javascript">
@@ -105,14 +107,19 @@ $(document).ready(function(){
       });
    });
 </script>
+		 	<% request.setCharacterEncoding("UTF-8");
+	 List<NoticeDTO> list_h = (List<NoticeDTO>)request.getAttribute("haksa_list");
+	 List<NoticeDTO> list_j = (List<NoticeDTO>)request.getAttribute("job_list");%> 
 </head>
 <body>
+
+
 <div class="menu">
 			<ul>
 				<li class="zero"><p><a href="/Project2/admin/a_main_body.jsp">메인</a></p></li>
 				<li class="one"><p>학적처리</p></li>
 				<li class="two"><p>건의사항 확인</p></li>
-				<li class="three"><p><a href="#" id="menu3">공지관리</p></a></li>
+				<li class="three"><p><a href="/Project2/admin/notice_list.do" id="menu3">공지관리</p></a></li>
 				<li class="four"><p>과목 수정/등록</p></li>
 				<li class="five"><p><a href="/Project2/common/edit.do?action=member" id="menu5">회원관리</a></p></li>
 				<li class="six"><p>학사일정관리</p></li>
@@ -143,6 +150,7 @@ $(document).ready(function(){
 							<td>수강신청변경</td>
 							<td>ㅇ</td>
 						</tr>
+		
 					</table>
 				</td>
 			</tr>
@@ -150,7 +158,7 @@ $(document).ready(function(){
 				<td class="main_td">
 					<table class="sub_news" border=1 cellspacing=0
 						summary="게시판의 글제목 리스트">
-						<caption>게시판 리스트</caption>
+						<caption>학사공지 리스트</caption>
 						<colgroup>
 							<col>
 							<col width=110>
@@ -161,36 +169,26 @@ $(document).ready(function(){
 							<tr>
 								<th scope=col>제목</th>
 								<th scope=col>글쓴이</th>
-								<th scope=col>날짜</th>
-								<th scope=col>조회수</th>
+								<th scope=col>작성일자</th>
+							
 							</tr>
 						</thead>
 						<tbody>
+						<% for(int i=0; i<5; i++){ %>
 							<tr>
-								<td class=title><a href="#">게시글1 제목</a></td>
-								<td class=name>이름</td>
-								<td class=date>2016/10/17</td>
-								<td class=hit>10</td>
+								<th scope=col><%= list_h.get(i).getTitle() %></th>
+								<th scope=col><%= list_h.get(i).getName() %></th>
+								<th scope=col><%= list_h.get(i).getGdate() %></th>
 							</tr>
-							<tr>
-								<td class=title><a href="#">게시글2 제목</a></td>
-								<td class=name>이름</td>
-								<td class=date>2016/10/18</td>
-								<td class=hit>15</td>
-							</tr>
-							<tr>
-								<td class=title><a href="#">게시글3 제목</a></td>
-								<td class=name>이름</td>
-								<td class=date>2016/10/18</td>
-								<td class=hit>20</td>
-							</tr>
+							<%} %> 
+							
 						</tbody>
 					</table>
 				</td>
 				<td class="main_td">
 					<table class="sub_news" border=1 cellspacing=0
 						summary="게시판의 글제목 리스트">
-						<caption>게시판 리스트</caption>
+						<caption>취업공지 리스트</caption>
 						<colgroup>
 							<col>
 							<col width=110>
@@ -201,29 +199,18 @@ $(document).ready(function(){
 							<tr>
 								<th scope=col>제목</th>
 								<th scope=col>글쓴이</th>
-								<th scope=col>날짜</th>
-								<th scope=col>조회수</th>
+								<th scope=col>작성일자</th>
 							</tr>
 						</thead>
 						<tbody>
+						<% for(int i=0; i<5; i++){ %>
 							<tr>
-								<td class=title><a href="#">게시글1 제목</a></td>
-								<td class=name>이름</td>
-								<td class=date>2016/10/17</td>
-								<td class=hit>10</td>
+								<th scope=col><%= list_j.get(i).getTitle() %></th>
+								<th scope=col><%= list_j.get(i).getName() %></th>
+								<th scope=col><%= list_j.get(i).getGdate() %></th>
 							</tr>
-							<tr>
-								<td class=title><a href="#">게시글2 제목</a></td>
-								<td class=name>이름</td>
-								<td class=date>2016/10/18</td>
-								<td class=hit>15</td>
-							</tr>
-							<tr>
-								<td class=title><a href="#">게시글3 제목</a></td>
-								<td class=name>이름</td>
-								<td class=date>2016/10/18</td>
-								<td class=hit>20</td>
-							</tr>
+							<%} %> 
+							
 						</tbody>
 					</table>
 				</td>
