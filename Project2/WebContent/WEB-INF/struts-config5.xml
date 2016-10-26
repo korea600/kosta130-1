@@ -36,9 +36,17 @@
 			path : 가상경로 (뒤에 .do가 자동으로 붙여짐) forward : 이동할 실제 경로 (실제 페이지) -->
 
 		<!-- Project2_gongi -->
+		<action path="/admin/form" forward ="/admin/a_notice_upform.jsp"></action>
 		<action path="/admin/notice_list" type="notice.actions.NoticeAction">
 			<forward name="notice_first" path="/admin/a_notice.jsp" />
 			<forward name="notice_successinsert" path="/admin/notice_list.do" redirect="true" />
+			<forward name="upform_check" path="/admin/form.do"/>
+			<forward name="update_success" path="/admin/notice_list.do" redirect="true"></forward>
+			<forward name="delete_success" path="/admin/notice_list.do" redirect="true"></forward>
+		</action>
+		
+		<action path="/main/gongi_main" type="notice.actions.Notice_MainAction">
+			<forward name="notice_main" path="/main/gongi_main.do"></forward>
 		</action>
 
 
