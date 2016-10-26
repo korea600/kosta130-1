@@ -1,43 +1,74 @@
+<%@page import="member.model.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link rel="stylesheet" href="css/member_form.css" type="text/css" />
+<link rel="stylesheet" href="/Project2/common/css/member_form.css" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" src="/Project2/js/ajax2.js"></script>
+<script type="text/javascript">
+function mem_check(up){
+	var email=document.frm.email.value;
+	var tel=document.frm.tel.value;
+	var addr=document.frm.addr.value;
+	var param='action='+up+'&email='+email+'&tel='+tel+'&addr='+addr;
+	new ajax.xhr.Request('edit.do',param,check_result,'POST');
+}
+function check_result(xhr){
+	if(xhr.readyState==4){
+		if(xhr.status==200){
+			var result=xhr.responseText.trim();
+			console.log(result);
+			if(result="ok"){
+				alert('수정 왼료되었습니다');
+				window.close();
+			}else if(result="no"){
+				alert('수정 실패하였습니다');
+			}
+		}
+		else alert("서버에서 에러가 발생하였습니다.\n에러코드 : "+xhr.status);
+	}
+}
+
+</script>
 </head>
 <body>
-	<form>
+	<form name="frm">
 		<table>
 		<tr>
 			<th>학 번</th>
-			<td><input type="text" name="ab_name" maxlength="15" value="${LoginDTO.id }"></td>
-		</tr>
-		<tr>
-			<th>이 름</th>
-			<td><input type="text" name="ab_name" maxlength="15" value="${LoginDTO.name }"></td>
-		</tr>
-		<tr>
-			<th>email</th>
-			<td><input type="email" name="ab_email" maxlength="50"></td>
-		</tr>
-		<tr>
-			<th>연락처</th>
-			<td><input type="text" name="ab_tel" maxlength="20"></td>
-		</tr>
-		<tr>
-			<th>주 소</th>
-			<td><input type="text" name="ab_birth"></td>
+			<td><input type="text" name="id" maxlength="15" value="${LoginDTO.id }" readonly></td>
 		</tr>
 		<tr>
 			<th>학 과</th>
-			<td><input type="text" name="ab_comdept" maxlength="20"></td>
+			<td><input type="text" name="dept" maxlength="20" value="${member.dept }" readonly></td>
+			
+		</tr>
+		<tr>
+			<th>이 름</th>
+			<td><input type="text" name="name" maxlength="15" value="${LoginDTO.name }" readonly></td>
+			
+		</tr>
+		<tr>
+			<th>email</th>
+			<td><input type="email" name="email" maxlength="50" value="${member.email }"></td>
+			
+		</tr>
+		<tr>
+			<th>연락처</th>
+			<td><input type="text" name="tel" maxlength="20" value="${member.tel }"></td>
+		</tr>
+		<tr>
+			<th>주 소</th>
+			<td><input type="text" name="addr" value="${member.addr }"></td>
+			
 		</tr>
 		<tr>
 			<td colspan=2 align=center>
-				<input type=submit value="저장">
-				<input type=reset value="취소">
+				<input type="button" value="저장" onclick="mem_check('update')">
+				<input type="reset" value="취소">
 			</td>
 		</tr>
 	</table>

@@ -6,7 +6,7 @@ section{
 
 /*회원정보 폼*/
 .member_form{
-	width:824px;
+	width:1024px;
 	height:500px;
 }
 /*검색 시작*/
@@ -85,7 +85,7 @@ section{
 		margin-top:30px;
 	}
 	.top_text{
-		overflow:hidden;
+		overflow:visible;
 	}
 	.top_text > li{
 		float:left;
