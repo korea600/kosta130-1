@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd" >
+<sqlMap namespace="schedule">
+<!-- starts, ends, content, etc; -->
+	<select id="selectAllSchedulr" resultClass="schedule.model.ScheduleDTO">
+		select no,starts,ends,content,etc,presenter from schedule order by no
+	</select>
+	
+	<select id="selectSchedulr" parameterClass="int" resultClass="schedule.model.ScheduleDTO">
+		select no,starts,ends,content,etc,presenter from schedule where no =#no#
+	</select>
+	
+	<insert id="insertSchedulr" parameterClass="schedule.model.ScheduleDTO">
+		insert into schedule values 
+	(schedule_seq.nextval,to_date(#starts#,'yyyy/mm/dd/hh24/mi'),to_date(#ends#,'yyyy/mm/dd/hh24/mi'),#content#,#etc#,#presenter#)
+	</insert>
+	
+	<update id="updateSchedulr" parameterClass="schedule.model.ScheduleDTO">
+		update schedule 
+		set starts=#starts#,ends=#ends#,content=#content#,etc=#etc#,presenter=#presenter# 
+		where no=#no#
+	</update>
+	
+	<delete id="deleteSchedulr" parameterClass="int">
+		delete from schedule where no=#no#
+	</delete>
+	
+	<select id="searchSchedulr" parameterClass="String" resultClass="schedule.model.ScheduleDTO">
+		select no,starts,ends,content,etc,presenter from schedule
+		where substr(starts,1,2)=substr(sysdate,1,2) and substr(starts,4,2) = #value#
+	</select>
+	
+	<select id="recentListSchedulr" resultClass="schedule.model.ScheduleDTO">
+		select no,starts,ends,content,etc,presenter from schedule where sysdate between starts and ends order by no
+	</select>
+</sqlMap>

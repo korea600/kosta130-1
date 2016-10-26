@@ -38,30 +38,62 @@
 		<action path="/test" type="test.StrutsTest">
 			<forward name="test" path="/test.jsp"/>
 		</action>
+		
 		<!-- Project2 -->
 		<action path='/main' forward="/common/login.jsp"/>
 		<action path="/login" type="member.actions.LoginAction">
 			<forward name="result" path="/common/login_process.jsp"/>
 		</action>
 		
+		
+		<!-- Schedule -->
 		<action path="/Admin/add"
 				forward="/Admin/a_schedule_add.jsp">
 		</action>
+		
 		<action path="/Admin/list"
 				type="schedule.actions.ListAction">
 			<forward name="success" path="/Admin/a_schedule.jsp"></forward>
+			<forward name="main" path="/Admin/a_main_body.jsp"></forward>
 		</action>
+		
+		<action path="/Admin/update"
+				type="schedule.actions.ScheduleAction">
+			<forward name="success" path="/Admin/list.do"></forward>		
+		</action>
+		
+		<action path="/Admin/edit" 
+				forward="/Admin/a_schedule_edit.jsp"></action>
+		
 		<action path="/Admin/addResult"
 		        type="schedule.actions.ScheduleAction">
 			<forward name="success" path="/Admin/a_schedule.jsp"></forward>	
+			<forward name="upform" path="/Admin/edit.do"></forward>
 		</action>
-		<action path="/Admin/update"
-				type="schedule.actions.ScheduleAction">
-			<forward name="success" path="/Admin/a_schedule_edit.jsp"></forward>		
-		</action>
+		
 		<action path="/Admin/select"
 				type="schedule.actions.ScheduleAction">
 			<forward name="success" path="/Admin/a_schedule.jsp"></forward>
+		</action>
+		
+		
+		<!-- QnA -->
+		<action path="/student/addQna"
+				forward="/student/s_qna_form.jsp"></action>
+				
+		<action path="/student/listQna"
+				type="qna.actions.ListAction">
+			<forward name="success" path="/student/s_qna.jsp"></forward>
+		</action>
+		
+		<action path="/student/resultQna"
+		        type="qna.actions.QnaAction">
+			<forward name="success" path="/student/s_qna.jsp"></forward>
+		</action>
+		
+		<action path="/student/listQnaConfirm"
+				type="qna.actions.ListAction">
+			<forward name="success" path="/Admin/a_qna.jsp"></forward>		
 		</action>
 		
 	</action-mappings>

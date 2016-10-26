@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd" >
+<sqlMap namespace="qna">
+<!-- no,title,content,name,times,status -->
+	<select id="selectAllQna" resultClass="qna.model.QnaDTO" parameterClass="String">
+		select id,no,title,content,name,times,status from qna where id=#id#
+	</select>
+
+	<insert id="insertQna" parameterClass="qna.model.QnaDTO">
+		insert into qna values (qna_seq.nextval,#name#,#title#,#content#,sysdate,#status#,#id#)
+	</insert>
+	
+	<select id="AdminQna" resultClass="qna.model.QnaDTO" parameterClass="String">
+		select id,no,title,content,name,times,status from qna where status=#status#
+	</select>
+</sqlMap>
