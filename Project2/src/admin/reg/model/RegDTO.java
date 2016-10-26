@@ -4,33 +4,36 @@ import java.sql.Date;
 
 //ID		REQUEST		REASON		TIMES		STATUS
 public class RegDTO {
-	int id; // 학번
+	String id; // 학번
 	String request; // 신청구분
 	String reason; // 사유
-	Date times; // 신청시간
-	String status; // 상태
-	String name; // 이름
-	String tel; // 연락처
+	String times; // 신청시간
+	String checked; // 상태(학적 DB)
+	String status; // 상태(멤버 DB)
+	String name;
+	String tel;
 
 	public RegDTO() {
 	}
 
-	public RegDTO(int id, String request, String reason, Date times, String status, String name, String tel) {
+	public RegDTO(String id, String request, String reason, String times, 
+			String checked, String status, String name, String tel) {
 		super();
 		this.id = id;
 		this.request = request;
 		this.reason = reason;
 		this.times = times;
+		this.checked = checked;
 		this.status = status;
 		this.name = name;
 		this.tel = tel;
 	}
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -50,12 +53,20 @@ public class RegDTO {
 		this.reason = reason;
 	}
 
-	public Date getTimes() {
+	public String getTimes() {
 		return times;
 	}
 
-	public void setTimes(Date times) {
+	public void setTimes(String times) {
 		this.times = times;
+	}
+
+	public String getChecked() {
+		return checked;
+	}
+
+	public void setChecked(String checked) {
+		this.checked = checked;
 	}
 
 	public String getStatus() {
@@ -81,5 +92,4 @@ public class RegDTO {
 	public void setTel(String tel) {
 		this.tel = tel;
 	}
-
 }

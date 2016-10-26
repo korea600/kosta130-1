@@ -10,6 +10,7 @@ import org.apache.struts.action.ActionMapping;
 
 import admin.reg.model.RegDAO;
 import admin.reg.model.RegDTO;
+import member.model.LoginDTO;
 
 public class A_RegAction extends Action {
 	@Override
@@ -17,20 +18,29 @@ public class A_RegAction extends Action {
 			HttpServletResponse response) throws Exception {
 		// 신청내용 확인 action="viewForm"
 		// 신청내용 처리 action="execution"
-		
+
 		RegDAO dao = new RegDAO();
-		
+
 		String action = request.getParameter("action");
-		ActionForward forward = mapping.findForward("list");
-		if(action.equals("viewForm")) {
-			int id = Integer.parseInt(request.getParameter("id"));
-			RegDTO reg = dao.select(id);
-			reg.setId(id);
+		ActionForward forward = null;
+
+		if (action.equals("viewForm")) {
+			String id = request.getParameter("id");
+			RegDTO reg = new RegDTO(id, null, null, null, "처리중", null, null, null);
+			reg = dao.select(reg);
 			request.setAttribute("reg", reg);
-			forward = mapping.findForward("a_list_form");
-		} else if(action.equals("execution")) {
-			
+			forward = mapping.findForward("viewForm");
+		} else if (action.equals("update")) {
+			System.out.println(request.getParameter("request"));
+			RegDTO reg = new RegDTO(request.getParameter("id"), null, null, null, "승인", request.getParameter("request"),
+					null, null);
+			dao.update(reg);
+			forward = mapping.findForward("a_to_list");
+		} else if (action.equals("delete")) {
+			RegDTO reg = new RegDTO(request.getParameter("id"), null, null, null, "거절", null, null, null);
+			dao.delete(reg);
+			forward = mapping.findForward("a_to_list");
 		}
-		return super.execute(mapping, form, request, response);
+		return forward;
 	}
 }

@@ -18,8 +18,8 @@ public class A_ListAction extends Action {
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		RegDAO dao = new RegDAO();
-		List<RegDTO> list = dao.list();
-		request.setAttribute("adminReg", dao.list());
+		List<RegDTO> list = dao.listSelect("Ã³¸®Áß");
+		request.setAttribute("list", list);
 		return mapping.findForward("a_list");
 	}
 }

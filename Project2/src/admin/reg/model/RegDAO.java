@@ -14,40 +14,48 @@ public class RegDAO {
 		smc = SqlMapConfig.getSqlMapInstance();
 	}
 
-	public List<RegDTO> list() { // 리스트 출력
+	public List<RegDTO> listSelect(String st) { // 리스트 출력
 		List<RegDTO> list = null;
 		try {
-			list = smc.queryForList("reg.adminReg");
+			list = smc.queryForList("reg.adminReg",st);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return list;
 	}
 
-	public RegDTO select(int id) {// 수정폼 내용 출력
+	public RegDTO select(RegDTO dto) {// 수정폼 내용 출력
 		RegDTO reg = null;
 		try {
-			reg = (RegDTO) smc.queryForObject("reg.adminRegForm", id);
+		reg = (RegDTO) smc.queryForObject("reg.adminRegForm", dto);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return reg;
 	}// select
 
-	public boolean select(RegDTO dto) {
-
-		return false;
-	}
-
 	public boolean update(RegDTO dto) {
+		try {
+			System.out.println(dto.getChecked());
+			int r = smc.update("reg.reg_update", dto);
+			int m = smc.update("reg.mem_update",dto);
+			if (r == 1 && m==1)
+				return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return false;
 	}
 
-	public RegDTO upform(int no) {
-		return null;
-	}
-
-	public boolean delete(int no) {
+	public boolean delete(RegDTO dto) {
+		try {
+			System.out.println(dto.getChecked());
+			int r = smc.update("reg.reg_update", dto);
+			if (r == 1)
+				return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return false;
 	}
 }
