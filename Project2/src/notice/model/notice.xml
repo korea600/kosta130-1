@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd" >
+<sqlMap namespace="notice">
+	<insert id="insert" parameterClass="notice.model.NoticeDTO">
+		insert into notice values(notice_seq.nextval, #name#, #title#, #content#, sysdate, #checked#)
+	</insert>
+	
+	<select id="select" parameterClass="String" resultClass="notice.model.NoticeDTO">
+		select no, title, gdate from notice where checked=#checked# order by no
+    </select>
+    
+    <select id="upselect" parameterClass="notice.model.NoticeDTO" resultClass="notice.model.NoticeDTO">
+    	select no, title,content from notice where no=#no# and #id# in(select id from member where job='A')
+    </select>
+    
+    <update id="update" parameterClass="notice.model.NoticeDTO">
+    	update notice set title=#title#, content=#content# where no=#no#
+    </update>
+    
+    <delete id="delete" parameterClass="int">
+    	delete from notice where no=#no#
+    </delete>
+    
+
+</sqlMap>

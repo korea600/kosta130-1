@@ -5,17 +5,35 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+
+	function exitForm(){
+		window.close();
+	}
+	
+	function insertData(){
+		document.frm.submit();
+		opener.checked_close();
+	}
+	
+</script>
 </head>
 <body>
 <center>
-
+<form name="frm" action="notice_list.do?action=insert" method="post">
 제목 <input type="text" name="title"><br><br>
-내용 <textarea rows="10" cols="23"></textarea>
+내용 <textarea rows="10" cols="23" name="content"></textarea>
 <Br>
 
-<input type="submit" value="확인">
-<input type="button" value="취소">
+<select name="checked">
+<option value="학사">학사</option>
+<option value="취업">취업</option>
+</select>
+<br>
 
+<input type="button" value="확인" onclick="insertData()">
+<input type="button" value="취소" onclick="exitForm()">
+</form>
 </center>
 </body>
 </html>
