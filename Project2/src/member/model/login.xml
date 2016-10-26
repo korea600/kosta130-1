@@ -4,4 +4,22 @@
 	<select id="pw_check" parameterClass="member.model.LoginDTO" resultClass="member.model.LoginDTO">
 		select id,pass,name,job from member where id=#id# and pass=#pass# and job=#job#
 	</select>
+	
+	
+	<select id="mem_select" parameterClass="String" resultClass="member.model.MemberDTO">
+		select dept,email,tel,addr,semester,status from member where id=#id#
+	
+	</select>
+	
+	<update id="mem_update" parameterClass="member.model.MemberDTO">
+		update member set email=#email#, tel=#tel#, addr=#addr# where id=#id#
+	</update>
+	
+	<select id="mem_allselect" parameterClass="member.model.MemberDTO" resultClass="member.model.MemberDTO">
+		select id,dept,name,semester,status,tel from member where dept=#dept# and semester between #semester#*2-1 and #semester#*2 order by id
+	</select>
+	
+	<select id="sub_select" resultClass="member.model.MemberDTO">
+		select dept from member 
+	</select>
 </sqlMap>

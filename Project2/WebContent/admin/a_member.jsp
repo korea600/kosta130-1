@@ -1,38 +1,52 @@
+<%@page import="member.model.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link rel="stylesheet" href="/Project2/common/css/a_member.css" type="text/css" />
+<link rel="stylesheet" href="/Project2/common/css/style.css" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <title>Insert title here</title>
+<script type="text/javascript">
+function left_sc(){
+	var dept = document.frm.part.value;
+	var sem = document.frm.level.value;
+	location.href="/Project2/common/edit?action=scr_select&dept="+dept+"&sem="+sem;
+}
+</script>
 </head>
 <body>
+<form name="frm">
 <section>
-		<div class="member_form">
+		<div class="member_form" style="margin-top: 0px;">
 			<!--검색-->
 			<div class="search">
 				<!--left-->
 				<div class="left_search">
-					<select class="part">
+					<select class="part" name="part">
 						<option>학과</option>
-						<option>학과</option>
+						<c:forEach items="${list }" var="sub">
+						<option>${sub.dept }</option>
+						</c:forEach>
 					</select>
 
-					<select class="level">
+					<select class="level" name="level">
 						<option>학년</option>
 						<option>1</option>
 						<option>2</option>
 						<option>3</option>
+						<option>4</option>
 					</select>
-					<div class="school_btn">조회</div>
+					<div class="school_btn" onclick="left_sc()"> 조회</div>
 				</div>
 				<!--right-->
 				<div class="right_search">
 					<select class="name">
 						<option>이름</option>
-						<option>이름</option>
-						<option>이름</option>
-						<option>이름</option>
+						<option>학번</option>
 					</select>
 					<input type="text"  class="name_text"/>
 					<div class="name_btn">검색</div>
@@ -50,8 +64,9 @@
 					<li>연락처</li>
 					<li>수정/삭제</li>					
 				</ul>
+			
 				<ul class="member_text">
-					<li>1231231</li>
+					<li>${member.id }</li>
 					<li>이길학멍청이</li>
 					<li>이길학</li>
 					<li>5학년</li>
@@ -61,22 +76,13 @@
 						<input type="button" value="수정"/>
 						<input type="button" value="삭제"/>
 					</li>
+					
 				</ul>
-
-				<ul class="member_text">
-					<li>1231231</li>
-					<li>이길학멍청이</li>
-					<li>이길학</li>
-					<li>5학년</li>
-					<li>자퇴준비</li>
-					<li>010-9562-3680</li>
-					<li>
-						<input type="button" value="수정"/>
-						<input type="button" value="삭제"/>
-					</li>
-				</ul>
+		
+			
 			</div>
 		</div>
 	</section>
+</form>
 </body>
 </html>

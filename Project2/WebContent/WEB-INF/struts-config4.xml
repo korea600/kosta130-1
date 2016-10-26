@@ -36,14 +36,19 @@
 		<!-- URL 매핑 정의 (두 속성 모두 '/'로 시작해야함, 첫 '/'는 프로젝트의 루트경로 ('http://localhost/Struts/'))
 			path : 가상경로 (뒤에 .do가 자동으로 붙여짐)
 			forward : 이동할 실제 경로 (실제 페이지) -->
-		
+		 <action path="/main/edit" forward="/common/member_form.jsp"/>
+		 <action path="/admin/member" forward="/admin/a_member.jsp"/>
+		 <action path="/common/edit" type="member.actions.MemberAction">
+			<forward name="ok" path="/main/edit.do"/>
+			<forward name="member_ok" path="/admin/member.do"/>
+		</action>
     </action-mappings>
 
 <!-- 사용자 정의 컨트롤러 (RequestProcessor) 등록 -->
  	<controller processorClass="control.MyRequestProcessor"/>
 	
 
-<!-- Message Resources (Properties file) 등록 -->
+<!-- Message Resources (Properties file) 등록 ki.ew-->
 	
 <!-- 	<message-resources parameter="resources.application"/>	패키지명.Properties파일명 (확장자는 기재 안함) -->
 
