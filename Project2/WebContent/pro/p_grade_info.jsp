@@ -12,6 +12,9 @@
 <script type="text/javascript">
 	$(function(){
 		$('.grade_info').hide();
+		$('[name=insert]').click(function(){
+			document.grades.submit();
+		});	
 	});
 	function load_semester(){
 		var items=["학기",1,2];
@@ -105,9 +108,7 @@
 				alert("성적을 조회할 수 없습니다.");
 			}
 		}
-		$('[name=insert]').click(function(){
-			document.grades.submit();
-		});	
+		
 	}
 </script>
 <!-- <link rel="stylesheet" href="css/sugang.css" type="text/css"> -->
@@ -134,7 +135,7 @@
 <div class="school_btn" onclick="load_grade()">조회</div>
 
 </form><br>
-<form name='grades'>
+<form name='grades' action='action.do?action=update' method='POST'>
 <div class="grade_info">
 				<ul class="top_text">
 					<li>학년</li>
