@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd" >
+<sqlMap namespace="reg">
+	<!-- ID REQUEST REASON TIMES STATUS -->
+
+	<select id="stdReg" resultClass="admin.reg.model.RegDTO"
+		parameterClass="String">
+		select
+		id,request,reason,times,checked
+		from register
+		where id=#id#
+	</select> <!-- 리스트 출력 -->
+
+	<select id="stdRegForm" parameterClass="admin.reg.model.RegDTO"
+		resultClass="admin.reg.model.RegDTO">
+		select r.id, m.name, m.tel, r.request, r.reason
+		from register r, member m
+		where r.id=#id# and r.id=m.id and r.checked=#checked#
+	</select><!-- 입력폼 출력 -->
+
+	<update id="mem_update" parameterClass="admin.reg.model.RegDTO">
+		update member set
+		status=#status#
+		where id=#id#
+	</update> <!-- 휴학 신청 -->
+
+	<update id="reg_update" parameterClass="admin.reg.model.RegDTO">
+		update register set
+		checked=#checked#
+		where id=#id#
+	</update> <!-- 휴학 신청2 -->
+</sqlMap>
