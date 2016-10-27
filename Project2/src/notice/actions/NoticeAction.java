@@ -42,7 +42,6 @@ public class NoticeAction extends Action {
 			request.setAttribute("list", list);
 			forward = mapping.findForward("notice_first");
 		} else if (action.equals("insert")) {
-			System.out.println(action);
 			dao = new NoticeDAO();
 			
 
@@ -78,7 +77,6 @@ public class NoticeAction extends Action {
 			
 
 		} else if (action.equals("delete")) {
-			System.out.println(action);
 			
 				dao = new NoticeDAO();
 				int no = Integer.parseInt(request.getParameter("no"));

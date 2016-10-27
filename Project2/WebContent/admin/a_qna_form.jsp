@@ -6,20 +6,35 @@
 <link rel="stylesheet" href="css/tables.css" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+	function exitForm(){
+		window.close();
+	}
+	
+	function updateForm(){
+		document.qnaform.submit();
+		window.close();
+		opener.location.href='listQnaConfirm.do?action=AdminQna';
+	}
+</script>
 </head>
 <body>
-	<form name="qnaform" action="resultQna.do?action=insert" method="post">
+	<form name="qnaform" action="upformQna.do?action=update" method="post">
+	<input type="hidden" name="no" value="${upform.no }">
 	<table id="table_reg">
+	
 		<tr>
 			<th>상담제목</th>
-			<td><input type=text name="title" value="${upform.title }"></td>
+			<td><input type=text name="title" value="${upform.title }" disabled></td>
 		</tr>
 		<tr>
 			<th>내용</th>
 			<td><textarea rows="15" cols="40" name="content">${upform.content }</textarea></td>
 		</tr>
 		<tr>
-			<td colspan="2" align="center"><input type=submit value="신청"></td>
+			<td colspan="2" align="center">
+			<input type=submit value="답변완료" onclick="updateForm()">
+			<input type="button" value="취소" onclick="exitForm()"></td>
 		</tr>
 	</table>
 	</form>

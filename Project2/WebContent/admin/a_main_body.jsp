@@ -2,6 +2,7 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -117,8 +118,8 @@ $(document).ready(function(){
 <div class="menu">
 			<ul>
 				<li class="zero"><p><a href="/Project2/admin/a_main_body.jsp">메인</a></p></li>
-				<li class="one"><p>학적처리</p></li>
-				<li class="two"><p>건의사항 확인</p></li>
+				<li class="one"><p><a href="/Project2/student/listQna.do?action=list">학적처리</a></p></li>
+				<li class="two"><p><a href="/Project2/admin/listQnaConfirm.do?action=AdminQna">건의사항 확인</a></p></li>
 				<li class="three"><p><a href="/Project2/admin/notice_list.do" id="menu3">공지관리</p></a></li>
 				<li class="four"><p>과목 수정/등록</p></li>
 				<li class="five"><p><a href="/Project2/common/edit.do?action=member" id="menu5">회원관리</a></p></li>

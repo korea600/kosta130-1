@@ -25,8 +25,9 @@
 			if(list != null){
 				for(int i=0; i<list.size(); i++){
 					QnaDTO dto=list.get(i);
-					out.print("<tr><td>"+dto.getNo()+"</td><td>"+dto.getTitle()+"</td><td>"+dto.getContent()+
-						"</td><td>"+dto.getName()+"</td><td>"+dto.getTimes()+"</td></tr>");
+					out.print("<tr><td>"+dto.getNo()+"</td><td>"+dto.getTitle()+
+							"</td><td> <a href='#' onclick=window.open('upformQna.do?action=upform&no="+dto.getNo()+"','건의사항','width=400,height=350');>"+dto.getContent()+
+						"</a></td><td>"+dto.getName()+"</td><td>"+dto.getTimes()+"</td></tr>");
 				}
 			}
 		%>

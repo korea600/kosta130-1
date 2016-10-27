@@ -3,7 +3,11 @@
 <sqlMap namespace="qna">
 <!-- no,title,content,name,times,status -->
 	<select id="selectAllQna" resultClass="qna.model.QnaDTO" parameterClass="String">
-		select id,no,title,content,name,times,status from qna where id=#id#
+		select id,no,title,content,name,times,status from qna where id=#id# order by no
+	</select>
+	
+	<select id="selectQna" parameterClass="int" resultClass="qna.model.QnaDTO">
+		select id,no,title,content,name,times,status from qna where no =#no#
 	</select>
 
 	<insert id="insertQna" parameterClass="qna.model.QnaDTO">
@@ -13,4 +17,12 @@
 	<select id="AdminQna" resultClass="qna.model.QnaDTO" parameterClass="String">
 		select id,no,title,content,name,times,status from qna where status=#status#
 	</select>
+	
+	<update id="updateQna" parameterClass="qna.model.QnaDTO">
+		update qna set content=#content#, status=#status# where no=#no#
+	</update>
+	
+	<delete id="deleteQna" parameterClass="qna.model.QnaDTO">
+		delete from qna where status=#status# and no=#no#
+	</delete>
 </sqlMap>

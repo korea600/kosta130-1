@@ -33,7 +33,9 @@ public class FirstPageAction extends Action{
 		
 		// 학사일정 얻어오기
 		List<ScheduleDTO> schedule = new ScheduleDAO().recentList();
-		request.setAttribute("schedule", schedule);
+		request.setAttribute("list", schedule);
+		
+
 		
 		// 로그인 분류에 따라 페이지 출력 구분 하기 (학생, 교수, 교직원)
 	/*	LoginDTO dto = (LoginDTO) request.getSession().getAttribute("LoginDTO");
