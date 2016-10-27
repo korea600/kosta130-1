@@ -4,7 +4,7 @@
 {
 	dto:[
 		<c:forEach items="${list}" var='i' varStatus="stat">{
-		"semester":"${i.semester}","dept":"${i.dept}","id":"${i.id}","name":"${i.name}","grade":"${i.grade}"
+		"semester":"${i.seasons}","dept":"${i.dept}","id":"${i.id}","name":"${i.name}","grade":"${i.grade}"
 		}<c:if test="${stat.index<list.size()-1}">,</c:if>
 		</c:forEach>
 	]

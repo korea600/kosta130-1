@@ -5,17 +5,18 @@ public class GradeDTO {
 	String name;		// 성명
 	String dept;		// 전공명
 	String checked;		// 이수구분
-	int semester;		// 학기
+	int semester;		// 학기 (1,2)
 	int year;			// 수강한 년도
 	int code;			// 과목코드
 	String sub;			// 과목명
 	String professor;	// 교수명
 	String grade;
+	int seasons;		// 수강학기 (1~8)
 	
 	public GradeDTO() {}
 	
 	public GradeDTO(String id, String name, String dept, String checked, int semester, int year, int code, String sub,
-			String professor, String grade) {
+			String professor, String grade, int seasons) {
 		this.id = id;
 		this.name = name;
 		this.dept = dept;
@@ -26,6 +27,15 @@ public class GradeDTO {
 		this.sub = sub;
 		this.professor = professor;
 		this.grade = grade;
+		this.seasons=seasons;
+	}
+
+	public int getSeasons() {
+		return seasons;
+	}
+
+	public void setSeasons(int seasons) {
+		this.seasons = seasons;
 	}
 
 	public String getId() {

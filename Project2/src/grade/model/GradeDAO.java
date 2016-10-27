@@ -49,13 +49,17 @@ public class GradeDAO {		// 성적조회(s,p), 성적수정(p), select_box 데이터 처리(p
 	}
 	public boolean p_update(List<GradeDTO> list){	// 교수의 성적입력 및 수정 (insert는 수강신청 완료시 실행됨)
 		try {
-			smc.update("grade.update_grade", list);
+			for(int i=0;i<list.size();i++){
+				GradeDTO dto = list.get(i);
+				if(smc.update("grade.update_grade", dto)==0){
+					return false;
+				}
+			}
 			return true;
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
-		}
-			
+		}			
 		return false;
 	}
 	

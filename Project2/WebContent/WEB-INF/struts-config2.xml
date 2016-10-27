@@ -48,6 +48,7 @@
 		<action path='/pro/action' type="grade.actions.ProfessorGradeAction">
 			<forward name="find_sub" path='/pro/p_findsub.jsp'/>
 			<forward name="list" path='/pro/grade_list.jsp'/>
+			<forward name="update_result" path='/pro/p_update_result.jsp'/>
 			
 		</action>
     </action-mappings>
