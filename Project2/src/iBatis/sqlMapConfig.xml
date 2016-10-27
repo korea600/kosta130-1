@@ -10,8 +10,6 @@
 	  	lazyLoadingEnabled="true" maxRequests="30"
 	  	maxSessions="10" maxTransactions="5"
 	  	useStatementNamespaces="true"/>
-	
-  	
 	<!-- JDBC settings -->	
 	<transactionManager type="JDBC">
 		<dataSource type="SIMPLE">
@@ -23,5 +21,9 @@
 	</transactionManager>
   
 	<sqlMap resource="./member/model/login.xml"/>
-  
+	<sqlMap resource="./grade/model/grade.xml"/>
+  	<sqlMap resource="./admin/reg/model/reg.xml"/>
+  	<sqlMap resource="./notice/model/notice.xml"/>
+  	<sqlMap resource="./schedule/model/schedule.xml"/>
+	<sqlMap resource="./qna/model/qna.xml"/>
 </sqlMapConfig>
