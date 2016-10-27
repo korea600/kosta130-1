@@ -13,7 +13,7 @@
 		select m.semester, m.dept, m.id, m.name, g.grade,g.code
 		from grade_info g, member m, subject s
 		where s.professor=#professor# and g.year=#year# and g.semester=#semester# and s.sub=#sub#
-		and division=#checked# and m.id=g.id and g.code=s.code
+		and s.division=#checked# and m.id=g.id and g.code=s.code
 	</select>
 	<update id="update_grade" parameterClass="grade.model.GradeDTO">
 		update grade_info set grade=#grade# where code=#code# and year=#year# and semester=#semester# and id=#id#
