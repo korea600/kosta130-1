@@ -5,11 +5,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>성적입력</title>
+<link rel="stylesheet" href="/Project2/common/css/a_member_grade.css" type="text/css" />
+<link rel="stylesheet" href="/Project2/common/css/style.css" type="text/css" />
 <script type="text/javascript" src="/Project2/js/ajax.js"></script>
 <script type="text/javascript" src="/Project2/js/jquery-1.12.4.js"></script>
 <script type="text/javascript">
 	$(function(){
-	//	$('#grade_list').hide();
+		$('.grade_info').hide();
 	});
 	function load_semester(){
 		var items=["학기",1,2];
@@ -56,19 +58,31 @@
 		var semester=$('[name=semester]').val();
 		var checked=$('[name=checked]').val();
 		var sub=$('[name=sub]').val();
+		if(year=='학년도' || semester=='학기' || checked=='이수구분' || sub=='강좌명'){
+			alert('유효하지 않은 입력이 있습니다.');
+			return;
+		}
 		var params="action=select&id="+${LoginDTO.id}+"&year="+year+"&semester="+semester+"&checked="+checked+"&sub="+sub;
 		sendRequest('/Project2/pro/action.do', params, result_grade, 'POST');
 	}
 	function result_grade(){
 		if(xhr.readyState==4){
 			if(xhr.status==200){
-				$('#grade_list').show();
+				$('.grade_info').show();
 				var result=eval("("+xhr.responseText+")");
 				var results='';
+				$('ul.member_text').remove();
 				for(var i=0;i<result.dto.length;i++){
-					results+="<td>"+result.dto[i].semester+"</td><td>"+result.dto[i].dept+"</td>"
-						+"<td>"+result.dto[i].id+"</td><td>"+result.dto[i].name+"</td>"
-						+"<td><select name='grade"+i+"'>"
+					// 학년 구하기 (1~2학기 -> 1학년, 3~4학기 -> 2학년, ...)
+					var level = Math.round(result.dto[i].semester/2);
+					
+					// 태그에 삽입할 형태로 데이터 변환
+					results+="<ul class='member_text'>"
+						+"<li>"+level+"</li>"
+						+"<li>"+result.dto[i].dept+"</li>"
+						+"<li>"+result.dto[i].id+"</li>"
+						+"<li>"+result.dto[i].name+"</li><li>"
+						+"<select name='grade"+i+"'>"
 						+"<option value='A+'>A+</option>"
 						+"<option value='A'>A</option>"
 						+"<option value='B+'>B+</option>"
@@ -77,51 +91,59 @@
 						+"<option value='C'>C</option>"
 						+"<option value='D+'>D+</option>"
 						+"<option value='D'>D</option>"
-						+"<option value='F'>F</option></select></td>"
+						+"<option value='F'>F</option></select></li></ul>"
 				}
+				// 태그에 데이터 삽입 + select값 적용
+				$('.top_text').append(results);
+				$('.top_text').append("<div class='school_btn' name='insert'>입력</div>");
 				for(var i=0;i<result.dto.length;i++){
-					$('#grade_data').html(results);
-					$('[name=grade'+i+']').each(function(){
-						if($(this).val()==result.dto[i].grade){
-							$(this).attr('checked','checked');	
-						}
-					});
+					$('[name=grade'+i+']').val(result.dto[i].grade);
+					
 				}
 			}
 			else{
 				alert("성적을 조회할 수 없습니다.");
 			}
 		}
-		
+		$('[name=insert]').click(function(){
+			document.grades.submit();
+		});	
 	}
 </script>
 <!-- <link rel="stylesheet" href="css/sugang.css" type="text/css"> -->
 </head>
 <body>
-<form name='request' action='' method="POST">
-<select name='year' onchange="load_semester()">
+
+<form name='request'>
+<select name='year' class='part' onchange="load_semester()">
 	<option value='학년도'>학년도</option>
 	<option value='2016'>2016</option>
 	<option value='2015'>2015</option>
 	<option value='2014'>2014</option>
 	<option value='2013'>2013</option>
 </select>
-<select name='semester' onchange="load_checked()">
+<select name='semester' class='part' onchange="load_checked()">
 	<option value='학기'>학기</option>
 </select>
-<select name='checked' onchange="load_sub()">
+<select name='checked' class='part'onchange="load_sub()">
 	<option value='이수구분'>이수구분</option>
 </select>
-<select name='sub'>
+<select name='sub' class='part'>
 	<option value='강좌명'>강좌명</option>
 </select>
-<input type='button' value='조회' onclick="load_grade()">
-</form>
-<form name='grade' action=''>
-<table border="1" id='grade_list'>
-<tr><th>학년</th><th>전공</th><th>학번</th><th>성명</th><th colspan="9">평가</th></tr>
-<tr id='grade_data'></tr>
-</table>
+<div class="school_btn" onclick="load_grade()">조회</div>
+
+</form><br>
+<form name='grades'>
+<div class="grade_info">
+				<ul class="top_text">
+					<li>학년</li>
+					<li>전공</li>
+					<li>학번</li>
+					<li>성명</li>
+					<li>평가</li>
+				</ul>
+</div>
 </form>
 </body>
 </html>
