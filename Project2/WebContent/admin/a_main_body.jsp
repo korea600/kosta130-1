@@ -135,22 +135,15 @@ $(document).ready(function(){
 							<th>내용</th>
 							<th>기타</th>
 						</tr>
+						<c:forEach items="${list}" var="i" varStatus="stat">
+						<c:if test="${stat.index<5 }">
 						<tr>
-							<td>어재~오늘</td>
-							<td>수강신청</td>
-							<td>ㅇ</td>
+							<td>${i.starts }~${i.ends}</td>
+							<td>${i.content }</td>
+							<td>${i.etc }</td>
 						</tr>
-						<tr>
-							<td>오늘중</td>
-							<td>입학식</td>
-							<td>ㅇ</td>
-						</tr>
-						<tr>
-							<td>오늘~내일</td>
-							<td>수강신청변경</td>
-							<td>ㅇ</td>
-						</tr>
-		
+						</c:if>
+						</c:forEach>
 					</table>
 				</td>
 			</tr>
