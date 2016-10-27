@@ -41,6 +41,7 @@
 		 <action path="/common/edit" type="member.actions.MemberAction">
 			<forward name="ok" path="/main/edit.do"/>
 			<forward name="member_ok" path="/admin/member.do"/>
+			<forward name="left_member_ok" path="/admin/member.do"/>
 		</action>
     </action-mappings>
 

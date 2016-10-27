@@ -20,6 +20,6 @@
 	</select>
 	
 	<select id="sub_select" resultClass="member.model.MemberDTO">
-		select dept from member 
+		select DISTINCT dept from member 
 	</select>
 </sqlMap>

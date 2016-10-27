@@ -3,6 +3,7 @@ package member.model;
 public class MemberDTO {
 	String id;
 	String dept;
+	String name;
 	String email;
 	String tel;
 	String addr;
@@ -23,6 +24,20 @@ public class MemberDTO {
 		this.status = status;
 	}
 	
+	
+	public MemberDTO(String id, String dept, String name, String email, String tel, String addr, int semester,
+			String status) {
+		super();
+		this.id = id;
+		this.dept = dept;
+		this.name = name;
+		this.email = email;
+		this.tel = tel;
+		this.addr = addr;
+		this.semester = semester;
+		this.status = status;
+	}
+
 	public String getId() {
 		return id;
 	}
@@ -37,6 +52,15 @@ public class MemberDTO {
 
 	public void setDept(String dept) {
 		this.dept = dept;
+	}
+
+	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getEmail() {
