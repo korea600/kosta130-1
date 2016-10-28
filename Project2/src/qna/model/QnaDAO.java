@@ -18,7 +18,6 @@ public class QnaDAO {
 	
 	public List<QnaDTO> selectAll(String id){//전체 리스트 출력
 		List<QnaDTO> list = null;
-	
 		try {
 			list = sqlMap.queryForList("qna.selectAllQna",id);
 		} catch (SQLException e) {
@@ -48,7 +47,7 @@ public class QnaDAO {
 		}
 		return dto;
 	}
-	public QnaDTO sFormselect(int no){//수정폼 출력
+	public QnaDTO sFormselect(int no){//학생 수정폼 출력
 		QnaDTO dto = null;
 		try {
 			dto = (QnaDTO) sqlMap.queryForObject("qna.selectQna",no);

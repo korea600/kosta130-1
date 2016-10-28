@@ -25,7 +25,6 @@ public class MemberAction extends Action{
 		String tel=request.getParameter("tel");
 		String addr=request.getParameter("addr");
 		ActionForward forward=mapping.findForward("ok");
-		System.out.println("action:"+action);
 		LoginDAO dao = new LoginDAO();
 		String id = null;
 		LoginDTO login = (LoginDTO) request.getSession().getAttribute("LoginDTO");

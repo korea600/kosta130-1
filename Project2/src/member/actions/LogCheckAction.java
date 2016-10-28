@@ -21,7 +21,6 @@ public class LogCheckAction extends Action{
 		}
 		else{
 			String job=dto.getJob();
-			System.out.println(job);
 			if(job.equals("S")){
 				forward = mapping.findForward("student");
 			}

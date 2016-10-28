@@ -18,9 +18,15 @@
 <body>
 
 	<% request.setCharacterEncoding("UTF-8");
-	 List<NoticeDTO> list_h = (List<NoticeDTO>)request.getAttribute("list_h");%>
+	 List<NoticeDTO> list_h = (List<NoticeDTO>)request.getAttribute("list_h");
+	 List<NoticeDTO> list_j = (List<NoticeDTO>)request.getAttribute("job_list");%>
 	<center>
 	<div id="#warp">
+		<table class="main_table">
+			<tr>
+				<td class="main_td" colspan=2>
+					<table class="sub_news">
+<td width="800px" id="main">
 		<table class="main_table">
 			<tr>
 				<td class="main_td" colspan=2>
@@ -30,21 +36,15 @@
 							<th>내용</th>
 							<th>기타</th>
 						</tr>
+						<c:forEach items="${list}" var="i" varStatus="stat">
+						<c:if test="${stat.index<5 }">
 						<tr>
-							<td>어재~오늘</td>
-							<td>수강신청</td>
-							<td>ㅇ</td>
+							<td>${i.starts }~${i.ends}</td>
+							<td>${i.content }</td>
+							<td>${i.etc }</td>
 						</tr>
-						<tr>
-							<td>오늘중</td>
-							<td>입학식</td>
-							<td>ㅇ</td>
-						</tr>
-						<tr>
-							<td>오늘~내일</td>
-							<td>수강신청변경</td>
-							<td>ㅇ</td>
-						</tr>
+						</c:if>
+						</c:forEach>
 					</table>
 				</td>
 			</tr>
