@@ -1,6 +1,4 @@
-package student.reg.actions;
-
-import java.util.List;
+package reg.actions;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -10,17 +8,21 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
-import admin.reg.model.RegDAO;
-import admin.reg.model.RegDTO;
+import reg.model.S_RegDAO;
+import reg.model.RegDTO;
 
-public class S_ListAction extends Action {
+public class S_RegAction extends Action {
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		String id = request.getParameter("id");
-		RegDAO dao = new RegDAO();
-		List<RegDTO> list = dao.listSelect(id);
-		request.setAttribute("list", list);
-		return mapping.findForward("s_list");
-	} // 리스트
+		// 신청내용 확인 action="viewForm"
+		// 신청내용 처리 action="execution"
+
+		S_RegDAO dao = new S_RegDAO();
+
+		String action = request.getParameter("action");
+		ActionForward forward = null;
+
+		return forward;
+	}
 }
