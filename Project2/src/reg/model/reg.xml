@@ -40,11 +40,9 @@
 		where m.id=r.id and m.id=#id#
 	</select> <!-- 리스트 출력 -->
 	
-	<select id="stdRegForm" parameterClass="reg.model.RegDTO"
+	<select id="stdInForm" parameterClass="reg.model.RegDTO"
 		resultClass="reg.model.RegDTO">
-		select r.id, m.name, m.tel, r.request, r.reason
-		from register r, member m
-		where r.id=#id# and r.id=m.id and r.checked=#checked#
-	</select> <!-- 선택한 학생의 신청 내역 조회 -->
-	
+		 insert into REGISTER (id,request,reason,times,checked)
+            values (#id#,#request#,#reason#,sysdate,'처리중')  
+	</select> <!-- 학적 변경 신청 -->
 </sqlMap>

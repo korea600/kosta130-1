@@ -22,7 +22,21 @@ public class S_RegAction extends Action {
 
 		String action = request.getParameter("action");
 		ActionForward forward = null;
-
+		
+		if (action.equals("viewForm")) {
+			String id = request.getParameter("id");
+			RegDTO reg = new RegDTO(id, null, null, null, "Ã³¸®Áß", null, null, null);
+			reg = dao.select(reg);
+			request.setAttribute("reg", reg);
+			forward = mapping.findForward("viewForm");
+		} else if (action.equals("newForm")) {
+			String id = request.getParameter("id");
+			RegDTO reg = new RegDTO(id, null, null, null, null, null, null, null);
+			reg = dao.insert(reg);
+			request.setAttribute("reg", reg);
+			forward = mapping.findForward("viewForm");
+		}
+		
 		return forward;
 	}
 }

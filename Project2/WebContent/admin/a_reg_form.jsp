@@ -23,7 +23,7 @@
 			<tr>
 				<th width="100px">이름</th>
 				<td><input type=text name=username value="${reg.name }"
-					disabled></td>
+					readonly="readonly"></td>
 			</tr>
 			<tr>
 				<th width="100px">연락처</th>
@@ -37,7 +37,7 @@
 			</tr>
 			<tr>
 				<th>사유</th>
-				<td><textarea rows="15" cols="40" disabled>${reg.reason }</textarea></td>
+				<td><textarea rows="15" cols="40" readonly="readonly">${reg.reason }</textarea></td>
 			</tr>
 			<tr>
 				<td colspan="2" align="center"><input type="submit" value="승인">

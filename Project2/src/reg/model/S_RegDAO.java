@@ -24,4 +24,24 @@ public class S_RegDAO {
 		}
 		return list;
 	}
+	
+	public RegDTO select(RegDTO dto) {// 수정폼 내용 출력
+		RegDTO reg = null;
+		try {
+			reg = (RegDTO) smc.queryForObject("reg.adminRegForm", dto);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return reg;
+	}// select
+	
+	public RegDTO insert(RegDTO dto) {// 입력폼 내용 출력
+		RegDTO reg = null;
+		try {
+			reg = (RegDTO) smc.queryForObject("reg.stdInForm", dto);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return reg;
+	}// select
 }

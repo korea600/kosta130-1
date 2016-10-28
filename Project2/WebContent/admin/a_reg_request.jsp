@@ -24,7 +24,8 @@
 
 		<c:forEach items="${list }" var="reg">
 			<tr>
-				<td><a href="a_regForm.do?action=viewForm&id=${reg.id }">${reg.id }</a></td>
+				<td><a href="#"
+					onclick="window.open('/Project2/a_regForm.do?action=viewForm&id=${reg.id }','학적변경 신청 확인','width=500,height=400,menubar=no,status=no,toolbar=no,resizable=no,left=200,top=200');">${reg.id }</a></td>
 				<td>${reg.request }</td>
 				<td>${reg.reason }</td>
 				<td>${reg.times }</td>
