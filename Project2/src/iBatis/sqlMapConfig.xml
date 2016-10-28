@@ -29,5 +29,6 @@
   	<sqlMap resource="./schedule/model/schedule.xml"/>
   	<sqlMap resource="./qna/model/qna.xml"/>
   	<sqlMap resource="./subject/model/subject.xml"/>
+  	<sqlMap resource="./sugang/model/sugang.xml"/>
 	  	
 </sqlMapConfig>

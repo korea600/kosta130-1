@@ -79,9 +79,10 @@ $(document).ready(function(){
         });//button click
         
         $('.one').click(function(){
-        	  //jQuery.ajax({});console.log("dddd");
+        	  //jQuery.ajax({});
+        	  console.log("dddd");
         	  $.ajax({    		  
-        	     url:'/Project2/main/main_list.do',
+        	     url:'/Project2/student/s_sugang.html',
         	     success: function(data){
         	    	$('#main').html(data); 
         	     }
@@ -90,8 +91,9 @@ $(document).ready(function(){
           
           $('.two').click(function(){
           	  //jQuery.ajax({});
+          	  console.log("ddd");
           	  $.ajax({    		  
-          	     url:'/Project2/admin/listQnaConfirm.do?action=AdminQna',
+          	     url:'/Project2/student/s_sugang.html',
           	     success: function(data){
           	    	$('#main').html(data); 
           	     }
@@ -156,7 +158,7 @@ $(document).ready(function(){
 				<li class="five"><p>건의 사항</p></li>
 			</ul>
 		</div></td> 
-<td width="800">
+<td width="800" id="main">
 		<table class="main_table">
 			<tr>
 				<td class="main_td" colspan=2>
