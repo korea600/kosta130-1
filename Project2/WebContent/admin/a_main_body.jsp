@@ -9,35 +9,14 @@
 <link rel="stylesheet" href="/Project2/common/css/main_body.css" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <header><%@include file="/common/header.jsp"%></header>
-
 <title>Insertasdsadsadsadsads</title>
-<script src="/Project2/common/css/jquery-3.0.0.js"></script>
-<!--  <script type="text/javascript">
-$(function(){
-    $('#menu5').click(function(){
-    	console.log("ddd");
-  	 //$.get(url,callback);
-  	 //$.get(URL,function(data응답데이터,status,xhr))
-  	 $.get('/Project2/common/edit.do?action=member', function(resultData){
-  		 $('#main').html(resultData);
-  	 })
-    });//b1클릭 	
-  });//ready
-  
-  
-</script>-->
-</head>
-<body>
-	<center>
-<table width="1024px" cellpadding="0" cellspacing="0" height="0" border=0 style="padding-top:0px; "> 
-<tr> 
-<td width="200px">
-
 <link href="/Project2/common/css/a_menu.css" rel="stylesheet" type="text/css" />
-<script src="/Project2/common/css/jquery-3.0.0.js"></script>
-<script type="text/javascript">
+<script src="/Project2/common/css/jquery-3.0.0.js" ></script>
+
+ <script type="text/javascript">
 $(document).ready(function(){
-	  $(".zero").click(function(){
+	console.log("asdasdasd");
+	  $("#zero").click(function(){
 		  	$(".zero").css({"background":"#173b68","color":"#fff"})
 	         $(".one").css({"background":"#fff","color":"#000"})
 	         $(".two").css({"background":"#fff","color":"#000"})
@@ -47,7 +26,7 @@ $(document).ready(function(){
 	         $(".six").css({"background":"#fff","color":"#000"})
 	      });
 		
-      $(".one").click(function(){
+      $("#one").click(function(){
     	  $(".zero").css({"background":"#fff","color":"#000"})
          $(".one").css({"background":"#173b68","color":"#fff"})
          $(".two").css({"background":"#fff","color":"#000"})
@@ -57,7 +36,7 @@ $(document).ready(function(){
          $(".six").css({"background":"#fff","color":"#000"})
       });
 
-      $(".two").click(function(){
+      $("#two").click(function(){
     	  $(".zero").css({"background":"#fff","color":"#000"})
          $(".two").css({"background":"#173b68","color":"#fff"})
          $(".one").css({"background":"#fff","color":"#000"})
@@ -67,7 +46,7 @@ $(document).ready(function(){
          $(".six").css({"background":"#fff","color":"#000"})
       });
 
-      $(".three").click(function(){
+      $("#three").click(function(){
     	  $(".zero").css({"background":"#fff","color":"#000"})
          $(".three").css({"background":"#173b68","color":"#fff"})
          $(".two").css({"background":"#fff","color":"#000"})
@@ -77,7 +56,7 @@ $(document).ready(function(){
          $(".six").css({"background":"#fff","color":"#000"})
       });
 
-      $(".four").click(function(){
+      $("#four").click(function(){
     	  $(".zero").css({"background":"#fff","color":"#000"})
          $(".four").css({"background":"#173b68","color":"#fff"})
          $(".two").css({"background":"#fff","color":"#000"})
@@ -87,7 +66,7 @@ $(document).ready(function(){
          $(".six").css({"background":"#fff","color":"#000"})
       });
 
-      $(".five").click(function(){
+      $("#five").click(function(){
     	  $(".zero").css({"background":"#fff","color":"#000"})
          $(".five").css({"background":"#173b68","color":"#fff"})
          $(".two").css({"background":"#fff","color":"#000"})
@@ -97,7 +76,7 @@ $(document).ready(function(){
          $(".six").css({"background":"#fff","color":"#000"})
       });
 
-      $(".six").click(function(){
+      $("#six").click(function(){
     	  $(".zero").css({"background":"#fff","color":"#000"})
          $(".six").css({"background":"#173b68","color":"#fff"})
          $(".two").css({"background":"#fff","color":"#000"})
@@ -106,24 +85,104 @@ $(document).ready(function(){
          $(".five").css({"background":"#fff","color":"#000"})
          $(".one").css({"background":"#fff","color":"#000"})
       });
+      $('#zero').click(function(){
+    	  console.log("asdasdasdasd");
+      	  //jQuery.ajax({});
+      	  $.ajax({    		  
+      	     url:'/Project2/main/main_list.do',
+      	     success: function(data){
+      	    	$('#main').html(data); 
+      	     }
+      	  });//$.ajax()
+        });//button click
+        
+        $('#one').click(function(){
+        	  //jQuery.ajax({});
+        	  console.log("DDDD");
+        	  $.ajax({    		  
+        	     url:'/Project2/main/main_list.do',
+        	     success: function(data){
+        	    	$('#main').html(data); 
+        	     }
+        	  });//$.ajax()
+          });//button click
+          
+          $('#two').click(function(){
+        	  console.log("DDDD");
+          	  //jQuery.ajax({});
+          	  $.ajax({    		  
+          	     url:'/Project2/admin/listQnaConfirm.do?action=AdminQna',
+          	     success: function(data){
+          	    	$('#main').html(data); 
+          	     }
+          	  });//$.ajax()
+            });//button click
+            
+            $('#three').click(function(){
+            	 console.log("DDDD");
+            	  //jQuery.ajax({});
+            	  $.ajax({    		  
+            	     url:'/Project2/admin/notice_list.do',
+            	     success: function(data){
+            	    	$('#main').html(data); 
+            	     }
+            	  });//$.ajax()
+              });//button click
+              
+              $('#four').click(function(){
+            	  console.log("DDDD");
+              	  //jQuery.ajax({});
+              	  $.ajax({    		  
+              	     url:'/Project2/admin/notice_list.do',
+              	     success: function(data){
+              	    	$('#main').html(data); 
+              	     }
+              	  });//$.ajax()
+                });//button click
+                
+                $('#five').click(function(){
+                	 console.log("DDDD");
+                	  //jQuery.ajax({});
+                	  $.ajax({    		  
+                	     url:'/Project2/common/edit.do?action=member',
+                	     success: function(data){
+                	    	$('#main').html(data); 
+                	     }
+                	  });//$.ajax()
+                  });//button click
+                  
+                  $('#six').click(function(){
+                	  console.log("DDDD");
+                  	  //jQuery.ajax({});
+                  	  $.ajax({    		  
+                  	     url:'/Project2/admin/list.do?action=list',
+                  	     success: function(data){
+                  	    	$('#main').html(data); 
+                  	     }
+                  	  });//$.ajax()
+                    });//button click
+                    
    });
 </script>
-		 	<% request.setCharacterEncoding("UTF-8");
-	 List<NoticeDTO> list_h = (List<NoticeDTO>)request.getAttribute("haksa_list");
-	 List<NoticeDTO> list_j = (List<NoticeDTO>)request.getAttribute("job_list");%> 
+
 </head>
 <body>
-
-
+<% request.setCharacterEncoding("UTF-8");
+	 List<NoticeDTO> list_h = (List<NoticeDTO>)request.getAttribute("haksa_list");
+	 List<NoticeDTO> list_j = (List<NoticeDTO>)request.getAttribute("job_list");%> 
+	<center>
+<table width="1024px" cellpadding="0" cellspacing="0" height="0" border=0 style="padding-top:0px; "> 
+<tr> 
+<td width="200px">
 <div class="menu">
-			<ul>
-				<li class="zero"><p><a href="/Project2/admin/a_main_body.jsp">메인</a></p></li>
-				<li class="one"><p><a href="/Project2/student/listQna.do?action=list">학적처리</a></p></li>
-				<li class="two"><p><a href="/Project2/admin/listQnaConfirm.do?action=AdminQna">건의사항 확인</a></p></li>
-				<li class="three"><p><a href="/Project2/admin/notice_list.do" id="menu3">공지관리</p></a></li>
-				<li class="four"><p>과목 수정/등록</p></li>
-				<li class="five"><p><a href="/Project2/common/edit.do?action=member" id="menu5">회원관리</a></p></li>
-				<li class="six"><p>학사일정관리</p></li>
+		<ul>
+				<li><p><a href="#" id="zero">메인</a></p></li>
+				<li><p><a id="one">학적처리</a></p></li>
+				<li><p><a href="#" id="two">건의사항 확인</a></p></li>
+				<li><p><a id="three">공지관리</a></p></li>
+				<li><p><a id="four">과목 수정/등록</a></p></li>
+				<li><p><a href="#" id="five">회원관리</a></p></li>
+				<li><p><a href="#" id="six">학사일정관리</a></p></li>
 			</ul>
 		</div></td> 
 <td width="800px" id="main">
@@ -210,6 +269,7 @@ $(document).ready(function(){
 				</td>
 			</tr>
 		</table></td> 
+
 </tr> 
 </table> 
 		

@@ -13,7 +13,7 @@
 	function ch(){
 		console.log("ddd");
 		var mo= document.sch.month.value;
-		location.href="addResult.do?action=search&month="+mo;
+		location.href="/Project2/admin/addResult.do?action=search&month="+mo;
 	}
 </script>
 </head>
