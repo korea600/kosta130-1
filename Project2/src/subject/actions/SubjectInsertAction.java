@@ -7,13 +7,11 @@ import java.util.GregorianCalendar;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.jsp.PageContext;
 
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import org.apache.struts.chain.contexts.ServletActionContext;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
@@ -33,7 +31,8 @@ public class SubjectInsertAction extends Action{
 		String uploadDirectory = application.getRealPath("subject_plan");
 		request.setCharacterEncoding("EUC-KR");
 		MultipartRequest mr = new MultipartRequest(request, uploadDirectory,2*1024*1024,"EUC-KR",new DefaultFileRenamePolicy());
-		String filename = mr.getFilesystemName("file");					// 업로드 파일명 구하기
+		String filename = mr.getFilesystemName("plan");					// 업로드 파일명 구하기
+		System.out.println(filename);
 		String fileext = filename.substring(filename.lastIndexOf("."));	// 파일명에서 확장자 구하기
 		File uploadedFile = mr.getFile(filename);
 		if(uploadedFile!=null){		// 파일명 변경 (ex. code가 5이면 plan5.xxx)
@@ -47,7 +46,7 @@ public class SubjectInsertAction extends Action{
 		int credit = Integer.parseInt(mr.getParameter("credit"));
 		LoginDTO login =(LoginDTO) request.getSession().getAttribute("LoginDTO");
 		String name = login.getName();
-		String times = mr.getParameter("times");
+		String times = mr.getParameter("day")+mr.getParameter("start")+"-"+mr.getParameter("end");
 		String room = mr.getParameter("room");
 		int cnt = Integer.parseInt(mr.getParameter("cnt"));
 		
@@ -61,8 +60,10 @@ public class SubjectInsertAction extends Action{
 			year++;
 		}
 		SubjectDTO subject = new SubjectDTO(null, name, division, year, semester, 0, sub, credit, times, room, cnt, "처리중");
-		dao.p_insert(subject);
-		return mapping.findForward("success");
+		if(dao.p_insert(subject)){
+			return mapping.findForward("success");
+		}
+		else return null;
 	}
 
 }

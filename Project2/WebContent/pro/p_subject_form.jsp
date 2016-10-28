@@ -1,21 +1,27 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
 <script type="text/javascript" src='/Project2/js/jquery-1.12.4.js'></script>
 <script type="text/javascript">
-	function confirm(){
-		if($('[name=start]').val()<$('[name=end]').val()){
-			document.frm.submit;
+$(function(){
+	$('[name=confirm]').click(function(){
+		if($('[name=start]').val()<=$('[name=end]').val()){
+			document.frm.submit();
 		}
 		else{
 			alert('값이 유효하지 않습니다.');
 		}
-	}
+	});
+	$('[name=cancel]').click(function(){
+		history.back();
+	});	
+})
 </script>
+
 </head>
 <body>
 <center>
@@ -36,7 +42,7 @@
 </tr>
 <tr>
 	<td class='menu'>교수명</td>
-	<td class='content'><input type='text' name='name' readonly="readonly">${LoginDTO.name}</td>
+	<td class='content'><input type='text' name='name' readonly="readonly" value="${LoginDTO.name}"></td>
 </tr>
 <tr>
 	<td class='menu'>시간</td>
@@ -88,8 +94,8 @@
 </tr>
 <tr>
 	<td colspan='2' align="center">
-		<input type="button" name='confirm' value='입력' onclick='confirm()'>
-		<input type="button" name='confirm' value='취소' onclick='history.back()'>
+		<input type="button" name='confirm' value='입력'>
+		<input type="button" name='cancel' value='취소'>
 	</td>
 </tr>
 </table>

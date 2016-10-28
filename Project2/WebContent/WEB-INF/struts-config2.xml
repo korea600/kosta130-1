@@ -58,7 +58,7 @@
 			<forward name="list" path="/pro/p_subject.jsp"/>
 		</action>
 		<action path="/pro/subjectinsert" type='subject.actions.SubjectInsertAction'>
-			<forward name="success" path="/pro/subjectlist.do" redirect="true"/>
+			<forward name="success" path="/pro/subjectlist.do"/>
 		</action>
 		<!-- 교수의 과목 조회 -->
 		

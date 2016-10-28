@@ -36,6 +36,7 @@ public class SubjectDAO {
 	public boolean p_insert(SubjectDTO dto){		// 교수의 과목등록 (요청)
 		try {
 			smc.insert("subject.insert", dto);
+			return true;
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
