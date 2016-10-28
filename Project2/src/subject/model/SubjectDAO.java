@@ -9,20 +9,19 @@ import iBatis.SqlMapConfig;
 
 public class SubjectDAO {
 
-SqlMapClient smc;
+	SqlMapClient smc;
 	
 	public SubjectDAO() {
 		smc = SqlMapConfig.getSqlMapInstance();	
 	}
-	
 
-	public List<String> selectMajor(String division){
-		   List<String> list = null;
+	public List<SubjectDTO> p_selectAll(SubjectDTO dto){		// 교수의 과목 조회
+		   List<SubjectDTO> list = null;
 		   try {
-			   list=smc.queryForList("subject.view_select",division);
+			   list=smc.queryForList("subject.selectAll",dto);
 		   } catch (SQLException e) {
 			   e.printStackTrace();
 		   }  
 		   return list;
-	   }//selectGugun
+	}
 }
