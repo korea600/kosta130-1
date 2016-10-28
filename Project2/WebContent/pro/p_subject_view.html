@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="../js/jquery-1.min.js"></script>
+<script type="text/javascript">
+ $.ajax({
+	 $('#sp1').change(function(){
+			$.ajax({
+				url:'/pro/subject_view.do',
+				data:{
+					   delim:'division',//구분자 파라미터
+					   info: $('#sp1 select').val() //조건절에 사용할 시,도 정보
+				},
+			    success:function(data){	      
+			      $('#sp2').text(data);
+			    }
+			});//구군 요청
+			
+		 });//sp1 체이지
+	 
+	 
+ }
+ 
+ </script>
+</head>
+<body>
+
+	<b>전공/교양 : </b><br>
+	<span id="sp1"><select name="major/culture"><option>==선택==</option>
+	<option>전공</option>
+	<option>교양</option>
+	</select>
+	</span>
+	<b>과목 : </b><br>
+	<span id="sp2"><select name="subject"><option>==선택==</option></select></span>
+	<b>학년 : </b><br>
+	<select name="grade">
+		<option>==선택=</option>
+		<option>1학년</option>
+		<option>2학년</option>
+		<option>3학년</option>
+		<option>4학년</option>
+	</select>
+	<button>조회</button>
+        <button>등록</button>
+	<hr>
+	<table id="sugang_table">
+		<tr>
+			<th>과목코드</th>
+			<th>과목명</th>
+			<th>교수명</th>
+			<th>시간</th>
+			<th>강의실</th>
+			<th>처리상태</th>
+			<th></th>
+		</tr>
+		<tr>
+			<td>K130R6</td>
+			<td>일반물리학</td>
+			<td>김진명</td>
+			<td>10:30~11:45</td>
+			<td>1강의실</td>
+			<td>처리완료</td>
+</button></td>
+		</tr>
+		<tr>
+			<td>K130R6</td>
+			<td>공학과윤리</td>
+			<td>예철해</td>
+			<td>3:00~4:15</td>
+			<td>2강의실</td>
+			<td>처리중</td>
+</button></td>
+		</tr>
+	</table>
+</body>
+</html>

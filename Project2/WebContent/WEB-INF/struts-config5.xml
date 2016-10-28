@@ -36,30 +36,38 @@
 			path : 가상경로 (뒤에 .do가 자동으로 붙여짐) forward : 이동할 실제 경로 (실제 페이지) -->
 
 
-      <!-- Project2 -->
-      <action path='/main' forward="/common/login.jsp"/>
-      <action path="/login" type="member.actions.LoginAction">
-         <forward name="result" path="/common/login_process.jsp"/>
-      </action>
-      
-      <action path="/main/main_list" type="common.actions.FirstPageAction">
-      	<forward name="success_list" path="/admin/a_main_body.jsp"/>
-      </action>
-      
-      <action path="/pro/query" forward="/pro/p_subject.jsp"/>
-		<!-- Project2_gongi -->
-		<action path="/admin/form" forward ="/admin/a_notice_upform.jsp"></action>
+		<!-- Project2_로그인 -->
+		<action path='/main' forward="/common/login.jsp" />
+		<action path="/login" type="member.actions.LoginAction">
+			<forward name="result" path="/common/login_process.jsp" />
+		</action>
+		<!-- Project2_공지 공통 메인에 뿌리기 -->
+		<action path="/main/main_list" type="common.actions.FirstPageAction">
+			<forward name="success_list" path="/admin/a_main_body.jsp" />
+		</action>
+		<!-- Project2_과목 -->
+		<action path="/pro/query" forward="/pro/p_subject.jsp" />
+		 <action path="/pro/subject_view"
+                type="subject.actions.SubjectComboAction">
+            <forward name="success" path="/pro/p_subject.jsp"/>
+        </action>
+		<!-- Project2_공지 -->
+		<action path="/admin/form" forward="/admin/a_notice_upform.jsp"></action>
 		<action path="/admin/notice_list" type="notice.actions.NoticeAction">
 			<forward name="notice_first" path="/admin/a_notice.jsp" />
-			<forward name="notice_successinsert" path="/admin/notice_list.do" redirect="true" />
-			<forward name="upform_check" path="/admin/form.do"/>
-			<forward name="update_success" path="/admin/notice_list.do" redirect="true"></forward>
-			<forward name="delete_success" path="/admin/notice_list.do" redirect="true"></forward>
+			<forward name="notice_successinsert" path="/admin/notice_list.do"
+				redirect="true" />
+			<forward name="upform_check" path="/admin/form.do" />
+			<forward name="update_success" path="/admin/notice_list.do"
+				redirect="true"></forward>
+			<forward name="delete_success" path="/admin/notice_list.do"
+				redirect="true"></forward>
 		</action>
-		
-		<!-- <action path="/main/main_list" type="common.actions.FirstPageAction">
-			<forward name="notice_main" path="/common/a_main_body.jsp"></forward>
-		</action> -->
+
+
+
+		<!-- <action path="/main/main_list" type="common.actions.FirstPageAction"> 
+			<forward name="notice_main" path="/common/a_main_body.jsp"></forward> </action> -->
 
 
 	</action-mappings>

@@ -5,6 +5,5 @@
     <select id="view_select" parameterClass="String" resultClass="notice.model.NoticeDTO">
 		select major from subject where division=#division#
     </select>
-    
-    
+
  </sqlMap>
