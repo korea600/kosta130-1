@@ -55,7 +55,10 @@
 			<forward name="update_result" path='/pro/p_update_result.jsp'/>
 		</action>
 		<action path="/pro/subjectlist" type='subject.actions.SubjectListAction'>
-			<forward name="list" path="/pro/p_subject.jsp"></forward>
+			<forward name="list" path="/pro/p_subject.jsp"/>
+		</action>
+		<action path="/pro/subjectinsert" type='subject.actions.SubjectInsertAction'>
+			<forward name="success" path="/pro/subjectlist.do" redirect="true"/>
 		</action>
 		<!-- 교수의 과목 조회 -->
 		

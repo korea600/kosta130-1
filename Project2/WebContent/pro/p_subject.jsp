@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="/Project2/common/css/p_subject.css" type="text/css" />
+<link rel="stylesheet" href="/Project2/common/css/style.css" type="text/css" />
 <title>과목조회</title>
 </head>
 <body>

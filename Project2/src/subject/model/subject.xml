@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd" >
 <sqlMap namespace="subject">
-
+	<select id='code_sequence' resultClass='int'>
+		select subject_seq.currval from tab
+	</select>
     <select id="selectAll" parameterClass='subject.model.SubjectDTO' resultClass='subject.model.SubjectDTO'>
 		select s.year, s.semester, s.code, s.sub, m.name, s.times, s.room, s.checked
 		from member m, subject s
 		where s.professor=m.name and s.professor=#name# and m.id=#id#
     </select>
-
+	<insert id='insert' parameterClass='subject.model.SubjectDTO'>
+		insert into subject
+		(code,division,year,semester,sub,credit,professor,times,room,cnt,checked,major)
+		values (subject_seq.nextval,#division#,#year#,#semester#,#sub#,#credit#,#name#,#times#,#room#,#cnt#,#checked#,
+		(select dept from member where id=#id#)
+		)
+	</insert>
  </sqlMap>
