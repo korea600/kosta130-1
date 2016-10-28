@@ -43,7 +43,10 @@
 		</action>
 		<!-- Project2_공지 공통 메인에 뿌리기 -->
 		<action path="/main/main_list" type="common.actions.FirstPageAction">
-			<forward name="success_list" path="/admin/a_main_body.jsp" />
+			<forward name="admin" path="/admin/a_main_body.jsp" />
+			<forward name="student" path="/student/s_main_body.jsp" />
+			<forward name="professor" path="/pro/p_main_body.jsp" />
+			<forward name="success_list1" path="/common/main_body.jsp" />
 		</action>
 		<!-- Project2_과목 -->
 		<action path="/pro/query" forward="/pro/p_subject.jsp" />
