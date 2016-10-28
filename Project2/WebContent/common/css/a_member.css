@@ -45,7 +45,8 @@ section{
 			font-size:14px;
 			font-weight:bold;
 		}
-		.part , .level, .school_btn{
+			
+		.part , .level, .school_btn, .insert_btn{
 			float:left;
 		}
 

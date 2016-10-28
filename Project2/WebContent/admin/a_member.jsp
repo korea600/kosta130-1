@@ -28,15 +28,13 @@ $( document ).ready(function() {
 	});
 	
 	$('.name_btn').click(function(){
-		var dept = document.frm.part.value;
-		var sem = document.frm.level.value;
 		var cate = $(".name").val();
 		var text = $(".name_text").val();
-		console.log(cate+text);
+		console.log(cate);
 	    $.ajax({
 	        url:'/Project2/admin/school_btn_ajax.jsp',
 	        type:'post',
-	        data:{"action":"scr_selec2","dept":dept,"sem":sem,"cate":cate,"text":text},
+	        data:{"action":"scr_selec2","cate":cate,"text":text},
 	        success:function(data){
 	        	$(".input_box").empty();
 	            $(".input_box").append(data);
@@ -98,7 +96,7 @@ $( document ).ready(function() {
 					<li>학년</li>
 					<li>상태</li>
 					<li>연락처</li>
-					<li>수정/삭제</li>					
+					<li>직책</li>					
 				</ul>
 			
 				<div class="input_box">

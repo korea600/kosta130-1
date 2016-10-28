@@ -16,10 +16,21 @@
 	</update>
 	
 	<select id="mem_allselect" parameterClass="member.model.MemberDTO" resultClass="member.model.MemberDTO">
-		select id,dept,name,semester,status,tel from member where dept=#dept# and semester between #semester#*2-1 and #semester#*2 order by id
+		select id,dept,name,semester,status,tel,job from member where dept=#dept# and semester between #semester#*2-1 and #semester#*2 order by id
 	</select>
 	
 	<select id="sub_select" resultClass="member.model.MemberDTO">
 		select DISTINCT dept from member 
+	</select>
+	
+	<select id="ch_select" parameterClass="member.model.MemberDTO" resultClass="member.model.MemberDTO">
+	select id,dept,name,semester,status,tel,job
+      from member
+      <isNotNull property="name">
+         where name like #name#
+      </isNotNull>
+      <isNotNull property="id">
+         where id like #id#
+      </isNotNull>
 	</select>
 </sqlMap>

@@ -173,7 +173,7 @@ $(document).ready(function(){
 	<center>
 <table width="1024px" cellpadding="0" cellspacing="0" height="0" border=0 style="padding-top:0px; "> 
 <tr> 
-<td width="200px">
+<td width="200px" >
 <div class="menu">
 		<ul>
 				<li class="zero"><p><a href="#" id="zero">메인</a></p></li>
