@@ -89,7 +89,7 @@ $(document).ready(function(){
     	  console.log("asdasdasdasd");
       	  //jQuery.ajax({});
       	  $.ajax({    		  
-      	     url:'/Project2/main/main_list.do',
+      	     url:'/Project2/main/main_list.do?action=main',
       	     success: function(data){
       	    	$('#main').html(data); 
       	     }
@@ -176,13 +176,13 @@ $(document).ready(function(){
 <td width="200px">
 <div class="menu">
 		<ul>
-				<li><p><a href="#" id="zero">메인</a></p></li>
-				<li><p><a id="one">학적처리</a></p></li>
-				<li><p><a href="#" id="two">건의사항 확인</a></p></li>
-				<li><p><a id="three">공지관리</a></p></li>
-				<li><p><a id="four">과목 수정/등록</a></p></li>
-				<li><p><a href="#" id="five">회원관리</a></p></li>
-				<li><p><a href="#" id="six">학사일정관리</a></p></li>
+				<li class="zero"><p><a href="#" id="zero">메인</a></p></li>
+				<li class="one"><p><a id="one">학적처리</a></p></li>
+				<li class="two"><p><a href="#" id="two">건의사항 확인</a></p></li>
+				<li class="three"><p><a id="three">공지관리</a></p></li>
+				<li class="four"><p><a id="four">과목 수정/등록</a></p></li>
+				<li class="five"><p><a href="#" id="five">회원관리</a></p></li>
+				<li class="six"><p><a href="#" id="six">학사일정관리</a></p></li>
 			</ul>
 		</div></td> 
 <td width="800px" id="main">
@@ -227,6 +227,7 @@ $(document).ready(function(){
 							</tr>
 						</thead>
 						<tbody>
+						
 						<% for(int i=0; i<5; i++){ %>
 							<tr>
 								<th scope=col><%= list_h.get(i).getTitle() %></th>
