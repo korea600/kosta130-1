@@ -2,6 +2,7 @@ package sugang.model;
 
 import java.sql.Date;
 
+//id,code,bet,year,term,grade,dept,semester,status,total.t_credit,starts,ends,major,division,sub,credit,professor,times,room,cnt,checked
 public class SugangDTO {
 	private String id;
 	private int code;

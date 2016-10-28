@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd" >
 <sqlMap namespace="sugang">
-  <select id="major" parameterClass="String" resultClass="String">
-  	select distinct major from subject where division=#division#
-  	order by major
+	<select id="major" parameterClass="String" resultClass="String">
+		select distinct major from subject
+		where division=#division#
+		order by major
+	</select>
+  	
+  	<select id="completeSelect" parameterClass="sugang.model.SugangDTO" resultClass="sugang.model.SugangDTO">
+  		select code,year,semester term,grade from grade_info
+  		where id=#id# and year = TO_CHAR(SYSDATE,'YYYY') and semester=#term#
   	</select>
+  	
 </sqlMap>

@@ -22,4 +22,14 @@ public class SugangDAO {
 		}
 		return list;
 	}//selectDivision
+	
+	public List<SugangDTO> completeSelect(SugangDTO dto){
+		List<SugangDTO> list = null;
+		try {
+			list = sqlMap.queryForList("sugang.completeSelect",dto);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
 }

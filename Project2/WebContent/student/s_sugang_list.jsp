@@ -1,3 +1,8 @@
+<%@page import="sugang.model.SugangDTO"%>
+<%@page import="java.util.List"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -39,7 +44,13 @@ function nullCheck(){
 		<option>전공</option>
 		<option>교양</option>
 	</select></span>
-	<span id="sp2"><select id="sel2"><option value="==선택==">==선택==</option></select></span>
+	<span id="sp2"><select id="sel2">
+	<option value="==선택==">==선택==</option>
+	<c:forEach items="${divisionList }" var="area">
+		<option>${area }</option>
+	</c:forEach>
+	
+	</select></span>
 	<span id="sp3" value="==선택=="><select id="sel3">
 		<option>==선택==</option>
 		<option>1학년</option>
@@ -58,13 +69,16 @@ function nullCheck(){
 			<th>학기</th>
 			<th>과목학점</th>
 		</tr>
-		<tr>
-			<td>K128R7</td>
-			<td>2016</td>
-			<td>2</td>
-			<td>111001</td>
-			<td>3</td>
-		</tr>
+<%
+		List<SugangDTO> list = (List<SugangDTO>)request.getAttribute("selectListt");
+			if(list != null){
+				for(int i=0; i<list.size(); i++){
+					SugangDTO dto=list.get(i);
+					out.print("<tr><td>"+dto.getCode()+"</td><td>"+dto.getYear()+"</td><td>"+
+					dto.getTerm()+"</td><td>"+dto.getGrade()+"</td></tr>");
+				}
+			}
+		%>
 	</table>
 	</form>
 	<hr>

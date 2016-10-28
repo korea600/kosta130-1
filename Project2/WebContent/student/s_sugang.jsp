@@ -3,7 +3,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%-- mission4.jsp --%>
 <select>
-	<c:forEach items="${list }" var="area">
+	<c:forEach items="${divisionList }" var="area">
 		<option>${area }</option>
 	</c:forEach>
 </select>

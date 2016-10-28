@@ -82,7 +82,7 @@ $(document).ready(function(){
         	  //jQuery.ajax({});
         	  console.log("dddd");
         	  $.ajax({    		  
-        	     url:'/Project2/student/s_sugang.html',
+        	     url:'/Project2/student/sugang.do?action=division',
         	     success: function(data){
         	    	$('#main').html(data); 
         	     }
