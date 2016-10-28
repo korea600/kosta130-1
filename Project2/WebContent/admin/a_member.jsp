@@ -75,6 +75,7 @@ $( document ).ready(function() {
 						<option>4</option>
 					</select>
 					<div class="school_btn"> 조회</div>
+					<input type="file" value="등록">
 				</div>
 				<!--right-->
 				<div class="right_search">

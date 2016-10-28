@@ -45,8 +45,20 @@ section{
 			font-size:14px;
 			font-weight:bold;
 		}
+		.asdasd{
+			width:50px;
+			height:30px;
+			background:#173b68;
+			color:#fff;
+			cursor:pointer;
+			text-align:center;
+			line-height:30px;
+			font-size:14px;
+			font-weight:bold;
+		}
+		
 			
-		.part , .level, .school_btn, .insert_btn{
+		.part , .level, .school_btn,.asdasd{
 			float:left;
 		}
 
