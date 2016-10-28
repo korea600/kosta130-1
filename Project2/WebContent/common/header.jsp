@@ -18,7 +18,7 @@ function logout(){
 
 		<div id="wrap">
 		<!--header-->
-		<header>
+		<header style="position:fiexd;,top:0;,left:0;">
 			<div class="logo"><img src="/Project2/img/true.jpg"/></div>
 			<nav>
 				<ul>

@@ -6,6 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="/Project2/common/css/a_notice.css" rel="stylesheet" type="text/css" />
 <title>Insert title here</title>
 <script type="text/javascript">
 
@@ -31,36 +32,37 @@
 <body>
 
 	<form name="body_frm">
-		<select name="body_checked" onChange="checked_get();">
+		<select name="body_checked" onChange="checked_get();" class="check">
 			<option>학사/취업</option>
 			<option value="학사">학사공지사항</option>
 			<option value="취업">취업공지사항</option>
-		</select> <br> <br> <br> <br> <br>
+		</select> 
+		
+		 <input type="button" value="글쓰기" onclick="upNoticeForm()" class="write_btn">
 		
 		
 		<center>
-
-			<table border="3">
-
-				<tr>
-					<th>글번호</th>
-					<th>제목</th>
-					<th>작성일</th>
-				</tr>
-				
-	<%List<NoticeDTO> list = (List<NoticeDTO> )request.getAttribute("list");  %>		
+			<div class="view">
+				<ul>
+					<li>글번호</li>
+					<li>제목</li>
+					<li>작성일</li>
+				</ul>
+			</div>
+			<div class="view_form">
+				<%List<NoticeDTO> list = (List<NoticeDTO> )request.getAttribute("list");  %>		
 				<% for(int i=0; i<list.size(); i++){ %>
-					<tr>
-					<th><%=list.get(i).getNo() %></th>
-					<th><a style="cursor:pointer" onclick="window.open('/Project2/admin/notice_list.do?action=viewupdate&no=<%=list.get(i).getNo()%>' , 'upform_write', 'width=300,height=400,top=100,left=200')"><%=list.get(i).getTitle() %></a></th>		
-					<th><%=list.get(i).getGdate() %></th>
-					</tr>
-
+					<ul>
+						<li><%=list.get(i).getNo() %></li>
+						<li><a style="cursor:pointer" onclick="window.open('/Project2/admin/notice_list.do?action=viewupdate&no=<%=list.get(i).getNo()%>' , 'upform_write', 'width=300,height=400,top=100,left=200')"><%=list.get(i).getTitle() %></a></li>		
+						<li><%=list.get(i).getGdate() %></li>
+					</ul>
 				<%} %> 
-			</table>
+			</div>
 
-			<br> <br> <input type="button" value="글쓰기"
-				onclick="upNoticeForm()">
+		
+
+			<br> <br>
 
 		</center>
 

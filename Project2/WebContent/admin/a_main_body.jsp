@@ -100,7 +100,7 @@ $(document).ready(function(){
         	  //jQuery.ajax({});
         	  console.log("DDDD");
         	  $.ajax({    		  
-        	     url:'/Project2/main/main_list.do',
+        	     url:'/Project2/main/main_list.do?action=main',
         	     success: function(data){
         	    	$('#main').html(data); 
         	     }
@@ -170,10 +170,10 @@ $(document).ready(function(){
 <% request.setCharacterEncoding("UTF-8");
 	 List<NoticeDTO> list_h = (List<NoticeDTO>)request.getAttribute("haksa_list");
 	 List<NoticeDTO> list_j = (List<NoticeDTO>)request.getAttribute("job_list");%> 
-	<center>
+	
 <table width="1024px" cellpadding="0" cellspacing="0" height="0" border=0 style="padding-top:0px; "> 
 <tr> 
-<td width="200px" >
+<td width="200px" valign="top">
 <div class="menu">
 		<ul>
 				<li class="zero"><p><a href="#" id="zero">메인</a></p></li>
@@ -185,7 +185,7 @@ $(document).ready(function(){
 				<li class="six"><p><a href="#" id="six">학사일정관리</a></p></li>
 			</ul>
 		</div></td> 
-<td width="800px" id="main">
+<td width="824px" id="main" style="position:fixed;,top:100px;,left:212px;">
 		<table class="main_table">
 			<tr>
 				<td class="main_td" colspan=2>
@@ -274,6 +274,5 @@ $(document).ready(function(){
 </tr> 
 </table> 
 		
-	</center>
 </body>
 </html>

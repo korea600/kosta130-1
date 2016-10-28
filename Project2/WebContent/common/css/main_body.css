@@ -1,7 +1,7 @@
 @CHARSET "UTF-8";
 
 #wrap{
-		width:800px;
+		width:1024px;
 }
 .sub_news, .sub_news th, .sub_news td {border: 0;}
 .sub_news a {

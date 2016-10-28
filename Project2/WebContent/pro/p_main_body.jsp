@@ -18,8 +18,6 @@ $(document).ready(function(){
 	         $(".one").css({"background":"#fff","color":"#000"})
 	         $(".two").css({"background":"#fff","color":"#000"})
 	         $(".three").css({"background":"#fff","color":"#000"})
-	         $(".four").css({"background":"#fff","color":"#000"})
-	         $(".five").css({"background":"#fff","color":"#000"})
 	      });
 		
     $(".one").click(function(){
@@ -27,8 +25,6 @@ $(document).ready(function(){
        $(".one").css({"background":"#173b68","color":"#fff"})
        $(".two").css({"background":"#fff","color":"#000"})
        $(".three").css({"background":"#fff","color":"#000"})
-       $(".four").css({"background":"#fff","color":"#000"})
-       $(".five").css({"background":"#fff","color":"#000"})
     });
 
     $(".two").click(function(){
@@ -36,8 +32,6 @@ $(document).ready(function(){
        $(".two").css({"background":"#173b68","color":"#fff"})
        $(".one").css({"background":"#fff","color":"#000"})
        $(".three").css({"background":"#fff","color":"#000"})
-       $(".four").css({"background":"#fff","color":"#000"})
-       $(".five").css({"background":"#fff","color":"#000"})
     });
 
     $(".three").click(function(){
@@ -45,8 +39,6 @@ $(document).ready(function(){
        $(".three").css({"background":"#173b68","color":"#fff"})
        $(".two").css({"background":"#fff","color":"#000"})
        $(".one").css({"background":"#fff","color":"#000"})
-       $(".four").css({"background":"#fff","color":"#000"})
-       $(".five").css({"background":"#fff","color":"#000"})
     });
 
     $('.zero').click(function(){
@@ -101,7 +93,7 @@ $(document).ready(function(){
 	
 <table width="1024px" cellpadding="0" cellspacing="0" height="0" border=0 style="padding-top:0px; "> 
 <tr> 
-<td width="200">
+<td width="200" valign="top">
 <div class="menu">
 			<ul>
 				<li class="zero"><p>메인</p></li>
@@ -111,7 +103,7 @@ $(document).ready(function(){
 
 			</ul>
 		</div></td> 
-<td width="800">
+<td width="824px" id="main" style="position:fixed;,top:100px;,left:212px;">
 			<table class="main_table">
 			<tr>
 				<td class="main_td" colspan=2>
