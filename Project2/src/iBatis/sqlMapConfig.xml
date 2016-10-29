@@ -24,9 +24,12 @@
   
 	<sqlMap resource="./member/model/login.xml"/>
 	<sqlMap resource="./grade/model/grade.xml"/>
-  	<sqlMap resource="./admin/reg/model/reg.xml"/>
+  	<sqlMap resource="./reg/model/reg.xml"/>
   	<sqlMap resource="./notice/model/notice.xml"/>
   	<sqlMap resource="./schedule/model/schedule.xml"/>
   	<sqlMap resource="./qna/model/qna.xml"/>
+  	<sqlMap resource="./subject/model/subject.xml"/>
+  	<sqlMap resource="./sugang/model/sugang.xml"/>
 	  	
 </sqlMapConfig>
+
