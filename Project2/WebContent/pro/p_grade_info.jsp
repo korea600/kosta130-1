@@ -134,7 +134,7 @@
 <div class="school_btn" onclick="load_grade()">조회</div>
 
 </form><br>
-<form name='grades' action='action.do?action=update' method='POST'>
+<form name='grades' action='/Project2/pro/action.do?action=update' method='POST'>
 <div class="grade_info">
 				<ul class="top_text">
 					<li>학년</li>

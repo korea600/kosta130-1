@@ -1,7 +1,7 @@
 package subject.model;
 
 public class SubjectDTO {
-	String id;		// 교수id (member.id)
+	String id;			// 교수id (member.id)
 	String name;		// 교수명 (member.name, subject.professor)
 	String division;	// 이수구분 (subject.division)
 	int year;			// 개설연도 (subject.year)
@@ -13,6 +13,7 @@ public class SubjectDTO {
 	String room;		// 강의실 (subject.room)
 	int cnt;			// 수강인원 (subject.cnt)
 	String checked;		// 처리상태 (subject.checked)
+	String major;		// 전공과목 (member.dept, subject.major)
 	
 	public SubjectDTO() {}
 

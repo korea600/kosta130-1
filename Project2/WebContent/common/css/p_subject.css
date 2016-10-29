@@ -33,14 +33,15 @@ section{
 	margin-top: 10px;
 }
 .top_text{overflow:visible;}
-.top_text > li:nth-child(1){width:100px; height:30px; text-align:center; line-height:30px;}
-.top_text > li:nth-child(2){width:100px; height:30px; text-align:center; line-height:30px;}
-.top_text > li:nth-child(3){width:100px; height:30px; text-align:center; line-height:30px;}
-.top_text > li:nth-child(4){width:100px; height:30px; text-align:center; line-height:30px;}
-.top_text > li:nth-child(5){width:100px; height:30px; text-align:center; line-height:30px;}
-.top_text > li:nth-child(6){width:100px; height:30px; text-align:center; line-height:30px;}
+.top_text > li:nth-child(1){width:80px; height:30px; text-align:center; line-height:30px;}
+.top_text > li:nth-child(2){width:60px; height:30px; text-align:center; line-height:30px;}
+.top_text > li:nth-child(3){width:60px; height:30px; text-align:center; line-height:30px;}
+.top_text > li:nth-child(4){width:140px; height:30px; text-align:center; line-height:30px;}
+.top_text > li:nth-child(5){width:80px; height:30px; text-align:center; line-height:30px;}
+.top_text > li:nth-child(6){width:80px; height:30px; text-align:center; line-height:30px;}
 .top_text > li:nth-child(7){width:100px; height:30px; text-align:center; line-height:30px;}
 .top_text > li:nth-child(8){width:100px; height:30px; text-align:center; line-height:30px;}
+.top_text > li:nth-child(9){width:100px; height:30px; text-align:center; line-height:30px;}
 
 .list_text > li{
 	float:left;
@@ -48,12 +49,13 @@ section{
 	border-bottom:1px solid #ededed;
 	box-sizing:border-box;
 }
-.list_text > li:nth-child(1){width:100px; height:30px; text-align:center; line-height:30px;}
-.list_text > li:nth-child(2){width:100px; height:30px; text-align:center; line-height:30px;}
-.list_text > li:nth-child(3){width:100px; height:30px; text-align:center; line-height:30px;}
-.list_text > li:nth-child(4){width:100px; height:30px; text-align:center; line-height:30px;}
-.list_text > li:nth-child(5){width:100px; height:30px; text-align:center; line-height:30px;}
-.list_text > li:nth-child(6){width:100px; height:30px; text-align:center; line-height:30px;}
+.list_text > li:nth-child(1){width:80px; height:30px; text-align:center; line-height:30px;}
+.list_text > li:nth-child(2){width:60px; height:30px; text-align:center; line-height:30px;}
+.list_text > li:nth-child(3){width:60px; height:30px; text-align:center; line-height:30px;}
+.list_text > li:nth-child(4){width:140px; height:30px; text-align:center; line-height:30px;}
+.list_text > li:nth-child(5){width:80px; height:30px; text-align:center; line-height:30px;}
+.list_text > li:nth-child(6){width:80px; height:30px; text-align:center; line-height:30px;}
 .list_text > li:nth-child(7){width:100px; height:30px; text-align:center; line-height:30px;}
 .list_text > li:nth-child(8){width:100px; height:30px; text-align:center; line-height:30px;}
+.list_text > li:nth-child(9){width:100px; height:30px; text-align:center; line-height:30px; cursor: pointer;}
 	

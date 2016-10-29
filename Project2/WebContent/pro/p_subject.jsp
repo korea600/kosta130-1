@@ -8,6 +8,20 @@
 <link rel="stylesheet" href="/Project2/common/css/p_subject.css" type="text/css" />
 <link rel="stylesheet" href="/Project2/common/css/style.css" type="text/css" />
 <title>과목조회</title>
+<script type="text/javascript" src='/Project2/js/jquery-1.12.4.js'></script>
+<script type="text/javascript">
+	$(function(){
+		$('.edit').click(function(){
+			var checked=$(this).prev().text();
+			if(checked=='처리완료')
+				alert("이미 등록이 완료되어 수정할 수 없습니다.");
+			else{
+				alert('과목코드 : '+$(this).val());
+				location.href='/Project2/pro/subjectlist.do?code='+$(this).val();
+			}
+		});
+	});
+</script>
 </head>
 <body>
 <section>	<!-- 1024px -->
@@ -23,6 +37,7 @@
 		<li>시간</li>
 		<li>강의실</li>
 		<li>처리상태</li>
+		<li></li>
 	</ul>
 	<c:forEach items="${subject_list}" var="i">
 		<ul class="list_text">
@@ -34,6 +49,7 @@
 			<li>${i.times}</li>
 			<li>${i.room}</li>
 			<li>${i.checked}</li>
+			<li class='edit' value="${i.code }">수정/삭제</li>
 		</ul>
 	</c:forEach>
 </div>

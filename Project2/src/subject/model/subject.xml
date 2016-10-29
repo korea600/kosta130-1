@@ -7,13 +7,21 @@
     <select id="selectAll" parameterClass='subject.model.SubjectDTO' resultClass='subject.model.SubjectDTO'>
 		select s.year, s.semester, s.code, s.sub, m.name, s.times, s.room, s.checked
 		from member m, subject s
-		where s.professor=m.name and s.professor=#name# and m.id=#id#
+		where s.professor=m.name and s.professor=#name# and m.id=#id# order by s.code
+    </select>
+    <select id="select" parameterClass='int' resultClass='subject.model.SubjectDTO'>
+		select s.sub, s.checked, s.professor, s.times, s.credit, s.room, s.cnt
+		from subject s
+		where s.code=#code#
+    </select>
+    <select id='getMajor' parameterClass="String" resultClass='String'>
+    	select dept from member where id=#value#
     </select>
 	<insert id='insert' parameterClass='subject.model.SubjectDTO'>
 		insert into subject
 		(code,division,year,semester,sub,credit,professor,times,room,cnt,checked,major)
 		values (subject_seq.nextval,#division#,#year#,#semester#,#sub#,#credit#,#name#,#times#,#room#,#cnt#,#checked#,
-		(select dept from member where id=#id#)
+		(select member.dept from member where member.id=#id#)
 		)
 	</insert>
  </sqlMap>

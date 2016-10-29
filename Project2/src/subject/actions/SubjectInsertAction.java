@@ -32,21 +32,17 @@ public class SubjectInsertAction extends Action{
 		request.setCharacterEncoding("EUC-KR");
 		MultipartRequest mr = new MultipartRequest(request, uploadDirectory,2*1024*1024,"EUC-KR",new DefaultFileRenamePolicy());
 		String filename = mr.getFilesystemName("plan");					// 업로드 파일명 구하기
-		System.out.println(filename);
 		String fileext = filename.substring(filename.lastIndexOf("."));	// 파일명에서 확장자 구하기
-		File uploadedFile = mr.getFile(filename);
-		if(uploadedFile!=null){		// 파일명 변경 (ex. code가 5이면 plan5.xxx)
-			uploadedFile.renameTo(new File(uploadDirectory+"/plan"+(1+dao.getCurrentCode())+fileext));
-		}
-		
+				
 		// 그 외 파라미터 처리 (UTF-8)
 		request.setCharacterEncoding("UTF-8");
 		String sub = mr.getParameter("sub");
 		String division = mr.getParameter("division");
 		int credit = Integer.parseInt(mr.getParameter("credit"));
 		LoginDTO login =(LoginDTO) request.getSession().getAttribute("LoginDTO");
+		String id=login.getId();
 		String name = login.getName();
-		String times = mr.getParameter("day")+mr.getParameter("start")+"-"+mr.getParameter("end");
+		String times = mr.getParameter("day")+"/"+mr.getParameter("start")+"-"+mr.getParameter("end");
 		String room = mr.getParameter("room");
 		int cnt = Integer.parseInt(mr.getParameter("cnt"));
 		
@@ -59,8 +55,13 @@ public class SubjectInsertAction extends Action{
 			semester=1;
 			year++;
 		}
-		SubjectDTO subject = new SubjectDTO(null, name, division, year, semester, 0, sub, credit, times, room, cnt, "처리중");
-		if(dao.p_insert(subject)){
+		SubjectDTO subject = new SubjectDTO(id, name, division, year, semester, 0, sub, credit, times, room, cnt, "처리중");
+		int newCode =dao.p_insert(subject);		// 입력 성공시 새로 생성된 code값을 리턴 받음 
+		if(newCode>0){ 							// 새 code를 이용하여 파일명 변경
+			File uploadedFile = mr.getFile("plan");
+			if(uploadedFile!=null){		// 파일명 변경 (ex. code가 5이면 plan5.xxx)
+				uploadedFile.renameTo(new File(uploadDirectory+"\\plan"+(newCode)+fileext));
+			}
 			return mapping.findForward("success");
 		}
 		else return null;

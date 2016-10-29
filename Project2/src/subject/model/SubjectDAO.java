@@ -24,23 +24,45 @@ public class SubjectDAO {
 		}
 		return code;
 	}
-	public List<SubjectDTO> p_selectAll(SubjectDTO dto){		// 교수의 과목 조회
+	public List<SubjectDTO> p_selectAll(SubjectDTO dto){		// 교수의 과목 조회 (전체)
 		   List<SubjectDTO> list = null;
 		   try {
 			   list=smc.queryForList("subject.selectAll",dto);
-		   } catch (SQLException e) {
+		   }
+		   catch (SQLException e) {
 			   e.printStackTrace();
 		   }  
 		   return list;
 	}
-	public boolean p_insert(SubjectDTO dto){		// 교수의 과목등록 (요청)
+	public SubjectDTO p_select(int code){		// 교수의 과목 조회 (수정 목적으로 특정과목 선택)
+		SubjectDTO subject = null;
 		try {
-			smc.insert("subject.insert", dto);
-			return true;
+			subject=(SubjectDTO) smc.queryForObject("subject.select",code);
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}  
+		return subject;
+	}
+	public String getMajor(String id){
+		String major=null;
+		try {
+			major = (String) smc.queryForObject("subject.getMajor",id);
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return false;
+		return major;
+	}
+	public int p_insert(SubjectDTO dto){		// 교수의 과목등록 (요청), 강의계획서 파일명 변경을 위해 입력되었을때 생성된 code값 리턴
+		int code=0;
+		try {
+			smc.insert("subject.insert", dto);
+			code=getCurrentCode();
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return code;
 	}
 }
