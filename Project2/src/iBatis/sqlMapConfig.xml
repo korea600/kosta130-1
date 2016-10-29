@@ -32,3 +32,4 @@
   	<sqlMap resource="./sugang/model/sugang.xml"/>
 	  	
 </sqlMapConfig>
+
