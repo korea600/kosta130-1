@@ -55,7 +55,7 @@ $(document).ready(function(){
       $('.one').click(function(){
       	  //jQuery.ajax({});console.log("dddd");
       	  $.ajax({    		  
-      	     url:'/Project2/main/main_list.do',
+      	     url:'/Project2/pro/p_grade_info.jsp',
       	     success: function(data){
       	    	$('#main').html(data); 
       	     }
@@ -65,7 +65,7 @@ $(document).ready(function(){
         $('.two').click(function(){
         	  //jQuery.ajax({});
         	  $.ajax({    		  
-        	     url:'/Project2/admin/listQnaConfirm.do?action=AdminQna',
+        	     url:'/Project2/pro/subjectlist.do',
         	     success: function(data){
         	    	$('#main').html(data); 
         	     }

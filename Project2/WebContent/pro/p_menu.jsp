@@ -43,7 +43,7 @@ $(document).ready(function(){
 <div class="menu">
 			<ul>
 				<li class="zero"><p>메인</p></li>
-				<li class="one"><p><a href='/Project2/pro/p_grade_info.jsp'>성적입력</a></p></li>
+				<li class="one"><p>>성적입력</p></li>
 				<li class="two"><p>과목조회/등록</p></li>
 				<li class="three"><p>학과학생조회</p></li>
 
