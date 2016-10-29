@@ -6,7 +6,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link rel="stylesheet" href="css/sugang.css" type="text/css" />
+<link rel="stylesheet" href="/Project2/common/css/s_sugang_list.css" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript" src="../js/jquery-1.12.4.js"></script>
@@ -38,7 +38,8 @@ function nullCheck(){
 </script>
 </head>
 <body>
-<form name="sugang_form">
+<form name="sugang_form" class="sugang_form">
+	
 	<span id="sp1"><select id="sel1">
 		<option value="==선택==">==선택==</option>
 		<option>전공</option>
@@ -81,35 +82,73 @@ function nullCheck(){
 		%>
 	</table>
 	</form>
+	
 	<hr>
-	<table id="sugang_table">
-		<tr>
-			<th>과목코드</th>
-			<th>과목명</th>
-			<th>교수명</th>
-			<th>강의시간</th>
-			<th>인원</th>
-			<th>배팅점수</th>
-			<th></th>
-		</tr>
-		<tr>
-			<td>K130R6</td>
-			<td>자바프로그래밍</td>
-			<td>이길재</td>
-			<td>09:00~18:50</td>
-			<td>25</td>
-			<td><input type="text"></td>
-			<td><button>신청</button></td>
-		</tr>
-		<tr>
-			<td>K128R7</td>
-			<td>보안과정</td>
-			<td>노브레이크</td>
-			<td>09:00~18:50</td>
-			<td>26</td>
-			<td><input type="text"></td>
-			<td><button>신청</button></td>
-		</tr>
-	</table>
+	<div class="sugang">
+		<div class="right_pop"><p>* 배팅가능점수 : 50</p><p>* 신청가능 학점 : 50</p></div>
+		<div class="sugang_table">
+			<ul>
+				<li>과목코드</li>
+				<li>과목명</li>
+				<li>교수명</li>
+				<li>강의시간</li>
+				<li>인원</li>
+				<li>배팅점수</li>
+			</ul>
+		</div>
+		<div class="sugang_view_table">
+			<ul>
+				<li>과목코드</li>
+				<li>과목명</li>
+				<li>교수명</li>
+				<li>강의시간</li>
+				<li>인원</li>
+				<li><input type="text"/><input type="button" value="신청"></input></li>
+			</ul>
+		</div>
+		
+		<div class="sugang_table">
+			<ul>
+				<li>과목코드</li>
+				<li>과목명</li>
+				<li>교수명</li>
+				<li>강의시간</li>
+				<li>인원</li>
+				<li>배팅점수</li>
+			</ul>
+		</div>
+		<div class="sugang_view_table">
+			<ul>
+				<li>과목코드</li>
+				<li>과목명</li>
+				<li>교수명</li>
+				<li>강의시간</li>
+				<li>인원</li>
+				<li>신청점수</li>
+			</ul>
+		</div>
+		
+		<div class="sugang_table">
+			<ul>
+				<li>과목코드</li>
+				<li>과목명</li>
+				<li>교수명</li>
+				<li>강의시간</li>
+				<li>인원</li>
+				<li>배팅점수</li>
+			</ul>
+		</div>
+		<div class="sugang_view_table">
+			<ul>
+				<li>과목코드</li>
+				<li>과목명</li>
+				<li>교수명</li>
+				<li>강의시간</li>
+				<li>인원</li>
+				<li>신청점수</li>
+			</ul>
+		</div>
+	</div>
+	
 </body>
 </html>
