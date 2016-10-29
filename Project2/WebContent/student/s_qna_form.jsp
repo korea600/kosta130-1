@@ -12,14 +12,14 @@
 		if(confirm("삭제하시겠습니까?")){
 			var status = document.qnaform.status.value;
 			var no = document.qnaform.no.value;
-		opener.location.href= "resultQna.do?action=delete&status="+status+"&no="+no;
+		opener.location.href= "/Project2/student/resultQna.do?action=delete&status="+status+"&no="+no;
 		window.close();
 		}
 	}
 </script>
 </head>
 <body>
-	<form name="qnaform" action="resultQna.do?action=insert" method="post">
+	<form name="qnaform" action="/Project2/student/resultQna.do?action=insert" method="post">
 	<table id="table_reg">
 	<input type="hidden" name="no" value="${upform.no }">
 	<input type="hidden" name="status" value="${upform.status }">

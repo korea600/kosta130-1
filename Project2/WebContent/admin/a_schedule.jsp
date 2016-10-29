@@ -8,6 +8,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="/Project2/common/css/a_schedule.css" rel="stylesheet" type="text/css" />
+<link href="/Project2/common/css/style.css" rel="stylesheet" type="text/css" />
 <title>Insert title here</title>
 <script type="text/javascript" src="../js/ajax2.js"></script>
 
@@ -36,7 +37,7 @@
 		</option>
 		</select>
 		<input type="button" value="조회" onclick="ch()" class="mos mos_2">
-		<input type="button" value="등록" onclick="location.href='add.do'" class="mos mos_3">
+		<input type="button" value="등록" onclick="location.href='/Project2/admin/add.do'" class="mos mos_3">
 	</div>
 		
 	
@@ -57,7 +58,7 @@
 				for(int i=0; i<list.size(); i++){
 					ScheduleDTO dto=list.get(i);
 					out.print("<ul><li>"+dto.getNo()+"</li><li>"+dto.getStarts()+"</li><li>"+dto.getEnds()+
-						"</li> <li> <a href='addResult.do?action=upform&no="+dto.getNo()+"'>"+dto.getContent()+"</a></li><li>"+
+						"</li> <li> <a href='/Project2/admin/addResult.do?action=upform&no="+dto.getNo()+"'>"+dto.getContent()+"</a></li><li>"+
 						dto.getEtc()+"</li><li>"+dto.getPresenter()+"</li></ul>");
 				}
 			}

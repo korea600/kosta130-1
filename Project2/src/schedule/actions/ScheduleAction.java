@@ -22,9 +22,7 @@ public class ScheduleAction extends Action{
 		ScheduleDAO dao = new ScheduleDAO();
 		
 		String action = request.getParameter("action");
-		
 		ActionForward forward = mapping.findForward("success");
-		
 		LoginDTO login = (LoginDTO) request.getSession().getAttribute("LoginDTO");
 		
 		if (action.equals("insert")) {
@@ -43,7 +41,7 @@ public class ScheduleAction extends Action{
 			
 			ScheduleDTO dto = new ScheduleDTO( 
 									0,
-									starts, 
+									starts,
 									ends,
 									request.getParameter("content"),
 									request.getParameter("etc"),
@@ -54,8 +52,8 @@ public class ScheduleAction extends Action{
 		}else if(action.equals("upform")){
 			int no = Integer.parseInt(request.getParameter("no"));
 			ScheduleDTO dto = dao.select(no);
-			request.setAttribute("upform", dto);
-			forward = mapping.findForward("upform");
+				request.setAttribute("upform", dto);
+				forward = mapping.findForward("upform");
 		}else if(action.equals("update")){
 			
 			String starts = request.getParameter("syear")+"/"+
@@ -77,8 +75,6 @@ public class ScheduleAction extends Action{
 							request.getParameter("content"),
 							request.getParameter("etc"),
 							login.getName());
-			
-			
 			if(dao.update(dto)==true){
 				request.setAttribute("list", dao.selectAll());
 			}
@@ -90,8 +86,7 @@ public class ScheduleAction extends Action{
 		}else if(action.equals("search")){
 			String month = request.getParameter("month");
 			List<ScheduleDTO> list = dao.search(month);
-
-			request.setAttribute("list", list);
+				request.setAttribute("list", list);
 		}
 		return forward;
 	}

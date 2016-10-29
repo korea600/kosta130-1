@@ -15,12 +15,11 @@
 				String[] ssarray = sarray[2].split(" ");
 				String[] sssarray = ssarray[1].split(":");
 			%>
-<script type="text/javascript" src="../js/ajax2.js"></script>
 <script type="text/javascript">
 	function pass_check(ud){
 	if(ud=='del'){
 		if(confirm('정말삭제?'))
-		location.href='addResult.do?action=delete&no=<%= sdto.getNo() %>';
+		location.href='/Project2/admin/addResult.do?action=delete&no=<%= sdto.getNo() %>';
 	}else{
 		document.schAdd.submit();
 	}
@@ -30,7 +29,7 @@
 <body>
 <center>
 <!-- <form name="schAdd" action="/struts/Admin/list.do?action=insert"> -->
-<form name="schAdd" action="addResult.do?action=update" method="post">
+<form name="schAdd" action="/Project2/admin/addResult.do?action=update" method="post">
     <input type="hidden" name="no" value="<%= sdto.getNo() %>">
 	<table>
 		<tr>

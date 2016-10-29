@@ -7,13 +7,11 @@
 <link rel="stylesheet" href="css/Table.css" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript" src="../js/ajax2.js"></script>
-<script type="text/javascript"></script>
 </head>
 <body>
 	<center>
 		<!-- <form name="schAdd" action="/struts/Admin/list.do?action=insert"> -->
-		<form name="schAdd" action="addResult.do?action=insert" method="post">
+		<form name="schAdd" action="/Project2/admin/addResult.do?action=insert" method="post">
 			<table>
 				<tr>
 					<th>시작</th>

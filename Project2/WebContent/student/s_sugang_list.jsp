@@ -9,15 +9,26 @@
 <link rel="stylesheet" href="/Project2/common/css/s_sugang_list.css" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript" src="../js/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="/Project2/js/jquery-1.12.4.js"></script>
 <script type="text/javascript">
 $(function(){
 	$('#sp1').change(function(){
 		$.ajax({
-			url:'sugang.do',
-			data:{division:$('#sp1 > select').val()},
+			url:'/Project2/student/sugang.do',
+			data:{  action:"division",
+					division:$('#sel1').val()},
 			success:function(data){
-				$('#sp2').html(data);
+				var choice = document.getElementById('sel2');
+				while(choice.hasChildNodes()){
+					choice.removeChild(choice.firstChild);
+				}
+				var divisions = data.split("|");
+				
+				var htmldata = ""
+				for(var i=0; i < divisions.length; i++){
+					htmldata += "<option>"+divisions[i]+"</option>"
+				}
+				$("#sel2").append(htmldata)
 			}
 		});
 	});
@@ -29,6 +40,8 @@ function nullCheck(){
 	
 	if(sel1 == "==선택=="){
 		alert("전공 또는 교양을 선택해주세요.")
+	}else if(sel2 == "==선택=="){
+		alert("학과를 선택해주세요.")
 	}else if(sel3 == "==선택=="){
 		alert("학년을 선택해주세요.")
 	}else{
@@ -46,11 +59,7 @@ function nullCheck(){
 		<option>교양</option>
 	</select></span>
 	<span id="sp2"><select id="sel2">
-	<option value="==선택==">==선택==</option>
-	<c:forEach items="${divisionList }" var="area">
-		<option>${area }</option>
-	</c:forEach>
-	
+	<option id="choice" value="==선택==">==선택==</option>
 	</select></span>
 	<span id="sp3" value="==선택=="><select id="sel3">
 		<option>==선택==</option>
@@ -71,7 +80,7 @@ function nullCheck(){
 			<th>과목학점</th>
 		</tr>
 <%
-		List<SugangDTO> list = (List<SugangDTO>)request.getAttribute("selectListt");
+		List<SugangDTO> list = (List<SugangDTO>)request.getAttribute("selectList");
 			if(list != null){
 				for(int i=0; i<list.size(); i++){
 					SugangDTO dto=list.get(i);
@@ -91,7 +100,7 @@ function nullCheck(){
 				<li>과목코드</li>
 				<li>과목명</li>
 				<li>교수명</li>
-				<li>강의시간</li>
+				<li>강의시간</li>			
 				<li>인원</li>
 				<li>배팅점수</li>
 			</ul>

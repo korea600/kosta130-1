@@ -14,12 +14,12 @@
 	function updateForm(){
 		document.qnaform.submit();
 		window.close();
-		opener.location.href='listQnaConfirm.do?action=AdminQna';
+		opener.location.href='/Project2/admin/listQnaConfirm.do?action=AdminQna';
 	}
 </script>
 </head>
 <body>
-	<form name="qnaform" action="upformQna.do?action=update" method="post">
+	<form name="qnaform" action="/Project2/admin/upformQna.do?action=update" method="post">
 	<input type="hidden" name="no" value="${upform.no }">
 	<table id="table_reg">
 	

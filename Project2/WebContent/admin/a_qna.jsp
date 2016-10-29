@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<input type="button" value="등록" onclick="location.href='addQna.do'">
+	<input type="button" value="등록" onclick="location.href='/Project2/admin/addQna.do'">
 	<table id="table">
 		<tr>
 			<th id="td_sml">글번호</th>
@@ -25,7 +25,7 @@
 				for(int i=0; i<list.size(); i++){
 					QnaDTO dto=list.get(i);
 					out.print("<tr><td>"+dto.getNo()+"</td><td>"+dto.getTitle()+
-							"</td><td> <a href='#' onclick=window.open('upformQna.do?action=upform&no="+dto.getNo()+"','건의사항','width=400,height=350');>"+dto.getContent()+
+							"</td><td> <a href='#' onclick=window.open('/Project2/admin/upformQna.do?action=upform&no="+dto.getNo()+"','건의사항','width=400,height=350');>"+dto.getContent()+
 						"</a></td><td>"+dto.getName()+"</td><td>"+dto.getTimes()+"</td></tr>");
 				}
 			}

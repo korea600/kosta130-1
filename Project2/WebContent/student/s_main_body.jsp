@@ -80,9 +80,9 @@ $(document).ready(function(){
         
         $('.one').click(function(){
         	  //jQuery.ajax({});
-        	  console.log("dddd");
+        	  console.log("ddddddd");
         	  $.ajax({    		  
-        	     url:'/Project2/student/sugang.do?action=division',
+        	     url:'/Project2/student/sugang.do',
         	     success: function(data){
         	    	$('#main').html(data); 
         	     }

@@ -18,10 +18,10 @@ public class ListAction extends Action{
 		String action = request.getParameter("action");
 		ActionForward forward = mapping.findForward("success");
 		
-		if(action.equals("list")){
+		if(action.equals("list")){//a_schedule.jsp로 이동
 			ScheduleDAO dao = new ScheduleDAO();
 			request.setAttribute("list", dao.selectAll());
-		}else if(action.equals("main")){
+		}else if(action.equals("main")){//a_main_body.jsp로 이동
 			ScheduleDAO dao = new ScheduleDAO();
 			request.setAttribute("list", dao.selectAll());
 			forward = mapping.findForward("main");
