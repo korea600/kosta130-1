@@ -1,4 +1,4 @@
-package student.reg.model;
+package reg.model;
 
 import java.sql.Date;
 

@@ -9,24 +9,14 @@ public class MemberDTO {
 	String addr;
 	int semester;
 	String status;
-	
+	String job;
 	public MemberDTO() {
 	}
 
-	public MemberDTO(String id,String dept, String email, String tel, String addr, int semester, String status) {
-		super();
-		this.id = id;
-		this.dept = dept;
-		this.email = email;
-		this.tel = tel;
-		this.addr = addr;
-		this.semester = semester;
-		this.status = status;
-	}
 	
 	
 	public MemberDTO(String id, String dept, String name, String email, String tel, String addr, int semester,
-			String status) {
+			String status,String job) {
 		super();
 		this.id = id;
 		this.dept = dept;
@@ -36,6 +26,7 @@ public class MemberDTO {
 		this.addr = addr;
 		this.semester = semester;
 		this.status = status;
+		this.job = job;
 	}
 
 	public String getId() {
@@ -101,6 +92,14 @@ public class MemberDTO {
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+	
+	public String getJob() {
+		return job;
+	}
+
+	public void setJob(String job) {
+		this.job = job;
 	}
 	
 }

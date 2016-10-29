@@ -5,7 +5,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link rel="stylesheet" href="/Project2/common/css/a_member.css" type="text/css" />
+<link rel="stylesheet" href="/Project2/common/css/a_mem.css" type="text/css" />
 <link rel="stylesheet" href="/Project2/common/css/style.css" type="text/css" />
 <script src="/Project2/common/css/jquery-3.0.0.js" type="text/javascript"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -28,15 +28,13 @@ $( document ).ready(function() {
 	});
 	
 	$('.name_btn').click(function(){
-		var dept = document.frm.part.value;
-		var sem = document.frm.level.value;
 		var cate = $(".name").val();
 		var text = $(".name_text").val();
-		console.log(cate+text);
+		console.log(cate);
 	    $.ajax({
 	        url:'/Project2/admin/school_btn_ajax.jsp',
 	        type:'post',
-	        data:{"action":"scr_selec2","dept":dept,"sem":sem,"cate":cate,"text":text},
+	        data:{"action":"scr_selec2","cate":cate,"text":text},
 	        success:function(data){
 	        	$(".input_box").empty();
 	            $(".input_box").append(data);
@@ -77,6 +75,7 @@ $( document ).ready(function() {
 						<option>4</option>
 					</select>
 					<div class="school_btn"> 조회</div>
+					<!-- <input type="file" value="등록"> -->
 				</div>
 				<!--right-->
 				<div class="right_search">
@@ -89,6 +88,11 @@ $( document ).ready(function() {
 				</div>
 			</div>
 			<!--검색-->
+			<div class="file_form">
+				<input type="file"/>
+				<input type="button" value="전송"/>
+				<input type="button" value="양식다운로드"/>
+			</div>
 
 			<div class="member_info">
 				<ul class="top_text">
@@ -98,7 +102,7 @@ $( document ).ready(function() {
 					<li>학년</li>
 					<li>상태</li>
 					<li>연락처</li>
-					<li>수정/삭제</li>					
+					<li>직책</li>					
 				</ul>
 			
 				<div class="input_box">

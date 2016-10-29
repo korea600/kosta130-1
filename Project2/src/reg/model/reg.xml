@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd" >
+<sqlMap namespace="reg">
+	<!-- ID REQUEST REASON TIMES STATUS -->
+
+	<!-- ======================== ↓ 관 리 자 ↓ ======================== -->
+
+	<select id="adminReg" resultClass="reg.model.RegDTO"
+		parameterClass="String">
+		select id,request,reason,times,checked
+		from register
+		where checked=#checked#
+	</select> <!-- 리스트 출력 -->
+
+	<select id="adminRegForm" parameterClass="reg.model.RegDTO"
+		resultClass="reg.model.RegDTO">
+		select r.id, m.name, m.tel, r.request, r.reason
+		from register r, member m
+		where r.id=#id# and r.id=m.id and r.checked=#checked#
+	</select> <!-- 선택한 학생의 신청 내역 조회 -->
+
+	<update id="mem_update" parameterClass="reg.model.RegDTO">
+		update member set
+		status=#status#
+		where id=#id#
+	</update> <!-- 신청 승인/거절 -->
+
+	<update id="reg_update" parameterClass="reg.model.RegDTO">
+		update register set
+		checked=#checked#
+		where id=#id#
+	</update> <!-- 신청 승인/거절 -->
+	
+	<!-- ========================== ↓ 학  생 ↓ ========================== -->
+	
+	<select id="stdReg" resultClass="reg.model.RegDTO"
+		parameterClass="String">
+		select r.id,r.request,r.reason,r.times,r.checked
+		from register r, member m
+		where m.id=r.id and m.id=#id#
+	</select> <!-- 리스트 출력 -->
+	
+	<select id="stdInForm" parameterClass="reg.model.RegDTO"
+		resultClass="reg.model.RegDTO">
+		 insert into REGISTER (id,request,reason,times,checked)
+            values (#id#,#request#,#reason#,sysdate,'처리중')  
+	</select> <!-- 학적 변경 신청 -->
+</sqlMap>

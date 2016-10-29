@@ -56,11 +56,11 @@ $(document).ready(function(){
 			if(xhr.status==200){
 				var result=xhr.responseText.trim();
 				if(result=="A"){
-					location.replace("/Project2/main/main_list.do");
+					location.replace("/Project2/main/main_list.do?action=login");
 				}else if(result=="S"){
-					location.replace("/Project2/main/main_list.do");
+					location.replace("/Project2/main/main_list.do?action=login");
 				}else if(result=="P"){
-					location.replace("/Project2/main/main_list.do");
+					location.replace("/Project2/main/main_list.do?action=login");
 				}else{
 					alert('로그인에 실패하였습니다.');
 				}

@@ -40,17 +40,28 @@
 		<action path="/test" type="test.StrutsTest">
 			<forward name="test" path="/test.jsp"/>
 		</action>
+		
 		<!-- Project2 -->
+		<!-- 학생의 개인 성적 조회 -->
 		<action path="/student/grade" type="grade.actions.StudentGradeAction">
 			<forward name="show" path="/student/s_grade_info.jsp"/>
 		</action>
+		<!-- 교수의 성적조회 페이지 이동 -->
 		<action path="/pro/grade" forward="/pro/p_grade_info.jsp"/>
+		<!-- 교수의 항목별 성적조회 및 성적입력 -->
 		<action path='/pro/action' type="grade.actions.ProfessorGradeAction">
 			<forward name="find_sub" path='/pro/p_findsub.jsp'/>
 			<forward name="list" path='/pro/grade_list.jsp'/>
 			<forward name="update_result" path='/pro/p_update_result.jsp'/>
-			
 		</action>
+		<action path="/pro/subjectlist" type='subject.actions.SubjectListAction'>
+			<forward name="list" path="/pro/p_subject.jsp"/>
+		</action>
+		<action path="/pro/subjectinsert" type='subject.actions.SubjectInsertAction'>
+			<forward name="success" path="/pro/subjectlist.do"/>
+		</action>
+		<!-- 교수의 과목 조회 -->
+		
     </action-mappings>
 
 <!-- 사용자 정의 컨트롤러 (RequestProcessor) 등록 -->

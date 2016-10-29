@@ -25,8 +25,8 @@ public class QnaAction extends Action{
 		LoginDTO login = (LoginDTO) request.getSession().getAttribute("LoginDTO");
 		String id = login.getId();
 		String job = login.getJob();
+		
 		if(action.equals("insert")){
-			
 			QnaDTO dto = new QnaDTO( 
 					0,
 					request.getParameter("title"),

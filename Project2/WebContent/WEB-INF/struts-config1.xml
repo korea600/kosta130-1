@@ -97,6 +97,11 @@
 			<forward name="success" path="/admin/a_qna.jsp"></forward>		
 		</action>
 		
+		
+		<action path="/student/sugang"
+				type="sugang.actions.SugangAction">
+		<forward name="success" path="/student/s_sugang_list.jsp"></forward>
+		</action>
 	</action-mappings>
 
 <!-- ����� ���� ��Ʈ�ѷ� (RequestProcessor) ��� -->

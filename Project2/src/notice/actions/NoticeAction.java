@@ -32,7 +32,6 @@ public class NoticeAction extends Action {
 		String id = logdto.getId();
 
 		if (action == null || action == "list") {
-			System.out.println(action);
 			dao = new NoticeDAO();
 			String checked = request.getParameter("checked");
 			request.setAttribute("checked", checked);
@@ -58,15 +57,11 @@ public class NoticeAction extends Action {
 				}
 			
 		} else if (action.equals("update")) {
-			System.out.println(action);
 			
 				dao = new NoticeDAO();
 				int no = Integer.parseInt(request.getParameter("no"));
 				String title = request.getParameter("title");
 				String content = request.getParameter("content");
-				System.out.println("no :" + no);
-				System.out.println("title :" + title);
-				System.out.println("content :" + content);
 				dto = new NoticeDTO(no, id, name, title, content, null, null);
 				List<NoticeDTO> list = dao.select("ÇÐ»ç");
 				request.setAttribute("list", list);
@@ -87,14 +82,10 @@ public class NoticeAction extends Action {
 		
 
 		} else if (action.equals("viewupdate")) {
-			System.out.println(action);
 			dao = new NoticeDAO();
 			int no = Integer.parseInt(request.getParameter("no"));
 			NoticeDTO dto = new NoticeDTO(no, id, name, null, null, null, null);
-			System.out.println("viewupdate_no" + no);
 			NoticeDTO dtot = dao.upform(dto);
-			// System.out.println(id);
-			// System.out.println(dtot.getContent());
 			request.setAttribute("dto", dtot);
 			forward = mapping.findForward("upform_check");
 		}

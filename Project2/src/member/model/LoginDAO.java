@@ -82,5 +82,17 @@ public class LoginDAO {
 		
 		return list;
 	}
+	public List<MemberDTO> ch_select(MemberDTO dto) {
+		List<MemberDTO> list = null;
+		
+		try {
+			list = smc.queryForList("login.ch_select", dto);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
 
 }

@@ -1,3 +1,5 @@
+<%@page import="reg.model.RegDTO"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -9,12 +11,13 @@
 <script type="text/javascript"></script>
 </head>
 <body>
-	<button>신청하기</button>
+	<button onclick="window.open('/Project2/a_regForm.do?action=newForm&id=${reg.id },'학적변경 신청 확인','width=500,height=400,menubar=no,status=no,toolbar=no,resizable=no,left=200,top=200');">신청하기</button>
+	
 	<br>
 	<br>
 	<table border=1 width=80%>
 		<TR>
-			<th>순번</th>
+			<th>학번</th>
 			<th>구분</th>
 			<th>사유</th>
 			<th>신청일</th>
@@ -23,7 +26,7 @@
 
 		<c:forEach items="${list }" var="reg">
 			<tr>
-				<td><a href="s_regForm.do?action=viewForm&id=${reg.id }">${reg.id }</a></td>
+				<td>${reg.id }</td>
 				<td>${reg.request }</td>
 				<td>${reg.reason }</td>
 				<td>${reg.times }</td>

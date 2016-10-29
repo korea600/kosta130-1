@@ -1,4 +1,4 @@
-package admin.reg.actions;
+package reg.actions;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -8,8 +8,8 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
-import admin.reg.model.RegDAO;
-import admin.reg.model.RegDTO;
+import reg.model.A_RegDAO;
+import reg.model.RegDTO;
 
 public class A_RegAction extends Action {
 	@Override
@@ -18,7 +18,7 @@ public class A_RegAction extends Action {
 		// 신청내용 확인 action="viewForm"
 		// 신청내용 처리 action="execution"
 
-		RegDAO dao = new RegDAO();
+		A_RegDAO dao = new A_RegDAO();
 
 		String action = request.getParameter("action");
 		ActionForward forward = null;
