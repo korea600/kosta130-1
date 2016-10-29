@@ -147,7 +147,7 @@ $(document).ready(function(){
 	
 <table width="1024px" cellpadding="0" cellspacing="0" height="0" border=0 style="padding-top:0px; "> 
 <tr> 
-<td width="200">
+<td width="200" valign="top">
 <div class="menu">
 			<ul>
 				<li class="zero"><p>메인</p></li>
@@ -158,7 +158,7 @@ $(document).ready(function(){
 				<li class="five"><p>건의 사항</p></li>
 			</ul>
 		</div></td> 
-<td width="800" id="main">
+<td width="824px" id="main">
 		<table class="main_table">
 			<tr>
 				<td class="main_td" colspan=2>

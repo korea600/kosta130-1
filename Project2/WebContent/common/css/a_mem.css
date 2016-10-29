@@ -6,8 +6,9 @@ section{
 
 /*회원정보 폼*/
 .member_form{
-	width:1024px;
 	height:500px;
+	width:824px;
+	
 }
 /*검색 시작*/
 	.search{
@@ -45,20 +46,14 @@ section{
 			font-size:14px;
 			font-weight:bold;
 		}
-		.asdasd{
+		.insert_btn{
 			width:50px;
 			height:30px;
-			background:#173b68;
-			color:#fff;
-			cursor:pointer;
-			text-align:center;
-			line-height:30px;
-			font-size:14px;
-			font-weight:bold;
+			background:#ffa500;
 		}
 		
 			
-		.part , .level, .school_btn,.asdasd{
+		.part , .level, .school_btn,.insert_btn{
 			float:left;
 		}
 
@@ -143,5 +138,23 @@ section{
 
 .menu , .member_form{
 	float:left;
+}
+
+.file_form{
+	margin-left:12px;
+	margin-top:5px;
+}
+.file_form > input{
+	height:30px;
+	line-height:30px;
+}
+.file_form > input:nth-child(2){
+	width:50px;
+	text-align:center;
+}
+
+.file_form > input:nth-child(3){
+	width:150px;
+	text-align:center;
 }
 	

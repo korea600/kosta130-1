@@ -1,0 +1,104 @@
+.schedule_top{
+	width:824px;
+	margin-top:20px;
+}
+.schedule_top > ul {
+	width:800px;
+	margin-left:12px;
+	overflow:hidden;
+}
+.schedule_top > ul > li{
+		float:left;	
+		height:30px;
+		line-height:30px;
+		text-align:center;
+		border-right:1px solid #fff;
+		box-sizing:border-box;
+		background:#173b68;
+		color:#fff;
+}
+
+.schedule_top > ul > li:nth-child(1){
+	width:50px;
+}
+.schedule_top > ul > li:nth-child(2){
+	width:100px;
+}
+.schedule_top > ul > li:nth-child(3){
+	width:150px;
+}
+.schedule_top > ul > li:nth-child(4){
+	width:300px;
+}
+.schedule_top > ul > li:nth-child(5){
+	width:100px;
+}
+.schedule_top > ul > li:nth-child(6){
+	width:100px;
+	border:0;
+}
+
+.schedule_form{
+	width:824px;
+}
+.schedule_form > ul {
+	width:800px;
+	margin-left:12px;
+	overflow:hidden;
+}
+.schedule_form > ul > li{
+		float:left;	
+		height:30px;
+		line-height:30px;
+		text-align:center;
+		border-bottom:1px dashed #404040;
+		box-sizing:border-box;
+}
+
+.schedule_form > ul > li:nth-child(1){
+	width:50px;
+}
+.schedule_form > ul > li:nth-child(2){
+	width:100px;
+}
+.schedule_form > ul > li:nth-child(3){
+	width:150px;
+}
+.schedule_form > ul > li:nth-child(4){
+	width:300px;
+}
+.schedule_form > ul > li:nth-child(5){
+	width:100px;
+}
+.schedule_form > ul > li:nth-child(6){
+	width:100px;
+}
+
+.schedule_btn{
+	overflow:hidden;
+	margin-top:5px;
+}
+.mos{
+	float:left;
+	margin-right:5px;
+}
+
+.mos_1{
+	width:100px;
+	height:30px;
+	margin-left:12px;
+}
+.mos_2{
+	width:70px;
+	height:30px;
+	border-radius:5px 5px 5px 5px;
+	text-align:center;
+	line-height:30px;
+}
+.mos_3{
+	width:70px;
+	height:30px;
+	border-radius:5px 5px 5px 5px;
+	text-align:center;
+	line-height:30px;
+}

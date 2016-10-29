@@ -8,7 +8,6 @@
 <head>
 <link rel="stylesheet" href="/Project2/common/css/main_body.css" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script src="/Project2/common/css/jquery-3.0.0.js" ></script>
 <title>Insertasdsadsadsadsads</title>
 </head>
 <body>
