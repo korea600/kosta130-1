@@ -10,7 +10,7 @@
 		where s.professor=m.name and s.professor=#name# and m.id=#id# order by s.code
     </select>
     <select id="select" parameterClass='int' resultClass='subject.model.SubjectDTO'>
-		select s.sub, s.checked, s.professor, s.times, s.credit, s.room, s.cnt
+		select s.sub, s.division, s.professor, s.times, s.credit, s.room, s.cnt,s.code;
 		from subject s
 		where s.code=#code#
     </select>
@@ -24,4 +24,9 @@
 		(select member.dept from member where member.id=#id#)
 		)
 	</insert>
+	<update id='update' parameterClass='subject.model.SubjectDTO'>
+		update subject
+		set sub=#sub#, division=#division#, professor=#name#, times=#times#, room=#room#, cnt=#cnt#
+		where code=#code# 
+	</update>
  </sqlMap>

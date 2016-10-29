@@ -65,4 +65,14 @@ public class SubjectDAO {
 		}
 		return code;
 	}
+	public boolean p_update(SubjectDTO dto){		// 교수의 과목등록 요청 수정
+		try {
+			smc.insert("subject.update", dto);
+			return true;
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
 }

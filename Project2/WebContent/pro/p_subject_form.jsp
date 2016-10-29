@@ -11,13 +11,15 @@ $(function(){
 	$('[name=confirm]').click(function(){
 		if($('[name=start]').val()<=$('[name=end]').val()){
 			document.frm.submit();
+			self.close();
+			opener.location.reload(true);
 		}
 		else{
 			alert('값이 유효하지 않습니다.');
 		}
 	});
 	$('[name=cancel]').click(function(){
-		history.back();
+		self.close();
 	});	
 })
 </script>

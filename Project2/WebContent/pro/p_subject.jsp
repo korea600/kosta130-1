@@ -16,9 +16,13 @@
 			if(checked=='처리완료')
 				alert("이미 등록이 완료되어 수정할 수 없습니다.");
 			else{
-				alert('과목코드 : '+$(this).val());
-				location.href='/Project2/pro/subjectlist.do?code='+$(this).val();
+				childWin = window.open('/Project2/pro/subjectlist.do?code='+$(this).val(),'check','toolbar=yes,location=yes,status=yes'
+						+'menubar=yes,scrollbars=yes,resizable=0,width=600,height=400,top=100,left=100');
 			}
+		});
+		$('.input_btn').click(function(){
+			childWin = window.open("/Project2/pro/p_subject_form.jsp",'check','toolbar=yes,location=yes,status=yes'
+					+'menubar=yes,scrollbars=yes,resizable=0,width=600,height=400,top=100,left=100');
 		});
 	});
 </script>

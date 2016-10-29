@@ -20,7 +20,7 @@ import member.model.LoginDTO;
 import subject.model.SubjectDAO;
 import subject.model.SubjectDTO;
 
-public class SubjectInsertAction extends Action{
+public class SubjectUpdateAction extends Action{
 	
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
@@ -42,6 +42,7 @@ public class SubjectInsertAction extends Action{
 		String times = mr.getParameter("day")+"/"+mr.getParameter("start")+"-"+mr.getParameter("end");
 		String room = mr.getParameter("room");
 		int cnt = Integer.parseInt(mr.getParameter("cnt"));
+		int code=Integer.parseInt(request.getParameter("code"));
 		
 		// 현재날짜로 과목등록될 시기 결정하기
 		Calendar cal = new GregorianCalendar();
@@ -52,8 +53,8 @@ public class SubjectInsertAction extends Action{
 			semester=1;
 			year++;
 		}
-		SubjectDTO subject = new SubjectDTO(id, name, division, year, semester, 0, sub, credit, times, room, cnt, "처리중");
-		int newCode =dao.p_insert(subject);		// 입력 성공시 새로 생성된 code값을 리턴 받음 
+		SubjectDTO subject = new SubjectDTO(id, name, division, year, semester, code, sub, credit, times, room, cnt, "처리중");
+		dao.p_update(subject);		// 입력 성공시 새로 생성된 code값을 리턴 받음 
 		
 		// 파일 파라미터 처리
 		request.setCharacterEncoding("EUC-KR");
@@ -61,13 +62,11 @@ public class SubjectInsertAction extends Action{
 		if(uploadedFile!=null){
 			String filename = mr.getFilesystemName("plan");					// 업로드 파일명 구하기
 			String fileext = filename.substring(filename.lastIndexOf("."));	// 파일명에서 확장자 구하기
-			// 새 code를 이용하여 파일명 변경 (ex. code가 5이면 plan5.xxx)
-			if(newCode>0) 				
-				uploadedFile.renameTo(new File(uploadDirectory+"\\plan"+(newCode)+fileext));
+			// 현재 code를 이용하여 파일명 변경 (ex. code가 5이면 plan5.xxx)
+			uploadedFile.renameTo(new File(uploadDirectory+"\\plan"+code+fileext));
 
-			return mapping.findForward("success");
 		}
-		else return null;
+		return mapping.findForward("success");
 	}
 
 }

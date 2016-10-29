@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -11,19 +12,20 @@ $(function(){
 	$('[name=confirm]').click(function(){
 		if($('[name=start]').val()<=$('[name=end]').val()){
 			document.frm.submit();
+			self.close();
+			opener.location.reload(true);
 		}
 		else{
 			alert('값이 유효하지 않습니다.');
 		}
 	});
 	$('[name=cancel]').click(function(){
-		history.back();
+		self.close();
 	});
-	$('[name=division] ').val("${dto.division}");
-	$('[name=day]').val('${day}');
-	$('[name=start]').val('${start}');
-	$('[name=end]').val('${end}');
-	
+	$('[name=division]').val("${dto.division}");
+	$('[name=day]').val("${day}");
+	$('[name=start]').val("${start}");
+	$('[name=end]').val("${end}");
 })
 </script>
 
@@ -31,6 +33,7 @@ $(function(){
 <body>
 <center>
 <form name='frm' enctype='multipart/form-data' action='/Project2/pro/subjectupdate.do' method="post">
+<input type="hidden" name='code' value="${dto.code}">
 <h3>과목등록</h3><hr>
 <table>
 <tr>
