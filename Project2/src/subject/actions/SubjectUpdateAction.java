@@ -42,7 +42,7 @@ public class SubjectUpdateAction extends Action{
 		String times = mr.getParameter("day")+"/"+mr.getParameter("start")+"-"+mr.getParameter("end");
 		String room = mr.getParameter("room");
 		int cnt = Integer.parseInt(mr.getParameter("cnt"));
-		int code=Integer.parseInt(request.getParameter("code"));
+		int code=Integer.parseInt(mr.getParameter("code"));
 		
 		// 현재날짜로 과목등록될 시기 결정하기
 		Calendar cal = new GregorianCalendar();
@@ -54,15 +54,17 @@ public class SubjectUpdateAction extends Action{
 			year++;
 		}
 		SubjectDTO subject = new SubjectDTO(id, name, division, year, semester, code, sub, credit, times, room, cnt, "처리중");
-		dao.p_update(subject);		// 입력 성공시 새로 생성된 code값을 리턴 받음 
+		dao.p_update(subject);
 		
 		// 파일 파라미터 처리
 		request.setCharacterEncoding("EUC-KR");
 		File uploadedFile = mr.getFile("plan");
 		if(uploadedFile!=null){
-			String filename = mr.getFilesystemName("plan");					// 업로드 파일명 구하기
-			String fileext = filename.substring(filename.lastIndexOf("."));	// 파일명에서 확장자 구하기
-			// 현재 code를 이용하여 파일명 변경 (ex. code가 5이면 plan5.xxx)
+			String fileext = ".doc";	// 확장자 지정
+			// 기존 파일이 있으면 삭제
+			File oldFile = new File(uploadDirectory+"\\plan"+code+fileext);	
+			if(oldFile!=null) oldFile.delete();
+			// 현재 code를 이용하여 파일명 변경 (ex. 과목코드가 5이면 plan5.doc)
 			uploadedFile.renameTo(new File(uploadDirectory+"\\plan"+code+fileext));
 
 		}

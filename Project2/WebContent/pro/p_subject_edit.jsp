@@ -10,18 +10,31 @@
 <script type="text/javascript">
 $(function(){
 	$('[name=confirm]').click(function(){
-		if($('[name=start]').val()<=$('[name=end]').val()){
-			document.frm.submit();
-			self.close();
-			opener.location.reload(true);
-		}
+		if($('[name=start]').val()>$('[name=end]').val())
+			alert("강의시간을 확인해 주세요.");
 		else{
-			alert('값이 유효하지 않습니다.');
+			var filevalue = $('[name=plan]').val();
+			if(filevalue=='')
+				alert("강의계획서는 기존 자료로 유지됩니다.");
+			else if(filevalue.substring(filevalue.lastIndexOf("."))!=".doc")
+				alert(".doc 파일만 업로드가 가능합니다.");
+			else{
+				alert("새로운 강의계획서로 변경됩니다.");
+				document.frm.submit();
+				self.close();
+				opener.location.reload(true);
+			}
+		}
+	});
+	$('[name=delete]').click(function(){
+		if(alert("정말 삭제하시겠습니까?")){
+			var code=$('[name=code]').val();
+			alert(code)
 		}
 	});
 	$('[name=cancel]').click(function(){
 		self.close();
-	});
+	});	
 	$('[name=division]').val("${dto.division}");
 	$('[name=day]').val("${day}");
 	$('[name=start]').val("${start}");
@@ -85,7 +98,7 @@ $(function(){
 </tr>
 <tr>
 	<td class='menu'>강의실</td>
-	<td class='content'><input type='text' name='room' value=${dto.room}>	</td>
+	<td class='content'><input type='text' name='room' value='${dto.room}'>	</td>
 </tr>
 <tr>
 	<td class='menu'>수강인원</td>
@@ -104,6 +117,7 @@ $(function(){
 <tr>
 	<td colspan='2' align="center">
 		<input type="button" name='confirm' value='수정'>
+		<input type="button" name='delete' value='삭제'>
 		<input type="button" name='cancel' value='취소'>
 	</td>
 </tr>

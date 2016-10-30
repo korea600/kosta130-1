@@ -9,13 +9,17 @@
 <script type="text/javascript">
 $(function(){
 	$('[name=confirm]').click(function(){
-		if($('[name=start]').val()<=$('[name=end]').val()){
+		var filevalue = $('[name=plan]').val();
+		if($('[name=start]').val()>$('[name=end]').val())
+			alert("강의시간을 확인해 주세요.");
+		else if(filevalue=='')
+			alert("강의계획서를 업로드 해 주세요.");
+		else if(filevalue.substring(filevalue.lastIndexOf("."))!=".doc")
+			alert(".doc 파일만 업로드가 가능합니다.");
+		else{
 			document.frm.submit();
 			self.close();
 			opener.location.reload(true);
-		}
-		else{
-			alert('값이 유효하지 않습니다.');
 		}
 	});
 	$('[name=cancel]').click(function(){

@@ -59,8 +59,7 @@ public class SubjectInsertAction extends Action{
 		request.setCharacterEncoding("EUC-KR");
 		File uploadedFile = mr.getFile("plan");
 		if(uploadedFile!=null){
-			String filename = mr.getFilesystemName("plan");					// 업로드 파일명 구하기
-			String fileext = filename.substring(filename.lastIndexOf("."));	// 파일명에서 확장자 구하기
+			String fileext = ".doc";	// 확장자 지정
 			// 새 code를 이용하여 파일명 변경 (ex. code가 5이면 plan5.xxx)
 			if(newCode>0) 				
 				uploadedFile.renameTo(new File(uploadDirectory+"\\plan"+(newCode)+fileext));

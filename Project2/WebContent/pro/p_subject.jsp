@@ -10,6 +10,7 @@
 <title>과목조회</title>
 <script type="text/javascript" src='/Project2/js/jquery-1.12.4.js'></script>
 <script type="text/javascript">
+	var childWin;
 	$(function(){
 		$('.edit').click(function(){
 			var checked=$(this).prev().text();

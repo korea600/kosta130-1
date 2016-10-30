@@ -10,13 +10,16 @@
 		where s.professor=m.name and s.professor=#name# and m.id=#id# order by s.code
     </select>
     <select id="select" parameterClass='int' resultClass='subject.model.SubjectDTO'>
-		select s.sub, s.division, s.professor, s.times, s.credit, s.room, s.cnt,s.code;
+		select s.sub, s.division, s.professor, s.times, s.credit, s.room, s.cnt,s.code
 		from subject s
 		where s.code=#code#
     </select>
     <select id='getMajor' parameterClass="String" resultClass='String'>
     	select dept from member where id=#value#
     </select>
+    <select id="a_select" resultClass="subject.model.SubjectDTO" parameterClass="String">
+		select year, semester, code, sub, professor name, times, room from subject where checked=#checked#
+	</select>
 	<insert id='insert' parameterClass='subject.model.SubjectDTO'>
 		insert into subject
 		(code,division,year,semester,sub,credit,professor,times,room,cnt,checked,major)
@@ -29,4 +32,7 @@
 		set sub=#sub#, division=#division#, professor=#name#, times=#times#, room=#room#, cnt=#cnt#
 		where code=#code# 
 	</update>
+	<delete id='delete' parameterClass='int'>
+		delete from subject where code=#code#
+	</delete>
  </sqlMap>

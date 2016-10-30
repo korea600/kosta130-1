@@ -133,7 +133,7 @@ $(document).ready(function(){
             	  console.log("DDDD");
               	  //jQuery.ajax({});
               	  $.ajax({    		  
-              	     url:'/Project2/admin/notice_list.do',
+              	     url:'/Project2/admin/a_subject.do?action=statusList',
               	     success: function(data){
               	    	$('#main').html(data); 
               	     }

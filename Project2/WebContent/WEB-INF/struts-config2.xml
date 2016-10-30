@@ -64,6 +64,9 @@
 		<action path="/pro/subjectupdate" type='subject.actions.SubjectUpdateAction'>
 			<forward name="success" path="/pro/subjectlist.do" redirect="true"/>
 		</action>
+		<action path="/pro/subjectdelete" type='subject.actions.SubjectDeleteAction'>
+			<forward name="success" path="/pro/subjectlist.do" redirect="true"/>
+		</action>
 		<!-- 교수의 과목 조회 -->
 		
     </action-mappings>

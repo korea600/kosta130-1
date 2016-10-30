@@ -44,6 +44,16 @@ public class SubjectDAO {
 		}  
 		return subject;
 	}
+	public List<SubjectDTO> a_select(String checked){	// 교직원의 과목 조회 (수정 목적으로 특정과목 선택)
+		List<SubjectDTO> list = null;
+		try {
+			list = smc.queryForList("subject.a_select",checked);
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
 	public String getMajor(String id){
 		String major=null;
 		try {
