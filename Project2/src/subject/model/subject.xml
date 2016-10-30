@@ -2,7 +2,7 @@
 <!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd" >
 <sqlMap namespace="subject">
 	<select id='code_sequence' resultClass='int'>
-		select subject_seq.currval from tab
+		select TRUE1.subject_seq.currval from dual
 	</select>
     <select id="selectAll" parameterClass='subject.model.SubjectDTO' resultClass='subject.model.SubjectDTO'>
 		select s.year, s.semester, s.code, s.sub, m.name, s.times, s.room, s.checked
