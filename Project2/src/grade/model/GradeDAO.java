@@ -6,6 +6,7 @@ import java.util.List;
 import com.ibatis.sqlmap.client.SqlMapClient;
 
 import iBatis.SqlMapConfig;
+import sugang.model.SugangDTO;
 
 public class GradeDAO {		// 己利炼雀(s,p), 己利荐沥(p), select_box 单捞磐 贸府(p)
 	SqlMapClient smc;
@@ -61,6 +62,16 @@ public class GradeDAO {		// 己利炼雀(s,p), 己利荐沥(p), select_box 单捞磐 贸府(p
 			e.printStackTrace();
 		}			
 		return false;
+	}
+	public List<SugangDTO> timetale(SugangDTO input) {
+		List<SugangDTO> list = null;
+		try {
+			list = smc.queryForList("grade.s_timetable",input);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
 	}
 	
 }

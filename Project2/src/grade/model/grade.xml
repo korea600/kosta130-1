@@ -17,5 +17,10 @@
 	</select>
 	<update id="update_grade" parameterClass="grade.model.GradeDTO">
 		update grade_info set grade=#grade# where code=#code# and year=#year# and semester=#semester# and id=#id#
-	</update>	
+	</update>
+	<select id="s_timetable" resultClass="sugang.model.SugangDTO" parameterClass="sugang.model.SugangDTO"> 
+		select g.code,g.year,g.semester,g.id,s.sub,s.professor,s.times,s.room,s.division,s.credit 
+		from TRUE1.GRADE_INFO g, TRUE1.SUBJECT s, TRUE1.member m
+		where g.code = s.code and g.year=to_char(sysdate,'yyyy') and g.semester=#semester# and m.id=#id#
+	</select>	
 </sqlMap>

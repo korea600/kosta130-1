@@ -29,6 +29,14 @@ public class SugangDTO {
 	
 	public SugangDTO() {
 	}
+	
+	//수강신청완료 목록을 위한 생성자.
+	public SugangDTO(String id, int semester) {
+		super();
+		this.id = id;
+		this.semester = semester;
+	}
+
 
 	public SugangDTO(String id, int code, int bet, int year, int term, String grade, String dept, int semester,
 			String status, int total, int t_credit, Date starts, Date ends, String major, String division, String sub,
