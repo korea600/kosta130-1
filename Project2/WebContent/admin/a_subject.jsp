@@ -6,34 +6,38 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link rel="stylesheet" href="/Project2/common/css/a_mem.css" type="text/css" />
+<link rel="stylesheet" href="/Project2/common/css/style.css" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-	<table id="table">
-		<tr>
-			<th id="td_sml">개설연도</th>
-			<th id="td_sml">학기</th>
-			<th id="td_lar">과목코드</th>
-			<th id="td_mid">과목명</th>
-			<th id="td_mid">교수명</th>
-			<th id="td_mid">시간</th>
-			<th id="td_mid">강의실</th>
-			<th id="td_mid">승인/거절</th>
-			
-		</tr>
+		<div class="member_info">
+				<ul class="top_text">
+					<li>개설연도</li>
+					<li>학기</li>
+					<li>과목코드</li>
+					<li>과목명</li>
+					<li>교수명</li>
+					<li>시간</li>
+					<li>강의실</li>					
+					<li>승인/거절</li>					
+				</ul>
+				
+		<div class='input_box'>
 		<%
 		List<SubjectDTO> list = (List<SubjectDTO>)request.getAttribute("statusList");
 			if(list != null){
 				for(int i=0; i<list.size(); i++){
 					SubjectDTO dto=list.get(i);
-					out.print("<tr><td>"+dto.getYear()+"</td><td>"+dto.getSemester()+
-							"</td><td>"+dto.getCode()+"</td><td>"+dto.getSub()+
-						"</td><td>"+dto.getName()+"</td><td>"+dto.getTimes()+"</td><td>"+dto.getRoom()+
-						"</td><td><input type='button' value='승인'></td><td><input type='button' value='거절'></td></tr>");
+					out.print("<ul class='member_text'><li>"+dto.getYear()+"</li><li>"+dto.getSemester()+
+							"</li><li>"+dto.getCode()+"</li><li>"+dto.getSub()+
+						"</li><li>"+dto.getName()+"</li><li>"+dto.getTimes()+"</li><li>"+dto.getRoom()+
+						"</li><li><input type='button' value='승인'></li></ul>");
 				}
 			}
 		%>
-	</table>
+		</div>
+	</div>
 </body>
 </html>

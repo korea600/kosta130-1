@@ -80,10 +80,10 @@ function nullCheck(){
 			<th>과목학점</th>
 		</tr>
 <%
-		List<SugangDTO> list = (List<SugangDTO>)request.getAttribute("selectList");
-			if(list != null){
-				for(int i=0; i<list.size(); i++){
-					SugangDTO dto=list.get(i);
+		List<SugangDTO> selectList = (List<SugangDTO>)request.getAttribute("selectList");
+			if(selectList != null){
+				for(int i=0; i<selectList.size(); i++){
+					SugangDTO dto=selectList.get(i);
 					out.print("<tr><td>"+dto.getCode()+"</td><td>"+dto.getYear()+"</td><td>"+
 					dto.getTerm()+"</td><td>"+dto.getGrade()+"</td></tr>");
 				}
@@ -148,14 +148,16 @@ function nullCheck(){
 			</ul>
 		</div>
 		<div class="sugang_view_table">
-			<ul>
-				<li>과목코드</li>
-				<li>과목명</li>
-				<li>교수명</li>
-				<li>강의시간</li>
-				<li>인원</li>
-				<li>신청점수</li>
-			</ul>
+		<%
+		List<SugangDTO> list = (List<SugangDTO>)request.getAttribute("selectList");
+			if(list != null){
+				for(int i=0; i<list.size(); i++){
+					SugangDTO dto=list.get(i);
+					out.print("<ul><li>"+dto.getCode()+"</li><li>"+dto.getSub()+"</li><li>"+dto.getProfessor()+
+							"</li><li>"+dto.getTimes()+"</li><li>"+dto.getRoom()+"</li><li>"+dto.getCnt()+"</li></ul>");
+				}
+			}
+		%>
 		</div>
 	</div>
 	
