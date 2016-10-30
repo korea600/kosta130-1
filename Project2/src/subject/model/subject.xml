@@ -29,7 +29,7 @@
 	</insert>
 	<update id='update' parameterClass='subject.model.SubjectDTO'>
 		update subject
-		set sub=#sub#, division=#division#, professor=#name#, times=#times#, room=#room#, cnt=#cnt#
+		set sub=#sub#, division=#division#, professor=#name#, times=#times#, credit=#credit#, room=#room#, cnt=#cnt#
 		where code=#code# 
 	</update>
 	<delete id='delete' parameterClass='int'>

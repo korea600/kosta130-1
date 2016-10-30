@@ -16,7 +16,7 @@ public class SubjectDeleteAction extends Action{
 			HttpServletResponse response) throws Exception {
 		SubjectDAO dao = new SubjectDAO();
 		int code=Integer.parseInt(request.getParameter("code"));
-		// dao.delete(code);
+		dao.delete(code);
 		return mapping.findForward("success");
 			
 	}

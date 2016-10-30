@@ -9,36 +9,44 @@
 <script type="text/javascript" src='/Project2/js/jquery-1.12.4.js'></script>
 <script type="text/javascript">
 $(function(){
+	$('[name=division]').val("${dto.division}");
+	$('[name=cnt]').val("${dto.cnt}");
+	$('[name=credit]').val("${dto.credit}");
+	$('[name=day]').val("${day}");
+	$('[name=start]').val("${start}");
+	$('[name=end]').val("${end}");
 	$('[name=confirm]').click(function(){
 		if($('[name=start]').val()>$('[name=end]').val())
 			alert("강의시간을 확인해 주세요.");
 		else{
 			var filevalue = $('[name=plan]').val();
-			if(filevalue=='')
+			if(filevalue==''){
 				alert("강의계획서는 기존 자료로 유지됩니다.");
+				document.frm.submit();
+				opener.location.href='/Project2/pro/subjectlist.do';
+				self.close();
+			}
 			else if(filevalue.substring(filevalue.lastIndexOf("."))!=".doc")
 				alert(".doc 파일만 업로드가 가능합니다.");
 			else{
 				alert("새로운 강의계획서로 변경됩니다.");
 				document.frm.submit();
+				opener.location.href='/Project2/pro/subjectlist.do';
 				self.close();
-				opener.location.reload(true);
 			}
 		}
 	});
 	$('[name=delete]').click(function(){
-		if(alert("정말 삭제하시겠습니까?")){
+		if(confirm("정말 삭제하시겠습니까?")){
 			var code=$('[name=code]').val();
-			alert(code)
+			opener.location.href='/Project2/pro/subjectdelete.do?code='+code;
+			self.close();
 		}
 	});
 	$('[name=cancel]').click(function(){
 		self.close();
 	});	
-	$('[name=division]').val("${dto.division}");
-	$('[name=day]').val("${day}");
-	$('[name=start]').val("${start}");
-	$('[name=end]').val("${end}");
+	
 })
 </script>
 

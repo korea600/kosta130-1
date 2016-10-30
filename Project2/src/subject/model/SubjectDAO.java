@@ -85,4 +85,14 @@ public class SubjectDAO {
 		}
 		return false;
 	}
+	public boolean delete(int code){
+		try {
+			smc.delete("subject.delete",code);
+			return true;
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
 }
