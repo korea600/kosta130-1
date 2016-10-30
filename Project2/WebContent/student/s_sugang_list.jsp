@@ -10,7 +10,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript" src="/Project2/js/jquery-1.12.4.js"></script>
-<script type="text/javascript">
+<script type="text/javascript"> 
 $(function(){
 	$('#sp1').change(function(){
 		$.ajax({

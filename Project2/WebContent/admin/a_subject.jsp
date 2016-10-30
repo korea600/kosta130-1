@@ -22,7 +22,7 @@
 					<li>시간</li>
 					<li>강의실</li>					
 					<li>승인/거절</li>					
-				</ul>
+				</ul> 
 				
 		<div class='input_box'>
 		<%
