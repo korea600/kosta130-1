@@ -1,0 +1,61 @@
+.view{
+	widht:800px;
+	margin-left:12px;
+	margin-top:10px;
+}
+.view > ul {
+	overflow:hidden;
+}
+.view > ul > li{
+	height:30px;
+	line-height:30px;
+	text-align:center;
+	float:left;
+	background:#173b68;
+	color:#fff;
+}
+.view > ul > li:nth-child(1){
+	width:50px;
+}
+.view > ul > li:nth-child(2){
+	width:600px;
+}
+.view > ul > li:nth-child(3){
+	width:150px;
+}
+
+.view_form{
+	widht:800px;
+	margin-left:12px;
+}
+.view_form > ul {
+	overflow:hidden;
+}
+.view_form > ul > li{
+	height:30px;
+	line-height:30px;
+	text-align:center;
+	float:left;
+	border-bottom:1px dashed #404040;
+}
+.view_form > ul > li:nth-child(1){
+	width:50px;
+}
+.view_form > ul > li:nth-child(2){
+	width:600px;
+}
+.view_form > ul > li:nth-child(3){
+	width:150px;
+}
+.check{
+	margin-left:12px;
+	margin-top:10px;
+	widht:200px;
+	height:30px;
+}
+.write_btn{
+	width:100px;
+	height:30px;
+	line-height:30px;
+	text-align:center;
+}

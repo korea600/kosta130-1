@@ -55,16 +55,9 @@
             <forward name="success" path="/pro/p_subject.jsp"/>
         </action>
 		<!-- Project2_공지 -->
-		<action path="/admin/form" forward="/admin/a_notice_upform.jsp"></action>
 		<action path="/admin/notice_list" type="notice.actions.NoticeAction">
-			<forward name="notice_first" path="/admin/a_notice.jsp" />
-			<forward name="notice_successinsert" path="/admin/notice_list.do"
-				redirect="true" />
-			<forward name="upform_check" path="/admin/form.do" />
-			<forward name="update_success" path="/admin/notice_list.do"
-				redirect="true"></forward>
-			<forward name="delete_success" path="/admin/notice_list.do"
-				redirect="true"></forward>
+			<forward name="notice_first" path="/admin/a_notice_list.jsp" />
+			<forward name="upform_check" path="/admin/a_notice_upform.jsp" />
 		</action>
 
 
