@@ -18,7 +18,7 @@ public class SubjectDTO {
 	public SubjectDTO() {}
 
 	public SubjectDTO(String id, String name, String division, int year, int semester, int code, String sub,
-			int credit, String times, String room, int cnt, String checked) {
+			int credit, String times, String room, int cnt, String checked, String major) {
 		this.id = id;
 		this.name = name;
 		this.division = division;
@@ -31,6 +31,7 @@ public class SubjectDTO {
 		this.room = room;
 		this.cnt = cnt;
 		this.checked = checked;
+		this.major = major;
 	}
 
 	public String getId() {
@@ -127,5 +128,13 @@ public class SubjectDTO {
 
 	public void setChecked(String checked) {
 		this.checked = checked;
+	}
+	
+	public String getMajor() {
+		return major;
+	}
+	
+	public void setMajor(String major) {
+		this.major = major;
 	}
 }

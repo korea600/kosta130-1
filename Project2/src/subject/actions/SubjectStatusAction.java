@@ -1,5 +1,7 @@
 package subject.actions;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -9,6 +11,7 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
 import subject.model.SubjectDAO;
+import subject.model.SubjectDTO;
 
 public class SubjectStatusAction extends Action{
 	@Override
@@ -18,8 +21,10 @@ public class SubjectStatusAction extends Action{
 		ActionForward forward = mapping.findForward("success");
 		
 		if(action.equals("statusList")){
+			List<SubjectDTO> list=null;
 			SubjectDAO dao = new SubjectDAO();
-			request.setAttribute("statusList", dao.a_select("贸府吝"));
+			list = dao.a_select("贸府吝");
+			request.setAttribute("statusList", list);
 		}
 		
 		return forward;

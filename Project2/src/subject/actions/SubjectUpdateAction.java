@@ -53,7 +53,7 @@ public class SubjectUpdateAction extends Action{
 			semester=1;
 			year++;
 		}
-		SubjectDTO subject = new SubjectDTO(id, name, division, year, semester, code, sub, credit, times, room, cnt, "贸府吝");
+		SubjectDTO subject = new SubjectDTO(id, name, division, year, semester, code, sub, credit, times, room, cnt, "贸府吝",null);
 		if(dao.p_update(subject))
 			result="true";
 		

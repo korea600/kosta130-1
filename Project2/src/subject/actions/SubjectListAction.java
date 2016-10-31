@@ -27,7 +27,7 @@ public class SubjectListAction extends Action {
 		String code = request.getParameter("code");
 		if(code==null){		// 전체 과목리스트 조회	 (첫페이지, 입력/수정/삭제 후 페이지)
 			List<SubjectDTO> list=null;
-			SubjectDTO subjectDTO = new SubjectDTO(login.getId(), login.getName(), null, 0, 0, 0, null, 0, null, null,0, null);
+			SubjectDTO subjectDTO = new SubjectDTO(login.getId(), login.getName(), null, 0, 0, 0, null, 0, null, null,0, null,null);
 			list = dao.p_selectAll(subjectDTO);
 			request.setAttribute("subject_list", list);
 			forward = mapping.findForward("list");

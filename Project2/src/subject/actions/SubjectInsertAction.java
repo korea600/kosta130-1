@@ -52,7 +52,7 @@ public class SubjectInsertAction extends Action{
 			semester=1;
 			year++;
 		}
-		SubjectDTO subject = new SubjectDTO(id, name, division, year, semester, 0, sub, credit, times, room, cnt, "처리중");
+		SubjectDTO subject = new SubjectDTO(id, name, division, year, semester, 0, sub, credit, times, room, cnt, "처리중",null);
 		int newCode =dao.p_insert(subject);		// 입력 성공시 새로 생성된 code값을 리턴 받음 
 		
 		// 파일 파라미터 처리

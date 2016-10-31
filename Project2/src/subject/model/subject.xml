@@ -35,4 +35,8 @@
 	<delete id='delete' parameterClass='int'>
 		delete from subject where code=#code#
 	</delete>
+	
+	<update id="approvalUpdate" parameterClass='subject.model.SubjectDTO'>
+		update subject set checked=#checked# where code=#code#
+	</update>
  </sqlMap>
