@@ -25,11 +25,11 @@ public class SubjectUpdateAction extends Action{
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		SubjectDAO dao = new SubjectDAO();
-		
+		String result="false";
 		// 파일 업로드 (EUC-KR)
 		ServletContext application =request.getServletContext();
 		String uploadDirectory = application.getRealPath("subject_plan");
-		MultipartRequest mr = new MultipartRequest(request, uploadDirectory,2*1024*1024,"EUC-KR",new DefaultFileRenamePolicy());
+		MultipartRequest mr = new MultipartRequest(request, uploadDirectory,2*1024*1024,"UTF-8",new DefaultFileRenamePolicy());
 						
 		// 일반 파라미터 처리 (UTF-8)
 		request.setCharacterEncoding("UTF-8");
@@ -54,7 +54,8 @@ public class SubjectUpdateAction extends Action{
 			year++;
 		}
 		SubjectDTO subject = new SubjectDTO(id, name, division, year, semester, code, sub, credit, times, room, cnt, "처리중");
-		dao.p_update(subject);
+		if(dao.p_update(subject))
+			result="true";
 		
 		// 파일 파라미터 처리
 		request.setCharacterEncoding("EUC-KR");
@@ -66,9 +67,9 @@ public class SubjectUpdateAction extends Action{
 			if(oldFile!=null) oldFile.delete();
 			// 현재 code를 이용하여 파일명 변경 (ex. 과목코드가 5이면 plan5.doc)
 			uploadedFile.renameTo(new File(uploadDirectory+"\\plan"+code+fileext));
-
 		}
-		return mapping.findForward("success");
+		response.getWriter().write(result);
+		return null;
 	}
 
 }

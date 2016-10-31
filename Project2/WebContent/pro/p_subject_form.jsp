@@ -6,28 +6,45 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
 <script type="text/javascript" src='/Project2/js/jquery-1.12.4.js'></script>
+<script type="text/javascript" src='/Project2/js/jquery.form.js'></script>
 <script type="text/javascript">
-$(function(){
-	$('[name=confirm]').click(function(){
-		var filevalue = $('[name=plan]').val();
-		if($('[name=start]').val()>$('[name=end]').val())
-			alert("강의시간을 확인해 주세요.");
-		else if(filevalue=='')
-			alert("강의계획서를 업로드 해 주세요.");
-		else if(filevalue.substring(filevalue.lastIndexOf("."))!=".doc")
-			alert(".doc 파일만 업로드가 가능합니다.");
-		else{
-			document.frm.submit();
-			self.close();
-			opener.location.reload(true);
-		}
-	});
-	$('[name=cancel]').click(function(){
-		self.close();
-	});	
-})
-</script>
+	$(function(){
+		$('form').ajaxForm({
+			beforeSubmit: function(data,form,option){
+				var filename=$(':file').val();
+				var flag=false;
+				if($('[name=start]').val() > $('[name=end]').val())
+					alert('값이 유효하지 않습니다.');
+				else if(filename==''){
+					alert('강의계획서를 등록해주세요');
+				}
+				else if(filename.substring(filename.lastIndexOf("."))!=".doc"){
+					alert('.DOC 파일만 업로드 가능합니다.');
+				}
+				else
+					flag=true;
+				return flag;	
+			},
+			success:function(result,status){
+				if(result=="true"){
+					alert('입력 성공');
+					opener.getList();
+					self.close();
+				}
+				else
+					alert('입력 실패');
+			},
+			error:function(xhr,status,error){
+				alert('Error ! : '+error);
+				self.close();
+			} 
+		});
 
+		$('[name=cancel]').click(function(){
+			self.close();
+		}); 
+	});
+</script>
 </head>
 <body>
 <center>
@@ -100,7 +117,7 @@ $(function(){
 </tr>
 <tr>
 	<td colspan='2' align="center">
-		<input type="button" name='confirm' value='입력'>
+		<input type="submit" name='confirm' value='입력'>
 		<input type="button" name='cancel' value='취소'>
 	</td>
 </tr>

@@ -65,7 +65,7 @@ $(document).ready(function(){
         $('.two').click(function(){
         	  //jQuery.ajax({});
         	  $.ajax({    		  
-        	     url:'/Project2/pro/subjectlist.do',
+        	     url:'/Project2/pro/p_subject.jsp',
         	     success: function(data){
         	    	$('#main').html(data); 
         	     }
