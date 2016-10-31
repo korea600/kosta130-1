@@ -33,4 +33,7 @@
          where id like #id#
       </isNotNull>
 	</select>
+	<insert id="insert" parameterClass="member.model.MemberDTO">
+		insert into member values(#id#,#pass#,#name#,#dept#,#semester#,#tel#,#email#,#addr#,#job#,#status#,#total#,#t_credit#)
+	</insert>
 </sqlMap>

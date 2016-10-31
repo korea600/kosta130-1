@@ -34,10 +34,12 @@
 		<!-- URL ���� ���� (�� �Ӽ� ��� '/'�� �����ؾ���, ù '/'�� ������Ʈ�� ��Ʈ��� ('http://localhost/Struts/'))
 			path : ������ (�ڿ� .do�� �ڵ����� �ٿ���)
 			forward : �̵��� ���� ��� (���� ������) -->
+			
 		<!-- Struts Test -->
 		<action path="/test" type="test.StrutsTest">
 			<forward name="test" path="/test.jsp"/>
 		</action>
+		
 		
 		<!-- Schedule -->
 		<action path="/admin/add"
@@ -68,6 +70,8 @@
 				type="schedule.actions.ScheduleAction">
 			<forward name="success" path="/admin/a_schedule.jsp"></forward>
 		</action>
+		
+		
 		<!-- subject approval/rejection -->
 		<action path="/admin/a_subject"
 				type="subject.actions.SubjectStatusAction">

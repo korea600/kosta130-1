@@ -34,7 +34,7 @@ public class MemberAction extends Action{
 		MemberDTO member = dao.edit_Select(id);
 		request.setAttribute("member", member);
 		} else if(action.equals("update")){
-			MemberDTO edit = new MemberDTO(id,null,null,email,tel,addr,0,null,null);
+			MemberDTO edit = new MemberDTO(id,null,null,email,tel,addr,0,null,null,null,0,0);
 			boolean ch = dao.edit_update(edit);
 			if(ch){
 			request.setAttribute("mem_result", "ok");
@@ -50,7 +50,7 @@ public class MemberAction extends Action{
 			String dept = request.getParameter("dept");
 			int sem = Integer.valueOf(request.getParameter("sem"));
 			
-			MemberDTO dto = new MemberDTO(null,dept,null,null,null,null,sem,null,null);
+			MemberDTO dto = new MemberDTO(null,dept,null,null,null,null,sem,null,null,null,0,0);
 			List<MemberDTO> list = dao.selectAll(dto);
 			request.setAttribute("left_list", list);
 			forward = mapping.findForward("left_member_ok");

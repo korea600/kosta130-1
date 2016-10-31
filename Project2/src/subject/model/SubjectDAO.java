@@ -6,6 +6,7 @@ import java.util.List;
 import com.ibatis.sqlmap.client.SqlMapClient;
 
 import iBatis.SqlMapConfig;
+import qna.model.QnaDTO;
 
 public class SubjectDAO {
 
@@ -91,6 +92,16 @@ public class SubjectDAO {
 			return true;
 		}
 		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	public boolean approvalUpdate(SubjectDTO dto){
+		try {
+			int t = smc.update("subject.approvalUpdate",dto);
+			if(t==1) return true;
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return false;

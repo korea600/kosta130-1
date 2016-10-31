@@ -13,16 +13,16 @@
 	LoginDAO dao = new LoginDAO();
 	List<MemberDTO> list = null;
 	if(action.equals("scr_selec")){
-		MemberDTO dto = new MemberDTO("0",dept,"1","1","1","a",Integer.parseInt(sem),"d",null);
+		MemberDTO dto = new MemberDTO("0",dept,"1","1","1","a",Integer.parseInt(sem),"d",null,null,0,0);
 		list = dao.mem_allselect(dto);
 	}else if(action.endsWith("scr_selec2")){
 		cate = request.getParameter("cate");
 		text = request.getParameter("text");
 		if(cate.equals("이름")){
-			MemberDTO dto = new MemberDTO(null,null,"%"+text+"%",null,null,null,0,null,null);
+			MemberDTO dto = new MemberDTO(null,null,"%"+text+"%",null,null,null,0,null,null,null,0,0);
 			list = dao.ch_select(dto);
 		}else if(cate.equals("학번")){
-			MemberDTO dto = new MemberDTO("%"+text+"%",null,null,null,null,null,0,null,null);
+			MemberDTO dto = new MemberDTO("%"+text+"%",null,null,null,null,null,0,null,null,null,0,0);
 			list = dao.ch_select(dto);
 		}
 		

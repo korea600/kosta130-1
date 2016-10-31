@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
 <script type="text/javascript" src='/Project2/js/jquery-1.12.4.js'></script>
+<script type="text/javascript" src='/Project2/js/jquery.form.js'></script>
 <script type="text/javascript">
 $(function(){
 	$('[name=division]').val("${dto.division}");
@@ -15,38 +16,59 @@ $(function(){
 	$('[name=day]').val("${day}");
 	$('[name=start]').val("${start}");
 	$('[name=end]').val("${end}");
-	$('[name=confirm]').click(function(){
-		if($('[name=start]').val()>$('[name=end]').val())
-			alert("강의시간을 확인해 주세요.");
-		else{
-			var filevalue = $('[name=plan]').val();
-			if(filevalue==''){
-				alert("강의계획서는 기존 자료로 유지됩니다.");
-				document.frm.submit();
-				opener.location.href='/Project2/pro/subjectlist.do';
-				self.close();
+	$('form').ajaxForm({
+		beforeSubmit: function(data,form,option){
+			var filename=$(':file').val();
+			var flag=false;
+			if($('[name=start]').val() > $('[name=end]').val())
+				alert('값이 유효하지 않습니다.');
+			else if(filename==''){
+				alert('강의계획서는 기존 상태로 유지합니다.');
+				flag=true;
 			}
-			else if(filevalue.substring(filevalue.lastIndexOf("."))!=".doc")
-				alert(".doc 파일만 업로드가 가능합니다.");
+			else if(filename.substring(filename.lastIndexOf("."))!=".doc"){
+				alert('.DOC 파일만 업로드 가능합니다.');
+			}
 			else{
-				alert("새로운 강의계획서로 변경됩니다.");
-				document.frm.submit();
-				opener.location.href='/Project2/pro/subjectlist.do';
+				alert('새로운 강의계획서를 등록합니다.');
+				flag=true;
+			}
+			return flag;	
+		},
+		success:function(result,status){
+			if(result=="true"){
+				alert('입력 성공');
+				opener.getList();
 				self.close();
 			}
-		}
+			else
+				alert('입력 실패');
+		},
+		error:function(xhr,status,error){
+			alert('Error ! : '+error);
+			self.close();
+		} 
 	});
 	$('[name=delete]').click(function(){
 		if(confirm("정말 삭제하시겠습니까?")){
-			var code=$('[name=code]').val();
-			opener.location.href='/Project2/pro/subjectdelete.do?code='+code;
-			self.close();
+			$.ajax({
+				url:'/Project2/pro/subjectdelete.do',
+				data:{code:$('[name=code]').val()},
+				success:function(data,status,xhr){
+					alert("삭제되었습니다.");
+					opener.getList();
+					self.close();		
+				},
+				error:function(xhr,status,error){
+					alert('error : '+error);
+				}
+			});
 		}
 	});
+
 	$('[name=cancel]').click(function(){
 		self.close();
-	});	
-	
+	}); 	
 })
 </script>
 
@@ -124,7 +146,7 @@ $(function(){
 </tr>
 <tr>
 	<td colspan='2' align="center">
-		<input type="button" name='confirm' value='수정'>
+		<input type="submit" name='confirm' value='수정'>
 		<input type="button" name='delete' value='삭제'>
 		<input type="button" name='cancel' value='취소'>
 	</td>

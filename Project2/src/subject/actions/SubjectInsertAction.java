@@ -25,11 +25,11 @@ public class SubjectInsertAction extends Action{
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		SubjectDAO dao = new SubjectDAO();
-		
+		String result="false";
 		// 파일 업로드 (EUC-KR)
 		ServletContext application =request.getServletContext();
 		String uploadDirectory = application.getRealPath("subject_plan");
-		MultipartRequest mr = new MultipartRequest(request, uploadDirectory,2*1024*1024,"EUC-KR",new DefaultFileRenamePolicy());
+		MultipartRequest mr = new MultipartRequest(request, uploadDirectory,2*1024*1024,"UTF-8",new DefaultFileRenamePolicy());
 						
 		// 일반 파라미터 처리 (UTF-8)
 		request.setCharacterEncoding("UTF-8");
@@ -52,7 +52,7 @@ public class SubjectInsertAction extends Action{
 			semester=1;
 			year++;
 		}
-		SubjectDTO subject = new SubjectDTO(id, name, division, year, semester, 0, sub, credit, times, room, cnt, "처리중");
+		SubjectDTO subject = new SubjectDTO(id, name, division, year, semester, 0, sub, credit, times, room, cnt, "처리중",null);
 		int newCode =dao.p_insert(subject);		// 입력 성공시 새로 생성된 code값을 리턴 받음 
 		
 		// 파일 파라미터 처리
@@ -64,9 +64,10 @@ public class SubjectInsertAction extends Action{
 			if(newCode>0) 				
 				uploadedFile.renameTo(new File(uploadDirectory+"\\plan"+(newCode)+fileext));
 
-			return mapping.findForward("success");
+			result="true";
 		}
-		else return null;
+		response.getWriter().write(result);
+		return null;
 	}
 
 }

@@ -10,13 +10,16 @@ public class MemberDTO {
 	int semester;
 	String status;
 	String job;
+	String pass;
+	int total;
+	int t_credit;
 	public MemberDTO() {
 	}
 
 	
 	
 	public MemberDTO(String id, String dept, String name, String email, String tel, String addr, int semester,
-			String status,String job) {
+			String status,String job,String pass,int total,int t_credit) {
 		super();
 		this.id = id;
 		this.dept = dept;
@@ -27,6 +30,9 @@ public class MemberDTO {
 		this.semester = semester;
 		this.status = status;
 		this.job = job;
+		this.pass = pass;
+		this.total = total;
+		this.t_credit = t_credit;
 	}
 
 	public String getId() {
@@ -102,4 +108,27 @@ public class MemberDTO {
 		this.job = job;
 	}
 	
+	public String getPass() {
+		return pass;
+	}
+
+	public void setPass(String pass) {
+		this.pass = pass;
+	}
+	
+	public int getTotal() {
+		return total;
+	}
+
+	public void setTotal(int total) {
+		this.total = total;
+	}
+	
+	public int getT_credit() {
+		return t_credit;
+	}
+
+	public void setT_credit(int t_credit) {
+		this.t_credit = t_credit;
+	}
 }

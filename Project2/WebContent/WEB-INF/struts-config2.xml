@@ -54,20 +54,16 @@
 			<forward name="list" path='/pro/grade_list.jsp'/>
 			<forward name="update_result" path='/pro/p_update_result.jsp'/>
 		</action>
+		<!-- 교수의 과목 조회 -->
 		<action path="/pro/subjectlist" type='subject.actions.SubjectListAction'>
-			<forward name="list" path="/pro/p_subject.jsp"/>
+			<forward name="list" path="/pro/p_subjectlist.jsp"/>
 			<forward name="edit" path="/pro/p_subject_edit.jsp"/>
 		</action>
-		<action path="/pro/subjectinsert" type='subject.actions.SubjectInsertAction'>
-			<forward name="success" path="/pro/subjectlist.do" redirect="true"/>
-		</action>
-		<action path="/pro/subjectupdate" type='subject.actions.SubjectUpdateAction'>
-			<forward name="success" path="/pro/subjectlist.do" redirect="true"/>
-		</action>
-		<action path="/pro/subjectdelete" type='subject.actions.SubjectDeleteAction'>
-			<forward name="success" path="/pro/subjectlist.do" redirect="true"/>
-		</action>
-		<!-- 교수의 과목 조회 -->
+		<!-- 교수의 과목 입력/수정/삭제 -->
+		<action path="/pro/subjectinsert" type='subject.actions.SubjectInsertAction'/>
+		<action path="/pro/subjectupdate" type='subject.actions.SubjectUpdateAction'/>
+		<action path="/pro/subjectdelete" type='subject.actions.SubjectDeleteAction'/>
+		
 		
     </action-mappings>
 
