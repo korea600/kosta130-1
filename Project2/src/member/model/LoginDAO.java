@@ -94,5 +94,17 @@ public class LoginDAO {
 		
 		return list;
 	}
+	
+	public boolean insert(MemberDTO dto){
+		
+		try {
+			smc.insert("login.insert",dto);
+			return true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+	}
 
 }

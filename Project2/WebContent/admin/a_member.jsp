@@ -41,19 +41,38 @@ $( document ).ready(function() {
 	        }
 	    })
 	});
+	
+	$('.file_insert').click(function(){
+		console.log("Ddd");
+		 if (frm.file1.value == "") {   
+			  alert("파일을 업로드해주세요.");   
+			  return false;   
+			 }  else if(!checkFileType(frm.file1.value)) {   
+			  alert("엑셀파일만 업로드 해주세요.");   
+			  return false;   
+			 }   
+			  document.frm.submit();
+			   "WebContent/ex_test/excel_form.jsp"
+	});
 });
 
 
 
-/*function left_sc(){
-	var dept = document.frm.part.value;
-	var sem = document.frm.level.value;
-	location.href="/Project2/common/edit.do?action=scr_select&dept="+dept+"&sem="+sem;
-}*/
+
+	
+	function checkFileType(filePath){   
+	  
+	 var fileLen = filePath.length;   
+	 var fileFormat = filePath.substring(fileLen - 4);   
+	 fileFormatfileFormat = fileFormat.toLowerCase();   
+	  
+	 if (fileFormat == ".xls"){   return true;    
+	 }   else{     return false;     }   
+	}   
 </script>
 </head>
 <body>
-<form name="frm">
+<form name="frm" action="/Project2/admin/excel_insert.jsp" method="post" enctype="multipart/form-data">
 <section>
 		<div class="member_form" style="margin-top: 0px;">
 			<!--검색-->
@@ -89,9 +108,9 @@ $( document ).ready(function() {
 			</div>
 			<!--검색-->
 			<div class="file_form">
-				<input type="file"/>
-				<input type="button" value="전송"/>
-				<input type="button" value="양식다운로드"/>
+				<input type="file" name="file1" align="absmiddle"/>
+				<input type="button" value="전송" class='file_insert'/>
+				<a href="/Project2/admin/member.xls" download><input type="button" value="양식다운로드"/></a>
 			</div>
 
 			<div class="member_info">
