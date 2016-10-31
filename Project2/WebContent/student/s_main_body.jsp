@@ -103,7 +103,7 @@ $(document).ready(function(){
             $('.three').click(function(){
             	  //jQuery.ajax({});
             	  $.ajax({    		  
-            	     url:'/Project2/admin/notice_list.do',
+            	     url:'/Project2/student/grade.do',
             	     success: function(data){
             	    	$('#main').html(data); 
             	     }
