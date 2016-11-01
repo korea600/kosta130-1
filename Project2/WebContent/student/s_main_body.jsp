@@ -124,7 +124,7 @@ $(document).ready(function(){
                 	  //jQuery.ajax({});
                 	  console.log("dddd");
                 	  $.ajax({    		  
-                	     url:'/Project2/common/edit.do?action=member',
+                		 url:'/Project2/student/s_qna.jsp',
                 	     success: function(data){
                 	    	$('#main').html(data); 
                 	     }
