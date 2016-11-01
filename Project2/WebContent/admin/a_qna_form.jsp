@@ -33,7 +33,7 @@ $(function(){
 </script>
 </head>
 <body>
-	<form name="qnaform" action="/Project2/admin/upformQna.do?action=update" method="post">
+	<form name="qnaform" action="/Project2/admin/qna.do?action=update" method="post">
 	<input type="hidden" name="no" value="${upform.no }">
 	<table id="table_reg">
 	

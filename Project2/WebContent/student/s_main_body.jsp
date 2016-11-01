@@ -134,6 +134,16 @@ $(document).ready(function(){
       
   
    });
+   
+   function req(){
+		   console.log("zzzz");
+       	  $.ajax({    		  
+       	     url:'/Project2/s_reg.do',
+       	     success: function(data){
+       	    	$('#main').html(data); 
+       	     }
+       	  });//$.ajax()
+   }
 </script>
 <header><%@include file="/common/header.jsp"%></header>
 

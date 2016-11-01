@@ -19,7 +19,7 @@ public class ListAction extends Action{
 		ActionForward forward = mapping.findForward("success");
 		LoginDTO login = (LoginDTO) request.getSession().getAttribute("LoginDTO");
 		String id = login.getId();
-		if(action==null || action.equals("list")){
+		if(action==null || action.equals("list")){	// 학생 개인이 건의한 리스트 출력 ('처리중','처리완료' 모두 출력)
 			QnaDAO dao = new QnaDAO();
 			request.setAttribute("list", dao.selectAll(id));
 		}else if(action.equals("AdminQna")){	// 교직원용 리스트 출력 ('처리중'만 출력됨)

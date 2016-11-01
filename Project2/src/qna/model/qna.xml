@@ -15,11 +15,14 @@
 	</insert>
 	
 	<select id="AdminQna" resultClass="qna.model.QnaDTO" parameterClass="String">
-		select id,no,title,content,name,times,status from qna where status=#status#
+		select id,no,title,content,name,times,status from qna where status=#status# order by no desc
 	</select>
 	
 	<update id="updateQna" parameterClass="qna.model.QnaDTO">
 		update qna set content=#content#, status=#status# where no=#no#
+	</update>
+	<update id="editQna" parameterClass="qna.model.QnaDTO">
+		update qna set title=#title#, content=#content# where no=#no#
 	</update>
 	
 	<delete id="deleteQna" parameterClass="qna.model.QnaDTO">

@@ -11,7 +11,7 @@
 	var childWin;
 	$(function(){
 		$.ajax({
-			url:'/Project2/admin/listQnaConfirm.do',
+			url:'/Project2/admin/listQna.do',
 			data:{
 				action:'AdminQna'
 			},
@@ -25,7 +25,7 @@
 	})
 	function getList(){
 		$.ajax({
-			url:'/Project2/admin/listQnaConfirm.do',
+			url:'/Project2/admin/listQna.do',
 			data:{
 				action:'AdminQna'
 			},

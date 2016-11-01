@@ -4,41 +4,54 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link rel="stylesheet" href="css/tables.css" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>건의사항 입력</title>
+<script type="text/javascript" src='/Project2/js/jquery-1.12.4.js'></script>
+<script type="text/javascript" src='/Project2/js/jquery.form.js'></script>
 <script type="text/javascript">
-	function delete_check(){
-		if(confirm("삭제하시겠습니까?")){
-			var status = document.qnaform.status.value;
-			var no = document.qnaform.no.value;
-		opener.location.href= "/Project2/student/resultQna.do?action=delete&status="+status+"&no="+no;
+$(function(){
+	$('form').ajaxForm({
+		beforeSubmit:function(){},					
+		success:function(result,status){
+			result=result.trim();
+			if(result=="true"){
+				alert('입력 성공');
+				opener.getList();
+				self.close();
+			}
+			else
+				alert('입력 실패');
+		},
+		error:function(xhr,status,error){
+			alert('Error ! : '+error);
+			self.close();
+		} 
+	});
+	
+	$('[name=cancel]').click(function(){
 		window.close();
-		}
-	}
+	});
+});
 </script>
 </head>
 <body>
-	<form name="qnaform" action="/Project2/student/resultQna.do?action=insert" method="post">
-	<table id="table_reg">
-	<input type="hidden" name="no" value="${upform.no }">
-	<input type="hidden" name="status" value="${upform.status }">
-		<tr>
-			<th>상담제목</th>
-			<td><input type=text name="title" value="${upform.title }"></td>
-		</tr>
-		<tr>
-			<th>내용</th>
-			<td><textarea rows="15" cols="40" name="content">${upform.content }</textarea></td>
-		</tr>
-		<tr>
-			<td colspan="2" align="center">
-			<input type=submit value="신청">
-			<c:if test="${upform.status eq '처리중'}">
-				<input type="button" value="삭제" onclick="delete_check()"></td>
-			</c:if>
-		</tr>
-	</table>
-	</form>
+<form name="qnaform" action="/Project2/student/qna.do?action=insert" method="post">
+<table id="table_reg">
+	<tr>
+		<th>상담제목</th>
+		<td><input type=text name="title"></td>
+	</tr>
+	<tr>
+		<th>내용</th>
+		<td><textarea rows="15" cols="40" name="content"></textarea></td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center">
+			<input type='submit' value="신청">
+			<input type="button" value="취소" name='cancel'>
+		</td>
+	</tr>
+</table>
+</form>
 </body>
 </html>

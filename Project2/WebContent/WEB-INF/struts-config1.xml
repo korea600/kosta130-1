@@ -79,31 +79,19 @@
 		</action>
 		
 		
-		<!-- QnA -->
-		<action path="/student/addQna"
-				forward="/student/s_qna_form.jsp"></action>
-				
-		<action path="/student/listQna"
-				type="qna.actions.ListAction">
-			<forward name="success" path="/student/s_qna.jsp"></forward>
+		<!-- QnA 학생 -->
+		<action path="/student/listQna"	type="qna.actions.ListAction">
+			<forward name="success" path="/student/s_qna_list.jsp"/>
 		</action>
-		
-		<action path="/student/resultQna"
-		        type="qna.actions.QnaAction">
-			<forward name="success" path="/student/s_qna.jsp"></forward>
+		<action path="/student/qna" type="qna.actions.QnaAction">
+			<forward name="success" path="/student/s_qna_upform.jsp"/>
 		</action>
-		<action path="/admin/upformQna"
-		        type="qna.actions.QnaAction">
-			<forward name="success" path="/admin/a_qna_form.jsp"></forward>
+		<!-- QnA 교직원 -->
+		<action path="/admin/listQna" type="qna.actions.ListAction">
+			<forward name="success" path="/admin/a_qna_list.jsp"/>
 		</action>
-		<action path="/student/supformQna"
-		        type="qna.actions.QnaAction">
-			<forward name="success" path="/student/s_qna_form.jsp"></forward>
-		</action>
-		
-		<action path="/admin/listQnaConfirm"
-				type="qna.actions.ListAction">
-			<forward name="success" path="/admin/a_qna_list.jsp"></forward>		
+		<action path="/admin/qna" type="qna.actions.QnaAction">
+			<forward name="success" path="/admin/a_qna_form.jsp"/>
 		</action>
 		
 		

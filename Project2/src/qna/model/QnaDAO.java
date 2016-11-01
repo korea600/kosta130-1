@@ -51,7 +51,6 @@ public class QnaDAO {
 		QnaDTO dto = null;
 		try {
 			dto = (QnaDTO) sqlMap.queryForObject("qna.selectQna",no);
-			dto = new QnaDTO(dto.getNo(),dto.getTitle(),dto.getContent(),dto.getName(),dto.getTimes(),dto.getStatus(),dto.getId());
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -68,7 +67,15 @@ public class QnaDAO {
 		}
 		return false;
 	}
-	
+	public boolean edit(QnaDTO dto){
+		try {
+			int t = sqlMap.update("qna.editQna",dto);
+			if(t==1) return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
 	public boolean update(QnaDTO dto){
 		try {
 			int t = sqlMap.update("qna.updateQna",dto);

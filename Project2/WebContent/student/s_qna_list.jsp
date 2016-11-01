@@ -6,18 +6,19 @@
 	$(function(){
 		$('.edit').click(function(){
 			var no = $(this).prev().prev().text();
-			childWin=window.open('/Project2/admin/qna.do?action=upform&no='+no,'check','toolbar=yes,location=yes,status=yes'
+			var status = $(this).next().next().next().text();
+			childWin=window.open('/Project2/student/qna.do?action=upform&no='+no+"&status="+status,'check','toolbar=yes,location=yes,status=yes'
 							+'menubar=yes,scrollbars=yes,resizable=0,width=400,height=350,top=100,left=200');
 		});
 	});
 </script>
-<c:forEach items="${AdminQna}" var="i" varStatus="stat">
+<c:forEach items="${list}" var='i' varStatus="stat">
 	<ul>
-	<li>${i.no}</li>
-	<li>${i.title}</li>
-	<li class='edit' style='cursor:pointer'>${i.content}</li>
-	<li>${i.name}</li>
-	<li>${i.times}</li>
+		<li>${i.no}</li>
+		<li>${i.title}</li>
+		<li class='edit' style='cursor: pointer;'>${i.content }</li>
+		<li>${i.name }</li>
+		<li>${i.times }</li>
+		<li>${i.status }</li>
 	</ul>
 </c:forEach>
-
