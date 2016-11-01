@@ -21,23 +21,7 @@
 				alert('error : '+error);
 			}
 		});
-		$('[name=confirm]').click(function(){
-			var filevalue = $('[name=plan]').val();
-			if($('[name=start]').val()>$('[name=end]').val())
-				alert("강의시간을 확인해 주세요.");
-			else if(filevalue=='')
-				alert("강의계획서를 업로드 해 주세요.");
-			else if(filevalue.substring(filevalue.lastIndexOf("."))!=".doc")
-				alert(".doc 파일만 업로드가 가능합니다.");
-			else{
-				document.frm.submit();
-				opener.getList();
-				self.close();
-			}
-		});
-		$('[name=cancel]').click(function(){
-			self.close();
-		});	
+
 	});
 	function getList(){
 		$.ajax({
