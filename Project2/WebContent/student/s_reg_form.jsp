@@ -11,7 +11,6 @@
 $( document ).ready(function() {
 	$('.sum').click(function(){
 		var id = document.frm.id.value;
-		console.log("id"+id);
 		var name = document.frm.name.value;
 		var tel = document.frm.phoneNum.value;
 		var request = document.frm.request.value;
@@ -21,8 +20,11 @@ $( document ).ready(function() {
 	        type:'post',
 	        data:{"id":id,"name":name,"tel":tel,"request":request,"reason":reason},
 	        success:function(data){
-	        	if(data==true){
-	        		self.close();
+	        	console.log(data)
+	        	if(data=="ok"){
+	        		console.log("ddd");
+	        		window.close();
+	        		opener.location.href="javascript:req();";
 	        	}
 	        }
 	    })
@@ -32,7 +34,7 @@ $( document ).ready(function() {
 </head>
 <body>
 	<form name="frm">
-		<input type="text" name="id" class="id" value="${LoginDTO.id }">
+		<input type="hidden" name="id" class="id" value="${LoginDTO.id }">
 		<table id="table_reg">
 			<tr>
 				<th width="100px">이름</th>
@@ -44,7 +46,7 @@ $( document ).ready(function() {
 			</tr>
 			<tr>
 				<th>신청내역</th>
-				<td><input type="text" class="request" name="request"/></td>
+				<td><input type="text" class="request" name="request" value="휴/복학"/></td>
 			</tr>
 			<tr>
 				<th>사유</th>

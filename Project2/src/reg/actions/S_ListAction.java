@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
@@ -18,9 +19,11 @@ public class S_ListAction extends Action {
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		LoginDTO loged_DTO = (LoginDTO) request.getSession().getAttribute("LoginDTO");
+		ActionForward forward = null;
+		HttpSession session = request.getSession();
+		LoginDTO DTO = (LoginDTO) session.getAttribute("LoginDTO");
 		S_RegDAO dao = new S_RegDAO();
-		List<RegDTO> list = dao.s_select(loged_DTO.getId());
+		List<RegDTO> list = dao.s_select(DTO.getId());
 		request.setAttribute("list", list);
 		return mapping.findForward("s_list");
 	} // ¸®½ºÆ®

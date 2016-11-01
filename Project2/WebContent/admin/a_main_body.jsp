@@ -98,7 +98,6 @@ $(document).ready(function(){
         
         $('#one').click(function(){
         	  //jQuery.ajax({});
-        	  console.log("DDDD");
         	  $.ajax({    		  
         	     url:'/Project2/a_reg.do',
         	     success: function(data){
@@ -163,6 +162,14 @@ $(document).ready(function(){
                     });//button click
                     
    });
+   function req(){
+	   $.ajax({    		  
+  	     url:'/Project2/a_reg.do',
+  	     success: function(data){
+  	    	$('#main').html(data); 
+  	     }
+  	  });//$.ajax()
+   }
 </script>
 
 </head>
