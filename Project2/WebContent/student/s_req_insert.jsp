@@ -12,5 +12,9 @@ String tel = request.getParameter("tel");
 String reason = request.getParameter("reason");
 RegDTO dto = new RegDTO(id,request1,reason,null,"처리중",null,name,tel);
 boolean ch = dao.s_reginsert(dto);
+if(ch==true){
 %>
-<%=ch %>
+<%="ok" %>
+<%}else if(ch==false){ %>
+<%="no" %>
+<%} %>

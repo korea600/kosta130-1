@@ -4,20 +4,53 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link rel="stylesheet" href="css/tables.css" type="text/css" />
+<script src="/Project2/common/css/jquery-3.0.0.js" type="text/javascript"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript" src="../js/ajax2.js"></script>
 <script type="text/javascript">
-	function delete1() {
-		var id = document.upForm.id.value;
-		location.href = "a_regForm.do?action=delete&id=" + id;
-	}
+	
+	$( document ).ready(function() {
+		$('.sum').click(function(){
+			var id = document.upForm.id.value;
+			var request = document.upForm.request.value;
+		    $.ajax({
+		        url:'/Project2/admin/a_req_update.jsp',
+		        type:'post',
+		        data:{"action":"update","id":id,"request":request},
+		        success:function(data){
+		        	if(data=="ok"){
+		        		console.log("ddd");
+		        		window.close();
+		        		opener.location.href="javascript:req();";
+		        	}
+		        }
+		    })
+		});
+		$('.del').click(function(){
+			var id = document.upForm.id.value;
+			var request = document.upForm.request.value;
+		    $.ajax({
+		        url:'/Project2/admin/a_req_update.jsp',
+		        type:'post',
+		        data:{"action":"delete","id":id,"request":request},
+		        success:function(data){
+		        	if(data=="ok"){
+		        		window.close();
+		        		opener.location.href="javascript:req();";
+		        	}
+		        }
+		    })
+		});
+		
+		
+		
+	});//ready
 </script>
 
 </head>
 <body>
-	<form action="a_regForm.do?action=update" method="post" name="upForm">
+	<form name="upForm">
 		<input type="hidden" name="id" value="${reg.id }">
 		<table id="table_reg">
 			<tr>
@@ -40,8 +73,8 @@
 				<td><textarea rows="15" cols="40" readonly="readonly">${reg.reason }</textarea></td>
 			</tr>
 			<tr>
-				<td colspan="2" align="center"><input type="submit" value="승인">
-					<input type=button name="dbutton" value="거절" onclick="delete1()"></td>
+				<td colspan="2" align="center"><input type="button" class="sum" value="승인">
+					<input class="del" type=button name="dbutton" value="거절"></td>
 			</tr>
 		</table>
 	</form>

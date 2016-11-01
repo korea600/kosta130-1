@@ -6,7 +6,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link rel="stylesheet" href="/Project2/common/css/a_mem.css" type="text/css" />
+<link rel="stylesheet" href="/Project2/common/css/reg.css" type="text/css" />
 <link rel="stylesheet" href="/Project2/common/css/style.css" type="text/css" />
 <script src="/Project2/common/css/jquery-3.0.0.js" type="text/javascript"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -17,23 +17,23 @@
 	<br>
 	<br>
 	<table>
-		<TR>
-			<th>순번</th>
-			<th>구분</th>
-			<th>사유</th>
-			<th>신청일</th>
-			<th>상태</th>
-		</TR>
+		<ul class="top_text">
+			<li>순번</li>
+			<li>구분</li>
+			<li>사유</li>
+			<li>신청일</li>
+			<li>상태</li>
+		</ul>
 
 		<c:forEach items="${list }" var="reg">
-			<tr>
-				<td><a href="#"
-					onclick="window.open('/Project2/a_regForm.do?action=viewForm&id=${reg.id }','학적변경 신청 확인','width=500,height=400,menubar=no,status=no,toolbar=no,resizable=no,left=200,top=200');">${reg.id }</a></td>
-				<td>${reg.request }</td>
-				<td>${reg.reason }</td>
-				<td>${reg.times }</td>
-				<td>${reg.checked }</td>
-			</tr>
+			<ul class="member_text">
+				<li><a href="#"
+					onclick="window.open('/Project2/a_regForm.do?action=viewForm&id=${reg.id }','학적변경 신청 확인','width=500,height=400,menubar=no,status=no,toolbar=no,resizable=no,left=200,top=200');">${reg.id }</a></li>
+				<li>${reg.request }</li>
+				<li>${reg.reason }</li>
+				<li>${reg.times }</li>
+				<li>${reg.checked }</li>
+			</ul>
 		</c:forEach>
 	</table>
 	<br>
