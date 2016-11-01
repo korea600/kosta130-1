@@ -19,7 +19,7 @@
 			<li><%= list.get(i).getNo()%></li>
 			<li><%= list.get(i).getStarts()%></li>
 			<li><%= list.get(i).getEnds()%></li>
-			<li><%= list.get(i).getContent()%></li>
+			<li class='edit' style='cursor:pointer;'><%= list.get(i).getContent()%></li>
 			<li><%= list.get(i).getEtc()%></li>
 			<li><%= list.get(i).getPresenter()%></li>
 		</ul>

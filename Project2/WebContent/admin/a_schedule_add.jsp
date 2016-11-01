@@ -17,7 +17,7 @@ $(function(){
 			result=result.trim();
 			if(result=="true"){
 				alert('입력 성공');
-				//opener.getList();
+				opener.getSchedule();
 				self.close();
 			}
 			else
@@ -156,7 +156,24 @@ $(function(){
 				</tr>
 				<tr>
 					<th>비고</th>
-					<td><input type="text" name="etc" maxlength="20"></td>
+					<td><select name='etc'>
+						<option>1학기수강신청(베팅1차)</option>
+						<option>1학기수강신청(베팅2차)</option>
+						<option>1학기수강신청(일반)</option>
+						<option>1학기개강</option>
+						<option>1학기중간고사</option>
+						<option>1학기기말고사</option>
+						<option>1학기종강</option>
+						<option>2학기수강신청(베팅1차)</option>
+						<option>2학기수강신청(베팅2차)</option>
+						<option>2학기수강신청(일반)</option>
+						<option>2학기개강</option>
+						<option>2학기중간고사</option>
+						<option>2학기기말고사</option>
+						<option>2학기종강</option>
+						<option>기타</option>
+						
+					</select></td>
 				</tr>
 				<tr>
 				<tr>

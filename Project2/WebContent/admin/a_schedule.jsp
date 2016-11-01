@@ -32,6 +32,11 @@ $( document ).ready(function() {
 		childWin = window.open('/Project2/admin/a_schedule_add.jsp', 'insert',
 								'width=300,height=400,top=100,left=200');
 	});
+	$('.edit').click(function(){
+		var no = $(this).prev().prev().prev().text();
+		childWin = window.open('/Project2/admin/addResult.do?action=upform&no='+no, 'insert',
+		'width=300,height=400,top=100,left=200');
+	});
 });
 </script>
 </head>
@@ -71,7 +76,7 @@ $( document ).ready(function() {
 				for(int i=0; i<list.size(); i++){
 					ScheduleDTO dto=list.get(i);
 					out.print("<ul><li>"+dto.getNo()+"</li><li>"+dto.getStarts()+"</li><li>"+dto.getEnds()+
-						"</li> <li> <a href='/Project2/admin/addResult.do?action=upform&no="+dto.getNo()+"'>"+dto.getContent()+"</a></li><li>"+
+						"</li> <li class='edit' style='cursor:pointer;'>"+dto.getContent()+"</a></li><li>"+
 						dto.getEtc()+"</li><li>"+dto.getPresenter()+"</li></ul>");
 				}
 			}

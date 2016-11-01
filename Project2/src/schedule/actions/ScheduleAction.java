@@ -77,14 +77,17 @@ public class ScheduleAction extends Action{
 							request.getParameter("content"),
 							request.getParameter("etc"),
 							login.getName());
-			if(dao.update(dto)==true){
-				request.setAttribute("list", dao.selectAll());
-			}
+			if(dao.update(dto))
+				response.getWriter().write("true");
+			else
+				response.getWriter().write("false");
+		
 		}else if(action.equals("delete")){
 			int no = Integer.parseInt(request.getParameter("no"));
-			if(dao.delete(no)==true){
-				request.setAttribute("list", dao.selectAll());
-			}
+			if(dao.delete(no)==true)
+				response.getWriter().write("true");
+			else
+				response.getWriter().write("false");
 		}else if(action.equals("search")){
 			String month = request.getParameter("month");
 			List<ScheduleDTO> list = dao.search(month);

@@ -42,12 +42,7 @@
 		
 		
 		<!-- Schedule -->
-		<action path="/admin/add"
-				forward="/admin/a_schedule_add.jsp">
-		</action>
-		
-		<action path="/admin/list"
-				type="schedule.actions.ListAction">
+		<action path="/admin/list" type="schedule.actions.ListAction">
 			<forward name="success" path="/admin/a_schedule.jsp"></forward>
 			<forward name="main" path="/admin/a_main_body.jsp"></forward>
 		</action>

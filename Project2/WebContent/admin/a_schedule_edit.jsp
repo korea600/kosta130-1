@@ -15,20 +15,64 @@
 				String[] ssarray = sarray[2].split(" ");
 				String[] sssarray = ssarray[1].split(":");
 			%>
+<script type="text/javascript" src='/Project2/js/jquery-1.12.4.js'></script>
+<script type="text/javascript" src='/Project2/js/jquery.form.js'></script>
 <script type="text/javascript">
-	function pass_check(ud){
-	if(ud=='del'){
-		if(confirm('정말삭제?'))
-		location.href='/Project2/admin/addResult.do?action=delete&no=<%= sdto.getNo() %>';
-	}else{
-		document.schAdd.submit();
-	}
-}
+$(function(){
+	$('form').ajaxForm({
+		beforeSubmit:function(){},	
+		success:function(result,status){
+			result=result.trim();
+			if(result=="true"){
+				alert('수정 성공');
+				opener.getSchedule();
+				self.close();
+			}
+			else
+				alert('수정 실패');
+		},
+		error:function(xhr,status,error){
+			alert('Error ! : '+error);
+			self.close();
+		} 
+	});
+	
+	$('[name=delete]').click(function(){
+		if(confirm("삭제하시겠습니까?")){
+			$.ajax({				
+				url:'/Project2/admin/addResult.do',
+				type:'POST',
+				data:{
+					action:'delete',
+					no:$('[name=no]').val()
+				},
+				success:function(result,status){
+					result=result.trim();
+					if(result=="true"){
+						alert('삭제 성공');
+						opener.getSchedule();
+						self.close();
+					}
+					else
+						alert('삭제 실패');
+				},
+				error:function(xhr,status,error){
+					alert('Error ! : '+error);
+					self.close();
+				} 
+			});
+		}
+
+	});	
+	$('[name=cancel]').click(function(){
+		window.close();
+	});
+	$('[name=etc]').val('${upform.etc}');
+});
 </script>
 </head>
 <body>
 <center>
-<!-- <form name="schAdd" action="/struts/Admin/list.do?action=insert"> -->
 <form name="schAdd" action="/Project2/admin/addResult.do?action=update" method="post">
     <input type="hidden" name="no" value="<%= sdto.getNo() %>">
 	<table>
@@ -299,13 +343,30 @@
 		</tr>
 		<tr>
 		<th>비고</th>
-			<td><input type="text" name="etc" maxlength="20" value="${upform.etc }"></td>
+			<td><select name='etc'>
+				<option>1학기수강신청(베팅1차)</option>
+				<option>1학기수강신청(베팅2차)</option>
+				<option>1학기수강신청(일반)</option>
+				<option>1학기개강</option>
+				<option>1학기중간고사</option>
+				<option>1학기기말고사</option>
+				<option>1학기종강</option>
+				<option>2학기수강신청(베팅1차)</option>
+				<option>2학기수강신청(베팅2차)</option>
+				<option>2학기수강신청(일반)</option>
+				<option>2학기개강</option>
+				<option>2학기중간고사</option>
+				<option>2학기기말고사</option>
+				<option>2학기종강</option>
+				<option>기타</option>
+			</select></td>
 		</tr>
 		<tr>
 			<td colspan=2 align=center>
-				<input type="button" value="수정" onclick="pass_check('up')">
-				<input type="button" value="삭제" onclick="pass_check('del')">
-				<input type="reset" value="취소"></td>
+				<input type="submit" value="수정">
+				<input type="button" value="삭제" name='delete'>
+				<input type="button" value="취소" name='cancel'>
+			</td>
 		</tr>
 	</table>
 </form>
