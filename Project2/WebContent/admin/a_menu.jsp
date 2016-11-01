@@ -100,7 +100,7 @@ $(document).ready(function(){
     $('.one').click(function(){
     	  //jQuery.ajax({});
     	  $.ajax({    		  
-    	     url:'/Project2/main/main_list.do',
+    	     url:'/Project2/a_reg.do',
     	     success: function(result,status,xhr){
     	    	$('#main').html(result); 
     	     },
@@ -197,7 +197,7 @@ $(document).ready(function(){
 <td width="200"><div class="menu">
 			<ul>
 				<li class="zero"><p><a href="#">메인</a></p></li>
-				<li class="one"><p>학적처리</p></li>
+				<li class="one"><p><a href="#">학적처리</a></p></li>
 				<li class="two"><p><a href="#">건의사항 확인</a></p></li>
 				<li class="three"><p>공지관리</p></li>
 				<li class="four"><p>과목 수정/등록</p></li>

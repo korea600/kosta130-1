@@ -4,43 +4,54 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link rel="stylesheet" href="css/tables.css" type="text/css" />
+<script src="/Project2/common/css/jquery-3.0.0.js" type="text/javascript"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript" src="../js/ajax2.js"></script>
 <script type="text/javascript">
-	function delete1() {
-		var id = document.upForm.id.value;
-		location.href = "a_regForm.do?action=delete&id=" + id;
-	}
+$( document ).ready(function() {
+	$('.sum').click(function(){
+		var id = document.frm.id.value;
+		console.log("id"+id);
+		var name = document.frm.name.value;
+		var tel = document.frm.phoneNum.value;
+		var request = document.frm.request.value;
+		var reason = document.frm.reason.value;
+	    $.ajax({
+	        url:'/Project2/student/s_req_insert.jsp',
+	        type:'post',
+	        data:{"id":id,"name":name,"tel":tel,"request":request,"reason":reason},
+	        success:function(data){
+	        	if(data==true){
+	        		self.close();
+	        	}
+	        }
+	    })
+	});
+});
 </script>
-<!-- 수정예정 -->
 </head>
 <body>
-	<form action="s_regForm.do?action=insert" method="post" name="upForm">
-		<input type="hidden" name="id" value="${reg.id }">
+	<form name="frm">
+		<input type="text" name="id" class="id" value="${LoginDTO.id }">
 		<table id="table_reg">
 			<tr>
 				<th width="100px">이름</th>
-				<td><input type=text name=username value="${reg.name }"
-					readonly="readonly"></td>
+				<td><input type=text name=username class="name" value="${LoginDTO.name }"></td>
 			</tr>
 			<tr>
 				<th width="100px">연락처</th>
-				<td><input type=text name=phoneNum value="${reg.tel }"
-					readonly="readonly"></td>
+				<td><input type=text name=phoneNum class="tel"></td>
 			</tr>
 			<tr>
 				<th>신청내역</th>
-				<td><input type="text" name="request"/></td>
+				<td><input type="text" class="request" name="request"/></td>
 			</tr>
 			<tr>
 				<th>사유</th>
-				<td><textarea rows="15" cols="40" name="reason"></textarea></td>
+				<td><textarea rows="15" cols="40" name="reason" class="reason"></textarea></td>
 			</tr>
 			<tr>
-				<td colspan="2" align="center"><input type="submit" value="신청">
-					<input type=reset name="dbutton" value="취소" onclick="delete1()"></td>
+				<td colspan="2" align="center"><input type="button" class="sum" value="신청"></td>
 			</tr>
 		</table>
 	</form>

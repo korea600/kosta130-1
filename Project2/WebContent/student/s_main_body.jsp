@@ -113,7 +113,7 @@ $(document).ready(function(){
               $('.four').click(function(){
               	  //jQuery.ajax({});
               	  $.ajax({    		  
-              	     url:'/Project2/admin/notice_list.do',
+              	     url:'/Project2/s_reg.do',
               	     success: function(data){
               	    	$('#main').html(data); 
               	     }

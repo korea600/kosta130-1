@@ -39,10 +39,9 @@
 		from register r, member m
 		where m.id=r.id and m.id=#id#
 	</select> <!-- 리스트 출력 -->
-	
-	<select id="stdInForm" parameterClass="reg.model.RegDTO"
-		resultClass="reg.model.RegDTO">
-		 insert into REGISTER (id,request,reason,times,checked)
-            values (#id#,#request#,#reason#,sysdate,'처리중')  
-	</select> <!-- 학적 변경 신청 -->
+		 
+	<insert id="s_reginsert" parameterClass="reg.model.RegDTO">
+		insert into REGISTER (id,request,reason,times,checked)
+            values (#id#,#request#,#reason#,sysdate,#checked#)  
+	</insert>
 </sqlMap>

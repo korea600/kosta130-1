@@ -24,7 +24,7 @@ public class S_RegDAO {
 		}
 		return list;
 	}
-	
+
 	public RegDTO select(RegDTO dto) {// 수정폼 내용 출력
 		RegDTO reg = null;
 		try {
@@ -34,7 +34,17 @@ public class S_RegDAO {
 		}
 		return reg;
 	}// select
-	
+
+	public MemberDTO insert_Select(String id) {
+		MemberDTO member = null;
+		try {
+			member = (MemberDTO) smc.queryForObject("login.mem_select", id);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return member;
+	}
+
 	public RegDTO insert(RegDTO dto) {// 입력폼 내용 출력
 		RegDTO reg = null;
 		try {
@@ -44,4 +54,15 @@ public class S_RegDAO {
 		}
 		return reg;
 	}// select
+	
+	public boolean s_reginsert(RegDTO dto){
+		try {
+			smc.insert("reg.s_reginsert",dto);
+			return true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+	}
 }
