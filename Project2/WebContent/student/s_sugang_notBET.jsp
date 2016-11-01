@@ -37,17 +37,16 @@ $(function(){
 $(document).ready(function(){
 	$(document).on("click",".sum",function(){
 		var code = $(this).parent().parent().children(":first").text();
-		var bet = $(this).prev().val();
 		var division = document.sugang_form.division.value;
 		var major = document.sugang_form.major.value;
 		var level = document.sugang_form.level.value;
 		
 	    $.ajax({
-	        url:'/Project2/student/search_btn_ajax.jsp',
+	        url:'/Project2/student/NotBET_btn_ajax2.jsp',
 	        type:'post',
-	        data:{"action":"enrolment","bet":bet,"division":division,"major":major,"level":level,"code":code},
+	        data:{"action":"enrolment","division":division,"major":major,"level":level,"code":code},
 	        success:function(data){
-	        	$(".sugang_view_table1").empty();
+	        	$('.sugang_view_table1').empty();
 	            $(".sugang_view_table1").append(data);
 	        }
 	    })
@@ -59,7 +58,7 @@ $(document).ready(function(){
 		var major = document.sugang_form.major.value;
 		var level = document.sugang_form.level.value;
 		$.ajax({
-			url:'/Project2/student/search_btn_ajax.jsp',
+			url:'/Project2/student/NotBET_btn_ajax2.jsp',
 			type:'POST',
 			data:{"action":"possibleList","division":division,"major":major,"level":level},
 			success:function(data){
@@ -107,8 +106,9 @@ $(document).ready(function(){
 			</ul>
 		</div>
 		</div>
+			<div class="sugang_view_table1">
 		<div class="sugang_application"></div>
-		<div class="sugang_view_table1">
+	
 			
 		
 	
@@ -119,8 +119,8 @@ $(document).ready(function(){
 				<li>과목명</li>
 				<li>교수명</li>
 				<li>강의시간</li>
+				<li>강의실</li>
 				<li>인원</li>
-				<li>상태</li>
 			</ul>
 		</div>
 		<div class="sugang_view_table2">

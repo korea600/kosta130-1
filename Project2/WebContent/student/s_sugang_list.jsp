@@ -75,7 +75,7 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
-		<form name="sugang_form" class="sugang_form">
+	<form name="sugang_form" class="sugang_form">
 	
 	<span id="sp1"><select id="sel1" name="division">
 		<option value="==선택==">==선택==</option>
@@ -93,7 +93,7 @@ $(document).ready(function(){
 		<option>4</option>
 	</select></span>
 	<input class="search_btn" type="button" value="조회">
-</form>
+	</form>
 	<div class="sugang">
 		<div class="right_pop"><p>* 배팅가능점수 : ${pTagData.total }</p><p>* 신청가능 학점 : ${pTagData.t_credit }</p></div>
 		<div class="sugang_table1">
@@ -107,8 +107,9 @@ $(document).ready(function(){
 			</ul>
 		</div>
 		</div>
-		<div class="sugang_application"></div>
 		<div class="sugang_view_table1">
+		<div class="sugang_application"></div>
+		
 			
 		
 	

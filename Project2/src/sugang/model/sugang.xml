@@ -35,8 +35,5 @@
 		where b.id=#id# and b.code = s.code
    	</select>
    	
-   	<select id="">
-   		
-   	</select>
    	
 </sqlMap>
