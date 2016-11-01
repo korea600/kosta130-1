@@ -111,7 +111,7 @@ $(document).ready(function(){
         	  console.log("DDDD");
           	  //jQuery.ajax({});
           	  $.ajax({    		  
-          	     url:'/Project2/admin/listQnaConfirm.do?action=AdminQna',
+          	     url:'/Project2/admin/a_qna.jsp',
           	     success: function(data){
           	    	$('#main').html(data); 
           	     }

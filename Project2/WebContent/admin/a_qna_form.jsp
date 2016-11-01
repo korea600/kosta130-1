@@ -3,19 +3,33 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link rel="stylesheet" href="css/tables.css" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" src='/Project2/js/jquery-1.12.4.js'></script>
+<script type="text/javascript" src='/Project2/js/jquery.form.js'></script>
 <script type="text/javascript">
-	function exitForm(){
-		window.close();
-	}
-	
-	function updateForm(){
-		document.qnaform.submit();
-		window.close();
-		opener.location.href='/Project2/admin/listQnaConfirm.do?action=AdminQna';
-	}
+$(function(){
+	$('form').ajaxForm({
+		beforeSubmit:function(){},					
+		success:function(result,status){
+			result=result.trim();
+			if(result=="true"){
+				alert('수정 성공');
+				opener.getList();
+				self.close();
+			}
+			else
+				alert('수정 실패');
+		},
+		error:function(xhr,status,error){
+			alert('Error ! : '+error);
+			self.close();
+		} 
+	});
+	$('[name=cancel]').click(function(){
+		self.close();
+	});
+})
 </script>
 </head>
 <body>
@@ -33,8 +47,8 @@
 		</tr>
 		<tr>
 			<td colspan="2" align="center">
-			<input type=submit value="답변완료" onclick="updateForm()">
-			<input type="button" value="취소" onclick="exitForm()"></td>
+			<input type=submit value="답변완료">
+			<input type="button" value="취소" name='cancel'></td>
 		</tr>
 	</table>
 	</form>

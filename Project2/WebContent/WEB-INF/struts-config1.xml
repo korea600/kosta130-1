@@ -103,7 +103,7 @@
 		
 		<action path="/admin/listQnaConfirm"
 				type="qna.actions.ListAction">
-			<forward name="success" path="/admin/a_qna.jsp"></forward>		
+			<forward name="success" path="/admin/a_qna_list.jsp"></forward>		
 		</action>
 		
 		

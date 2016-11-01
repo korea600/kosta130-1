@@ -22,7 +22,7 @@ public class ListAction extends Action{
 		if(action==null || action.equals("list")){
 			QnaDAO dao = new QnaDAO();
 			request.setAttribute("list", dao.selectAll(id));
-		}else if(action.equals("AdminQna")){//status가 "처리중"인 리스트만 출력
+		}else if(action.equals("AdminQna")){	// 교직원용 리스트 출력 ('처리중'만 출력됨)
 			QnaDAO dao = new QnaDAO();
 			request.setAttribute("AdminQna", dao.AdminQna("처리중"));
 		}

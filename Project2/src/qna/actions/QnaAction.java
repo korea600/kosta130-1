@@ -38,35 +38,32 @@ public class QnaAction extends Action{
 			if(dao.insert(dto)){//DB입력 성공
 				request.setAttribute("list",dao.selectAll(login.getId()));
 			}
-		}else if(action.equals("upform")){
-				int no = Integer.parseInt(request.getParameter("no"));
-				QnaDTO dto =new QnaDTO();
-				if(job.equals("A")){
-					dto = dao.select(no);
-				}else{
-					dto = dao.sFormselect(no);
-				}
-				request.setAttribute("upform", dto);
-		}else if(action.equals("update")){
-			QnaDTO dto = new QnaDTO(
-					Integer.parseInt(request.getParameter("no")),
-					null,
-					request.getParameter("content"),
-					null,null,"처리완료",null);
-				if(dao.update(dto)){//DB입력 성공
-					request.setAttribute("AdminQna",dao.AdminQna("처리중"));
-				}
-		}else if(action.equals("delete")){
-			QnaDTO dto = new QnaDTO(Integer.parseInt(request.getParameter("no")),
-									request.getParameter("title"),
-									request.getParameter("content"),
-									login.getName(),
-									null,
-									request.getParameter("status"),
-									id);
-			if(dao.delete(dto)==true){
+		}
+		else if(action.equals("upform")){		// 건의사항 등록 내용 수정하기 위한 수정폼 출력
+			int no = Integer.parseInt(request.getParameter("no"));
+			QnaDTO dto =new QnaDTO();
+			if(job.equals("A"))		// 교직원
+				dto = dao.select(no);
+			else					// 그외 (학생)
+				dto = dao.sFormselect(no);
+			request.setAttribute("upform", dto);
+		}
+		else if(action.equals("update")){		// 교직원의 건의사항 처리
+			QnaDTO dto = new QnaDTO(Integer.parseInt(request.getParameter("no")),null,
+									request.getParameter("content"),null,
+									null,"처리완료",null);
+			if(dao.update(dto))	// DB입력 성공
+				response.getWriter().write("true");
+			else
+				response.getWriter().write("false");
+			forward=null;
+		}
+		else if(action.equals("delete")){
+			QnaDTO dto = new QnaDTO(Integer.parseInt(request.getParameter("no")),request.getParameter("title"),
+									request.getParameter("content"),login.getName(),
+									null,request.getParameter("status"),id);
+			if(dao.delete(dto)==true)
 				request.setAttribute("list", dao.selectAll(id));
-			}
 		}
 		
 		return forward;
