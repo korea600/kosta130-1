@@ -8,29 +8,29 @@
 <script type="text/javascript" src='/Project2/js/jquery-1.12.4.js'></script>
 <script type="text/javascript" src='/Project2/js/jquery.form.js'></script>
 <script type="text/javascript">
-	$(function(){
-		$('form').ajaxForm({
-			beforeSubmit:function(){},
-			success:function(result,status){
-				result=result.trim();
-				if(result=="true"){
-					alert('입력 성공');
-					var checked=$('[name=checked]').val();
-					opener.getList(checked);
-					self.close();
-				}
-				else
-					alert('입력 실패');
-			},
-			error:function(xhr,status,error){
-				alert('Error ! : '+error);
+$(function(){
+	$('form').ajaxForm({
+		beforeSubmit:function(){},					
+		success:function(result,status){
+			result=result.trim();
+			if(result=="true"){
+				alert('입력 성공');
+				opener.getList('학사');
 				self.close();
-			} 
-		});
-	})
-	function exitForm(){
+			}
+			else
+				alert('수정 실패');
+		},
+		error:function(xhr,status,error){
+			alert('Error ! : '+error);
+			self.close();
+		} 
+	});
+	
+	$('[name=cancel]').click(function(){
 		window.close();
-	}
+	});
+});	
 </script>
 </head>
 <body>
@@ -47,7 +47,7 @@
 <br>
 
 <input type="submit" value="확인">
-<input type="button" value="취소" onclick="exitForm()">
+<input type="button" name='cancel' value="취소">
 </form>
 </center>
 </body>
