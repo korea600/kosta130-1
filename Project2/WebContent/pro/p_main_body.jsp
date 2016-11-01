@@ -103,7 +103,7 @@ $(document).ready(function(){
 
 			</ul>
 		</div></td> 
-<td width="824px" id="main" style="position:fixed;,top:100px;,left:212px;">
+<td width="824px" id="main">
 			<table class="main_table">
 			<tr>
 				<td class="main_td" colspan=2>

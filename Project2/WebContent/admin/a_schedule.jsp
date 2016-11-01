@@ -13,11 +13,26 @@
 <script type="text/javascript" src="../js/ajax2.js"></script>
 
 <script type="text/javascript">
-	function ch(){
-		console.log("ddd");
-		var mo= document.sch.month.value;
-		location.href="/Project2/admin/addResult.do?action=search&month="+mo;
-	}
+
+$( document ).ready(function() {
+	$('#search').click(function(){
+		var month = document.sch.month.value;
+		console.log(month)
+		$.ajax({
+			url:'/Project2/admin/schedule_btn_ajax.jsp',
+			type:'post',
+			data:{"action":"moSearch","month":month},
+			success:function(data){
+				$(".schedule_form").empty();
+				$(".schedule_form").append(data);
+				}
+		})
+	});
+	$('#insert').click(function(){
+		childWin = window.open('/Project2/admin/a_schedule_add.jsp', 'insert',
+								'width=300,height=400,top=100,left=200');
+	});
+});
 </script>
 </head>
 <body>
@@ -25,7 +40,6 @@
 	<div class="schedule_btn">
 		<select name="month" id="select" class="mos mos_1">
 		<option>월</option>
-		<option>
 			<%
 				for (int i = 1; i < 13; i++) {
 					if (i < 10)
@@ -34,10 +48,9 @@
 						out.println("<option value=" + i + ">" + i + "</option>");
 				}
 			%>
-		</option>
 		</select>
-		<input type="button" value="조회" onclick="ch()" class="mos mos_2">
-		<input type="button" value="등록" onclick="location.href='/Project2/admin/add.do'" class="mos mos_3">
+		<input type="button" value="조회" id="search" class="mos mos_2">
+		<input type="button" value="등록" id="insert" class="mos mos_3">
 	</div>
 		
 	

@@ -10,7 +10,7 @@
 <script type="text/javascript">
 $(function(){
 	$('form').ajaxForm({
-		beforeSubmit:function(){},					
+		beforeSubmit:function(){},	
 		success:function(result,status){
 			result=result.trim();
 			if(result=="true"){
@@ -19,7 +19,7 @@ $(function(){
 				self.close();
 			}
 			else
-				alert('수정 실패');
+				alert('입력 실패');
 		},
 		error:function(xhr,status,error){
 			alert('Error ! : '+error);

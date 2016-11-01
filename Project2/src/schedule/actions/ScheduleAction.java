@@ -22,7 +22,7 @@ public class ScheduleAction extends Action{
 		ScheduleDAO dao = new ScheduleDAO();
 		
 		String action = request.getParameter("action");
-		ActionForward forward = mapping.findForward("success");
+		ActionForward forward = null;
 		LoginDTO login = (LoginDTO) request.getSession().getAttribute("LoginDTO");
 		
 		if (action.equals("insert")) {
@@ -46,8 +46,10 @@ public class ScheduleAction extends Action{
 									request.getParameter("content"),
 									request.getParameter("etc"),
 									login.getName());
-			if(dao.insert(dto)){//DB입력 성공			    
-			    request.setAttribute("list",dao.selectAll());
+			if(dao.insert(dto)){//DB입력 성공
+			    response.getWriter().write("true");
+			}else{
+				response.getWriter().write("false");
 			}
 		}else if(action.equals("upform")){
 			int no = Integer.parseInt(request.getParameter("no"));

@@ -26,6 +26,7 @@ public class SugangDTO {
 	private String room;
 	private int cnt;
 	private String checked;
+	private int s_grade;
 	
 	public SugangDTO() {
 	}
@@ -40,7 +41,7 @@ public class SugangDTO {
 
 	public SugangDTO(String id, int code, int bet, int year, int term, String grade, String dept, int semester,
 			String status, int total, int t_credit, Date starts, Date ends, String major, String division, String sub,
-			int credit, String professor, String times, String room, int cnt, String checked) {
+			int credit, String professor, String times, String room, int cnt, String checked, int s_grade) {
 		this.id = id;
 		this.code = code;
 		this.bet = bet;
@@ -63,6 +64,7 @@ public class SugangDTO {
 		this.room = room;
 		this.cnt = cnt;
 		this.checked = checked;
+		this.s_grade = s_grade;
 	}
 
 	public String getId() {
@@ -241,4 +243,12 @@ public class SugangDTO {
 		this.checked = checked;
 	}
 
+	public int getS_grade() {
+		return s_grade;
+	}
+
+	public void setS_grade(int s_grade) {
+		this.s_grade = s_grade;
+	}
+	
 }

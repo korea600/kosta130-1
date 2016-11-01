@@ -79,7 +79,6 @@ public class ScheduleDAO {
 		List<ScheduleDTO> list = null;
 		try {
 			list=sqlMap.queryForList("schedule.searchSchedulr",starts);
-			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

@@ -170,6 +170,16 @@ $(document).ready(function(){
   	     }
   	  });//$.ajax()
    }
+   function getSchedule(){
+	   console.log("DDDD");
+   	  //jQuery.ajax({});
+   	  $.ajax({    		  
+   	     url:'/Project2/admin/list.do?action=list',
+   	     success: function(data){
+   	    	$('#main').html(data); 
+   	     }
+   	  });//$.ajax()
+   }
 </script>
 
 </head>

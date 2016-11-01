@@ -6,7 +6,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link rel="stylesheet" href="/Project2/common/css/s_sugang_list.css" type="text/css" />
+<link rel="stylesheet" href="/Project2/common/css/student_sugang.css" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript" src="/Project2/js/jquery-1.12.4.js"></script>
@@ -33,69 +33,70 @@ $(function(){
 		});
 	});
 });
-function nullCheck(){
-	var sel1 = document.sugang_form.sel1.value;
-	var sel2 = $('#sp2 option:selected').text();
-	var sel3 = document.sugang_form.sel3.value;
-	
-	if(sel1 == "==선택=="){
-		alert("전공 또는 교양을 선택해주세요.")
-	}else if(sel2 == "==선택=="){
-		alert("학과를 선택해주세요.")
-	}else if(sel3 == "==선택=="){
-		alert("학년을 선택해주세요.")
-	}else{
+
+$(document).ready(function(){
+	$(document).on("click",".sum",function(){
+		var code = $(this).parent().parent().children(":first").text();
+		var bet = $(this).prev().val();
+		var division = document.sugang_form.division.value;
+		var major = document.sugang_form.major.value;
+		var level = document.sugang_form.level.value;
 		
-	}//if
-}
+	    $.ajax({
+	        url:'/Project2/student/search_btn_ajax.jsp',
+	        type:'post',
+	        data:{"action":"enrolment","bet":bet,"division":division,"major":major,"level":level,"code":code},
+	        success:function(data){
+	        	$(".sugang_view_table1").empty();
+	            $(".sugang_view_table1").append(data);
+	        }
+	    })
+	});
+	 
+	
+	$('.search_btn').click(function(){
+		var division = document.sugang_form.division.value;
+		var major = document.sugang_form.major.value;
+		var level = document.sugang_form.level.value;
+		$.ajax({
+			url:'/Project2/student/search_btn_ajax.jsp',
+			type:'POST',
+			data:{"action":"possibleList","division":division,"major":major,"level":level},
+			success:function(data){
+				$('.sugang_application').empty();
+				$('.sugang_application').append(data);
+			}
+		})
+	});
+
+
+
+});
 </script>
 </head>
 <body>
-<form name="sugang_form" class="sugang_form">
+		<form name="sugang_form" class="sugang_form">
 	
-	<span id="sp1"><select id="sel1">
+	<span id="sp1"><select id="sel1" name="division">
 		<option value="==선택==">==선택==</option>
 		<option>전공</option>
 		<option>교양</option>
 	</select></span>
-	<span id="sp2"><select id="sel2">
+	<span id="sp2"><select id="sel2" name="major">
 	<option id="choice" value="==선택==">==선택==</option>
 	</select></span>
-	<span id="sp3" value="==선택=="><select id="sel3">
+	<span id="sp3" value="==선택=="><select id="sel3" name="level">
 		<option>==선택==</option>
-		<option>1학년</option>
-		<option>2학년</option>
-		<option>3학년</option>
-		<option>4학년</option>
+		<option>1</option>
+		<option>2</option>
+		<option>3</option>
+		<option>4</option>
 	</select></span>
-	<input type="button" value="조회" onclick='nullCheck()'>
+	<input class="search_btn" type="button" value="조회">
 </form>
-	<hr>
-	<form>
-	<table id="complete_table">
-		<tr>
-			<th>과목코드</th>
-			<th>수강년도</th>
-			<th>학기</th>
-			<th>과목학점</th>
-		</tr>
-<%
-		List<SugangDTO> selectList = (List<SugangDTO>)request.getAttribute("selectList");
-			if(selectList != null){
-				for(int i=0; i<selectList.size(); i++){
-					SugangDTO dto=selectList.get(i);
-					out.print("<tr><td>"+dto.getCode()+"</td><td>"+dto.getYear()+"</td><td>"+
-					dto.getTerm()+"</td><td>"+dto.getGrade()+"</td></tr>");
-				}
-			}
-		%>
-	</table>
-	</form>
-	
-	<hr>
 	<div class="sugang">
-		<div class="right_pop"><p>* 배팅가능점수 : 50</p><p>* 신청가능 학점 : 50</p></div>
-		<div class="sugang_table">
+		<div class="right_pop"><p>* 배팅가능점수 : ${pTagData.total }</p><p>* 신청가능 학점 : ${pTagData.t_credit }</p></div>
+		<div class="sugang_table1">
 			<ul>
 				<li>과목코드</li>
 				<li>과목명</li>
@@ -105,18 +106,14 @@ function nullCheck(){
 				<li>배팅점수</li>
 			</ul>
 		</div>
-		<div class="sugang_view_table">
-			<ul>
-				<li>과목코드</li>
-				<li>과목명</li>
-				<li>교수명</li>
-				<li>강의시간</li>
-				<li>인원</li>
-				<li><input type="text"/><input type="button" value="신청"></input></li>
-			</ul>
 		</div>
+		<div class="sugang_application"></div>
+		<div class="sugang_view_table1">
+			
 		
-		<div class="sugang_table">
+	
+	<h3 style="margin-top: 30px;">수강신청 목록</h3>
+		<div class="sugang_table2">
 			<ul>
 				<li>과목코드</li>
 				<li>과목명</li>
@@ -126,18 +123,20 @@ function nullCheck(){
 				<li>배팅점수</li>
 			</ul>
 		</div>
-		<div class="sugang_view_table">
-			<ul>
-				<li>과목코드</li>
-				<li>과목명</li>
-				<li>교수명</li>
-				<li>강의시간</li>
-				<li>인원</li>
-				<li>신청점수</li>
-			</ul>
-		</div>
-		
-		<div class="sugang_table">
+		<div class="sugang_view_table2">
+			<%
+		List<SugangDTO> list2 = (List<SugangDTO>)request.getAttribute("sugangApply");
+			if(list2 != null){
+				for(int i=0; i<list2.size(); i++){
+					SugangDTO dto=list2.get(i);
+					out.print("<ul><li>"+dto.getCode()+"</li><li>"+dto.getSub()+"</li><li>"+dto.getProfessor()+
+							"</li><li>"+dto.getTimes()+"</li><li>"+dto.getRoom()+"</li><li>"+dto.getCnt()+"</li></ul>");
+				}
+			}
+		%>
+		</div></div>
+	<h3 style="margin-top: 30px;">수강신청 완료</h3>
+	<div class="sugang_table3">
 			<ul>
 				<li>과목코드</li>
 				<li>과목명</li>
@@ -147,7 +146,7 @@ function nullCheck(){
 				<li>배팅점수</li>
 			</ul>
 		</div>
-		<div class="sugang_view_table">
+		<div class="sugang_view_table3">
 		<%
 		List<SugangDTO> list = (List<SugangDTO>)request.getAttribute("selectList");
 			if(list != null){
@@ -159,7 +158,10 @@ function nullCheck(){
 			}
 		%>
 		</div>
-	</div>
+		
+
+		
+	
 	
 </body>
 </html>

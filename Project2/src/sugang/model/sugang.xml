@@ -1,15 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd" >
 <sqlMap namespace="sugang">
-   <select id="major" parameterClass="String" resultClass="String">
-      select distinct major from subject
-      where division=#division#
-      order by major
-   </select>
+	<select id="major" parameterClass="String" resultClass="String">
+		select distinct major from subject
+		where division=#division#
+		order by major
+	</select>
      
-     <select id="completeSelect" parameterClass="sugang.model.SugangDTO" resultClass="sugang.model.SugangDTO">
-        select code,year,semester term,grade from grade_info
-        where id=#id# and year = TO_CHAR(SYSDATE,'YYYY') and semester=#term#
-     </select>
+	<select id="completeSelect" parameterClass="sugang.model.SugangDTO" resultClass="sugang.model.SugangDTO">
+		select grade_info.code,sub,professor,times,room,cnt from subject,grade_info
+		where id=#id# and grade_info.year = TO_CHAR(SYSDATE,'YYYY') and subject.semester=#term# and grade_info.code=subject.code
+  	</select>
      
+    <select id="pTagData" parameterClass="String" resultClass="sugang.model.SugangDTO">
+    	select total,t_credit from member where id=#id#
+    </select>
+    
+    <select id="possibleList" parameterClass="sugang.model.SugangDTO" resultClass="sugang.model.SugangDTO">
+    	select code,sub,professor,times,room,cnt from subject
+    	where division=#division# and major=#major# and s_grade=#s_grade#
+    </select>
+    
+    <insert id="enrolmentInsert" parameterClass="sugang.model.SugangDTO">
+    	insert into bet_data values (#id#,#code#,#bet#)
+    </insert>
+    
+   	<select id="applyselect" parameterClass="sugang.model.SugangDTO" resultClass="sugang.model.SugangDTO">
+   		select code,sub,professor,times,room,cnt from subject
+    	where division=#division# and major=#major# and s_grade=#s_grade# and code not in (select code from BET_DATA where id=#id#)
+   	</select> 
+   	
+   	<select id="sugangApply" parameterClass="String" resultClass="sugang.model.SugangDTO">
+		select b.code,b.bet,s.sub,s.professor,s.room,s.times,s.cnt from bet_data b,subject s
+		where b.id=#id# and b.code = s.code
+   	</select>
+   	
+   	<select id="">
+   		
+   	</select>
+   	
 </sqlMap>

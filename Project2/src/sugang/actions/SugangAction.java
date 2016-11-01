@@ -31,24 +31,29 @@ public class SugangAction extends Action{
 			if(action==null){
 				Calendar c = Calendar.getInstance();
 				String smo = new String();
-				smo= String.valueOf(c.get(Calendar.MONTH) );
+				smo= String.valueOf(c.get(Calendar.MONTH) +1 );
 				
-				if(smo.equals("2")||smo.equals("3")){
+				if(smo.equals("2")||smo.equals("3")||smo.equals("4")||smo.equals("5")||smo.equals("6")||smo.equals("7")){
 					season=1;
-				}else if(smo.equals("8")||smo.equals("9")){
+				}else if(smo.equals("8")||smo.equals("9")||smo.equals("10")||smo.equals("11")||smo.equals("12")||smo.equals("1")){
 					season=2;
 				}
 				
-				SugangDTO dto = new SugangDTO(
+				SugangDTO cdto = new SugangDTO(
 					//id,code,bet,year,term,grade,dept,semester,status,total,t_credit,starts,ends,major,division,sub,credit,professor,times,room,cnt,checked
 											id,0,0,
 											0,
 											season,
 											null,
-											null,0,null,0,0,null,null,null,null,null,0,null,null,null,0,null);
-				request.setAttribute("selectList", dao.completeSelect(dto));
+											null,0,null,0,0,null,null,null,null,null,0,null,null,null,0,null,0);
+				request.setAttribute("selectList", dao.completeSelect(cdto));
 				
 				
+				SugangDTO pdto = dao.pTagData(id);
+				request.setAttribute("pTagData", pdto);
+				
+				List<SugangDTO> sdto = dao.sugangApply(id);
+				request.setAttribute("sugangApply", sdto);
 
 			}else if(action.equals("division")){
 				String division = request.getParameter("division");

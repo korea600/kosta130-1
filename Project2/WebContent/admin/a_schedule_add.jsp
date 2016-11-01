@@ -7,6 +7,33 @@
 <link rel="stylesheet" href="css/Table.css" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" src='/Project2/js/jquery-1.12.4.js'></script>
+<script type="text/javascript" src='/Project2/js/jquery.form.js'></script>
+<script type="text/javascript">
+$(function(){
+	$('form').ajaxForm({
+		beforeSubmit:function(){},	
+		success:function(result,status){
+			result=result.trim();
+			if(result=="true"){
+				alert('입력 성공');
+				//opener.getList();
+				self.close();
+			}
+			else
+				alert('입력 실패');
+		},
+		error:function(xhr,status,error){
+			alert('Error ! : '+error);
+			self.close();
+		} 
+	});
+	
+	$('[name=cancel]').click(function(){
+		window.close();
+	});
+});	
+</script>
 </head>
 <body>
 	<center>
@@ -134,7 +161,7 @@
 				<tr>
 				<tr>
 					<td colspan=2 align=center><input type=submit value="확인">
-						<input type=reset value="취소"></td>
+						<input type="button" value="취소" name="cancel"></td>
 				</tr>
 			</table>
 		</form>
