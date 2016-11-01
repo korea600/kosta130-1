@@ -7,7 +7,7 @@
 <head>
 <link rel="stylesheet" href="css/Table.css" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>학사일정 수정</title>
 			<%
 				ScheduleDTO sdto = (ScheduleDTO) request.getAttribute("upform");
 				String starts = sdto.getStarts();

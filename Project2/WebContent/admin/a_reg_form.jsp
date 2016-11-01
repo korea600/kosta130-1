@@ -6,7 +6,7 @@
 <head>
 <script src="/Project2/common/css/jquery-3.0.0.js" type="text/javascript"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>학적 변경 처리</title>
 <script type="text/javascript" src="../js/ajax2.js"></script>
 <script type="text/javascript">
 	

@@ -37,7 +37,10 @@
 
 
 		<!-- Project2_로그인 -->
-		<action path='/main' forward="/common/login.jsp" />
+		<action path='/main' type='member.actions.LogCheckAction'>
+			<forward name='login' path="/common/login.jsp" />
+			<forward name='main' path="/main/main_list.do" />
+		</action>
 		<action path="/login" type="member.actions.LoginAction">
 			<forward name="result" path="/common/login_process.jsp" />
 		</action>

@@ -9,13 +9,11 @@
 <link rel="stylesheet" href="/Project2/common/css/main_body.css" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <header><%@include file="/common/header.jsp"%></header>
-<title>Insertasdsadsadsadsads</title>
+<title>학사정보 시스템 - 교직원</title>
 <link href="/Project2/common/css/a_menu.css" rel="stylesheet" type="text/css" />
 <script src="/Project2/common/css/jquery-3.0.0.js" ></script>
-
- <script type="text/javascript">
+<script type="text/javascript">
 $(document).ready(function(){
-	console.log("asdasdasd");
 	  $("#zero").click(function(){
 		  	$(".zero").css({"background":"#173b68","color":"#fff"})
 	         $(".one").css({"background":"#fff","color":"#000"})
@@ -86,8 +84,7 @@ $(document).ready(function(){
          $(".one").css({"background":"#fff","color":"#000"})
       });
       $('#zero').click(function(){
-    	  console.log("asdasdasdasd");
-      	  //jQuery.ajax({});
+    	 //jQuery.ajax({});
       	  $.ajax({    		  
       	     url:'/Project2/main/main_list.do?action=main',
       	     success: function(data){
@@ -107,8 +104,7 @@ $(document).ready(function(){
           });//button click
           
           $('#two').click(function(){
-        	  console.log("DDDD");
-          	  //jQuery.ajax({});
+        	  //jQuery.ajax({});
           	  $.ajax({    		  
           	     url:'/Project2/admin/a_qna.jsp',
           	     success: function(data){
@@ -118,8 +114,7 @@ $(document).ready(function(){
             });//button click
             
             $('#three').click(function(){
-            	 console.log("DDDD");
-            	  //jQuery.ajax({});
+            	//jQuery.ajax({});
             	  $.ajax({    		  
             	     url:'/Project2/admin/a_notice.jsp',
             	     success: function(data){
@@ -129,8 +124,7 @@ $(document).ready(function(){
               });//button click
               
               $('#four').click(function(){
-            	  console.log("DDDD");
-              	  //jQuery.ajax({});
+            	 //jQuery.ajax({});
               	  $.ajax({    		  
               	     url:'/Project2/admin/a_subject.do?action=statusList',
               	     success: function(data){
@@ -140,8 +134,7 @@ $(document).ready(function(){
                 });//button click
                 
                 $('#five').click(function(){
-                	 console.log("DDDD");
-                	  //jQuery.ajax({});
+                	//jQuery.ajax({});
                 	  $.ajax({    		  
                 	     url:'/Project2/common/edit.do?action=member',
                 	     success: function(data){
@@ -151,8 +144,7 @@ $(document).ready(function(){
                   });//button click
                   
                   $('#six').click(function(){
-                	  console.log("DDDD");
-                  	  //jQuery.ajax({});
+                	 //jQuery.ajax({});
                   	  $.ajax({    		  
                   	     url:'/Project2/admin/list.do?action=list',
                   	     success: function(data){

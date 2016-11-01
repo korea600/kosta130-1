@@ -16,22 +16,13 @@ public class LogCheckAction extends Action{
 			HttpServletResponse response) throws Exception {
 		LoginDTO dto = (LoginDTO) request.getSession().getAttribute("LoginDTO");
 		ActionForward forward = null;
-		if(dto==null){
-			forward=mapping.findForward("need_login");
+		if(dto==null){		// 로그인 정보가 없을경우 로그인 페이지로 이동
+			forward=mapping.findForward("login");
 		}
-		else{
-			String job=dto.getJob();
-			if(job.equals("S")){
-				forward = mapping.findForward("student");
-			}
-			else if(job.equals("P")){
-				forward = mapping.findForward("professor");
-			}
-			else{
-				forward = mapping.findForward("admin");
-			}
+		else{				// 이미 로그인한 상태면 사용자별 메인페이지로 이동
+			forward=mapping.findForward("main");
 		}
-		return super.execute(mapping, form, request, response);
+		return forward;
 	}
 
 }

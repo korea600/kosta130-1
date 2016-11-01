@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>건의사항 처리</title>
 <script type="text/javascript" src='/Project2/js/jquery-1.12.4.js'></script>
 <script type="text/javascript" src='/Project2/js/jquery.form.js'></script>
 <script type="text/javascript">
@@ -14,12 +14,12 @@ $(function(){
 		success:function(result,status){
 			result=result.trim();
 			if(result=="true"){
-				alert('수정 성공');
+				alert('답변 적용이 완료되었습니다.');
 				opener.getList();
 				self.close();
 			}
 			else
-				alert('수정 실패');
+				alert('답변이 적용되지 않았습니다.');
 		},
 		error:function(xhr,status,error){
 			alert('Error ! : '+error);
