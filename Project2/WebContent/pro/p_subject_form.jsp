@@ -14,14 +14,16 @@
 			beforeSubmit: function(data,form,option){
 				var filename=$(':file').val();
 				var flag=false;
-				if($('[name=start]').val() > $('[name=end]').val())
-					alert('값이 유효하지 않습니다.');
-				else if(filename==''){
+				if($('[name=sub]').val().length==0)
+					alert('과목명을 입력해 주세요');
+				else if($('[name=room]').val().length==0)
+					alert('강의실을 입력해 주세요');
+				else if($('[name=start]').val() > $('[name=end]').val())
+					alert('시간 입력값이 유효하지 않습니다.');
+				else if(filename=='')
 					alert('강의계획서를 등록해주세요');
-				}
-				else if(filename.substring(filename.lastIndexOf("."))!=".doc"){
+				else if(filename.substring(filename.lastIndexOf("."))!=".doc")
 					alert('.DOC 파일만 업로드 가능합니다.');
-				}
 				else
 					flag=true;
 				return flag;	

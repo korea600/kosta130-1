@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://struts.apache.org/tags-logic" prefix="logic" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -9,50 +10,58 @@
 <link rel="stylesheet" href="/Project2/common/css/style.css" type="text/css" />
 <script src="/Project2/common/css/jquery-3.0.0.js" type="text/javascript"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
 <title>Insert title here</title>
 <script type="text/javascript">
 $( document ).ready(function() {
 	$('.school_btn').click(function(){
 		var dept = document.frm.part.value;
 		var sem = document.frm.level.value;
-	    $.ajax({
-	        url:'/Project2/admin/school_btn_ajax.jsp',
-	        type:'post',
-	        data:{"action":"scr_selec","dept":dept,"sem":sem},
-	        success:function(data){
-	        	$(".input_box").empty();
-	            $(".input_box").append(data);
-	        }
-	    })
+		if(dept=='학과' || sem=='학년'){
+			alert('조회 값이 유효하지 않습니다.');
+		}
+		else{
+		    $.ajax({
+		        url:'/Project2/admin/school_btn_ajax.jsp',
+		        type:'post',
+		        data:{"action":"scr_selec","dept":dept,"sem":sem},
+		        success:function(data){
+		        	$(".input_box").empty();
+		            $(".input_box").append(data);
+		        }
+		    })
+		}
 	});
 	
 	$('.name_btn').click(function(){
 		var cate = $(".name").val();
 		var text = $(".name_text").val();
-		console.log(cate);
-	    $.ajax({
-	        url:'/Project2/admin/school_btn_ajax.jsp',
-	        type:'post',
-	        data:{"action":"scr_selec2","cate":cate,"text":text},
-	        success:function(data){
-	        	$(".input_box").empty();
-	            $(".input_box").append(data);
-	        }
-	    })
+		if(text==''){
+			alert('검색할 값을 입력해주세요.');
+		}
+		else{
+		    $.ajax({
+		        url:'/Project2/admin/school_btn_ajax.jsp',
+		        type:'post',
+		        data:{"action":"scr_selec2","cate":cate,"text":text},
+		        success:function(data){
+		        	$(".input_box").empty();
+		            $(".input_box").append(data);
+		        }
+		    })
+		}
 	});
 	
 	$('.file_insert').click(function(){
-		console.log("Ddd");
-		 if (frm.file1.value == "") {   
-			  alert("파일을 업로드해주세요.");   
-			  return false;   
-			 }  else if(!checkFileType(frm.file1.value)) {   
-			  alert("엑셀파일만 업로드 해주세요.");   
-			  return false;   
-			 }   
-			  document.frm.submit();
-			   "WebContent/ex_test/excel_form.jsp"
+		if (frm.file1.value == "") {   
+			alert("파일을 업로드해주세요.");   
+			return false;   
+		}
+		else if(!checkFileType(frm.file1.value)) {   
+			alert("엑셀파일만 업로드 해주세요.");   
+			return false;   
+		}   
+		document.frm.submit();
+		/* "WebContent/ex_test/excel_form.jsp" */
 	});
 });
 
