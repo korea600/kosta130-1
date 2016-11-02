@@ -22,12 +22,14 @@
     </select>
     
     <insert id="enrolmentInsert" parameterClass="sugang.model.SugangDTO">
+    	
     	insert into bet_data values (#id#,#code#,#bet#)
     </insert>
     
    	<select id="applyselect" parameterClass="sugang.model.SugangDTO" resultClass="sugang.model.SugangDTO">
-   		select code,sub,professor,times,room,cnt from subject
-    	where division=#division# and major=#major# and s_grade=#s_grade# and code not in (select code from BET_DATA where id=#id#)
+   		select code,sub,professor,times,room,cnt,total,t_credit from subject, member
+    	where division=#division# and major=#major# and s_grade=#s_grade# and semester=#semester# and
+    	 		year=TO_CHAR(SYSDATE,'YYYY') and checked=#checked# and code not in (select code from BET_DATA where id=#id#)
    	</select> 
    	
    	<select id="sugangApply" parameterClass="String" resultClass="sugang.model.SugangDTO">
@@ -35,5 +37,12 @@
 		where b.id=#id# and b.code = s.code
    	</select>
    	
+   	<select id="allCntSelect" parameterClass="int" resultClass="int">
+   		select cnt from subject where code=#code#
+   	</select>
+   	
+   	<select id="sugangApplyCnt" parameterClass="int" resultClass="int">
+   		select count(*) from bet_data where code=#code#
+   	</select>
    	
 </sqlMap>

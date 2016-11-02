@@ -94,13 +94,14 @@ $(document).ready(function(){
 	<input class="search_btn" type="button" value="조회">
 </form>
 	<div class="sugang">
-		<div class="right_pop"><p>* 배팅가능점수 : ${pTagData.total }</p><p>* 신청가능 학점 : ${pTagData.t_credit }</p></div>
+		<div class="right_pop"><p>* 신청가능 학점 : ${pTagData.t_credit }</p></div>
 		<div class="sugang_table1">
 			<ul>
 				<li>과목코드</li>
 				<li>과목명</li>
 				<li>교수명</li>
 				<li>강의시간</li>			
+				<li>강의실</li>
 				<li>인원</li>
 				<li>상태</li>
 			</ul>
@@ -121,6 +122,7 @@ $(document).ready(function(){
 				<li>강의시간</li>
 				<li>강의실</li>
 				<li>인원</li>
+				<li>상태</li>
 			</ul>
 		</div>
 		<div class="sugang_view_table2">
@@ -130,7 +132,8 @@ $(document).ready(function(){
 				for(int i=0; i<list2.size(); i++){
 					SugangDTO dto=list2.get(i);
 					out.print("<ul><li>"+dto.getCode()+"</li><li>"+dto.getSub()+"</li><li>"+dto.getProfessor()+
-							"</li><li>"+dto.getTimes()+"</li><li>"+dto.getRoom()+"</li><li>"+dto.getCnt()+"</li></ul>");
+							"</li><li>"+dto.getTimes()+"</li><li>"+dto.getRoom()+"</li><li>"+dto.getCnt()+
+							"</li><li><input type='button' value='신청완료'></li></ul>");
 				}
 			}
 		%>
@@ -142,6 +145,7 @@ $(document).ready(function(){
 				<li>과목명</li>
 				<li>교수명</li>
 				<li>강의시간</li>
+				<li>강의실</li>
 				<li>인원</li>
 				<li>상태</li>
 			</ul>
@@ -153,15 +157,12 @@ $(document).ready(function(){
 				for(int i=0; i<list.size(); i++){
 					SugangDTO dto=list.get(i);
 					out.print("<ul><li>"+dto.getCode()+"</li><li>"+dto.getSub()+"</li><li>"+dto.getProfessor()+
-							"</li><li>"+dto.getTimes()+"</li><li>"+dto.getRoom()+"</li><li>"+dto.getCnt()+"</li></ul>");
+							"</li><li>"+dto.getTimes()+"</li><li>"+dto.getRoom()+"</li><li>"+dto.getCnt()+
+							"</li><li><input type='button' value='취소'></li></ul>");
 				}
 			}
 		%>
 		</div>
 		
-
-		
-	
-	
 </body>
 </html>

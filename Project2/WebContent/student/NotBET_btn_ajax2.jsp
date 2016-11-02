@@ -1,3 +1,4 @@
+<%@page import="java.util.Calendar"%>
 <%@page import="member.model.LoginDTO"%>
 <%@page import="sugang.model.SugangDTO"%>
 <%@page import="java.util.List"%>
@@ -10,16 +11,27 @@
 	String division = request.getParameter("division");
 	String major = request.getParameter("major");
 	String level = request.getParameter("level");
+	int season = 0;
 	
 	LoginDTO login = (LoginDTO) request.getSession().getAttribute("LoginDTO");
 	String id = login.getId();
 	List<SugangDTO> list2 = null;
 	SugangDAO dao = new SugangDAO();
 	List<SugangDTO> list = null;
+	
 	if(action.equals("possibleList")){//수강신청 가능한 목록
-		SugangDTO dto = new SugangDTO(id,0,0,0,0,null,null,0,null,0,0,null,null,major,division,null,0,null,null,null,0,null,Integer.parseInt(level));
-		list = dao.applySelect(dto);
+		Calendar c = Calendar.getInstance();
+		String smo = new String();
+		smo= String.valueOf(c.get(Calendar.MONTH) +1 );
 		
+		if(smo.equals("2")||smo.equals("3")||smo.equals("4")||smo.equals("5")||smo.equals("6")||smo.equals("7")){
+			season=1;
+		}else if(smo.equals("8")||smo.equals("9")||smo.equals("10")||smo.equals("11")||smo.equals("12")||smo.equals("1")){
+			season=2;
+		}
+		
+		SugangDTO dto = new SugangDTO(id,0,0,0,0,null,null,season,null,0,0,null,null,major,division,null,0,null,null,null,0,null,Integer.parseInt(level));
+		list = dao.applySelect(dto);
 		
 	}else if(action.equals("enrolment")){//수강신청한 목록
 		int code = Integer.parseInt(request.getParameter("code"));
@@ -28,14 +40,13 @@
 		SugangDTO dto = new SugangDTO(id,code,bet,0,0,null,null,0,null,0,0,null,null,major,division,null,0,null,null,null,0,null,Integer.parseInt(level));
 		if(dao.enrolmentInsert(dto)){		    
 			list = dao.applySelect(dto);
-			
 			list2 = dao.sugangApply(id);
 		}
 	}
 	
-	
 		if(action.equals("possibleList")){
 			for(int i = 0; i < list.size(); i++){
+				if(dao.allCntSelect(list.get(i).getCode()) > dao.sugangApplyCnt(list.get(i).getCode())){
  %>
 		<ul class="member_text">
 			<li name="code" class="code"><%= list.get(i).getCode()%></li>
@@ -45,7 +56,20 @@
 			<li><%= list.get(i).getCnt()%></li>
 			<li><input type='button' class='sum' value='신청'></li>
 		</ul>
-<% 		}}else if(action.equals("enrolment")){
+<%				
+				}else if(dao.allCntSelect(list.get(i).getCode()) < dao.sugangApplyCnt(list.get(i).getCode())){
+%>				
+		<ul class="member_text">
+			<li name="code" class="code"><%= list.get(i).getCode()%></li>
+			<li><%= list.get(i).getSub()%></li>
+			<li><%= list.get(i).getProfessor()%></li>
+			<li><%= list.get(i).getTimes()%></li>
+			<li><%= list.get(i).getCnt()%></li>
+			<li><input type='button' class='sum' value='정원초과' disabled="disabled"></li>
+		</ul>
+<%				}
+			}
+		}else if(action.equals("enrolment")){
 		for(int i = 0; i < list.size(); i++){
 	%>
 		<ul class="member_text">

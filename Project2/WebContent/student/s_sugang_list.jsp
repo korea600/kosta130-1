@@ -47,6 +47,7 @@ $(document).ready(function(){
 	        type:'post',
 	        data:{"action":"enrolment","bet":bet,"division":division,"major":major,"level":level,"code":code},
 	        success:function(data){
+	        	console.log(data);
 	        	$(".sugang_view_table1").empty();
 	            $(".sugang_view_table1").append(data);
 	        }
@@ -55,9 +56,15 @@ $(document).ready(function(){
 	 
 	
 	$('.search_btn').click(function(){
+		console.log("zzz");
 		var division = document.sugang_form.division.value;
 		var major = document.sugang_form.major.value;
 		var level = document.sugang_form.level.value;
+		
+		if(division=="==선택==" || level=="==선택==" || major==""){
+			alert("값이 유효하지 않습니다.")
+		}else{
+		
 		$.ajax({
 			url:'/Project2/student/search_btn_ajax.jsp',
 			type:'POST',
@@ -67,6 +74,7 @@ $(document).ready(function(){
 				$('.sugang_application').append(data);
 			}
 		})
+		}
 	});
 
 
@@ -95,13 +103,14 @@ $(document).ready(function(){
 	<input class="search_btn" type="button" value="조회">
 	</form>
 	<div class="sugang">
-		<div class="right_pop"><p>* 배팅가능점수 : ${pTagData.total }</p><p>* 신청가능 학점 : ${pTagData.t_credit }</p></div>
+		<div class="right_pop"><p>* 배팅가능 점수 : ${pTagData.total }</p><p>* 신청가능 학점 : ${pTagData.t_credit }</p></div>
 		<div class="sugang_table1">
 			<ul>
 				<li>과목코드</li>
 				<li>과목명</li>
 				<li>교수명</li>
 				<li>강의시간</li>			
+				<li>강의실</li>			
 				<li>인원</li>
 				<li>배팅점수</li>
 			</ul>
@@ -109,9 +118,6 @@ $(document).ready(function(){
 		</div>
 		<div class="sugang_view_table1">
 		<div class="sugang_application"></div>
-		
-			
-		
 	
 	<h3 style="margin-top: 30px;">수강신청 목록</h3>
 		<div class="sugang_table2">
@@ -120,6 +126,7 @@ $(document).ready(function(){
 				<li>과목명</li>
 				<li>교수명</li>
 				<li>강의시간</li>
+				<li>강의실</li>
 				<li>인원</li>
 				<li>배팅점수</li>
 			</ul>
@@ -131,7 +138,8 @@ $(document).ready(function(){
 				for(int i=0; i<list2.size(); i++){
 					SugangDTO dto=list2.get(i);
 					out.print("<ul><li>"+dto.getCode()+"</li><li>"+dto.getSub()+"</li><li>"+dto.getProfessor()+
-							"</li><li>"+dto.getTimes()+"</li><li>"+dto.getRoom()+"</li><li>"+dto.getCnt()+"</li></ul>");
+							"</li><li>"+dto.getTimes()+"</li><li>"+dto.getRoom()+"</li><li>"+dto.getCnt()+"</li><li>"+
+							dto.getBet()+"</li></ul>");
 				}
 			}
 		%>
@@ -143,6 +151,7 @@ $(document).ready(function(){
 				<li>과목명</li>
 				<li>교수명</li>
 				<li>강의시간</li>
+				<li>강의실</li>
 				<li>인원</li>
 				<li>배팅점수</li>
 			</ul>
@@ -154,15 +163,11 @@ $(document).ready(function(){
 				for(int i=0; i<list.size(); i++){
 					SugangDTO dto=list.get(i);
 					out.print("<ul><li>"+dto.getCode()+"</li><li>"+dto.getSub()+"</li><li>"+dto.getProfessor()+
-							"</li><li>"+dto.getTimes()+"</li><li>"+dto.getRoom()+"</li><li>"+dto.getCnt()+"</li></ul>");
+							"</li><li>"+dto.getTimes()+"</li><li>"+dto.getRoom()+"</li><li>"+dto.getCnt()+"</li><li>"+
+							dto.getBet()+"</li></ul>");
 				}
 			}
 		%>
 		</div>
-		
-
-		
-	
-	
 </body>
 </html>

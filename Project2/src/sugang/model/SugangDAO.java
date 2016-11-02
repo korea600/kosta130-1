@@ -83,4 +83,26 @@ public class SugangDAO {
 		}
 		return list;
 	}
+	
+	public int allCntSelect(int code){
+		int cnt=0;
+		try {
+			cnt = (int) sqlMap.queryForObject("sugang.allCntSelect",code);
+			return cnt;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return cnt;
+	}
+	
+	public int sugangApplyCnt(int code){
+		int count=0;
+		try {
+			count = (int) sqlMap.queryForObject("sugang.sugangApplyCnt",code);
+			return count;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return count;
+	}
 }
