@@ -146,4 +146,14 @@ section{
 	width:150px;
 	text-align:center;
 }
-	
+
+.write_btn{
+	width:100px;
+	height:30px;
+	margin-left:690px;
+	line-height:30px;
+	color:#fff;
+	background:#173b68;
+	text-align:center;
+	cursor: pointer;
+}	

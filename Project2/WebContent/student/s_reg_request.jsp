@@ -13,14 +13,20 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>학적목록화면</title>
-
+<script type="text/javascript">
+	var childWin;
+	$(function(){
+		$('.write_btn').click(function(){
+			childWin=window.open('/Project2/s_regForm.do?action=viewForm&id=${LoginDTO.id }','check','width=500,height=400,menubar=no,status=no,toolbar=no,resizable=no,left=200,top=200');
+		})
+	})
+</script>
 </head>
 <body>
-	<a href="#"
+	<div class='write_btn'>신청하기</div>
+	<!-- <a id="reg_btn" href="#"
 		onclick="window.open('/Project2/s_regForm.do?action=viewForm&id=${LoginDTO.id }','학적변경 신청 확인','width=500,height=400,menubar=no,status=no,toolbar=no,resizable=no,left=200,top=200');">신청하기</a>
-	</td>
-	<br>
-	<br>
+		-->
 	<div class="member_info">
 		<ul class="top_text">
 			<li>학번</li>
