@@ -43,6 +43,7 @@
 			<forward name="member_ok" path="/admin/member.do"/>
 			<forward name="left_member_ok" path="/admin/member.do"/>
 		</action>
+		<action path='/common/password' type='common.actions.PasswordAction'/>
     </action-mappings>
 
 <!-- 사용자 정의 컨트롤러 (RequestProcessor) 등록 -->

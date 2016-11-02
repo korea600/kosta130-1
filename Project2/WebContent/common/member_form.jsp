@@ -6,8 +6,9 @@
 <head>
 <link rel="stylesheet" href="/Project2/common/css/member_form.css" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>개인정보수정</title>
 <script type="text/javascript" src="/Project2/js/ajax2.js"></script>
+<script type="text/javascript" src='/Project2/js/jquery-1.12.4.js'></script>
 <script type="text/javascript">
 function mem_check(up){
 	var email=document.frm.email.value;
@@ -31,7 +32,11 @@ function check_result(xhr){
 		else alert("서버에서 에러가 발생하였습니다.\n에러코드 : "+xhr.status);
 	}
 }
-
+$(function(){
+	$('[name=pw_change]').click(function(){
+		window.open('/Project2/common/pw_change.jsp','비밀수정','width=360,height=240,menubar=no,status=no,toolbar=no,resizable=no,left=350,top=350');
+	});
+})
 </script>
 </head>
 <body>
@@ -49,6 +54,11 @@ function check_result(xhr){
 		<tr>
 			<th>이 름</th>
 			<td><input type="text" name="name" maxlength="15" value="${LoginDTO.name }" readonly></td>
+			
+		</tr>
+		<tr>
+			<th>비밀번호</th>
+			<td><input type='button' name='pw_change' value='변경하기'></td>
 			
 		</tr>
 		<tr>

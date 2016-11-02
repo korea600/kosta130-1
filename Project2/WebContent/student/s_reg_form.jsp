@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="/Project2/common/css/reg_form.css" type="text/css" />
 <script src="/Project2/common/css/jquery-3.0.0.js" type="text/javascript"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>학적변경 신청</title>
 <script type="text/javascript">
 $( document ).ready(function() {
 	$('.sum').click(function(){
