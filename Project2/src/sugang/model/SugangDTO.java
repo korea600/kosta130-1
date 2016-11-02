@@ -8,10 +8,10 @@ public class SugangDTO {
 	private int code;
 	private int bet;
 	private int year;
-	private int term;
+	private int term;//grade_info
 	private String grade;
 	private String dept;
-	private int semester;
+	private int semester;//member
 	private String status;
 	private int total;
 	private int t_credit;
