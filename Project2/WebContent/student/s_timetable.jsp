@@ -10,8 +10,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-</head>
-<body>
 <%
 	GradeDAO dao = new GradeDAO();
 
@@ -19,67 +17,72 @@
 	LoginDTO id = (LoginDTO)request.getSession().getAttribute("LoginDTO");
 	
         Calendar c = Calendar.getInstance();
-        String smo = new String();
         int season = 0;
-        smo= String.valueOf(c.get(Calendar.MONTH) );
+        int smo= c.get(Calendar.MONTH)+1;
         
-        if(smo.equals("1")||smo.equals("8")){
+        if(smo>0 && smo<7){
            season=1;
-        }else if(smo.equals("9")||smo.equals("12")){
-           season=2;
         }
-	System.out.println(id.getId());
+        else
+           season=2;
 	SugangDTO input = new SugangDTO(id.getId(),season);
 	List<SugangDTO> list = dao.timetale(input);
-	
-	
+	String datas = "";
+	for(int i=0;i<list.size();i++){
+		datas+=(list.get(i).getSub()+"/"+list.get(i).getTimes());
+		if(i!=list.size()-1) datas+="|";
+	}
 %>
+<script type="text/javascript" src='/Project2/js/jquery-1.12.4.js'></script>
+<script type="text/javascript">
+	var data='<%=datas%>'
+	var days=["","월","화","수","목","금","토"];
+	$(function(){		// 리스트 정보를 이용해서 시간표 그리기
+		var items=data.split('|');		// 리스트 요소단위로 분할
+		for(var i=0;i<items.length;i++){
+			var sub=items[i].split('/')[0];	// 강좌명 분할
+			var day=items[i].split('/')[1]	// 요일 분할
+			var start=items[i].split('/')[2].split('-')[0];	// 시작교시 분할
+			var end=items[i].split('/')[2].split('-')[1];	// 끝교시 분할
+			var times=end-start+1;
+			var j;			// 요일정보를 인덱스값으로 변환 
+			for(j=0;j<days.length;j++)
+				if(days[j]==day) break;
+			var tableid=start+""+j;						// rowspan 적용할 id값 구하기
+			var spantable=document.getElementById(tableid);
+			spantable.innerText=sub;
+			spantable.rowSpan=times;
 
- <table width="1100" height="800" border="1" cellspacing="1" align="center" >  
+		}
+	})
+</script>
+</head>
+<body>
+
+ <table width="800" height="600" border="1" cellspacing="1" align="center" >  
  <caption><h1><i>시간표</i></h1></caption>  
  <tr>  
- <th align="center" width = "16%" bgcolor ="5F8EBE">교시</th>  
- <th align="center" width = "16%" bgcolor ="5F8EBE">월</th>  
- <th align="center" width = "16%" bgcolor ="5F8EBE">화</th>  
- <th align="center" width = "16%" bgcolor ="5F8EBE">수</th>  
- <th align="center" width = "16%" bgcolor ="5F8EBE">목</th>  
- <th align="center" width = "16%" bgcolor ="5F8EBE">금</th>  
+ <th align="center" width = "10%" bgcolor ="5F8EBE">교시</th>  
+ <th align="center" width = "15%" bgcolor ="5F8EBE">월</th>  
+ <th align="center" width = "15%" bgcolor ="5F8EBE">화</th>  
+ <th align="center" width = "15%" bgcolor ="5F8EBE">수</th>  
+ <th align="center" width = "15%" bgcolor ="5F8EBE">목</th>  
+ <th align="center" width = "15%" bgcolor ="5F8EBE">금</th>  
+ <th align="center" width = "15%" bgcolor ="5F8EBE">토</th>  
  </tr>
  <%
-  //시간표 표시를 위한 2차원 배열.
-  String [][] table = new String[5][8];
-  for (int i = 0; i < table.length; i++) {
-     for (int j = 0; j < table[i].length; j++) {
-      table[i][j] = " <td></td>";
-     }
-     
-     //ex
-     int time = 1;//1교시,2교시,3교시...
-     int day = 1;//요일  0,1,2,3,4
-     int a= 5; //시간표 시간.
-     
-     table[day][time] = " <td rowspan="+a+" align='center' >웹서버 프로그래밍</td>";
-     
-     int start_del = time+1;
-     int last_del = time+a;
-     for(int t = start_del; t< last_del; t++){
-      table[day][t] = "";
-     }
-     //for(int del = start_del; del < last_del; start_del++){
-    //  table[day][del] = "";
-    // } 
-     
-   }
- %>  
- <%
-  for(int mid = 0; mid < 8; mid++){
-   out.println(" <tr><td rowspan='1' align='center' >"+(mid+1)+"교시</td>  ");
-   for(int td = 0; td < 5; td++){
-    out.println(table[td][mid]);
-   }
-   out.println(" </tr>");
-  }
+	int cols=7, rows=8;
+ 	int itemcount=0;
+	for(int i=1;i<=rows;i++){
+		out.print("<tr>");
+		out.print("<td align='center'>"+i+"</td>");
+		for(int j=1;j<=cols;j++){
+			out.print("<td align='center' id="+i+""+j+"></td>");
+		}
+		out.print("</tr>");
+	}
  %>
- </table> 
+ 
+</table> 
 </body>
 </html>
