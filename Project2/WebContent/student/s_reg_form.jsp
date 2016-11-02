@@ -4,6 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link rel="stylesheet" href="/Project2/common/css/reg_form.css" type="text/css" />
 <script src="/Project2/common/css/jquery-3.0.0.js" type="text/javascript"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
@@ -49,11 +50,11 @@ $( document ).ready(function() {
 				<td><input type="text" class="request" name="request" value="휴/복학"/></td>
 			</tr>
 			<tr>
-				<th>사유</th>
+				<th class="td_ta">사유</th>
 				<td><textarea rows="15" cols="40" name="reason" class="reason"></textarea></td>
 			</tr>
 			<tr>
-				<td colspan="2" align="center"><input type="button" class="sum" value="신청"></td>
+				<td colspan="2" float="center"><input type="button" class="sum" id="btn_sub" value="신청"></td>
 			</tr>
 		</table>
 	</form>

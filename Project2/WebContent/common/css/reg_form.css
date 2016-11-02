@@ -23,12 +23,28 @@ table td {
 
 input {
 	height:30px;
-	width: 200px;
+	width: 335px;
 }
 
 input[type="submit"], [type="reset"], [type="button"] {
 	height: 25px;
-	width: 150px;
+	width: 210px;
+	margin:3px;
+	text-align: center;
+	color: #fff;
+	background:#215594;
+	border-right:2px solid #ededed;
+	box-sizing:border-box;
+}
+
+.td_ta {
+	height: 235px;
+}
+
+#btn_sub {
+	height: 25px;
+	width: 430px;
+	margin:3px;
 	text-align: center;
 	color: #fff;
 	background:#215594;
