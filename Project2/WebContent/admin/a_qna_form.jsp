@@ -11,8 +11,16 @@
 <script type="text/javascript" src='/Project2/js/jquery.form.js'></script>
 <script type="text/javascript">
 	$(function() {
+		var oldContent=$('[name=content]').val();
 		$('form').ajaxForm({
 			beforeSubmit : function() {
+				var flag=false;
+				if($('[name=content]').val().length==0)
+					alert('내용을 입력해주세요.');
+				else if($('[name=content]').val()==oldContent)
+					alert('내용이 수정되지 않았습니다.');
+				else flag=true;
+				return flag;
 			},
 			success : function(result, status) {
 				result = result.trim();
@@ -43,7 +51,7 @@
 			<tr>
 				<th>상담제목</th>
 				<td><input type=text name="title" value="${upform.title }"
-					disabled></td>
+					readonly="readonly"></td>
 			</tr>
 			<tr>
 				<th id="td_ta">내용</th>

@@ -13,8 +13,21 @@
 <script type="text/javascript" src='/Project2/js/jquery.form.js'></script>
 <script type="text/javascript">
 	$(function() {
+		var content = $('[name=content]').val();
 		$('form').ajaxForm({
 			beforeSubmit : function() {
+				var flag=false;
+				if($('[name=title]').val().length==0){
+					alert('제목을 입력하세요.');
+				}
+				else if($('[name=content]').val().length==0){
+					alert('내용을 입력하세요.');
+				}
+				else if($('[name=content]').val()==content){
+					alert('수정된 내용이 없습니다.');
+				}
+				else flag=true;
+				return flag;
 			},
 			success : function(result, status) {
 				result = result.trim();
@@ -80,11 +93,13 @@
 				<td><textarea rows="15" cols="40" name="content">${upform.content }</textarea></td>
 			</tr>
 			<tr>
-				<td colspan="2" align="center"><c:if
-						test="${upform.status=='처리중'}">
+				<td colspan="2" align="center">
+					<c:if test="${upform.status=='처리중'}">
 						<input type='submit' value="수정">
 						<input type="button" value="삭제" name='delete'>
-					</c:if> <input type="button" value="닫기" name='cancel' id="btn_sub"></td>
+					</c:if>
+					<input type="button" value="닫기" name='cancel' id="btn_sub">
+				</td>
 			</tr>
 		</table>
 	</form>
