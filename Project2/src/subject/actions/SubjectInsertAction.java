@@ -29,6 +29,10 @@ public class SubjectInsertAction extends Action{
 		// 파일 업로드 (EUC-KR)
 		ServletContext application =request.getServletContext();
 		String uploadDirectory = application.getRealPath("subject_plan");
+		File dir = new File(uploadDirectory);
+		if(!dir.isDirectory()){ // 폴더가 없으면 생성
+			dir.mkdir();
+		}
 		MultipartRequest mr = new MultipartRequest(request, uploadDirectory,2*1024*1024,"UTF-8",new DefaultFileRenamePolicy());
 						
 		// 일반 파라미터 처리 (UTF-8)
