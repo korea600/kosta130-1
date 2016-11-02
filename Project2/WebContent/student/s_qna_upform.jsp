@@ -4,9 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link rel="stylesheet" href="/Project2/common/css/qna_form.css"
-	type="text/css" />
-<link rel="stylesheet" href="css/tables.css" type="text/css" />
+<link rel="stylesheet" href="/Project2/common/css/qna_form.css"	type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>건의사항 확인 (수정/삭제)</title>
 <script type="text/javascript" src='/Project2/js/jquery-1.12.4.js'></script>
@@ -86,22 +84,20 @@
 			<input type="hidden" name="status" value="${upform.status }">
 			<tr>
 				<th>상담제목</th>
-				<td><input type=text name="title" value="${upform.title }"></td>
+				<td><input type=text name="title" size='38' value="${upform.title }"></td>
 			</tr>
 			<tr>
 				<th id="td_ta">내용</th>
 				<td><textarea rows="15" cols="40" name="content">${upform.content }</textarea></td>
 			</tr>
-			<tr>
-				<td colspan="2" align="center">
-					<c:if test="${upform.status=='처리중'}">
-						<input type='submit' value="수정">
-						<input type="button" value="삭제" name='delete'>
-					</c:if>
-					<input type="button" value="닫기" name='cancel' id="btn_sub">
-				</td>
-			</tr>
 		</table>
+
+				<c:if test="${upform.status=='처리중'}">
+					<input type='submit' value="수정">
+					<input type="button" value="삭제" name='delete'>
+				</c:if>
+				<input type="button" value="닫기" name='cancel'>
+
 	</form>
 </body>
 </html>

@@ -35,7 +35,7 @@ function check_result(xhr){
 </script>
 </head>
 <body>
-	<form name="frm">
+	<form name="frm"><center>
 		<table>
 		<tr>
 			<th>학 번</th>
@@ -72,6 +72,6 @@ function check_result(xhr){
 			</td>
 		</tr>
 	</table>
-	</form>
+	</center></form>
 </body>
 </html>

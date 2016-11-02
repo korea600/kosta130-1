@@ -13,6 +13,13 @@
 	$(function() {
 		$('form').ajaxForm({
 			beforeSubmit : function() {
+				var flag=false;
+				if($('[name=title]').val().length==0)
+					alert("제목을 입력하세요.");
+				else if($('[name=content]').val().length==0)
+					alert("내용을 입력하세요.");
+				else flag=true;
+				return flag;
 			},
 			success : function(result, status) {
 				result = result.trim();
@@ -41,17 +48,15 @@
 		<table id="table_reg">
 			<tr>
 				<th>상담제목</th>
-				<td><input type=text name="title"></td>
+				<td><input type=text name="title" size="38"></td>
 			</tr>
 			<tr>
 				<th id="td_ta">내용</th>
 				<td><textarea rows="15" cols="40" name="content"></textarea></td>
 			</tr>
-			<tr>
-				<td colspan="2" align="center"><input type='submit' value="신청">
-					<input type="button" value="취소" name='cancel'></td>
-			</tr>
 		</table>
+		<center><input type='submit' value="신청">
+				<input type="button" value="취소" name='cancel'></center>
 	</form>
 </body>
 </html>

@@ -21,9 +21,7 @@ $( document ).ready(function() {
 	        type:'post',
 	        data:{"id":id,"name":name,"tel":tel,"request":request,"reason":reason},
 	        success:function(data){
-	        	console.log(data)
 	        	if(data=="ok"){
-	        		console.log("ddd");
 	        		window.close();
 	        		opener.location.href="javascript:req();";
 	        	}
@@ -39,7 +37,7 @@ $( document ).ready(function() {
 		<table id="table_reg">
 			<tr>
 				<th width="100px">이름</th>
-				<td><input type=text name=username class="name" value="${LoginDTO.name }"></td>
+				<td><input type=text name=username class="name" value="${LoginDTO.name}" readonly="readonly"></td>
 			</tr>
 			<tr>
 				<th width="100px">연락처</th>
@@ -47,7 +45,11 @@ $( document ).ready(function() {
 			</tr>
 			<tr>
 				<th>신청내역</th>
-				<td><input type="text" class="request" name="request" value="휴/복학"/></td>
+				<td><select name='request'>
+				<option>군휴학</option>
+				<option>일반휴학</option>
+				<option value='재학'>복학</option>
+				</select></td>
 			</tr>
 			<tr>
 				<th class="td_ta">사유</th>

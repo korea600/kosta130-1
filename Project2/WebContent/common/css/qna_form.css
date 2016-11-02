@@ -1,5 +1,5 @@
 table {
-	width: 435;
+	width: 400;
 }
 
 table th {
@@ -25,14 +25,9 @@ table td {
 	height: 30px;
 }
 
-input {
-	height: 30px;
-	width: 335px;
-}
-
 input[type="submit"], [type="reset"], [type="button"] {
 	height: 25px;
-	width: 210px;
+	width: 120px;
 	margin: 3px;
 	text-align: center;
 	color: #fff;
@@ -43,15 +38,4 @@ input[type="submit"], [type="reset"], [type="button"] {
 
 #td_ta {
 	height: 235px;
-}
-
-#btn_sub {
-	height: 25px;
-	width: 435px;
-	margin: 3px;
-	text-align: center;
-	color: #fff;
-	background: #215594;
-	border-right: 2px solid #ededed;
-	box-sizing: border-box;
 }

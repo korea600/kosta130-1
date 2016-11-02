@@ -16,15 +16,10 @@
 <script type="text/javascript">
 	var childWin;
 	$(function() {
-		$('.write_btn')
-				.click(
-						function() {
-							childWin = window
-									.open(
-											'/Project2/s_regForm.do?action=viewForm&id=${LoginDTO.id }',
-											'check',
-											'width=500,height=400,menubar=no,status=no,toolbar=no,resizable=no,left=200,top=200');
-						})
+		$('.write_btn').click(function() {
+			childWin = window.open('/Project2/s_regForm.do?action=viewForm&id=${LoginDTO.id }','check',
+									'width=500,height=400,menubar=no,status=no,toolbar=no,resizable=no,left=200,top=200');
+		})
 	})
 </script>
 </head>

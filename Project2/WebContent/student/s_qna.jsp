@@ -22,8 +22,8 @@
 			}
 		});
 		$('.write_btn').click(function(){
-			childWin=window.open('/Project2/student/s_qna_form.jsp','check','toolbar=yes,location=yes,status=yes'
-					+'menubar=yes,scrollbars=yes,resizable=0,width=400,height=350,top=100,left=200');
+			childWin=window.open('/Project2/student/s_qna_form.jsp','_blank','toolbar=yes,location=yes,status=yes'
+					+'menubar=yes,scrollbars=yes,resizable=0,width=450,height=350,top=100,left=200');
 		})
 	})
 	function getList(){
