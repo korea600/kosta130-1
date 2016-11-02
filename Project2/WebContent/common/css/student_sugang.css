@@ -264,15 +264,189 @@
 	height:28px;
 	box-sizing:border-box;
 }
-.sugang{
-	width:824px;
-	position:relative;
+
+
+
+
+
+.allGrade_info{
+	widht:800px;
+	margin-left:12px;
+	margin-top:10px;
+}
+.allGrade_info > ul{
+	overflow:hidden;
+}
+.allGrade_info > ul > li{
+	float:left;
+	height:30px;
+	text-align:center;
+	background:#173b68;
+	color:#fff;
+	line-height:30px;
+}
+.allGrade_info > ul > li:nth-child(1){
+	width:80px;
+}
+.allGrade_info > ul > li:nth-child(2){
+	width:80px;
+}
+.allGrade_info > ul > li:nth-child(3){
+	width:80px;
+}
+.allGrade_info > ul > li:nth-child(4){
+	width:80px;
+}
+.allGrade_info > ul > li:nth-child(5){
+	width:80px;
+}
+.allGrade_info > ul > li:nth-child(6){
+	width:80px;
+}
+.allGrade_info > ul > li:nth-child(7){
+	width:80px;
+}
+.allGrade_info > ul > li:nth-child(8){
+	width:80px;
+}
+.allGrade_info > ul > li:nth-child(9){
+	width:90px;
+}
+
+.input_box1{
+	widht:800px;
+}
+.input_box1 > ul{
+	overflow:hidden;
+}
+.input_box1 > ul > li{
+	float:left;
+	text-align:center;
+	line-height:30px;
+}
+
+.input_box1 > ul > li:nth-child(1){
+	width:80px;
+}
+.input_box1 > ul > li:nth-child(2){
+	width:80px;
+}
+.input_box1 > ul > li:nth-child(3){
+	width:80px;
+}
+.input_box1 > ul > li:nth-child(4){
+	width:80px;
+}
+.input_box1 > ul > li:nth-child(5){
+	width:80px;
+}
+.input_box1 > ul > li:nth-child(6){
+	width:80px;
+}
+.input_box1 > ul > li:nth-child(7) > input{
+	width:40px;
+	height:28px;
+	line-height:0;
+	box-sizing:border-box;
+}
+.input_box1 > ul > li:nth-child(6) > button{
+	width:50px;
+	height:28px;
+	box-sizing:border-box;
 }
 
 
 
 
+.grade_info{
+	widht:800px;
+	margin-left:12px;
+	margin-top:10px;
+}
+.grade_info > ul{
+	overflow:hidden;
+}
+.grade_info > ul > li{
+	float:left;
+	height:30px;
+	text-align:center;
+	background:#173b68;
+	color:#fff;
+	line-height:30px;
+}
+.grade_info > ul > li:nth-child(1){
+	width:120px;
+}
+.grade_info > ul > li:nth-child(2){
+	width:120px;
+}
+.grade_info > ul > li:nth-child(3){
+	width:120px;
+}
+.grade_info > ul > li:nth-child(4){
+	width:120px;
+}
+.grade_info > ul > li:nth-child(5){
+	width:120px;
+}
+.grade_info > ul > li:nth-child(6){
+	width:120px;
+}
+.grade_info > ul > li:nth-child(7){
+	width:120px;
+}
+.grade_info > ul > li:nth-child(8){
+	width:120px;
+}
 
+.input_box2{
+	widht:800px;
+}
+.input_box2 > ul{
+	overflow:hidden;
+}
+.input_box2 > ul > li{
+	float:left;
+	text-align:center;
+	line-height:30px;
+}
+
+.input_box2 > ul > li:nth-child(1){
+	width:120px;
+}
+.input_box2 > ul > li:nth-child(2){
+	width:120px;
+}
+.input_box2 > ul > li:nth-child(3){
+	width:120px;
+}
+.input_box2 > ul > li:nth-child(4){
+	width:120px;
+}
+.input_box2 > ul > li:nth-child(5){
+	width:120px;
+}
+.input_box2 > ul > li:nth-child(6){
+	width:120px;
+}
+.input_box2 > ul > li:nth-child(6) > input{
+	width:40px;
+	height:28px;
+	line-height:0;
+	box-sizing:border-box;
+}
+.input_box1 > ul > li:nth-child(6) > button{
+	width:50px;
+	height:28px;
+	box-sizing:border-box;
+}
+
+
+
+.sugang{
+	width:824px;
+	position:relative;
+}
 
 
 
