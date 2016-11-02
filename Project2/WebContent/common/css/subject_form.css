@@ -26,7 +26,7 @@ table td {
 }
 
 input[type="submit"], [type="reset"], [type="button"] {
-	height: 25px;
+	height: 20px;
 	width: 120px;
 	text-align: center;
 	color: #fff;
@@ -36,7 +36,7 @@ input[type="submit"], [type="reset"], [type="button"] {
 }
 
 input {
-	height: 30px;
+	height: 20px;
 	width: 260px;
 }
 

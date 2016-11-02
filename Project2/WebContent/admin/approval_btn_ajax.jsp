@@ -12,7 +12,6 @@
 	if(action.equals("subappr")){
 		int code = Integer.parseInt(request.getParameter("code"));
 		String status = request.getParameter("status");
-		System.out.println("code:"+code);
 		SubjectDTO dto = new SubjectDTO(null,null,null,0,0,code,null,0,null,null,0,status,null);
 		dao.approvalUpdate(dto);
 		list = dao.a_select("처리중");

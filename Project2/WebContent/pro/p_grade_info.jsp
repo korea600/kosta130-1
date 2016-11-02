@@ -70,7 +70,7 @@
 			if(xhr.status==200){
 				$('.grade_info').show();
 				var result=eval("("+xhr.responseText+")");
-				var results='';
+				var results='<ul class="top_text"><li>학년</li><li>전공</li><li>학번</li><li>성명</li><li>평가</li></ul>';
 				$('ul.member_text').remove();
 				for(var i=0;i<result.dto.length;i++){
 					// 학년 구하기 (1~2학기 -> 1학년, 3~4학기 -> 2학년, ...)
@@ -94,11 +94,10 @@
 						+"<option value='F'>F</option></select></li></ul>"
 				}
 				// 태그에 데이터 삽입 + select값 적용
-				$('.top_text').append(results);
-				$('.top_text').append("<div class='school_btn' name='insert'>입력</div>");
+				$('.grade_info').html(results);
+				$('.grade_info').append("<div class='school_btn' name='insert'>입력</div>");
 				for(var i=0;i<result.dto.length;i++){
 					$('[name=grade'+i+']').val(result.dto[i].grade);
-					
 				}
 			}
 			else{
@@ -110,11 +109,9 @@
 		});	
 	}
 </script>
-<!-- <link rel="stylesheet" href="css/sugang.css" type="text/css"> -->
 </head>
 <body>
-
-<form name='request'>
+<div class='section'>
 <select name='year' class='part' onchange="load_semester()">
 	<option value='학년도'>학년도</option>
 	<option value='2016'>2016</option>
@@ -132,18 +129,11 @@
 	<option value='강좌명'>강좌명</option>
 </select>
 <div class="school_btn" onclick="load_grade()">조회</div>
-
-</form><br>
 <form name='grades' action='/Project2/pro/action.do?action=update' method='POST'>
 <div class="grade_info">
-				<ul class="top_text">
-					<li>학년</li>
-					<li>전공</li>
-					<li>학번</li>
-					<li>성명</li>
-					<li>평가</li>
-				</ul>
+				
 </div>
 </form>
+</div>
 </body>
 </html>
