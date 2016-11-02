@@ -3,7 +3,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link rel="stylesheet" href="/Project2/common/css/qna_form.css" type="text/css" />
+<link rel="stylesheet" href="/Project2/common/css/qna_form.css"
+	type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>건의사항 처리</title>
 <script type="text/javascript" src='/Project2/js/jquery-1.12.4.js'></script>
