@@ -10,12 +10,20 @@
 <script type="text/javascript">
 $(function(){
 	$('form').ajaxForm({
-		beforeSubmit:function(){},	
+		beforeSubmit:function(){
+			var flag=false;
+			if($('[name=title]').val().length==0)
+				alert('제목을 입력하세요.');
+			else if($('[name=content]').val().length==0)
+				alert('내용을 입력하세요.');
+			else flag=true;
+			return flag;
+		},	
 		success:function(result,status){
 			result=result.trim();
 			if(result=="true"){
 				alert('입력 성공');
-				opener.getList('학사');
+				opener.getList($('[name=checked]').val());
 				self.close();
 			}
 			else

@@ -19,8 +19,34 @@
 <script type="text/javascript" src='/Project2/js/jquery.form.js'></script>
 <script type="text/javascript">
 $(function(){
+	var content = $('[name=content]').val();
 	$('form').ajaxForm({
-		beforeSubmit:function(){},	
+		beforeSubmit:function(){
+			var flag=false;
+			var syear = $('[name=syear]').val();
+			var smonth = $('[name=smonth]').val();
+			var sday = $('[name=sday]').val();
+			var shour = $('[name=shour]').val();
+			var sminute = $('[name=sminute]').val();
+			var eyear = $('[name=eyear]').val();
+			var emonth = $('[name=emonth]').val();
+			var eday = $('[name=eday]').val();
+			var ehour = $('[name=ehour]').val();
+			var eminute = $('[name=eminute]').val();
+			var sDate = new Date(syear,smonth,sday,shour,sminute)
+			var eDate = new Date(eyear,emonth,eday,ehour,eminute)
+			if(syear=='년'||smonth=='월'||sday=='일'||shour=='시'||sminute=='분'
+				  ||eyear=='년'||emonth=='월'||eday=='일'||ehour=='시'||eminute=='분')
+			  alert('시간 입력중 비어있는 곳이 있습니다.');
+			else if(sDate>eDate)
+				alert('시간 입력이 올바르지 않습니다.');
+			else if($('[name=content]').val().length==0)
+				alert('내용을 입력하세요');
+			else if($('[name=content]').val()==content)
+				alert('수정된 내용이 없습니다.');
+			else flag=true;
+			return flag;
+		},		
 		success:function(result,status){
 			result=result.trim();
 			if(result=="true"){

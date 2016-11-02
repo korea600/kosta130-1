@@ -17,16 +17,19 @@
 $( document ).ready(function() {
 	$('#search').click(function(){
 		var month = document.sch.month.value;
-		console.log(month)
-		$.ajax({
-			url:'/Project2/admin/schedule_btn_ajax.jsp',
-			type:'post',
-			data:{"action":"moSearch","month":month},
-			success:function(data){
-				$(".schedule_form").empty();
-				$(".schedule_form").append(data);
-				}
-		})
+		if(month=='월')
+			alert('조회할 월을 선택하세요.');
+		else{
+			$.ajax({
+				url:'/Project2/admin/schedule_btn_ajax.jsp',
+				type:'post',
+				data:{"action":"moSearch","month":month},
+				success:function(data){
+					$(".schedule_form").empty();
+					$(".schedule_form").append(data);
+					}
+			})
+		}
 	});
 	$('#insert').click(function(){
 		childWin = window.open('/Project2/admin/a_schedule_add.jsp', 'insert',

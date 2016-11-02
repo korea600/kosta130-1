@@ -9,8 +9,19 @@
 <script type="text/javascript" src='/Project2/js/jquery.form.js'></script>
 <script type="text/javascript">
 $(function(){
+	var content = $('[name=content]').val();
 	$('form').ajaxForm({
-		beforeSubmit:function(){},					
+		beforeSubmit:function(){
+			var flag=false;
+			if($('[name=title]').val().length==0)
+				alert('제목을 입력하세요.');
+			else if($('[name=content]').val().length==0)
+				alert('내용을 입력하세요.');
+			else if($('[name=content]').val()==content)
+				alert('수정된 내용이 없습니다.');
+			else flag=true;
+			return flag;
+		},				
 		success:function(result,status){
 			result=result.trim();
 			if(result=="true"){
@@ -61,7 +72,7 @@ $(function(){
 <body>
 <center>
 <form action="notice_list.do?action=update" name="upform_frm" method="post">
-<input type="text" name="no" value=${dto.no }>
+<input type="hidden" name="no" value=${dto.no }>
 
 제목 <input type="text" name="title" value=${dto.title }><br><br>
 내용 <textarea rows="10" cols="23" name="content">${dto.content }</textarea>
