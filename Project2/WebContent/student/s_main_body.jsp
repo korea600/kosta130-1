@@ -93,7 +93,7 @@ $(document).ready(function(){
           	  //jQuery.ajax({});
           	  console.log("ddd");
           	  $.ajax({    		  
-          	     url:'/Project2/student/s_sugang.html',
+          	     url:'/Project2/student/s_timetable.jsp',
           	     success: function(data){
           	    	$('#main').html(data); 
           	     }

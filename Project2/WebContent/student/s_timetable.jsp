@@ -34,39 +34,9 @@
 	
 	
 %>
-<table width="800"  border="1" cellspacing="1" align="center" >  
-	<caption><h3>수강신청 목록</h3></caption>
-	<tr>
-		<th align="center" width = "10%" bgcolor ="5F8EBE">과목코드</th>  
-		<th align="center" width = "10%" bgcolor ="5F8EBE">년도</th>
-		<th align="center" width = "10%" bgcolor ="5F8EBE">학기</th>
-		<th align="center" width = "10%" bgcolor ="5F8EBE">신청자</th>
-		<th align="center" width = "10%" bgcolor ="5F8EBE">과목명</th>
-		<th align="center" width = "10%" bgcolor ="5F8EBE">교수</th>
-		<th align="center" width = "10%" bgcolor ="5F8EBE">강의시간</th>
-		<th align="center" width = "10%" bgcolor ="5F8EBE">강의실</th>
-		<th align="center" width = "10%" bgcolor ="5F8EBE">구분</th>
-		<th align="center" width = "10%" bgcolor ="5F8EBE">학기</th>
-	</tr>
-	 <tr>
-	 <%
-	 	for(int i = 0; i < list.size(); i++){
-	 %>
- 	<td align='center'><%=list.get(i).getCode()%></td>
- 	<td align='center'><%=list.get(i).getYear()%></td>
- 	<td align='center'><%=list.get(i).getSemester()%></td>
- 	<td align='center'><%=list.get(i).getId()%></td>
- 	<td align='center'><%=list.get(i).getSub()%></td>
- 	<td align='center'><%=list.get(i).getProfessor()%></td>
- 	<td align='center'><%=list.get(i).getTimes()%></td>
- 	<td align='center'><%=list.get(i).getRoom()%></td>
- 	<td align='center'><%=list.get(i).getDivision()%></td>
- 	<td align='center'><%=list.get(i).getCredit()%></td>
- 	</tr>
- 	<%} %>
-</table>
-  <table width="1100" height="800" border="1" cellspacing="1" align="center" >  
- <caption><h3>시간표</h3></caption>  
+
+ <table width="1100" height="800" border="1" cellspacing="1" align="center" >  
+ <caption><h1><i>시간표</i></h1></caption>  
  <tr>  
  <th align="center" width = "16%" bgcolor ="5F8EBE">교시</th>  
  <th align="center" width = "16%" bgcolor ="5F8EBE">월</th>  
