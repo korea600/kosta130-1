@@ -1,3 +1,7 @@
+table {
+	width:435;
+}
+
 table th {
 	float:left;
 	background:#173b68;
@@ -43,7 +47,7 @@ input[type="submit"], [type="reset"], [type="button"] {
 
 #btn_sub {
 	height: 25px;
-	width: 430px;
+	width: 435px;
 	margin:3px;
 	text-align: center;
 	color: #fff;

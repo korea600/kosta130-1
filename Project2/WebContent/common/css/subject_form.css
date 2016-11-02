@@ -1,0 +1,49 @@
+table {
+	width: 360;
+}
+
+table th {
+	float: left;
+	background: #173b68;
+	color: #fff;
+	border-right: 2px solid #ededed;
+	box-sizing: border-box;
+	text-align: center;
+	line-height: 30px;
+	width: 100px;
+	height: 30px;
+}
+
+table td {
+	float: left;
+	border-right: 2px solid #ededed;
+	border-bottom: 1px solid #ededed;
+	box-sizing: border-box;
+	text-align: center;
+	line-height: 30px;
+	width: auto;
+	height: 30px;
+}
+
+input[type="submit"], [type="reset"], [type="button"] {
+	height: 25px;
+	width: 120px;
+	text-align: center;
+	color: #fff;
+	background: #215594;
+	border-right: 2px solid #ededed;
+	box-sizing: border-box;
+}
+
+input {
+	height: 30px;
+	width: 260px;
+}
+
+select {
+	width: 57px;
+}
+
+#btn {
+	width: 180px;
+}
