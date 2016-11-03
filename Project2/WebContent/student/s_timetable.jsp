@@ -39,20 +39,26 @@
 	var days=["","월","화","수","목","금","토"];
 	$(function(){		// 리스트 정보를 이용해서 시간표 그리기
 		var items=data.split('|');		// 리스트 요소단위로 분할
+	   
 		for(var i=0;i<items.length;i++){
 			var sub=items[i].split('/')[0];	// 강좌명 분할
 			var day=items[i].split('/')[1]	// 요일 분할
 			var start=items[i].split('/')[2].split('-')[0];	// 시작교시 분할
 			var end=items[i].split('/')[2].split('-')[1];	// 끝교시 분할
 			var times=end-start+1;
+			//alert('times('+i+')='+times);
 			var j;			// 요일정보를 인덱스값으로 변환 
 			for(j=0;j<days.length;j++)
 				if(days[j]==day) break;
-			var tableid=start+""+j;						// rowspan 적용할 id값 구하기
-			var spantable=document.getElementById(tableid);
-			spantable.innerText=sub;
-			spantable.rowSpan=times;
-
+			var tableid=start+""+j;
+					 	//alert(typeof tableid)
+			for(var k=0;k<times;k++){
+				var id=(k*10+ parseInt(tableid));
+				id=id.toString();
+				var td = document.getElementById(id);
+				td.innerText=sub;
+			}
+ 
 		}
 	})
 </script>
