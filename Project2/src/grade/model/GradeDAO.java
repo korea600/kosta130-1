@@ -15,7 +15,7 @@ public class GradeDAO {		// 己利炼雀(s,p), 己利荐沥(p), select_box 单捞磐 贸府(p
 		smc = SqlMapConfig.getSqlMapInstance();
 	}
 	public List<String> find_subs(GradeDTO dto){
-		dto.setStatus("贸府吝");
+		dto.setStatus("贸府肯丰");
 		List<String> list=null;
 		try {
 			list = smc.queryForList("grade.find_subs",dto);

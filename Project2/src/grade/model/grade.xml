@@ -7,13 +7,14 @@
 		where s.code=g.code and m.id=g.id and m.id=#id# order by g.year, m.semester
 	</select>
 	<select id='find_subs' parameterClass="grade.model.GradeDTO" resultClass="String">
-		select dinstinct s.sub from subject s, member m where m.name=s.professor and m.name=#name# and m.id=#id# and year=#year# and division=#checked# and s.checked=#status#
+		select distinct s.sub from subject s, member m where m.name=s.professor and m.name=#name# and m.id=#id# and year=#year# and division=#checked# and s.checked=#status#
 	</select>
 	<select id="p_grade" parameterClass="grade.model.GradeDTO" resultClass="grade.model.GradeDTO">
 		select g.semester, m.dept, m.id, m.name, g.grade,g.code, g.year,m.semester seasons
 		from grade_info g, member m, subject s
-		where s.professor=#professor# and g.year=#year# and g.semester=#semester# and s.sub=#sub#
-		and s.division=#checked# and m.id=g.id and g.code=s.code
+		where m.id=g.id and g.code=s.code
+		and s.professor=#professor# and g.year=#year#
+		and g.semester=#semester# and s.sub=#sub# and s.division=#checked#
 	</select>
 	<update id="update_grade" parameterClass="grade.model.GradeDTO">
 		update grade_info set grade=#grade# where code=#code# and year=#year# and semester=#semester# and id=#id#

@@ -28,7 +28,7 @@ public class ProfessorGradeAction extends Action{
 			String checked=request.getParameter("checked");
 			int year=Integer.parseInt(request.getParameter("year"));
 			int semester=Integer.parseInt(request.getParameter("semester"));
-			String sub=request.getParameter("sub");
+			String sub=request.getParameter("sub").trim();
 			List<GradeDTO> list = dao.p_select(new GradeDTO(null, null, null, checked, semester, year, 0, sub, professor, null,0));
 			request.getSession().setAttribute("list",list);
 			forward=mapping.findForward("list");
@@ -49,11 +49,9 @@ public class ProfessorGradeAction extends Action{
 				dto.setGrade(request.getParameter("grade"+i));
 			}
 			if(dao.p_update(grades))
-				request.setAttribute("update_result", "success");
+				response.getWriter().write("true");
 			else
-				request.setAttribute("update_result", "fail");
-			forward=mapping.findForward("update_result");
-			request.getSession().removeAttribute("list");
+				response.getWriter().write("false");
 		}
 		return forward;
 	}

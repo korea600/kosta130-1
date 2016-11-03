@@ -12,7 +12,7 @@ public class GradeDTO {
 	String professor;	// 교수명
 	String grade;
 	int seasons;		// 수강학기 (1~8)
-	String status;
+	String status;		// 처리상태
 	
 	public GradeDTO() {}
 	

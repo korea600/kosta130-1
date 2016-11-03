@@ -9,9 +9,24 @@
 <link rel="stylesheet" href="/Project2/common/css/style.css" type="text/css" />
 <script type="text/javascript" src="/Project2/js/ajax.js"></script>
 <script type="text/javascript" src="/Project2/js/jquery-1.12.4.js"></script>
+<script type="text/javascript" src='/Project2/js/jquery.form.js'></script>
 <script type="text/javascript">
 	$(function(){
 		$('.grade_info').hide();
+		$('form').ajaxForm({
+			beforeSubmit: function(data,form,option){},
+			success:function(result,status){
+				result=result.trim();
+				if(result=="true"){
+					alert('입력 성공, 다시 조회하시면 확인하실수 있습니다.');
+				}
+				else
+					alert('입력 실패');
+			},
+			error:function(xhr,status,error){
+				alert('Error ! : '+error);
+			}
+		});
 	});
 	function load_semester(){
 		var items=["학기",1,2];
@@ -58,6 +73,7 @@
 		var semester=$('[name=semester]').val();
 		var checked=$('[name=checked]').val();
 		var sub=$('[name=sub]').val();
+
 		if(year=='학년도' || semester=='학기' || checked=='이수구분' || sub=='강좌명'){
 			alert('유효하지 않은 입력이 있습니다.');
 			return;
@@ -95,7 +111,7 @@
 				}
 				// 태그에 데이터 삽입 + select값 적용
 				$('.grade_info').html(results);
-				$('.grade_info').append("<div class='school_btn' name='insert'>입력</div>");
+				$('.grade_info').append("<input type='submit' class='school_btn' name='insert' value='입력'>");
 				for(var i=0;i<result.dto.length;i++){
 					$('[name=grade'+i+']').val(result.dto[i].grade);
 				}
@@ -103,10 +119,7 @@
 			else{
 				alert("성적을 조회할 수 없습니다.");
 			}
-		}
-		$('[name=insert]').click(function(){
-			document.grades.submit();
-		});	
+		}	
 	}
 </script>
 </head>
