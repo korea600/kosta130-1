@@ -188,15 +188,13 @@
 				<tr>
 					<th>비고</th>
 					<td><select name='etc'>
-							<option>1학기수강신청(베팅1차)</option>
-							<option>1학기수강신청(베팅2차)</option>
+							<option>1학기수강신청(베팅)</option>
 							<option>1학기수강신청(일반)</option>
 							<option>1학기개강</option>
 							<option>1학기중간고사</option>
 							<option>1학기기말고사</option>
 							<option>1학기종강</option>
-							<option>2학기수강신청(베팅1차)</option>
-							<option>2학기수강신청(베팅2차)</option>
+							<option>2학기수강신청(베팅)</option>
 							<option>2학기수강신청(일반)</option>
 							<option>2학기개강</option>
 							<option>2학기중간고사</option>

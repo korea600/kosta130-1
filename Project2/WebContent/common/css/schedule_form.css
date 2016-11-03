@@ -41,6 +41,9 @@ input {
 select {
 	width: 60px;
 }
+select[name=etc] {
+	width: 310px;
+}
 
 .btn_add {
 	height: 25px;
