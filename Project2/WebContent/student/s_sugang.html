@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="css/sugang.css" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript" src="../js/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="/Project2/js/jquery-1.12.4.js"></script>
 <script type="text/javascript">
 $(function(){
 	$('#sp1').change(function(){
@@ -13,6 +13,9 @@ $(function(){
 			data:{division:$('#sp1 > select').val()},
 			success:function(data){
 				$('#sp2').html(data);
+			},
+	        error:function(xhr,status,error){
+				location.href='/Project2/common/errorPage.jsp';
 			}
 		});
 	});

@@ -34,6 +34,9 @@ $(function(){
 					}
 				}
 				$("#sel2").append(htmldata)
+			},
+	        error:function(xhr,status,error){
+				location.href='/Project2/common/errorPage.jsp';
 			}
 		});
 		
@@ -53,6 +56,9 @@ $(function(){
 					}
 				}
 				$("#sel2").append(htmldata)
+			},
+	        error:function(xhr,status,error){
+				location.href='/Project2/common/errorPage.jsp';
 			}
 		});
 	$('#sp1').change(function(){
@@ -72,6 +78,9 @@ $(function(){
 					htmldata += "<option>"+divisions[i]+"</option>"
 				}
 				$("#sel2").append(htmldata)
+			},
+	        error:function(xhr,status,error){
+				location.href='/Project2/common/errorPage.jsp';
 			}
 		});
 	});
@@ -97,7 +106,10 @@ $(document).ready(function(){
 	        	$('.sugang_view_table1').empty();
 	            $(".sugang_view_table1").append(data);
 	        	}
-	        }
+	        },
+	        error:function(xhr,status,error){
+				location.href='/Project2/common/errorPage.jsp';
+			}
 	    })
 	});
 	 
@@ -113,6 +125,9 @@ $(document).ready(function(){
 			success:function(data){
 				$('.sugang_application').empty();
 				$('.sugang_application').append(data);
+			},
+	        error:function(xhr,status,error){
+				location.href='/Project2/common/errorPage.jsp';
 			}
 		})
 	});
@@ -131,7 +146,10 @@ $(document).ready(function(){
 	        success:function(data){
 	        	$('.sugang_view_table1').empty();
 	            $(".sugang_view_table1").append(data);
-	        }
+	        },
+	        error:function(xhr,status,error){
+				location.href='/Project2/common/errorPage.jsp';
+			}
 	    })
 	});
 

@@ -73,12 +73,14 @@ $(document).ready(function(){
       
       $('.zero').click(function(){
       	  //jQuery.ajax({});
-      	  console.log("dddd");
       	  $.ajax({    		  
       	     url:'/Project2/main/main_list.do?action=main',
       	     success: function(data){
       	    	$('#main').html(data); 
-      	     }
+      	     },
+	        error:function(xhr,status,error){
+				location.href='/Project2/common/errorPage.jsp';
+			}
       	  });//$.ajax()
         });//button click        
    
@@ -88,18 +90,23 @@ $(document).ready(function(){
         	     url:'/Project2/student/sugang.do',
         	     success: function(data){
         	    	$('#main').html(data); 
-        	     }
+        	     },
+		        error:function(xhr,status,error){
+					location.href='/Project2/common/errorPage.jsp';
+				}
         	  });//$.ajax()
           });//button click
           
           $('.two').click(function(){
           	  //jQuery.ajax({});
-          	  console.log("ddd");
           	  $.ajax({    		  
           	     url:'/Project2/student/s_timetable.jsp',
           	     success: function(data){
           	    	$('#main').html(data); 
-          	     }
+          	     },
+		        error:function(xhr,status,error){
+					location.href='/Project2/common/errorPage.jsp';
+				}
           	  });//$.ajax()
             });//button click
             
@@ -109,7 +116,10 @@ $(document).ready(function(){
             	     url:'/Project2/student/grade.do',
             	     success: function(data){
             	    	$('#main').html(data); 
-            	     }
+            	     },
+     		        error:function(xhr,status,error){
+    					location.href='/Project2/common/errorPage.jsp';
+    				}
             	  });//$.ajax()
               });//button click
               
@@ -119,18 +129,23 @@ $(document).ready(function(){
               	     url:'/Project2/s_reg.do',
               	     success: function(data){
               	    	$('#main').html(data); 
-              	     }
+              	     },
+     		        error:function(xhr,status,error){
+    					location.href='/Project2/common/errorPage.jsp';
+    				}
               	  });//$.ajax()
                 });//button click
                 
                 $('.five').click(function(){
                 	  //jQuery.ajax({});
-                	  console.log("dddd");
                 	  $.ajax({    		  
                 		 url:'/Project2/student/s_qna.jsp',
                 	     success: function(data){
                 	    	$('#main').html(data); 
-                	     }
+                	     },
+         		        error:function(xhr,status,error){
+        					location.href='/Project2/common/errorPage.jsp';
+        				}
                 	  });//$.ajax()
                   });//button click
       
@@ -139,12 +154,14 @@ $(document).ready(function(){
    });
    
    function req(){
-		   console.log("zzzz");
        	  $.ajax({    		  
        	     url:'/Project2/s_reg.do',
        	     success: function(data){
        	    	$('#main').html(data); 
-       	     }
+       	     },
+	        error:function(xhr,status,error){
+				location.href='/Project2/common/errorPage.jsp';
+			}
        	  });//$.ajax()
    }
    
@@ -153,7 +170,10 @@ $(document).ready(function(){
   	     url:'/Project2/student/sugang.do',
   	     success: function(data){
   	    	$('#main').html(data); 
-  	     }
+  	     },
+        error:function(xhr,status,error){
+			location.href='/Project2/common/errorPage.jsp';
+		}
   	  });//$.ajax()
    }
 </script>
