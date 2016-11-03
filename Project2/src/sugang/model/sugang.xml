@@ -27,7 +27,7 @@
     </insert>
     
    	<select id="applyselect" parameterClass="sugang.model.SugangDTO" resultClass="sugang.model.SugangDTO">
-   		select code,sub,professor,times,room,cnt,total,t_credit from subject, member
+   		select code,sub,professor,times,room,cnt from subject
     	where division=#division# and major=#major# and s_grade=#s_grade# and semester=#semester# and
     	 		year=TO_CHAR(SYSDATE,'YYYY') and checked=#checked# and code not in (select code from BET_DATA where id=#id#)
    	</select> 
@@ -45,4 +45,11 @@
    		select count(*) from bet_data where code=#code#
    	</select>
    	
+   	<select id="rightPop" parameterClass="String" resultClass="sugang.model.SugangDTO">
+   		select total,t_credit from member where id=#id#
+   	</select>
+   	
+   	<update id="updatePop" parameterClass="sugang.model.SugangDTO">
+   		update member set total=#total# where id=#id#
+   	</update>
 </sqlMap>

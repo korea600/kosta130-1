@@ -47,7 +47,10 @@ $(document).ready(function(){
 	        type:'post',
 	        data:{"action":"enrolment","bet":bet,"division":division,"major":major,"level":level,"code":code},
 	        success:function(data){
-	        	console.log(data);
+	        	alert(data);
+	        	if(data=="No"){
+	        		sugang();
+	        	}
 	        	$(".sugang_view_table1").empty();
 	            $(".sugang_view_table1").append(data);
 	        }

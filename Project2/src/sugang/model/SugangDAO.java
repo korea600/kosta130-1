@@ -105,4 +105,25 @@ public class SugangDAO {
 		}
 		return count;
 	}
+	
+	public SugangDTO rightPop(String id){
+		SugangDTO list = null;
+		try {
+			list = (SugangDTO) sqlMap.queryForObject("sugang.rightPop",id);
+			return list;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
+	public boolean updatePop(SugangDTO dto){
+		try {
+			int t = sqlMap.update("sugang.updatePop",dto);
+			if(t==1) return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
 }

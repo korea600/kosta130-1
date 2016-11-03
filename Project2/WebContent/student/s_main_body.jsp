@@ -80,7 +80,6 @@ $(document).ready(function(){
         
         $('.one').click(function(){
         	  //jQuery.ajax({});
-        	  console.log("ddddddd");
         	  $.ajax({    		  
         	     url:'/Project2/student/sugang.do',
         	     success: function(data){
@@ -143,6 +142,15 @@ $(document).ready(function(){
        	    	$('#main').html(data); 
        	     }
        	  });//$.ajax()
+   }
+   
+   function sugang(){
+	   $.ajax({    		  
+  	     url:'/Project2/student/sugang.do',
+  	     success: function(data){
+  	    	$('#main').html(data); 
+  	     }
+  	  });//$.ajax()
    }
 </script>
 <header><%@include file="/common/header.jsp"%></header>
