@@ -89,7 +89,10 @@ $(document).ready(function(){
       	     url:'/Project2/main/main_list.do?action=main',
       	     success: function(data){
       	    	$('#main').html(data); 
-      	     }
+      	     },
+	        error:function(xhr,status,error){
+				location.href='/Project2/common/errorPage.jsp';
+			}
       	  });//$.ajax()
         });//button click
         
@@ -99,7 +102,10 @@ $(document).ready(function(){
         	     url:'/Project2/a_reg.do',
         	     success: function(data){
         	    	$('#main').html(data); 
-        	     }
+        	     },
+     	        error:function(xhr,status,error){
+    				location.href='/Project2/common/errorPage.jsp';
+    			}
         	  });//$.ajax()
           });//button click
           
@@ -109,7 +115,10 @@ $(document).ready(function(){
           	     url:'/Project2/admin/a_qna.jsp',
           	     success: function(data){
           	    	$('#main').html(data); 
-          	     }
+          	     },
+     	        error:function(xhr,status,error){
+    				location.href='/Project2/common/errorPage.jsp';
+    			}
           	  });//$.ajax()
             });//button click
             
@@ -119,7 +128,10 @@ $(document).ready(function(){
             	     url:'/Project2/admin/a_notice.jsp',
             	     success: function(data){
             	    	$('#main').html(data); 
-            	     }
+            	     },
+         	        error:function(xhr,status,error){
+        				location.href='/Project2/common/errorPage.jsp';
+        			}
             	  });//$.ajax()
               });//button click
               
@@ -129,7 +141,10 @@ $(document).ready(function(){
               	     url:'/Project2/admin/a_subject.do?action=statusList',
               	     success: function(data){
               	    	$('#main').html(data); 
-              	     }
+              	     },
+         	        error:function(xhr,status,error){
+        				location.href='/Project2/common/errorPage.jsp';
+        			}
               	  });//$.ajax()
                 });//button click
                 
@@ -139,7 +154,10 @@ $(document).ready(function(){
                 	     url:'/Project2/common/edit.do?action=member',
                 	     success: function(data){
                 	    	$('#main').html(data); 
-                	     }
+                	     },
+             	        error:function(xhr,status,error){
+            				location.href='/Project2/common/errorPage.jsp';
+            			}
                 	  });//$.ajax()
                   });//button click
                   
@@ -149,7 +167,10 @@ $(document).ready(function(){
                   	     url:'/Project2/admin/list.do?action=list',
                   	     success: function(data){
                   	    	$('#main').html(data); 
-                  	     }
+                  	     },
+             	        error:function(xhr,status,error){
+            				location.href='/Project2/common/errorPage.jsp';
+            			}
                   	  });//$.ajax()
                     });//button click
                     
@@ -159,7 +180,10 @@ $(document).ready(function(){
   	     url:'/Project2/a_reg.do',
   	     success: function(data){
   	    	$('#main').html(data); 
-  	     }
+  	     },
+        error:function(xhr,status,error){
+			location.href='/Project2/common/errorPage.jsp';
+		}
   	  });//$.ajax()
    }
    function getSchedule(){
@@ -167,7 +191,10 @@ $(document).ready(function(){
    	     url:'/Project2/admin/list.do?action=list',
    	     success: function(data){
    	    	$('#main').html(data); 
-   	     }
+   	     },
+        error:function(xhr,status,error){
+			location.href='/Project2/common/errorPage.jsp';
+		}
    	  });//$.ajax()
    }
    function getSubject(){
@@ -176,7 +203,10 @@ $(document).ready(function(){
    	     url:'/Project2/admin/a_subject.do?action=statusList',
    	     success: function(data){
    	    	$('#main').html(data); 
-   	     }
+   	     },
+        error:function(xhr,status,error){
+			location.href='/Project2/common/errorPage.jsp';
+		}
    	  });//$.ajax()
    }
 </script>

@@ -48,7 +48,10 @@ $(document).ready(function(){
     	     url:'/Project2/main/main_list.do?action=main',
     	     success: function(data){
     	    	$('#main').html(data); 
-    	     }
+    	     },
+	        error:function(xhr,status,error){
+				location.href='/Project2/common/errorPage.jsp';
+			}
     	  });//$.ajax()
       });//button click
       
@@ -58,7 +61,10 @@ $(document).ready(function(){
       	     url:'/Project2/pro/p_grade_info.jsp',
       	     success: function(data){
       	    	$('#main').html(data); 
-      	     }
+      	     },
+	        error:function(xhr,status,error){
+				location.href='/Project2/common/errorPage.jsp';
+			}
       	  });//$.ajax()
         });//button click
         
@@ -68,7 +74,10 @@ $(document).ready(function(){
         	     url:'/Project2/pro/p_subject.jsp',
         	     success: function(data){
         	    	$('#main').html(data); 
-        	     }
+        	     },
+     	        error:function(xhr,status,error){
+    				location.href='/Project2/common/errorPage.jsp';
+    			}
         	  });//$.ajax()
           });//button click
           
@@ -78,12 +87,15 @@ $(document).ready(function(){
           	     url:'/Project2/admin/notice_list.do',
           	     success: function(data){
           	    	$('#main').html(data); 
-          	     }
+          	     },
+     	        error:function(xhr,status,error){
+    				location.href='/Project2/common/errorPage.jsp';
+    			}
           	  });//$.ajax()
             });//button click
  });
 </script>
-<title>Insertasdsadsadsadsads</title>
+<title></title>
 </head>
 <body>
 <% request.setCharacterEncoding("UTF-8");
