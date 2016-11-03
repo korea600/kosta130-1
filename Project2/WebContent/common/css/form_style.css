@@ -1,5 +1,6 @@
-table {
-	width: 400;
+.err_table {
+	width: 435;
+	background: #FFF;
 }
 
 table th {
@@ -10,7 +11,7 @@ table th {
 	box-sizing: border-box;
 	text-align: center;
 	line-height: 30px;
-	width: 100px;
+	width: 200px;
 	height: 30px;
 }
 
@@ -21,21 +22,26 @@ table td {
 	box-sizing: border-box;
 	text-align: center;
 	line-height: 30px;
-	width: auto;
 	height: 30px;
+	width: 200px;
 }
 
-input[type="submit"], [type="reset"], [type="button"] {
-	height: 25px;
-	width: 120px;
-	margin: 3px;
-	text-align: center;
-	color: #fff;
+.err_divStyle {
+	width: 100%;
+	height: 100%;
+	padding: 20px;
+	margin: -127px;
 	background: #215594;
-	border-right: 2px solid #ededed;
-	box-sizing: border-box;
 }
 
-#td_ta {
-	height: 235px;
+.erp_title {
+	margin-top: 160px;
+	font-size: 100px;
+	font-weight: bold;
+	color: #215594;
+}
+
+.err_content {
+	color: #fff;
+	font-weight: bold;
 }

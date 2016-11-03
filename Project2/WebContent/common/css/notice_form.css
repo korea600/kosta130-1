@@ -1,32 +1,32 @@
 table {
-	width:380px;
+	width: 380px;
 }
 
 table th {
-	float:left;
-	background:#173b68;
-	color:#fff;
-	border-right:2px solid #ededed;
-	box-sizing:border-box;
-	text-align:center;
-	line-height:30px;
-	width:100px;
-	height:30px;
+	float: left;
+	background: #173b68;
+	color: #fff;
+	border-right: 2px solid #ededed;
+	box-sizing: border-box;
+	text-align: center;
+	line-height: 30px;
+	width: 100px;
+	height: 30px;
 }
 
 table td {
-	float:left;
-	border-right:2px solid #ededed;
-	border-bottom:1px solid #ededed;
-	box-sizing:border-box;
-	text-align:center;
-	line-height:30px;
-	width:auto;
-	height:30px;
+	float: left;
+	border-right: 2px solid #ededed;
+	border-bottom: 1px solid #ededed;
+	box-sizing: border-box;
+	text-align: center;
+	line-height: 30px;
+	width: auto;
+	height: 30px;
 }
 
 input {
-	height:30px;
+	height: 30px;
 	width: 259px;
 }
 
@@ -35,27 +35,27 @@ input {
 }
 
 select {
-	width:263px;
+	width: 263px;
 }
 
 .btn_form {
 	height: 25px;
 	width: 170px;
-	margin:3px;
+	margin: 3px;
 	text-align: center;
 	color: #fff;
-	background:#215594;
-	border-right:2px solid #ededed;
-	box-sizing:border-box;
+	background: #215594;
+	border-right: 2px solid #ededed;
+	box-sizing: border-box;
 }
 
 .btn_upform {
 	height: 25px;
 	width: 110px;
-	margin:3px;
+	margin: 3px;
 	text-align: center;
 	color: #fff;
-	background:#215594;
-	border-right:2px solid #ededed;
-	box-sizing:border-box;
+	background: #215594;
+	border-right: 2px solid #ededed;
+	box-sizing: border-box;
 }
