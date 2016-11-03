@@ -45,7 +45,7 @@ function check_result(xhr){
 }
 $(function(){
 	$('[name=pw_change]').click(function(){
-		window.open('/Project2/common/pw_change.jsp','비밀번호수정','width=360,height=240,menubar=no,status=no,toolbar=no,resizable=no,left=350,top=350');
+		window.open('/Project2/common/pw_change.jsp','비밀번호수정','width=460,height=300,menubar=no,status=no,toolbar=no,resizable=no,left=750,top=250');
 	});
 })
 </script>

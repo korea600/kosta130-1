@@ -26,14 +26,12 @@ function logout(){
 					<li>${LoginDTO.id }</li>
 					<li>이름 :</li>
 					<li>${LoginDTO.name }</li>
-					<li><a href="#" onclick="window.open('/Project2/common/pw_check.jsp','개인정보수정','width=360,height=350,menubar=no,status=no,toolbar=no,resizable=no,left=350,top=350');">정보수정</a></li>
+					<li><a href="#" onclick="window.open('/Project2/common/pw_check.jsp','개인정보수정','width=350,height=300,menubar=no,status=no,toolbar=no,resizable=no,left=800,top=150');">정보수정</a></li>
 					<li><div onclick='logout()'>로그아웃</div></li>
 				</ul>
 			</nav>
 		</header>
-		
 		<!--header-->
-
 	</div>
 		
 </body>

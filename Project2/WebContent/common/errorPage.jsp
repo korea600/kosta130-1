@@ -9,12 +9,13 @@
 </head>
 <body>
 	<center>
-		<p class="err_title">500 Error</p>
+		<p class="err_title">Error</p>
 		<div class="divStyle">
 			<br>
 			<p class="err_content">
-				<br>첫페이지로 가거나 새로고침을 해보세요!<br>
-				<br>문제가 지속된다면 아래 연락처로 문의 바랍니다.<br>
+				<br>첫 페이지로 가거나 새로고침을 해보세요!<br>
+				<br>문제가 지속된다면 아래 연락처로 문의 바랍니다.<br><br>
+				<br><a href="http://localhost:8282/Project2/">첫 페이지로 가기</a>
 			</p>
 			<br>
 			<br>
