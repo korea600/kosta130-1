@@ -30,7 +30,7 @@
 <table>
 <tr>
 	<td>비밀번호 입력</td>
-	<td><input type='password' name='password' size=30></td>
+	<td><input type='password' name='password' size=20></td>
 </tr>
 <tr colspan='2'>
 	<td align="center">
