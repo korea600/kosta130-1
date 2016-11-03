@@ -27,7 +27,10 @@ $( document ).ready(function() {
 		        success:function(data){
 		        	$(".input_box").empty();
 		            $(".input_box").append(data);
-		        }
+		        },
+		        error:function(xhr,status,error){
+					location.href='/Project2/common/errorPage.jsp';
+				}
 		    })
 		}
 	});
@@ -46,7 +49,10 @@ $( document ).ready(function() {
 		        success:function(data){
 		        	$(".input_box").empty();
 		            $(".input_box").append(data);
-		        }
+		        },
+		        error:function(xhr,status,error){
+					location.href='/Project2/common/errorPage.jsp';
+				}
 		    })
 		}
 	});

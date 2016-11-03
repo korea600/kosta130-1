@@ -29,6 +29,9 @@
 					getSubject();
 					/* $(".input_box").empty();
 					$(".input_box").append(data); */
+				},
+		        error:function(xhr,status,error){
+					location.href='/Project2/common/errorPage.jsp';
 				}
 			})
 		});

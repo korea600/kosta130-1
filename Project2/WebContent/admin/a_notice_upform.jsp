@@ -34,8 +34,8 @@
 					alert('수정 실패');
 			},
 			error : function(xhr, status, error) {
-				alert('Error ! : ' + error);
 				self.close();
+				opener.location.href='/Project2/common/errorPage.jsp';
 			}
 		});
 		$('[name=delete]').click(function() {
@@ -57,8 +57,8 @@
 							alert('삭제 실패');
 					},
 					error : function(xhr, status, error) {
-						alert('Error ! : ' + error);
 						self.close();
+						opener.location.href='/Project2/common/errorPage.jsp';
 					}
 				});
 			}

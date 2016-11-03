@@ -32,8 +32,8 @@
 					alert('입력 실패');
 			},
 			error : function(xhr, status, error) {
-				alert('Error ! : ' + error);
 				self.close();
+				opener.location.href='/Project2/common/errorPage.jsp';
 			}
 		});
 

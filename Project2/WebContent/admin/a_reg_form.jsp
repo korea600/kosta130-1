@@ -25,7 +25,11 @@
 		        		window.close();
 		        		opener.location.href="javascript:req();";
 		        	}
-		        }
+		        },
+		        error:function(xhr,status,error){
+		        	self.close();
+					location.href='/Project2/common/errorPage.jsp';
+				}
 		    })
 		});
 		$('.del').click(function(){
@@ -40,7 +44,11 @@
 		        		window.close();
 		        		opener.location.href="javascript:req();";
 		        	}
-		        }
+		        },
+		        error:function(xhr,status,error){
+		        	self.close();
+					location.href='/Project2/common/errorPage.jsp';
+				}
 		    })
 		});
 		

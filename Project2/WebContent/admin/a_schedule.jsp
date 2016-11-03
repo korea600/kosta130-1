@@ -27,7 +27,10 @@ $( document ).ready(function() {
 				success:function(data){
 					$(".schedule_form").empty();
 					$(".schedule_form").append(data);
-					}
+				},
+		        error:function(xhr,status,error){
+					location.href='/Project2/common/errorPage.jsp';
+				}
 			})
 		}
 	});
