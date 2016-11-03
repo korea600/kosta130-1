@@ -30,7 +30,11 @@ $( document ).ready(function() {
 		        	}
 		        	else
 		        		alert('신청 등록이 실패하였습니다.');
-		        }
+		        },
+		        error:function(xhr,status,error){
+		        	self.close();
+					opener.location.href='/Project2/common/errorPage.jsp';
+				}
 		    })
 		}
 	});

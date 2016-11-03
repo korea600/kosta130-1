@@ -30,6 +30,9 @@
 					}
 					else
 						alert('처리 대기중인 건이 이미 있으므로 새로운 신청이 불가능 합니다.');
+				},
+		        error:function(xhr,status,error){
+					location.href='/Project2/common/errorPage.jsp';
 				}
 			});
 		});
