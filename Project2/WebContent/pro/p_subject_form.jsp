@@ -56,19 +56,19 @@
 <table>
 <tr>
 	<th class='menu'>과목명</th>
-	<td class='content'><input type='text' name='sub'></td>
+	<td class='content'><input type='text' name='sub' class='full'></td>
 </tr>
 <tr>
 	<th class='menu'>이수구분</th>
 	<td class='content'>
-		<select name='division'>
+		<select name='division' class='full'>
 			<option>교양</option><option>전공</option>
 		</select>
 	</td>
 </tr>
 <tr>
 	<th class='menu'>교수명</th>
-	<td class='content'><input type='text' name='name' readonly="readonly" value="${LoginDTO.name}"></td>
+	<td class='content'><input type='text' name='name' class='full' readonly="readonly" value="${LoginDTO.name}"></td>
 </tr>
 <tr>
 	<th class='menu'>시간</th>
@@ -94,7 +94,7 @@
 <tr>
 	<th class='menu'>이수학점</th>
 	<td class='content'>
-		<select name='credit'>
+		<select name='credit' class='full'>
 			<option>2</option>
 			<option>3</option>
 		</select>
@@ -102,12 +102,12 @@
 </tr>
 <tr>
 	<th class='menu'>강의실</th>
-	<td class='content'><input type='text' name='room'>	</td>
+	<td class='content'><input type='text' name='room' class='full'>	</td>
 </tr>
 <tr>
 	<th class='menu'>수강인원</th>
 	<td class='content'>
-		<select name='cnt'>
+		<select name='cnt' class='full'>
 			<%for(int i=30;i<=80;i+=5){ %>
 				<option><%=i %></option>
 			<%} %>
@@ -116,7 +116,7 @@
 </tr>
 <tr>
 	<th class='menu'>강의계획서</th>
-	<td class='content'><input type='file' name='plan'></td>
+	<td class='content'><input type='file' name='plan' class='full'></td>
 </tr>
 <tr>
 	<td colspan='2' align="center">

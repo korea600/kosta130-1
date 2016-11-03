@@ -25,8 +25,8 @@ table td {
 	height: 30px;
 }
 
-input[type="submit"], [type="reset"], [type="button"] {
-	height: 20px;
+input[type="submit"], [type="reset"], [type="button"],[type='file']{
+	height: 30px;
 	width: 120px;
 	text-align: center;
 	color: #fff;
@@ -35,9 +35,8 @@ input[type="submit"], [type="reset"], [type="button"] {
 	box-sizing: border-box;
 }
 
-input {
-	height: 20px;
-	width: 260px;
+.full{
+	width:260px;
 }
 
 select {

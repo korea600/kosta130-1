@@ -82,12 +82,12 @@ $(function(){
 <table>
 <tr>
 	<th class='menu'>과목명</th>
-	<td class='content'><input type='text' name='sub' value="${dto.sub}"></td>
+	<td class='content'><input type='text'  class='full' name='sub' value="${dto.sub}"></td>
 </tr>
 <tr>
 	<th class='menu'>이수구분</th>
 	<td class='content'>
-		<select name='division'>
+		<select name='division'  class='full'>
 			<option value='교양'>교양</option>
 			<option value='전공'>전공</option>
 		</select>
@@ -95,7 +95,7 @@ $(function(){
 </tr>
 <tr>
 	<th class='menu'>교수명</th>
-	<td class='content'><input type='text' name='name' readonly="readonly" value="${LoginDTO.name}"></td>
+	<td class='content'><input type='text' name='name' class='full' readonly="readonly" value="${LoginDTO.name}"></td>
 </tr>
 <tr>
 	<th class='menu'>시간</th>
@@ -121,7 +121,7 @@ $(function(){
 <tr>
 	<th class='menu'>이수학점</th>
 	<td class='content'>
-		<select name='credit'>
+		<select name='credit'  class='full'>
 			<option value='2'>2</option>
 			<option value='3'>3</option>
 		</select>
@@ -129,12 +129,12 @@ $(function(){
 </tr>
 <tr>
 	<th class='menu'>강의실</th>
-	<td class='content'><input type='text' name='room' value='${dto.room}'>	</td>
+	<td class='content'><input type='text' name='room' class='full' value='${dto.room}'>	</td>
 </tr>
 <tr>
 	<th class='menu'>수강인원</th>
 	<td class='content'>
-		<select name='cnt'>
+		<select name='cnt' class='full'>
 			<%for(int i=30;i<=80;i+=5){ %>
 				<option value=<%=i %>><%=i %></option>
 			<%} %>
@@ -143,7 +143,7 @@ $(function(){
 </tr>
 <tr>
 	<th class='menu'>강의계획서</th>
-	<td class='content'><input type='file' name='plan'></td>
+	<td class='content'><input type='file' name='plan' class='full'></td>
 </tr>
 <tr>
 	<td colspan='2' align="center">
