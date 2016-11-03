@@ -1,5 +1,6 @@
 package grade.actions;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,7 +41,8 @@ public class StudentGradeAction extends Action{
 					total_point+=grade_convert(list.get(j).getGrade());
 				}
 			}
-			averages.add(total_point/cnt);
+			DecimalFormat df = new DecimalFormat("#.#");
+			averages.add(Double.parseDouble(df.format(total_point/cnt)));
 		}
 		return averages;
 	}

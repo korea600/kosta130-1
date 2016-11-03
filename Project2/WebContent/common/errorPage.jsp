@@ -5,7 +5,7 @@
 <head>
 <link rel="stylesheet" href="/Project2/common/css/error_form.css" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>오류발생!!</title>
 </head>
 <body>
 	<center>
@@ -15,7 +15,7 @@
 			<p class="err_content">
 				<br>첫 페이지로 가거나 새로고침을 해보세요!<br>
 				<br>문제가 지속된다면 아래 연락처로 문의 바랍니다.<br><br>
-				<br><a href="http://localhost:8282/Project2/">첫 페이지로 가기</a>
+				<br><a href="/Project2/">첫 페이지로 가기</a>
 			</p>
 			<br>
 			<br>
