@@ -93,7 +93,9 @@
 		<action path="/student/sugang"
 				type="sugang.actions.SugangAction">
 		<forward name="success" path="/student/s_sugang_list.jsp"></forward>
+		<forward name="notbetsugang" path="/student/s_sugang_notBET.jsp"></forward>
 		<forward name="divisionList" path="/student/s_divisions.jsp"></forward>
+		<forward name="schnull" path="/student/sugang_null.jsp"></forward>
 		</action>
 	</action-mappings>
 

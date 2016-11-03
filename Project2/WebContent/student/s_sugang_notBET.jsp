@@ -1,3 +1,5 @@
+<%@page import="sugang.model.SugangDAO"%>
+<%@page import="member.model.LoginDTO"%>
 <%@page import="sugang.model.SugangDTO"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -12,6 +14,47 @@
 <script type="text/javascript" src="/Project2/js/jquery-1.12.4.js"></script>
 <script type="text/javascript"> 
 $(function(){
+		  var major = $(".major").val();
+		  var s_grade = $(".s_grade").val();
+		
+		$.ajax({
+			url:'/Project2/student/sugang.do',
+			data:{  action:"division",
+					division:"전공"},
+			success:function(data){
+				var choice = document.getElementById('sel2');
+				
+				var divisions = data.split("|");
+				var htmldata = ""
+				for(var i=0; i < divisions.length; i++){
+					if(major==$.trim(divisions[i])){
+						htmldata += "<option selected='selected'>"+divisions[i]+"</option>"
+					}else{
+					htmldata += "<option>"+divisions[i]+"</option>"
+					}
+				}
+				$("#sel2").append(htmldata)
+			}
+		});
+		
+		$.ajax({
+			url:'/Project2/student/sugang.do',
+			data:{  action:"year"},
+			success:function(data){
+				var choice = document.getElementById('sel2');
+				
+				var divisions = data.split("|");
+				var htmldata = ""
+				for(var i=0; i < divisions.length; i++){
+					if(major==$.trim(divisions[i])){
+						htmldata += "<option selected='selected'>"+divisions[i]+"</option>"
+					}else{
+					htmldata += "<option>"+divisions[i]+"</option>"
+					}
+				}
+				$("#sel2").append(htmldata)
+			}
+		});
 	$('#sp1').change(function(){
 		$.ajax({
 			url:'/Project2/student/sugang.do',
@@ -38,7 +81,8 @@ $(document).ready(function(){
 	$(document).on("click",".sum",function(){
 		var code = $(this).parent().parent().children(":first").text();
 		var division = document.sugang_form.division.value;
-		var major = document.sugang_form.major.value;
+		var major = document.sugang_form.major1.value;
+		console.log(major);
 		var level = document.sugang_form.level.value;
 		
 	    $.ajax({
@@ -46,8 +90,13 @@ $(document).ready(function(){
 	        type:'post',
 	        data:{"action":"enrolment","division":division,"major":major,"level":level,"code":code},
 	        success:function(data){
+	        	if($.trim(data)=="nono"){
+	        		alert("수강 정원이 초과 하였습니다.");
+	        		sugang();
+	        	}else{
 	        	$('.sugang_view_table1').empty();
 	            $(".sugang_view_table1").append(data);
+	        	}
 	        }
 	    })
 	});
@@ -55,8 +104,8 @@ $(document).ready(function(){
 	
 	$('.search_btn').click(function(){
 		var division = document.sugang_form.division.value;
-		var major = document.sugang_form.major.value;
-		var level = document.sugang_form.level.value;
+		var major = $(this).parent().children().val();
+		var level = $(this).prev().children().val();
 		$.ajax({
 			url:'/Project2/student/NotBET_btn_ajax2.jsp',
 			type:'POST',
@@ -67,34 +116,84 @@ $(document).ready(function(){
 			}
 		})
 	});
-
+	
+	$(document).on("click",".cancel",function(){
+		var code = $(this).parent().parent().children(":first").text();
+		var division = document.sugang_form.division.value;
+		var major = document.sugang_form.major1.value;
+		console.log("Ddd");
+		var level = document.sugang_form.level.value;
+		
+	    $.ajax({
+	        url:'/Project2/student/NotBET_btn_ajax2.jsp',
+	        type:'post',
+	        data:{"action":"delete","division":division,"major":major,"level":level,"code":code},
+	        success:function(data){
+	        	$('.sugang_view_table1').empty();
+	            $(".sugang_view_table1").append(data);
+	        }
+	    })
+	});
 
 
 });
 </script>
 </head>
+<% LoginDTO login = (LoginDTO) request.getSession().getAttribute("LoginDTO");
+String id = login.getId();
+SugangDAO dao1 = new SugangDAO();
+SugangDTO dto1 = dao1.mainSelectList(id); %>
 <body>
 		<form name="sugang_form" class="sugang_form">
-	
+	<input type="hidden"  name="major" class="major" value="<%=dto1.getDept()%>">
+	<input type="hidden" name="s_grade" class="s_grade" value="<%=dto1.getSemester()%>">
 	<span id="sp1"><select id="sel1" name="division">
-		<option value="==선택==">==선택==</option>
 		<option>전공</option>
 		<option>교양</option>
 	</select></span>
-	<span id="sp2"><select id="sel2" name="major">
+	<span id="sp2"><select id="sel2" name="major1">
 	<option id="choice" value="==선택==">==선택==</option>
 	</select></span>
+	<%
+		int sem = dto1.getSemester();
+	if(sem==1 || sem==2){ %>
 	<span id="sp3" value="==선택=="><select id="sel3" name="level">
-		<option>==선택==</option>
-		<option>1</option>
+		<option value="1">==선택==</option>
+		<option selected="selected">1</option>
 		<option>2</option>
 		<option>3</option>
 		<option>4</option>
 	</select></span>
+	<%} else if(sem==3 || sem==4){ %>
+	<span id="sp3" value="==선택=="><select id="sel3" name="level">
+		<option value="1">==선택==</option>
+		<option>1</option>
+		<option selected="selected">2</option>
+		<option>3</option>
+		<option>4</option>
+	</select></span>
+	<%} else if(sem==5 || sem==6){ %>
+	<span id="sp3" value="==선택=="><select id="sel3" name="level">
+		<option value="1">==선택==</option>
+		<option>1</option>
+		<option>2</option>
+		<option selected="selected">3</option>
+		<option>4</option>
+	</select></span>
+	<%} else if(sem==7 || sem==8){ %>
+	<span id="sp3" value="==선택=="><select id="sel3" name="level">
+		<option value="1">==선택==</option>
+		<option>1</option>
+		<option>2</option>
+		<option>3</option>
+		<option selected="selected">4</option>
+	</select></span>
+	<%} %>
 	<input class="search_btn" type="button" value="조회">
 </form>
 	<div class="sugang">
 		<div class="right_pop"><p>* 신청가능 학점 : ${pTagData.t_credit }</p></div>
+		<h3 style="margin-top: 30px;">수강가능 목록</h3>
 		<div class="sugang_table1">
 			<ul>
 				<li>과목코드</li>
@@ -108,36 +207,31 @@ $(document).ready(function(){
 		</div>
 		</div>
 			<div class="sugang_view_table1">
-		<div class="sugang_application"></div>
+		<div class="sugang_application">
+		<%
+		List<SugangDTO> list1 = (List<SugangDTO>)request.getAttribute("applySelect");
+			if(list1 != null){
+				SugangDAO dao = new SugangDAO();
+				for(int i=0; i<list1.size(); i++){
+					SugangDTO dto=list1.get(i);
+					if(dao.allCntSelect(dto.getCode()) > dao.notBetGrade_info(dto.getCode())){
+					out.print("<ul><li>"+dto.getCode()+"</li><li>"+dto.getSub()+"</li><li>"+dto.getProfessor()+
+							"</li><li>"+dto.getTimes()+"</li><li>"+dto.getRoom()+"</li><li>"+dto.getCnt()+"</li><li>"+
+							"<input type='button' class='sum' value='신청'></li></ul>");
+				}else if(dao.allCntSelect(dto.getCode()) <= dao.notBetGrade_info(dto.getCode())){
+					out.print("<ul><li>"+dto.getCode()+"</li><li>"+dto.getSub()+"</li><li>"+dto.getProfessor()+
+							"</li><li>"+dto.getTimes()+"</li><li>"+dto.getRoom()+"</li><li>"+dto.getCnt()+"</li><li>"+
+							"<input type='button' class='sum' value='정원초과' disabled='disabled'></li></ul>");
+				}
+				}
+			}
+		%>
+		</div>
 	
 			
 		
 	
-	<h3 style="margin-top: 30px;">수강신청 목록</h3>
-		<div class="sugang_table2">
-			<ul>
-				<li>과목코드</li>
-				<li>과목명</li>
-				<li>교수명</li>
-				<li>강의시간</li>
-				<li>강의실</li>
-				<li>인원</li>
-				<li>상태</li>
-			</ul>
-		</div>
-		<div class="sugang_view_table2">
-			<%
-		List<SugangDTO> list2 = (List<SugangDTO>)request.getAttribute("sugangApply");
-			if(list2 != null){
-				for(int i=0; i<list2.size(); i++){
-					SugangDTO dto=list2.get(i);
-					out.print("<ul><li>"+dto.getCode()+"</li><li>"+dto.getSub()+"</li><li>"+dto.getProfessor()+
-							"</li><li>"+dto.getTimes()+"</li><li>"+dto.getRoom()+"</li><li>"+dto.getCnt()+
-							"</li><li><input type='button' value='신청완료'></li></ul>");
-				}
-			}
-		%>
-		</div></div>
+	
 	<h3 style="margin-top: 30px;">수강신청 완료</h3>
 	<div class="sugang_table3">
 			<ul>
@@ -158,7 +252,7 @@ $(document).ready(function(){
 					SugangDTO dto=list.get(i);
 					out.print("<ul><li>"+dto.getCode()+"</li><li>"+dto.getSub()+"</li><li>"+dto.getProfessor()+
 							"</li><li>"+dto.getTimes()+"</li><li>"+dto.getRoom()+"</li><li>"+dto.getCnt()+
-							"</li><li><input type='button' value='취소'></li></ul>");
+							"</li><li><input type='button' value='취소' class='cancel'></li></ul>");
 				}
 			}
 		%>

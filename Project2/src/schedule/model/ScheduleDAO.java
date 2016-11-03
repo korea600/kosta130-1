@@ -84,4 +84,21 @@ public class ScheduleDAO {
 		}
 		return list;
 	}
+	public ScheduleDTO sugangstart(String date){
+		System.out.println("d"+date);
+		ScheduleDTO list =null;
+		try {
+			list = (ScheduleDTO) sqlMap.queryForObject("schedule.Sugangschedulr",date);
+			if(list==null){
+				return null;
+			}else{
+				return list;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+				
+				
+	}
 }

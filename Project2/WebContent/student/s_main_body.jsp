@@ -1,3 +1,7 @@
+<%@page import="schedule.model.ScheduleDAO"%>
+<%@page import="sugang.model.SugangDTO"%>
+<%@page import="member.model.LoginDTO"%>
+<%@page import="sugang.model.SugangDAO"%>
 <%@page import="notice.model.NoticeDTO"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -76,8 +80,8 @@ $(document).ready(function(){
       	    	$('#main').html(data); 
       	     }
       	  });//$.ajax()
-        });//button click
-        
+        });//button click        
+   
         $('.one').click(function(){
         	  //jQuery.ajax({});
         	  $.ajax({    		  
@@ -160,8 +164,15 @@ $(document).ready(function(){
 <body>
 <% request.setCharacterEncoding("UTF-8");
 	 List<NoticeDTO> list_h = (List<NoticeDTO>)request.getAttribute("haksa_list");
-	 List<NoticeDTO> list_j = (List<NoticeDTO>)request.getAttribute("job_list");%> 
+	 List<NoticeDTO> list_j = (List<NoticeDTO>)request.getAttribute("job_list");
+	
+	 ScheduleDAO sdao = new ScheduleDAO();
+	 
+	
+	 
+	 %> 
 	<center>
+	<form name="frm">
 	
 <table width="1024px" cellpadding="0" cellspacing="0" height="0" border=0 style="padding-top:0px; "> 
 <tr> 
@@ -263,7 +274,7 @@ $(document).ready(function(){
 
 </tr> 
 </table> 
-		
+		</form>
 	</center>
 	
 </body>

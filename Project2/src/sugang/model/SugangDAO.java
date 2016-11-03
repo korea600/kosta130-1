@@ -126,4 +126,80 @@ public class SugangDAO {
 		}
 		return false;
 	}
+	
+	public SugangDTO mainSelectList(String id){
+		 SugangDTO list = null;
+		try {
+			list = (SugangDTO) sqlMap.queryForObject("sugang.mainSugangList",id);
+			return list;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
+	public boolean notBetInsert(SugangDTO dto){
+		try {
+			sqlMap.insert("sugang.notBetInsert",dto);
+			return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	public List<SugangDTO> notBetSelect(SugangDTO dto){
+		List<SugangDTO> list = null;
+		try {
+			list = sqlMap.queryForList("sugang.notBetSelect",dto);
+			return list;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
+	public int notBetGrade_info(int code){
+		int t = 0;
+		try {
+			t = (int) sqlMap.queryForObject("sugang.notBetGrade_info",code);
+			return t;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return t;
+	}
+	
+	public boolean pTagData2(SugangDTO dto){
+		int t = 0;
+		try {
+			t = sqlMap.update("sugang.pTagData2",dto);
+			if(t==1) return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	public int creditSelect(int code){
+		int t = 0;
+		try {
+			t = (int) sqlMap.queryForObject("sugang.creditSelect",code);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return t;
+	}
+	
+	public boolean cancelDelete(SugangDTO dto){
+		int t = 0;
+		try {
+			t = sqlMap.delete("sugang.cancelDelete",dto);
+			if(t==1) return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
 }

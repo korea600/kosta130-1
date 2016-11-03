@@ -46,31 +46,35 @@
 		}else if(smo.equals("8")||smo.equals("9")||smo.equals("10")||smo.equals("11")||smo.equals("12")||smo.equals("1")){
 			season=2;
 		}
+		
 		//id,code,bet,year,term,grade,dept,semester,status,total.t_credit,starts,ends,major,division,sub,credit,professor,times,room,cnt,checked,s_grade
 		SugangDTO dto = new SugangDTO(id,code,bet,0,0,null,null,season,null,0,0,null,null,major,division,null,0,null,null,null,0,"처리완료",Integer.parseInt(level));
-		if(dao.allCntSelect(code) > dao.sugangApplyCnt(code)){  
-			if(dao.enrolmentInsert(dto)){
-			SugangDTO total1 = dao.rightPop(id);
+		if(bet <= dao.rightPop(id).getTotal()){
+			if(dao.allCntSelect(code) > dao.sugangApplyCnt(code)){
+				if(dao.enrolmentInsert(dto)){
+				SugangDTO total1 = dao.rightPop(id);
 			
 			
-			int insertTotal = total1.getTotal()-bet;
-			SugangDTO totalUpdate = new SugangDTO(id,code,bet,0,0,null,null,season,null,insertTotal,0,null,null,major,division,null,0,null,null,null,0,"처리완료",Integer.parseInt(level));
-			dao.updatePop(totalUpdate);
-			SugangDTO totalSelect = dao.rightPop(id);
-			total = totalSelect.getTotal();
-			t_credit = totalSelect.getT_credit();
+				int insertTotal = total1.getTotal()-bet;
+				SugangDTO totalUpdate = new SugangDTO(id,code,bet,0,0,null,null,season,null,insertTotal,0,null,null,major,division,null,0,null,null,null,0,"처리완료",Integer.parseInt(level));
+				dao.updatePop(totalUpdate);
+				SugangDTO totalSelect = dao.rightPop(id);
+				total = totalSelect.getTotal();
+				t_credit = totalSelect.getT_credit();
 			
-			list = dao.applySelect(dto);
-			list2 = dao.sugangApply(id);
-			}
-		}else if(dao.allCntSelect(code) <= dao.sugangApplyCnt(code)){
-			System.out.println("Aaaaaaaa");
+				list = dao.applySelect(dto);
+				list2 = dao.sugangApply(id);
+				}
+			}else if(dao.allCntSelect(code) <= dao.sugangApplyCnt(code)){
 				action="cntOver";
-				System.out.println("a"+action);
 %>
 				<%= "No" %>
 <%			}
-		
+		}else if(bet > dao.rightPop(id).getTotal()){
+			action="noBet";
+%>
+			<%= "NoBet" %>
+<%		}
 		  
 	}else if(action.equals("apply")){
 		list = dao.sugangApply(id);

@@ -22,7 +22,6 @@
     </select>
     
     <insert id="enrolmentInsert" parameterClass="sugang.model.SugangDTO">
-    	
     	insert into bet_data values (#id#,#code#,#bet#)
     </insert>
     
@@ -52,4 +51,34 @@
    	<update id="updatePop" parameterClass="sugang.model.SugangDTO">
    		update member set total=#total# where id=#id#
    	</update>
+   	
+   	<select id="mainSugangList" parameterClass="String" resultClass="sugang.model.SugangDTO">
+   		select dept,semester from member where id=#id#
+   	</select>
+   	
+   	<insert id="notBetInsert" parameterClass="sugang.model.SugangDTO">
+   		insert into grade_info values (#code#,TO_CHAR(SYSDATE,'YYYY'),#semester#,#id#,#grade#)
+   	</insert>
+   	
+   	<select id="notBetSelect" parameterClass="sugang.model.SugangDTO" resultClass="sugang.model.SugangDTO">
+   		select code,sub,professor,times,room,cnt,credit from subject
+    	where division=#division# and major=#major# and s_grade=#s_grade# and semester=#semester# and
+    	 	year=TO_CHAR(SYSDATE,'YYYY') and checked=#checked# and code not in (select code from grade_info where id=#id#)
+   	</select>
+   	
+   	<select id="notBetGrade_info" parameterClass="int" resultClass="int">
+   		select count(*) from grade_info where code=#code#
+   	</select>
+   	
+   	<update id="pTagData2" parameterClass="sugang.model.SugangDTO">
+   		update member set t_credit=#t_credit# where id=#id#
+   	</update>
+   	
+   	<select id="creditSelect" parameterClass="int" resultClass="int">
+   		select credit from subject where code=#code#
+   	</select>
+   	
+   	<delete id="cancelDelete" parameterClass="sugang.model.SugangDTO">
+   		delete from grade_info where id=#id# and code=#code#
+   	</delete>
 </sqlMap>
