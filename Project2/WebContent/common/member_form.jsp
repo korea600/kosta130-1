@@ -63,7 +63,7 @@ $(function(){
 		</tr>
 		<tr>
 			<th>email</th>
-			<td><input type="email" name="email" maxlength="50" value="${member.email }"></td>
+			<td><input type="text" name="email" maxlength="50" value="${member.email }"></td>
 			
 		</tr>
 		<tr>
