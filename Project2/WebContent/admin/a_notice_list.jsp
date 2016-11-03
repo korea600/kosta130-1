@@ -7,7 +7,7 @@
 		$('.edit').click(function(){
 			var no = $(this).prev().text();
 			childWin=window.open('/Project2/admin/notice_list.do?action=viewupdate&no='+no,'check','toolbar=yes,location=yes,status=yes'
-							+'menubar=yes,scrollbars=yes,resizable=0,width=300,height=400,top=100,left=200');
+							+'menubar=yes,scrollbars=yes,resizable=0,width=500,height=400,top=100,left=200');
 		});
 	});
 </script>

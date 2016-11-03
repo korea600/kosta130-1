@@ -44,7 +44,7 @@
 	}
 	function upNoticeForm() {
 		childWin = window.open('/Project2/admin/a_notice_form.jsp', 'insert',
-				'width=300,height=400,top=100,left=200');
+				'width=500,height=400,top=100,left=200');
 	}
 </script>
 </head>

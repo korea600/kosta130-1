@@ -1,0 +1,65 @@
+table {
+	width:430px;
+}
+
+table th {
+	float:left;
+	background:#173b68;
+	color:#fff;
+	border-right:2px solid #ededed;
+	box-sizing:border-box;
+	text-align:center;
+	line-height:30px;
+	width:100px;
+	height:30px;
+}
+
+table td {
+	float:left;
+	border-right:2px solid #ededed;
+	border-bottom:1px solid #ededed;
+	box-sizing:border-box;
+	text-align:center;
+	line-height:30px;
+	width:auto;
+	height:30px;
+}
+
+input {
+	height:30px;
+	width: 259px;
+}
+
+.td_ta {
+	height: 235px;
+}
+
+.td_ta2 {
+	height: 82px;
+}
+
+select {
+	width:60px;
+}
+
+.btn_add {
+	height: 25px;
+	width: 200px;
+	margin:3px;
+	text-align: center;
+	color: #fff;
+	background:#215594;
+	border-right:2px solid #ededed;
+	box-sizing:border-box;
+}
+
+.btn_edit {
+	height: 25px;
+	width: 120px;
+	margin:3px;
+	text-align: center;
+	color: #fff;
+	background:#215594;
+	border-right:2px solid #ededed;
+	box-sizing:border-box;
+}

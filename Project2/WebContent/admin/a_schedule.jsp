@@ -33,12 +33,12 @@ $( document ).ready(function() {
 	});
 	$('#insert').click(function(){
 		childWin = window.open('/Project2/admin/a_schedule_add.jsp', 'insert',
-								'width=300,height=400,top=100,left=200');
+								'width=450,height=250,top=100,left=200');
 	});
 	$('.edit').click(function(){
 		var no = $(this).prev().prev().prev().text();
 		childWin = window.open('/Project2/admin/addResult.do?action=upform&no='+no, 'insert',
-		'width=300,height=400,top=100,left=200');
+		'width=450,height=250,top=100,left=200');
 	});
 });
 </script>
