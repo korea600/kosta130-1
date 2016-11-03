@@ -29,6 +29,9 @@
 													location.href = '/Project2/common/edit.do?action=select';
 												else
 													alert('비밀번호가 맞지 않습니다.');
+											},
+									        error:function(xhr,status,error){
+												opener.location.href='/Project2/common/errorPage.jsp';
 											}
 										});
 							}

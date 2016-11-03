@@ -40,7 +40,10 @@ function check_result(xhr){
 				alert('수정 실패하였습니다');
 			}
 		}
-		else alert("서버에서 에러가 발생하였습니다.\n에러코드 : "+xhr.status);
+		else{
+			self.close();
+			opener.location.href="/Project2/common/errorPage.jsp";
+		}
 	}
 }
 $(function(){

@@ -29,7 +29,7 @@ $( document ).ready(function() {
 					$(".schedule_form").append(data);
 				},
 		        error:function(xhr,status,error){
-					location.href='/Project2/common/errorPage.jsp';
+					opener.location.href='/Project2/common/errorPage.jsp';
 				}
 			})
 		}

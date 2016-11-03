@@ -28,7 +28,7 @@
 		        },
 		        error:function(xhr,status,error){
 		        	self.close();
-					location.href='/Project2/common/errorPage.jsp';
+					opener.location.href='/Project2/common/errorPage.jsp';
 				}
 		    })
 		});
@@ -47,7 +47,7 @@
 		        },
 		        error:function(xhr,status,error){
 		        	self.close();
-					location.href='/Project2/common/errorPage.jsp';
+					opener.location.href='/Project2/common/errorPage.jsp';
 				}
 		    })
 		});

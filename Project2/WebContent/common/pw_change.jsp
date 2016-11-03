@@ -58,6 +58,10 @@
 																						.close();
 																			} else
 																				alert('비밀번호 변경에 실패하였습니다.');
+																		},
+																        error:function(xhr,status,error){
+																			opener.location.href='/Project2/common/errorPage.jsp';
+																			self.close();
 																		}
 																	});
 														} else
@@ -66,6 +70,10 @@
 														alert('새 비밀번호와 확인을 일치시켜주세요.');
 												} else
 													alert('기존 비밀번호가 맞지 않습니다.');
+											},
+											error:function(xhr,status,error){
+												opener.location.href='/Project2/common/errorPage.jsp';
+												self.close();
 											}
 										});
 							}
