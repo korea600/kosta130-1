@@ -1,3 +1,4 @@
+<%@page import="member.model.LoginDTO"%>
 <%@page import="reg.model.RegDTO"%>
 <%@page import="reg.model.S_RegDAO"%>
 <%@ page trimDirectiveWhitespaces="true" %>
@@ -5,13 +6,13 @@
     pageEncoding="UTF-8"%>
 <%
 S_RegDAO dao = new S_RegDAO();
-String id = request.getParameter("id");
-String name = request.getParameter("name");
+LoginDTO dto = (LoginDTO) session.getAttribute("LoginDTO");
+String id = dto.getId();
+String name = dto.getName();
 String request1 = request.getParameter("request");
-String tel = request.getParameter("tel");
 String reason = request.getParameter("reason");
-RegDTO dto = new RegDTO(id,request1,reason,null,"처리중",null,name,tel);
-boolean ch = dao.s_reginsert(dto);
+RegDTO regdto = new RegDTO(id,request1,reason,null,"처리중",null,name,null);
+boolean ch = dao.s_reginsert(regdto);
 if(ch==true){
 %>
 <%="ok" %>

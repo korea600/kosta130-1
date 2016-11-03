@@ -5,21 +5,44 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
-<link rel="stylesheet" href="/Project2/common/css/reg.css"
-	type="text/css" />
-<link rel="stylesheet" href="/Project2/common/css/style.css"
-	type="text/css" />
+<link rel="stylesheet" href="/Project2/common/css/reg.css" type="text/css" />
+<link rel="stylesheet" href="/Project2/common/css/style.css" type="text/css" />
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>학적목록화면</title>
+<script type="text/javascript" src='/Project2/js/jquery-1.12.4.js'></script>
 <script type="text/javascript">
 	var childWin;
-	$(function() {
-		$('.write_btn').click(function() {
-			childWin = window.open('/Project2/s_regForm.do?action=viewForm&id=${LoginDTO.id }','check',
-									'width=500,height=400,menubar=no,status=no,toolbar=no,resizable=no,left=200,top=200');
-		})
+	$(function(){
+		$('.write_btn').click(function(){
+			$.ajax({
+				url:'/Project2/s_regupdate.do',
+				data:{
+					action:'check'	
+				},
+				type:'POST',
+				success:function(data){
+					data=data.trim();
+					if(data=='true'){
+						childWin = window.open('/Project2/student/s_reg_form.jsp','insert',
+						'width=500,height=400,menubar=no,status=no,toolbar=no,resizable=no,left=200,top=200');						
+					}
+					else
+						alert('처리 대기중인 건이 이미 있으므로 새로운 신청이 불가능 합니다.');
+				}
+			});
+		});
+		$('.reason').click(function(){
+			var checked=$(this).next().next().text();
+			if(checked=='처리중'){
+				childWin = window.open('/Project2/s_regupdate.do?action=view','check',
+				'width=500,height=400,menubar=no,status=no,toolbar=no,resizable=no,left=200,top=200');
+			}
+			else
+				alert('처리완료된 것은 수정/삭제가 불가능 합니다.');
+				
+		});
 	})
 </script>
 </head>
@@ -40,7 +63,7 @@
 			<ul class="member_text">
 				<li>${reg.id }</li>
 				<li>${reg.request }</li>
-				<li>${reg.reason }</li>
+				<li class='reason' style="cursor: pointer;">${reg.reason }</li>
 				<li>${reg.times }</li>
 				<li>${reg.checked }</li>
 			</ul>

@@ -10,28 +10,34 @@
 <title>학적변경 신청</title>
 <script type="text/javascript">
 $( document ).ready(function() {
-	$('.sum').click(function(){
+	$('[name=confirm]').click(function(){
 		var id = document.frm.id.value;
 		var name = document.frm.name.value;
-		var tel = document.frm.phoneNum.value;
 		var request = document.frm.request.value;
 		var reason = document.frm.reason.value;
-	    $.ajax({
-	        url:'/Project2/student/s_req_insert.jsp',
-	        type:'post',
-	        data:{"id":id,"name":name,"tel":tel,"request":request,"reason":reason},
-	        success:function(data){
-	        	if(data=="ok"){
-	        		window.close();
-	        		opener.location.href="javascript:req();";
-	        	}
-	        }
-	    })
+		if(reason.length==0)
+			alert('신청 사유를 입력하세요.');
+		else{
+		    $.ajax({
+		        url:'/Project2/student/s_req_insert.jsp',
+		        type:'post',
+		        data:{"request":request,"reason":reason},
+		        success:function(data){
+		        	if(data=="ok"){
+		        		alert('신청이 등록되었습니다.')
+		        		window.close();
+		        		opener.location.href="javascript:req();";
+		        	}
+		        	else
+		        		alert('신청 등록이 실패하였습니다.');
+		        }
+		    })
+		}
 	});
 });
 </script>
 </head>
-<body>
+<body><center>
 	<form name="frm">
 		<input type="hidden" name="id" class="id" value="${LoginDTO.id }">
 		<table id="table_reg">
@@ -40,14 +46,10 @@ $( document ).ready(function() {
 				<td><input type=text name=username class="name" value="${LoginDTO.name}" readonly="readonly"></td>
 			</tr>
 			<tr>
-				<th width="100px">연락처</th>
-				<td><input type=text name=phoneNum class="tel"></td>
-			</tr>
-			<tr>
 				<th>신청내역</th>
 				<td><select name='request'>
 				<option>군휴학</option>
-				<option>일반휴학</option>
+				<option value='휴학'>일반휴학</option>
 				<option value='재학'>복학</option>
 				</select></td>
 			</tr>
@@ -56,9 +58,12 @@ $( document ).ready(function() {
 				<td><textarea rows="15" cols="40" name="reason" class="reason"></textarea></td>
 			</tr>
 			<tr>
-				<td colspan="2" float="center"><input type="button" class="sum" id="btn_sub" value="신청"></td>
+				<td colspan="2" float="center">
+					<input type="button" class="sum" id="btn_sub" value="신청" name='confirm'>
+					<input type="button" class="sum" id="btn_sub" value="취소" onclick='self.close()'>
+				</td>
 			</tr>
 		</table>
-	</form>
+	</form></center>
 </body>
 </html>

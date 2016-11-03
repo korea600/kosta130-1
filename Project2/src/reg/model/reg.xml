@@ -14,7 +14,7 @@
 
 	<select id="adminRegForm" parameterClass="reg.model.RegDTO"
 		resultClass="reg.model.RegDTO">
-		select r.id, m.name, m.tel, r.request, r.reason
+		select r.id, m.name, m.tel, r.request, r.reason,r.checked
 		from register r, member m
 		where r.id=#id# and r.id=m.id and r.checked=#checked#
 	</select> <!-- 선택한 학생의 신청 내역 조회 -->
@@ -45,4 +45,13 @@
 		insert into REGISTER (id,request,reason,times,checked)
             values (#id#,#request#,#reason#,sysdate,#checked#)  
 	</insert>
+	<update id='s_regupdate' parameterClass='reg.model.RegDTO'>
+		update register set reason=#reason#, request=#request# where id=#id# and checked=#checked#
+	</update>
+	<delete id='s_regdelete' parameterClass='reg.model.RegDTO'>
+		delete from register where id=#id# and checked=#checked#
+	</delete>
+	<select id='check' parameterClass="reg.model.RegDTO" resultClass='int'>
+		select count(*) from register where id=#id# and checked=#checked#
+	</select>
 </sqlMap>

@@ -27,13 +27,7 @@ public class S_RegAction extends Action {
 		String rsn = request.getParameter("reason");
 		ActionForward forward = null;
 
-		if (action.equals("viewForm")) {
-			String id = request.getParameter("id");
-			RegDTO reg = new RegDTO(id, null, null, null, "Ã³¸®Áß", null, null, null);
-			reg = dao.select(reg);
-			request.setAttribute("reg", reg);
-			forward = mapping.findForward("viewForm");
-		} else if (action.equals("newForm")) {
+		if (action.equals("newForm")) {
 			LoginDTO login = (LoginDTO) request.getSession().getAttribute("LoginDTO");
 			String memId = login.getId();
 			request.setCharacterEncoding("UTF-8");

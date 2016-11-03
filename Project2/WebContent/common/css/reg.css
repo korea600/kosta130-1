@@ -118,14 +118,14 @@ section {
 }
 
 .top_text>li:nth-child(2) {
-	width: 200px;
+	width: 100px;
 	height: 30px;
 	text-align: center;
 	line-height: 30px;
 }
 
 .top_text>li:nth-child(3) {
-	width: 180px;
+	width: 280px;
 	height: 30px;
 	text-align: center;
 	line-height: 30px;
@@ -160,14 +160,14 @@ section {
 }
 
 .member_text>li:nth-child(2) {
-	width: 200px;
+	width: 100px;
 	height: 30px;
 	text-align: center;
 	line-height: 30px;
 }
 
 .member_text>li:nth-child(3) {
-	width: 180px;
+	width: 280px;
 	height: 30px;
 	text-align: center;
 	line-height: 30px;

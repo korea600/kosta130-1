@@ -58,6 +58,9 @@
 			<forward name="viewForm" path="/student/s_reg_form.jsp"></forward>
 			<forward name="s_to_list" path="/s_reg.do" redirect="true"></forward>	
 		</action>
+		<action path='/s_regupdate' type='reg.actions.S_RegUpdateAction'>
+			<forward name='view' path="/student/s_reg_upform.jsp"/>
+		</action>
     </action-mappings>
 
 <!-- 사용자 정의 컨트롤러 (RequestProcessor) 등록 -->
