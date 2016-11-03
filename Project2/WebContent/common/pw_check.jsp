@@ -9,19 +9,23 @@
 <script type="text/javascript">
 	$(function(){
 		$('[name=confirm]').click(function(){
-			$.ajax({
-				url:'/Project2/common/password.do',
-				data:{
-					action:"check",
-					password:$('[name=password]').val()
-				},
-				success:function(data){
-					if(data=="true")
-						location.href='/Project2/common/edit.do?action=select';
-					else
-						alert('비밀번호가 맞지 않습니다.');
-				}
-			});	
+			if($('[name=password]').val().length==0)
+				alert("비밀번호를 입력하세요.");
+			else{
+				$.ajax({
+					url:'/Project2/common/password.do',
+					data:{
+						action:"check",
+						password:$('[name=password]').val()
+					},
+					success:function(data){
+						if(data=="true")
+							location.href='/Project2/common/edit.do?action=select';
+						else
+							alert('비밀번호가 맞지 않습니다.');
+					}
+				});	
+			}
 		});
 	});
 </script>
