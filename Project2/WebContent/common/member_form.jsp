@@ -14,8 +14,19 @@ function mem_check(up){
 	var email=document.frm.email.value;
 	var tel=document.frm.tel.value;
 	var addr=document.frm.addr.value;
-	var param='action='+up+'&email='+email+'&tel='+tel+'&addr='+addr;
-	new ajax.xhr.Request('edit.do',param,check_result,'POST');
+	// 유효성 검사
+	var regexp_email = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
+	var regexp_tel = /^\d{3}-\d{3,4}-\d{4}$/;
+	if(!regexp_email.test(email))
+		alert("이메일 입력이 잘못되었습니다.");
+	else if(!regexp_tel.test(tel))
+		alert("전화번호 입력이 잘못되었습니다.");
+	else if(addr.length==0 || addr.length>100)
+		alert("주소입력이 없거나 너무 깁니다.")
+	else{
+		var param='action='+up+'&email='+email+'&tel='+tel+'&addr='+addr;
+		new ajax.xhr.Request('edit.do',param,check_result,'POST');
+	}
 }
 function check_result(xhr){
 	if(xhr.readyState==4){
@@ -34,7 +45,7 @@ function check_result(xhr){
 }
 $(function(){
 	$('[name=pw_change]').click(function(){
-		window.open('/Project2/common/pw_change.jsp','비밀수정','width=360,height=240,menubar=no,status=no,toolbar=no,resizable=no,left=350,top=350');
+		window.open('/Project2/common/pw_change.jsp','비밀번호수정','width=360,height=240,menubar=no,status=no,toolbar=no,resizable=no,left=350,top=350');
 	});
 })
 </script>
