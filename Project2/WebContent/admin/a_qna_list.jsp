@@ -7,7 +7,7 @@
 		$('.edit').click(function(){
 			var no = $(this).prev().prev().text();
 			childWin=window.open('/Project2/admin/qna.do?action=upform&no='+no,'check','toolbar=yes,location=yes,status=yes'
-							+'menubar=yes,scrollbars=yes,resizable=0,width=400,height=350,top=100,left=200');
+							+'menubar=yes,scrollbars=yes,resizable=0,width=450,height=350,top=100,left=200');
 		});
 	});
 </script>

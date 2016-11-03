@@ -38,7 +38,7 @@ $( document ).ready(function() {
 	$('.edit').click(function(){
 		var no = $(this).prev().prev().prev().text();
 		childWin = window.open('/Project2/admin/addResult.do?action=upform&no='+no, 'insert',
-		'width=450,height=250,top=100,left=200');
+		'width=480,height=250,top=100,left=200');
 	});
 });
 </script>

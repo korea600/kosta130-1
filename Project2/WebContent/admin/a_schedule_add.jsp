@@ -113,7 +113,7 @@
 										out.println("<option value=" + i + ">" + i + "</option>");
 								}
 							%>
-					</select><select name="sminute">
+					</select> <select name="sminute">
 							<option>분</option>
 							<%
 								for (int i = 0; i < 60; i += 10) {
@@ -169,7 +169,7 @@
 										out.println("<option value=" + i + ">" + i + "</option>");
 								}
 							%>
-					</select><select name="eminute">
+					</select> <select name="eminute">
 							<option>분</option>
 							<%
 								for (int i = 0; i < 60; i += 10) {
@@ -183,20 +183,18 @@
 				</tr>
 				<tr>
 					<th class="td_ta2">내용</th>
-					<td><textArea name="content" rows="5" cols="36"></textArea></td>
+					<td><textArea name="content" rows="5" cols="43"></textArea></td>
 				</tr>
 				<tr>
 					<th>비고</th>
 					<td><select name='etc'>
-							<option>1학기수강신청(베팅1차)</option>
-							<option>1학기수강신청(베팅2차)</option>
+							<option>1학기수강신청(베팅)</option>
 							<option>1학기수강신청(일반)</option>
 							<option>1학기개강</option>
 							<option>1학기중간고사</option>
 							<option>1학기기말고사</option>
 							<option>1학기종강</option>
-							<option>2학기수강신청(베팅1차)</option>
-							<option>2학기수강신청(베팅2차)</option>
+							<option>2학기수강신청(베팅)</option>
 							<option>2학기수강신청(일반)</option>
 							<option>2학기개강</option>
 							<option>2학기중간고사</option>

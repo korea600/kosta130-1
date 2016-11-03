@@ -11,15 +11,16 @@
 <script type="text/javascript" src='/Project2/js/jquery.form.js'></script>
 <script type="text/javascript">
 	$(function() {
-		var oldContent=$('[name=content]').val();
+		var oldContent = $('[name=content]').val();
 		$('form').ajaxForm({
 			beforeSubmit : function() {
-				var flag=false;
-				if($('[name=content]').val().length==0)
+				var flag = false;
+				if ($('[name=content]').val().length == 0)
 					alert('내용을 입력해주세요.');
-				else if($('[name=content]').val()==oldContent)
+				else if ($('[name=content]').val() == oldContent)
 					alert('내용이 수정되지 않았습니다.');
-				else flag=true;
+				else
+					flag = true;
 				return flag;
 			},
 			success : function(result, status) {
@@ -46,8 +47,7 @@
 	<form name="qnaform" action="/Project2/admin/qna.do?action=update"
 		method="post">
 		<input type="hidden" name="no" value="${upform.no }">
-		<table id="table_reg">
-
+		<table>
 			<tr>
 				<th>상담제목</th>
 				<td><input type=text name="title" value="${upform.title }"
@@ -55,13 +55,13 @@
 			</tr>
 			<tr>
 				<th id="td_ta">내용</th>
-				<td><textarea rows="15" cols="40" name="content">${upform.content }</textarea></td>
-			</tr>
-			<tr>
-				<td colspan="2" align="center"><input type=submit value="답변완료">
-					<input type="button" value="취소" name='cancel'></td>
+				<td><textarea rows="15" cols="43" name="content">${upform.content }</textarea></td>
 			</tr>
 		</table>
+		<center>
+			<input type=submit value="답변완료">
+			<input type="button" value="취소" name='cancel'>
+		</center>
 	</form>
 </body>
 </html>

@@ -1,39 +1,37 @@
 table {
-	width: 400;
+	width: 100%;
 }
 
 table th {
 	float: left;
 	background: #173b68;
 	color: #fff;
-	border-right: 2px solid #ededed;
 	box-sizing: border-box;
 	text-align: center;
 	line-height: 30px;
-	width: 100px;
+	width: 25%;
 	height: 30px;
 }
 
 table td {
 	float: left;
-	border-right: 2px solid #ededed;
-	border-bottom: 1px solid #ededed;
 	box-sizing: border-box;
 	text-align: center;
 	line-height: 30px;
-	width: auto;
+	width: 75%;
 	height: 30px;
+}
+
+input[type=text] {
+	width: 100%;
 }
 
 input[type="submit"], [type="reset"], [type="button"] {
 	height: 25px;
-	width: 120px;
-	margin: 3px;
+	width: 47%;
 	text-align: center;
 	color: #fff;
 	background: #215594;
-	border-right: 2px solid #ededed;
-	box-sizing: border-box;
 }
 
 #td_ta {

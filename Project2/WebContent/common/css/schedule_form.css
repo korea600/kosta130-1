@@ -6,7 +6,6 @@ table th {
 	float: left;
 	background: #173b68;
 	color: #fff;
-	border-right: 2px solid #ededed;
 	box-sizing: border-box;
 	text-align: center;
 	line-height: 30px;
@@ -16,8 +15,6 @@ table th {
 
 table td {
 	float: left;
-	border-right: 2px solid #ededed;
-	border-bottom: 1px solid #ededed;
 	box-sizing: border-box;
 	text-align: center;
 	line-height: 30px;
@@ -41,6 +38,9 @@ input {
 select {
 	width: 60px;
 }
+select[name=etc] {
+	width: 310px;
+}
 
 .btn_add {
 	height: 25px;
@@ -49,17 +49,15 @@ select {
 	text-align: center;
 	color: #fff;
 	background: #215594;
-	border-right: 2px solid #ededed;
 	box-sizing: border-box;
 }
 
 .btn_edit {
 	height: 25px;
-	width: 120px;
+	width: 130px;
 	margin: 3px;
 	text-align: center;
 	color: #fff;
 	background: #215594;
-	border-right: 2px solid #ededed;
 	box-sizing: border-box;
 }

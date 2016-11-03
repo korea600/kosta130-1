@@ -52,7 +52,7 @@
 			</tr>
 			<tr>
 				<th id="td_ta">내용</th>
-				<td><textarea rows="15" cols="40" name="content"></textarea></td>
+				<td><textarea rows="15" cols="43" name="content"></textarea></td>
 			</tr>
 		</table>
 		<center><input type='submit' value="신청">
