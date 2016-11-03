@@ -40,6 +40,10 @@ $(document).ready(function(){
 	function pass_check(){
 		var id=document.frm.id.value;
 		var pass=document.frm.pass.value;
+		if(id.length==0 || pass.length==0){
+			alert("ID와 비밀번호중 입력되지 않은 것이 있습니다.");
+			return;
+		}
 		var jobs=document.frm.options;
 		var job;
 		for(var i=0;i<jobs.length;i++){
