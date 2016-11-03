@@ -12,6 +12,7 @@ public class GradeDTO {
 	String professor;	// 교수명
 	String grade;
 	int seasons;		// 수강학기 (1~8)
+	String status;
 	
 	public GradeDTO() {}
 	
@@ -32,6 +33,14 @@ public class GradeDTO {
 
 	public int getSeasons() {
 		return seasons;
+	}
+	
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 	public void setSeasons(int seasons) {
