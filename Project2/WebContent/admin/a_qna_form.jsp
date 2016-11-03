@@ -55,7 +55,7 @@
 			</tr>
 			<tr>
 				<th id="td_ta">내용</th>
-				<td><textarea rows="15" cols="43" name="content">${upform.content }</textarea></td>
+				<td><textarea rows="15" cols="38" name="content">${upform.content }</textarea></td>
 			</tr>
 		</table>
 		<center>
