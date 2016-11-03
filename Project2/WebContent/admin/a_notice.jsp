@@ -39,8 +39,7 @@
 	}
 	function changeList(){
 		var check = $("[name=body_checked]").val();
-		if(check!='학사/취업')
-			getList(check);
+		getList(check);
 	}
 	function upNoticeForm() {
 		childWin = window.open('/Project2/admin/a_notice_form.jsp', 'insert',
@@ -50,7 +49,6 @@
 </head>
 <body>
 <select name="body_checked" class="check" onchange="changeList()">
-	<option value='학사/취업'>학사/취업</option>
 	<option value="학사">학사공지사항</option>
 	<option value="취업">취업공지사항</option>
 </select> 

@@ -89,7 +89,7 @@ $(function(){
 		<tr>
 			<td colspan=2 align=center>
 				<input type="button" value="저장" onclick="mem_check('update')">
-				<input type="reset" value="취소">
+				<input type="button" value="취소" onclick="self.close()">
 			</td>
 		</tr>
 	</table>
