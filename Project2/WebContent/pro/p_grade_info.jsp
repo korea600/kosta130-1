@@ -23,8 +23,8 @@
 				else
 					alert('입력 실패');
 			},
-			error:function(xhr,status,error){
-				alert('Error ! : '+error);
+	        error:function(xhr,status,error){
+				location.href='/Project2/common/errorPage.jsp';
 			}
 		});
 	});
@@ -50,9 +50,10 @@
 				add_options("sub",subs);
 			}
 			else{
-				alert("강좌명을 조회할 수 없습니다.");
+				location.href='/Project2/common/errorPage.jsp';
 			}
 		}
+		
 		
 	}
 	function add_options(option_name,items){	// select태그내 option 값 변경
@@ -117,7 +118,7 @@
 				}
 			}
 			else{
-				alert("성적을 조회할 수 없습니다.");
+				location.href='/Project2/common/errorPage.jsp';
 			}
 		}	
 	}

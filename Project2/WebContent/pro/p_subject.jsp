@@ -16,8 +16,8 @@
 			success:function(data,status,xhr){
 				$('.sub_list').html(data);
 			},
-			error:function(xhr,status,error){
-				alert('error : '+error);
+	        error:function(xhr,status,error){
+				location.href='/Project2/common/errorPage.jsp';
 			}
 		});
 
@@ -28,8 +28,8 @@
 			success:function(data,status,xhr){
 				$('.sub_list').html(data);
 			},
-			error:function(xhr,status,error){
-				alert('error : '+error);
+	        error:function(xhr,status,error){
+				location.href='/Project2/common/errorPage.jsp';
 			}
 		});
 	}

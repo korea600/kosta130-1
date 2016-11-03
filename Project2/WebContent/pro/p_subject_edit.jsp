@@ -45,10 +45,10 @@ $(function(){
 			else
 				alert('입력 실패');
 		},
-		error:function(xhr,status,error){
-			alert('Error ! : '+error);
-			self.close();
-		} 
+        error:function(xhr,status,error){
+        	self.close();
+			opener.location.href='/Project2/common/errorPage.jsp';
+		}
 	});
 	$('[name=delete]').click(function(){
 		if(confirm("정말 삭제하시겠습니까?")){
@@ -60,8 +60,9 @@ $(function(){
 					opener.getList();
 					self.close();		
 				},
-				error:function(xhr,status,error){
-					alert('error : '+error);
+		        error:function(xhr,status,error){
+		        	self.close();
+					opener.location.href='/Project2/common/errorPage.jsp';
 				}
 			});
 		}
