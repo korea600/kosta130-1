@@ -141,12 +141,13 @@
 <select name='sub' class='part'>
 	<option value='강좌명'>강좌명</option>
 </select>
-<div class="school_btn" onclick="load_grade()">조회</div>
+<input type='button' class="school_btn" onclick="load_grade()" value='조회'>
+</div>
 <form name='grades' action='/Project2/pro/action.do?action=update' method='POST'>
 <div class="grade_info">
 				
 </div>
 </form>
-</div>
+
 </body>
 </html>
