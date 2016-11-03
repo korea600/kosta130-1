@@ -170,6 +170,15 @@ $(document).ready(function(){
    	     }
    	  });//$.ajax()
    }
+   function getSubject(){
+	   //jQuery.ajax({});
+   	  $.ajax({    		  
+   	     url:'/Project2/admin/a_subject.do?action=statusList',
+   	     success: function(data){
+   	    	$('#main').html(data); 
+   	     }
+   	  });//$.ajax()
+   }
 </script>
 
 </head>

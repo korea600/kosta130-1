@@ -25,8 +25,10 @@
 					"status" : "처리완료"
 				},
 				success : function(data) {
-					$(".input_box").empty();
-					$(".input_box").append(data);
+					alert("승인 되었습니다.");
+					getSubject();
+					/* $(".input_box").empty();
+					$(".input_box").append(data); */
 				}
 			})
 		});
@@ -57,7 +59,7 @@
 						<li>${i.name }</li>
 						<li>${i.times }</li>
 						<li>${i.room }</li>
-						<li class='approval_btn'>승인</li>
+						<li class='approval_btn' style="cursor: pointer;">승인</li>
 					</ul>
 				</c:forEach>
 
