@@ -8,7 +8,7 @@
 <script src="/Project2/common/css/jquery-3.0.0.js" type="text/javascript"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>학적 변경 처리</title>
-<script type="text/javascript" src="../js/ajax2.js"></script>
+<script type="text/javascript" src="/Project2/js/ajax2.js"></script>
 <script type="text/javascript">
 	
 	$( document ).ready(function() {
@@ -20,8 +20,9 @@
 		        type:'post',
 		        data:{"action":"update","id":id,"request":request},
 		        success:function(data){
+		        	data=data.trim();
 		        	if(data=="ok"){
-		        		console.log("ddd");
+		        		alert("처리되었습니다.");
 		        		window.close();
 		        		opener.location.href="javascript:req();";
 		        	}
@@ -40,8 +41,10 @@
 		        type:'post',
 		        data:{"action":"delete","id":id,"request":request},
 		        success:function(data){
+		        	data=data.trim();
 		        	if(data=="ok"){
-		        		window.close();
+		        		alert("처리되었습니다.");
+		        		self.close();
 		        		opener.location.href="javascript:req();";
 		        	}
 		        },

@@ -35,6 +35,7 @@ public class A_RegDAO {
 	}// select
 
 	public boolean update(RegDTO dto) {
+		dto.setStatus("贸府吝");
 		try {
 			System.out.println(dto.getChecked());
 			int r = smc.update("reg.reg_update", dto);
@@ -48,6 +49,7 @@ public class A_RegDAO {
 	}
 
 	public boolean delete(RegDTO dto) {
+		dto.setStatus("贸府吝");
 		try {
 			System.out.println(dto.getChecked());
 			int r = smc.update("reg.reg_update", dto);

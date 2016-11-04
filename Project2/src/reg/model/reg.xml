@@ -28,7 +28,7 @@
 	<update id="reg_update" parameterClass="reg.model.RegDTO">
 		update register set
 		checked=#checked#
-		where id=#id#
+		where id=#id# and checked=#status#
 	</update> <!-- 신청 승인/거절 -->
 	
 	<!-- ========================== ↓ 학  생 ↓ ========================== -->
