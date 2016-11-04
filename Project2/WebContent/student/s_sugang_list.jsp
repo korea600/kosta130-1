@@ -8,7 +8,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link rel="stylesheet" href="/Project2/common/css/student_sugang.css" type="text/css" />
+<link rel="stylesheet" href="/Project2/common/css/sugang2.css" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript" src="/Project2/js/jquery-1.12.4.js"></script>
@@ -50,7 +50,6 @@ $(function(){
 			var htmldata = ""
 			for(var i=0; i < divisions.length; i++){
 				if(major==$.trim(divisions[i])){
-					alert(major);
 					htmldata += "<option selected='selected'>"+divisions[i]+"</option>"
 				}else{
 				htmldata += "<option>"+divisions[i]+"</option>"
@@ -95,8 +94,8 @@ $(document).ready(function(){
 		var division = document.sugang_form.division.value;
 		var major = document.sugang_form.major1.value;
 		var level = document.sugang_form.level.value;
-		
-	    $.ajax({
+		alert(code+bet+division+major+level);
+		$.ajax({
 	        url:'/Project2/student/search_btn_ajax.jsp',
 	        type:'post',
 	        data:{"action":"enrolment","bet":bet,"division":division,"major":major,"level":level,"code":code},
@@ -108,6 +107,7 @@ $(document).ready(function(){
 	        		alert("필요한 배팅 점수가 부족합니다.");
 	        		sugang();
 	        	}else{
+	        		alert("Ddddd");
 	        	$(".sugang_view_table1").empty();
 	            $(".sugang_view_table1").append(data);
 	        	}
@@ -123,8 +123,6 @@ $(document).ready(function(){
 		var division = document.sugang_form.division.value;
 		var major = $(this).parent().children().val();
 		var level = $(this).prev().children().val();
-		console.log(major);
-		alert(major);
 		if(level=="==선택==" || major==""){
 			alert("값이 유효하지 않습니다.")
 		}else{
@@ -227,14 +225,14 @@ SugangDTO dto1 = dao1.mainSelectList(id); %>
 				
 				for(int i=0; i<list1.size(); i++){
 					SugangDTO dto=list1.get(i);
-					if(dao.allCntSelect(dto.getCode()) > dao.notBetGrade_info(dto.getCode())){
+					if(dao.allCntSelect(dto.getCode()) > dao.sugangApplyCnt(dto.getCode())){
 					out.print("<ul><li>"+dto.getCode()+"</li><li>"+dto.getSub()+"</li><li>"+dto.getProfessor()+
 							"</li><li>"+dto.getTimes()+"</li><li>"+dto.getRoom()+"</li><li>"+dto.getCnt()+"</li><li>"+
-							"<input type='text' class='enrolment_text'><input type='button' class='sum' value='신청'></li></ul>");
-					}else if(dao.allCntSelect(dto.getCode()) <= dao.notBetGrade_info(dto.getCode())){
+							"<input type='text' class='enrolment_text'  size='3'><input type='button' class='sum' value='신청'></li></ul>");
+					}else if(dao.allCntSelect(dto.getCode()) <= dao.sugangApplyCnt(dto.getCode())){
 						out.print("<ul><li>"+dto.getCode()+"</li><li>"+dto.getSub()+"</li><li>"+dto.getProfessor()+
 								"</li><li>"+dto.getTimes()+"</li><li>"+dto.getRoom()+"</li><li>"+dto.getCnt()+"</li><li>"+
-								"<input type='text' class='enrolment_text'><input type='button' class='sum' value='정원초과' disabled='disabled'></li></ul>");
+								"<input type='text' class='enrolment_text' size='3'><input type='button' class='sum' value='정원초과' disabled='disabled'></li></ul>");
 					}
 					}
 					

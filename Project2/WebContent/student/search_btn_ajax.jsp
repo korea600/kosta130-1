@@ -53,15 +53,21 @@
 			if(dao.allCntSelect(code) > dao.sugangApplyCnt(code)){
 				if(dao.enrolmentInsert(dto)){
 				SugangDTO total1 = dao.rightPop(id);
-			
+				System.out.println("1");
 			
 				int insertTotal = total1.getTotal()-bet;
+				System.out.println("123");
 				SugangDTO totalUpdate = new SugangDTO(id,code,bet,0,0,null,null,season,null,insertTotal,0,null,null,major,division,null,0,null,null,null,0,"처리완료",Integer.parseInt(level));
+				System.out.println("1234");
+				System.out.println(id+insertTotal);
 				dao.updatePop(totalUpdate);
+				System.out.println("2");
 				SugangDTO totalSelect = dao.rightPop(id);
+				System.out.println("3");
 				total = totalSelect.getTotal();
+				System.out.println("4");
 				t_credit = totalSelect.getT_credit();
-			
+				System.out.println("5");
 				list = dao.applySelect(dto);
 				list2 = dao.sugangApply(id);
 				}
@@ -92,10 +98,10 @@
 				<li><%= list.get(i).getTimes()%></li>
 				<li><%= list.get(i).getRoom()%></li>
 				<li><%= list.get(i).getCnt()%></li>
-				<li><input type="text" class="enrolment_text"><input type='button' class='sum' value='신청'></li>
+				<li><input type="text" class="enrolment_text"  size='3'><input type='button' class='sum' value='신청'></li>
 			</ul>
 <%			}else if(dao.allCntSelect(list.get(i).getCode()) <= dao.sugangApplyCnt(list.get(i).getCode())){
-%>
+%>				
 				<ul class="member_text">
 					<li name="code" class="code"><%= list.get(i).getCode()%></li>
 					<li><%= list.get(i).getSub()%></li>
@@ -109,7 +115,8 @@
 			}
 		
 		}else if(action.equals("enrolment")){
-			System.out.println("action:"+action);
+			System.out.println("ddd");
+			
 			%><div class="right_pop"><p>* 배팅가능 점수 : <%= total %> </p><p>* 신청가능 학점 : <%= t_credit %></p></div>
 		<%for(int i = 0; i < list.size(); i++){
 			if(dao.allCntSelect(list.get(i).getCode()) > dao.sugangApplyCnt(list.get(i).getCode())){

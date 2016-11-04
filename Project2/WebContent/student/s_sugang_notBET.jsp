@@ -235,7 +235,7 @@ SugangDTO dto1 = dao1.mainSelectList(id); %>
 					if(dao.allCntSelect(dto.getCode()) > dao.notBetGrade_info(dto.getCode())){
 					out.print("<ul><li>"+dto.getCode()+"</li><li>"+dto.getSub()+"</li><li>"+dto.getProfessor()+
 							"</li><li>"+dto.getTimes()+"</li><li>"+dto.getRoom()+"</li><li>"+dto.getCnt()+"</li><li>"+
-							"<input type='button' class='sum' value='신청'></li></ul>");
+							"<input type='button' size='5' class='sum' value='신청'></li></ul>");
 				}else if(dao.allCntSelect(dto.getCode()) <= dao.notBetGrade_info(dto.getCode())){
 					out.print("<ul><li>"+dto.getCode()+"</li><li>"+dto.getSub()+"</li><li>"+dto.getProfessor()+
 							"</li><li>"+dto.getTimes()+"</li><li>"+dto.getRoom()+"</li><li>"+dto.getCnt()+"</li><li>"+

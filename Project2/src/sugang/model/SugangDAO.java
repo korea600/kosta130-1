@@ -118,8 +118,10 @@ public class SugangDAO {
 	}
 	
 	public boolean updatePop(SugangDTO dto){
+		System.out.println(dto.getId());
 		try {
 			int t = sqlMap.update("sugang.updatePop",dto);
+			System.out.println("t"+t);
 			if(t==1) return true;
 		} catch (SQLException e) {
 			e.printStackTrace();

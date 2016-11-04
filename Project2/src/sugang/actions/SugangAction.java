@@ -72,7 +72,6 @@ public class SugangAction extends Action{
 				}else if(scdto.getEtc().equals("1학기수강신청(베팅)") || scdto.getEtc().equals("2학기수강신청(베팅)")){
 					//수강신청 가능 테이블				
 					SugangDTO dto = new SugangDTO();
-					System.out.println("dao"+dao.mainSelectList(id).getSemester());
 					semester = dao.mainSelectList(id).getSemester();
 					if(semester==1||semester==2){
 						level=1;
