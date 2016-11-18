@@ -66,8 +66,11 @@ public class SugangAction extends Action{
 				
 				
 				ScheduleDAO sdao = new ScheduleDAO();
-				ScheduleDTO scdto = sdao.sugangstart(date);
-				if(scdto==null){
+				ScheduleDTO scdto = new ScheduleDTO();
+				scdto.setStarts(date);
+				scdto.setEtc("%수강신청%");
+				scdto = sdao.sugangstart(scdto);
+					if(scdto==null){
 					forward = mapping.findForward("schnull");
 				}else if(scdto.getEtc().equals("1학기수강신청(베팅)") || scdto.getEtc().equals("2학기수강신청(베팅)")){
 					//수강신청 가능 테이블				

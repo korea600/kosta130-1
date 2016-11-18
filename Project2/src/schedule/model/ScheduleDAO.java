@@ -84,11 +84,11 @@ public class ScheduleDAO {
 		}
 		return list;
 	}
-	public ScheduleDTO sugangstart(String date){
-		System.out.println("d"+date);
+	public ScheduleDTO sugangstart(ScheduleDTO dto){
+		System.out.println(dto.getEtc());
 		ScheduleDTO list =null;
 		try {
-			list = (ScheduleDTO) sqlMap.queryForObject("schedule.Sugangschedulr",date);
+			list = (ScheduleDTO) sqlMap.queryForObject("schedule.Sugangschedulr",dto);
 			if(list==null){
 				return null;
 			}else{

@@ -34,8 +34,8 @@
 		select no,starts,ends,content,etc,presenter from schedule where sysdate between starts and ends order by no
 	</select>
 	
-	<select id="Sugangschedulr" parameterClass="String" resultClass="schedule.model.ScheduleDTO">
-		select starts,ends,etc from schedule where #value# between starts and ends
+	<select id="Sugangschedulr" parameterClass="schedule.model.ScheduleDTO" resultClass="schedule.model.ScheduleDTO">
+		select starts,ends,etc from schedule where #starts# between starts and ends and etc like #etc#
 	
 	</select>
 </sqlMap>

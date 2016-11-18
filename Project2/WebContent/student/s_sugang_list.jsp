@@ -94,7 +94,6 @@ $(document).ready(function(){
 		var division = document.sugang_form.division.value;
 		var major = document.sugang_form.major1.value;
 		var level = document.sugang_form.level.value;
-		alert(code+bet+division+major+level);
 		$.ajax({
 	        url:'/Project2/student/search_btn_ajax.jsp',
 	        type:'post',
@@ -107,7 +106,6 @@ $(document).ready(function(){
 	        		alert("필요한 배팅 점수가 부족합니다.");
 	        		sugang();
 	        	}else{
-	        		alert("Ddddd");
 	        	$(".sugang_view_table1").empty();
 	            $(".sugang_view_table1").append(data);
 	        	}
